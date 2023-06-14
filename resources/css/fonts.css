@@ -1,0 +1,35 @@
+/*--------------------------------------------------------------
+# Custom Fonts
+--------------------------------------------------------------*/
+
+@font-face {
+	font-family: "quadon";
+	src: url("../fonts/quadon/Quadon-Medium.woff") format("woff");
+    font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "gentona-light";
+	src: url("../fonts/gentona/Gentona-Light.woff") format("woff");
+	font-weight: 300;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "gentona-semibold";
+	src: url("../fonts/gentona/Gentona-SemiBold.woff") format("woff");
+	font-weight: 600;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "gentona-bold";
+	src: url("../fonts/gentona/Gentona-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-display: fallback;
+}
