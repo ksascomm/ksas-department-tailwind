@@ -14,21 +14,21 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'article-excerpt prose sm:prose lg:prose-lg xl:prose-xl mx-auto border-b border-solid border-grey pt-4 mb-4' ); ?> aria-label="<?php the_title(); ?>">
 	<?php endif; ?>
 	<header class="entry-header">
-		<?php
-
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta text-grey-darkest">
-				<?php
-				ksas_department_tailwind_posted_on();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
 		<?php if ( get_post_meta( get_the_ID(), 'ecpt_external_link', true ) ) : ?>
 			<?php the_title( '<h3 class="entry-title"><a href="' . esc_url( get_post_meta( $post->ID, 'ecpt_external_link', true ) ) . '" rel="bookmark">', ' <i class="fa-regular fa-square-arrow-up-right"></i></a></h3>' ); ?>
 				</a>
 			<?php else : ?>
 				<?php the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
+		<?php endif; ?>
+		<?php
+
+		if ( 'post' === get_post_type() ) :
+			?>
+			<div class="entry-meta">
+				<?php
+				ksas_department_tailwind_posted_on();
+				?>
+			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 	<?php
@@ -44,7 +44,7 @@
 				the_post_thumbnail(
 					'medium',
 					array(
-						'class' => 'shrink object-cover object-top sm:mb-0 mb-4 mt-0',
+						'class' => 'shrink object-cover object-top sm:mb-0 mb-4 !mt-0',
 						'alt'   => the_title_attribute(
 							array(
 								'echo' => false,

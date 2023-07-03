@@ -47,13 +47,20 @@
 		</div>
 		<div class="col-span-4 lg:col-span-1 m-2 mt-6">
 			<h2 class="text-lg font-sans">Contact Us</h2>
-			<p class="text-lg"><i class="fa-solid fa-envelope"></i> <a href="#">department@jhu.edu</a></p>
-			<p class="text-lg"><i class="fa-solid fa-phone-rotary"></i> <a href="tel:#">410-867-5309</a></p>
-			<p class="text-lg">
-				<a href="https://www.google.com/maps/place/<?php echo esc_html( $location['address'] ); ?>" target="_blank">
-					<address><i class="fa-solid fa-map"></i> Google Maps Link</address>
-				</a>
-			</p>
+			<p class="text-lg"><span class="fa-solid fa-envelope"></span> <a href="<?php echo esc_url( 'mailto:' . antispambot( get_field('department_email', 'option' ) ) ); ?>"><?php echo esc_html( antispambot( get_field('department_email', 'option' ) ) ); ?></a></p>
+			<p class="text-lg"><span class="fa-solid fa-phone-rotary"></span> <a href="tel:<?php the_field('department_phone', 'option');?>"><?php the_field('department_phone', 'option');?></a></p>
+			<?php $department_location = get_field( 'department_location', 'option' ); ?>
+				<?php if ( $department_location ) : ?>
+				<p class="text-lg">
+					<?php
+					//Gist Here: https://gist.github.com/mattradford/bb7679a2671b99ada655
+					$building = $department_location['address'];
+					$address = urlencode_deep("{$building}");?>
+					<a href="https://www.google.com/maps/search/?api=1&query=<?php echo esc_html( $address ); ?>" target="_blank">
+						<span class="fa-solid fa-map"></span> Google Maps Link
+					</a>
+				</p>
+				<?php endif; ?>
 		</div>
 		<div class="m-2 lg:m-4 mt-6 col-span-4 lg:col-span-1 lg:mx-auto">
 			<a href="https://facebook.com/JHUArtsSciences"><span class="fa-brands fa-facebook fa-2x pr-2"></span><span class="sr-only">Facebook</span></a>
@@ -63,7 +70,7 @@
 			<a href="https://www.tiktok.com/@jhuartssciences"><span class="fa-brands fa-tiktok fa-2x"></span><span class="sr-only pr-2">TikTok</span></a>
 		</div>
 	</div>
-	<div class="flex flex-wrap bg-primary py-6 px-4 justify-between">
+	<div class="flex flex-wrap bg-original-black py-6 px-4 justify-between">
 		<div>
 			<a href="https://www.jhu.edu/" class="hover:opacity-50">
 			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/dist/images/university.shield.svg" class="w-52 inline-block pl-4" alt="JHU shield in the footer">
@@ -71,7 +78,7 @@
 		</div>
 		<div>
 			<ul class="lg:flex lg:flex-wrap lg:justify-between" role="menu" aria-label="University Policies">
-				<li>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> </li>
+				<li role="menuitem">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> </li>
 				<li class="lg:pl-4" role="menuitem"><a href="https://accessibility.jhu.edu/">Accessibility</a></li>
 				<li class="lg:pl-4" role="menuitem"><a href="https://it.johnshopkins.edu/policies/privacystatement">Privacy Statement</a></li>
 				<li class="lg:pl-4" role="menuitem"><a href="https://policies.jhu.edu/">University Policy & Document Library</a></li>

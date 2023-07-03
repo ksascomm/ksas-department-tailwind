@@ -158,6 +158,17 @@ function ksas_department_tailwind_widgets_init() {
 	);
 	register_sidebar(
 		array(
+			'name'          => esc_html__( 'Events Featured', 'ksas-department-tailwind' ),
+			'id'            => 'events-featured',
+			'description'   => esc_html__( 'This sidebar will only appear on the homepage and should only be used for the Events Calendar!', 'ksas-department-tailwind' ),
+			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside></div>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);	
+	register_sidebar(
+		array(
 			'name'          => esc_html__( 'News Section Featured', 'ksas-department-tailwind' ),
 			'id'            => 'news-featured',
 			'description'   => esc_html__( 'This sidebar will only appear next to News section.', 'ksas-department-tailwind' ),
@@ -183,6 +194,29 @@ function ksas_department_tailwind_widgets_init() {
 			'name'          => esc_html__( 'Footer', 'ksas-department-tailwind' ),
 			'id'            => 'sidebar-footer',
 			'description'   => esc_html__( 'Add widgets here to appear in your footer.', 'ksas-department-tailwind' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => 'Graduate Sidebar',
+			'id'            => 'graduate-sb',
+			'description'   => 'This sidebar will appear on pages under Graduate',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => 'Undergraduate Sidebar',
+			'id'            => 'undergrad-sb',
+			'description'   => 'This sidebar will appear on pages under Undergraduate',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -277,6 +311,7 @@ function ksas_department_tailwind_scripts() {
 	wp_script_add_data( 'ksas-department-tailwind-script', 'defer', true );
 
 	wp_enqueue_script( 'font-awesome', 'https://kit.fontawesome.com/72c92fef89.js', array(), '6.1.2', false );
+	wp_script_add_data( 'fontawesome', array( 'crossorigin' ), array( 'anonymous' ) );
 }
 add_action( 'wp_enqueue_scripts', 'ksas_department_tailwind_scripts' );
 
@@ -311,52 +346,12 @@ function add_async_attribute( $tag, $handle ) {
 add_filter( 'script_loader_tag', 'add_async_attribute', 10, 2 );
 
 
-// Register a slider block.
-add_action( 'acf/init', 'my_register_blocks' );
-/**
- * Register a custom slider block using ACF Pro.
- */
-function my_register_blocks() {
-
-	// check function exists.
-	if ( function_exists( 'acf_register_block_type' ) ) {
-
-		// register a slider block.
-		acf_register_block_type(
-			array(
-				'name'            => 'slider',
-				'title'           => __( 'Slider' ),
-				'description'     => __( 'A custom slider block.' ),
-				'render_template' => 'template-parts/blocks/slider/slider.php',
-				'category'        => 'formatting',
-				'icon'            => 'images-alt2',
-				'align'           => 'full',
-				'mode'            => 'edit',
-				'enqueue_assets'  => function() {
-					wp_enqueue_style( 'swiper', 'https://unpkg.com/swiper/swiper-bundle.css', array(), '9.0.5' );
-					wp_enqueue_script( 'swiper', 'https://unpkg.com/swiper/swiper-bundle.min.js', array( 'jquery' ), '9.0.5', true );
-					wp_script_add_data( 'swiper', 'defer', true );
-					wp_enqueue_style( 'block-slider', get_template_directory_uri() . '/template-parts/blocks/slider/slider.css', array(), '1.0.0' );
-					wp_enqueue_script( 'block-slider', get_template_directory_uri() . '/template-parts/blocks/slider/slider.js', array(), '1.0.0', true );
-					wp_script_add_data( 'block-slider', 'defer', true );
-				},
-			)
-		);
-		acf_register_block_type(
-			array(
-				'name'            => 'testimonials',
-				'title'           => __( 'Testimonials' ),
-				'description'     => __( 'A custom testimonial block.' ),
-				'render_template' => 'template-parts/blocks/testimonials/testimonial.php',
-				'category'        => 'formatting',
-				'icon'            => 'admin-comments',
-				'keywords'        => array( 'testimonials' ),
-				'mode'            => 'edit',
-				'enqueue_style'   => get_template_directory_uri() . '/template-parts/blocks/testimonials/testimonials.css',
-			)
-		);
-	}
+// Register Custom Blocks
+add_action( 'init', 'register_acf_blocks' );
+function register_acf_blocks() {
+	register_block_type( __DIR__ . '/blocks/spotlight' );
 }
+
 
 /**
  * Count the number of widgets in a sidebar

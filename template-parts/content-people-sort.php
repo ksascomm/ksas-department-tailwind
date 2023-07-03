@@ -61,18 +61,14 @@
 			<h3 class="sr-only">Contact Information</h3>
 
 			<ul role="list">
-				<?php
+			<?php
 				if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
 					$email = get_post_meta( $post->ID, 'ecpt_email', true );
 					?>
-				<li><span class="fa-solid fa-at" aria-hidden="true"></span>
-					<?php if ( function_exists( 'email_munge' ) ) : ?>
-					<a class="munge" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge( $email ); ?>">
-						<?php echo email_munge( $email ); ?>
-					</a>
-					<?php else : ?>
-					<a href="<?php echo esc_url( 'mailto:' . $email ); ?>"><?php echo esc_html( $email ); ?></a>
-					<?php endif; ?>
+					<li><span class="fa-solid fa-envelope" aria-hidden="true"></span>
+						<a href="<?php echo esc_url( 'mailto:' . antispambot( $email )); ?>">
+						<?php echo esc_html( $email ); ?>
+						</a>
 					</li>
 				<?php endif; ?>
 				<?php if ( get_post_meta( $post->ID, 'ecpt_office', true ) ) : ?>

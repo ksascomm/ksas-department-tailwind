@@ -254,6 +254,25 @@ mark {
 
 /* Elements
 --------------------------------------------- */
+@screen lg {
+  .jhu-link::before {
+    content: '';
+    display: block;
+    background-color: #002d72;
+    position: absolute;
+    height: 100%;
+    width: 4rem;
+    top: 0;
+    right: 10rem;
+    -webkit-transform: skewX(-10deg);
+    transform: skewX(-10deg);
+    z-index: -1;
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
+}
+
+
 span.posted-on {
   @apply font-semi text-base md:text-lg -my-2;
 }
@@ -263,7 +282,7 @@ span.posted-on {
 }
 
 .news-section .grid {
-  max-width: 115ch;
+  max-width: 112ch;
 }
 
 .news-section a.button {
@@ -276,6 +295,10 @@ span.posted-on {
 
 .news-section .prose h2 {
   @apply my-0 !important;
+}
+
+.news-section .news-thumb {
+  object-position: 0% 20%;
 }
 
 .hero-background {
@@ -336,7 +359,7 @@ span.posted-on {
 }
 
 .front-featured-image-area {
-  height: 22rem;
+  height: auto;
 }
 
 @screen lg {
@@ -370,7 +393,7 @@ div[class^="bucket-"] {
 }
 
 @screen lg {
-  .bucket-1,
+  /*.bucket-1,
   .bucket-3 {
     background: url("../images/whiteInBlue_corner.svg") no-repeat right bottom;
     background-size: auto;
@@ -396,8 +419,30 @@ div[class^="bucket-"] {
 
   .bucket-2 img {
     @apply absolute bottom-0;
-  }
+  }*/
 }
+  .bucket-1 .bucket-text, .bucket-3 .bucket-text {
+    @apply bg-blue bg-opacity-75 text-white;
+  }
+
+  .bucket-1 .bucket-text a, .bucket-3 .bucket-text a {
+    @apply text-white;
+  }
+
+  .bucket-1 .bucket-text a:hover, .bucket-3 .bucket-text a:hover {
+    @apply text-white;
+    box-shadow: inset 0 -2.5rem 0 0 #31261D;
+  }
+
+  .bucket-2 .bucket-text {
+    @apply bg-blue-light bg-opacity-75;
+    background: rgba(148, 207, 248, 0.84);
+  }
+
+  .bucket-2 .bucket-text a:hover {
+    box-shadow: inset 0 -2.5rem 0 0 #fefefe;
+  }
+
 
 /* Blog Meta
 --------------------------------------------- */
@@ -567,7 +612,7 @@ thead th:first-child {
   }
 }
 
-@screen 2xl {
+@screen xl {
   .entry-content,
   .entry-header {
     @apply pl-0 pr-0;
@@ -631,8 +676,49 @@ ul.primary-menu {
   transition: all 0.5s;
 }
 
+.primary-menu > .menu-item > .icon:hover {
+  @apply border-b-2 border-blue;
+  padding-bottom: .65rem;
+}
+
 .primary-menu > .menu-item.opened > .icon::after {
   content: "\f106";
+}
+
+/*.primary-menu > .menu-item.opened > a::before {
+@apply bg-blue block m-auto absolute;
+bottom: -1px;
+content: "";
+height: 4px;
+left: 15px;
+right: 15px;
+will-change: transform;
+}
+
+.primary-menu > .menu-item.opened > a::before {
+  @apply border-t-blue border-t left-0 right-0 top-0 ml-4;
+  bottom: inherit;
+  z-index: 4;
+}*/
+
+
+.primary-menu > .menu-item.opened > a {
+  box-shadow: 0px -3px 0px 0px rgba(0, 45, 114, 1);
+}
+
+.primary-menu > .menu-item.opened > a[aria-current] {
+ border-bottom-width: 0;
+}
+
+.primary-menu > .menu-item.opened > a[aria-current]:hover {
+  border-bottom-width: 2px;
+--tw-border-opacity: 1;
+border-bottom-color: rgb(44 44 51 / var(--tw-border-opacity));
+ }
+
+.primary-menu > .menu-item.opened > button {
+  box-shadow: 0px -3px 0px 0px rgba(0, 45, 114, 1);
+  padding-top:.375rem;
 }
 
 /*.primary-menu .icon {
@@ -734,8 +820,15 @@ ul.primary-menu {
 
 .primary-menu li > a:hover,
 .primary-menu ul li a:hover {
-  border-bottom-width: 2px;
-  border-color: rgb(49 38 29 / var(--tw-border-opacity));
+  @apply border-b-2 border-blue;
+}
+
+.primary-menu ul.sub-menu li a {
+  border-left: 4px solid transparent;
+  border-bottom-width: 0;
+}
+.primary-menu ul.sub-menu li a:hover {
+  @apply bg-grey-lightest border-l-4 border-blue;
 }
 
 /* SUB MENU */
@@ -889,6 +982,10 @@ body.touch-enabled .primary-menu ul li.menu-item-has-children > a {
   padding-left: 0;
 }
 
+.dropdown.sidebar-menu a {
+  @apply font-semi font-semibold;
+}
+
 /*.dropdown {
   @apply text-primary font-bold font-heavy;
 }
@@ -1034,6 +1131,83 @@ footer.entry-footer {
   @apply text-white;
 }
 
+/* Graduate & Undergraduate Page Widget Sections ------------------------------ */
+
+
+.graduate-sidebar .widget,
+.graduate-sidebar .tribe-compatibility-container,
+.undergraduate-sidebar .widget,
+.undergraduate-sidebar .tribe-compatibility-container {
+  @apply mt-0 mx-0 mb-6 bg-white p-3 shadow-lg overflow-hidden rounded-md
+}
+
+@media only screen and (min-width: 652px) {
+  .graduate-sidebar,
+  .undergraduate-sidebar {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    justify-items: end;
+    column-gap: calc(2 * 1rem );
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .graduate-sidebar,
+  .undergraduate-sidebar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .graduate-sidebar h2,
+  .undergraduate-sidebar h2 {
+    @apply text-3xl;
+  }
+
+  .graduate-sidebar p,
+  .graduate-sidebar li,
+  .undergraduate-sidebar p,
+  .undergraduate-sidebar li {
+    @apply text-lg leading-normal;
+  }
+}
+@media only screen and (max-width: 481px) {
+  .graduate-sidebar,
+  .undergraduate-sidebar {
+    margin-top: calc(3 * 1rem );
+  }
+}
+
+.graduate-sidebar ul .sub-menu-toggle,
+.undergraduate-sidebar ul .sub-menu-toggle {
+  display: none;
+}
+
+.graduate-sidebar ul li,
+.undergraduate-sidebar ul li {
+  @apply relative pl-7 flow-root;
+}
+
+.graduate-sidebar ul li:before,
+.undergraduate-sidebar ul li:before {
+  content: "";
+  position: absolute;
+  background-color: #31261d;
+  border-radius: 50%;
+  width: 0.375em;
+  height: 0.375em;
+  top: calc(0.875em - 0.1875em);
+  left: 0.25em;
+}
+
+
+/* Standard Widget Styles ------------------------------ */
+
+.widget select {
+  max-width: 100%;
+}
+
+.widget p strong {
+  @apply font-heavy;
+}
+
 /*.widget {
   @apply mt-0 mx-0 mb-6 bg-white p-3;
   background: url("../images/blueInWhite_corner1.svg") no-repeat right bottom;
@@ -1041,11 +1215,8 @@ footer.entry-footer {
   border: 0.06667rem solid #002d72;
   border-bottom: none;
   box-shadow: 0 0.4rem 0 0 #002d72;
-}*/
-
-.widget select {
-  max-width: 100%;
 }
+
 
 .widget h2 {
   @apply text-xl font-heavy font-bold mb-2;
@@ -1069,8 +1240,10 @@ footer.entry-footer {
 
 .widget .textwidget.custom-html-widget a.button {
   @apply bg-blue text-white border-0 py-3 px-4 hover:bg-blue-light;
-}
+}*/
 
+
+/* Footer Widgets ------------------------------ */
 :root {
   --footer-widget----spacing-horizontal: 1rem;
   --footer-widget----spacing-vertical: 1rem;
@@ -1154,6 +1327,7 @@ footer.entry-footer {
   left: 0.25em;
 }
 
+/* Events Calendar Widgets ------------------------------ */
 /* Events Calendar Widget Styes Must Go Here, Not in Tribe-Events Directory */
 .footer-widget-area
   .tribe-events-widget
@@ -1222,6 +1396,43 @@ footer.entry-footer {
   .tribe-events-widget
   .tribe-events-widget-events-list__event-date-tag {
   padding-top: 0.4rem;
+}
+
+/*Events Widget Homepage Section*/
+.events-widget-section .tribe-common-g-row.tribe-events-widget-events-list__event-row {
+  margin-right: 1rem;
+  padding-right: 1rem;
+  
+}
+.events-widget-section .tribe-events-widget-events-list__header-title.tribe-common-h6.tribe-common-h--alt {
+  font-size: 36px !important;
+}
+
+.events-widget-section .tribe-events-widget-events-list__event-details p {
+  line-height: 1.5;
+  padding-top: 1rem;
+}
+
+.events-widget-section .tribe-events-widget .tribe-events-widget-events-list__event-row {
+  flex-wrap: wrap;
+}
+
+.events-widget-section .tribe-events-widget-events-list__event-title {
+  padding-top: 1rem !important;
+  line-height: 1.2 !important;
+}
+
+@screen lg {
+  .events-widget-section .tribe-events-widget-events-list__events {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.events-widget-section .tribe-events-widget .tribe-events-widget-events-list__event-row:last-child {
+  margin-bottom: 20px;
 }
 
 /* Captions
@@ -1474,6 +1685,7 @@ ul.study-field li:not(:last-child) {
   @apply text-xl;
 }
 
+
 .people-card ul {
   @apply m-0 pl-0;
 }
@@ -1489,12 +1701,36 @@ ul.study-field li:not(:last-child) {
   @apply !mt-8;
 }
 
+
+.single-people .prose .people .contact-info li {
+  @apply text-xl;
+}
+
 .single-people .prose .people .entry-header {
   @apply pl-0;
 }
 
 .single-people .prose .people .entry-header h1 {
   @apply mb-0;
+}
+
+.single-people .prose .people .contact-info .position h2 { 
+  @apply leading-normal text-xl font-sans font-normal !my-4;
+}
+
+@screen lg {
+  .single-people .prose .people .entry-header h1 {
+    font-size: 2.25em;
+  }
+}
+
+@screen xl {
+  .single-people .prose .people .entry-header h1 {
+    font-size: 2.5em;
+  }
+  .single-people .prose .people .contact-info .position h2 {
+    @apply text-2xl;
+  }  
 }
 
 .single-people details,
@@ -1645,7 +1881,8 @@ summary::-webkit-details-marker {
 --------------------------------------------- */
 
 .breadcrumbs {
-  @apply block lg:inline-block -mb-4 pl-2 text-grey-darkest lg:bg-grey-cool lg:bg-opacity-20 lg:border lg:border-grey-cool py-0.5;
+  @apply block lg:inline-block -mb-4 pl-2 text-grey-darkest lg:border lg:border-grey-cool py-0.5;
+  background-color: rgba(191, 204, 217, 0);
 }
 
 .breadcrumbs span {
@@ -1659,6 +1896,10 @@ summary::-webkit-details-marker {
 }
 .single-post .breadcrumbs {
   @apply my-6;
+}
+
+.blog .breadcrumbs {
+  @apply mb-6;
 }
 
 .breadcrumbs span.current-item,
@@ -1682,6 +1923,16 @@ summary::-webkit-details-marker {
     clip: rect(1px 1px 1px 1px);
     clip: rect(1px, 1px, 1px, 1px);
   }
+}
+
+.breadcrumbs a.home::before {
+    /* removed font- based rules */
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+  content: "\f015";
+  padding-right: .25rem;
 }
 
 /* Yoast
@@ -1871,6 +2122,10 @@ p.tribe-events-back a,
   max-width: 100vw;
 }
 
+.front.prose .container.events-widget-section {
+    max-width: 110ch;
+}
+
 .front.prose p,
 .front.prose ul,
 .front.prose .entry-content h2,
@@ -1886,11 +2141,23 @@ p.tribe-events-back a,
 
 .news-section .prose h3.entry-title,
 .blog .site-main.prose h3.entry-title {
-  @apply mt-0 !important;
+  @apply mt-0;
+}
+
+.blog .site-main.prose h3.entry-title {
+  @apply mb-0;
 }
 
 .news-section .prose.article-excerpt img {
   @apply mt-0 mb-2;
+}
+
+.blog .prose.article-excerpt entry-meta {
+  @apply mb-0;
+}
+
+.blog .prose.article-excerpt img.wp-post-image {
+  @apply mt-0 mb-4;
 }
 
 .front.prose .wp-block-quote {
@@ -2240,10 +2507,13 @@ figure.wp-block-pullquote {
   content: "";
 }
 
+.headshot {
+  height: 18rem;
+}
 
 .headshot::before {
   content: '';
-  @apply absolute -top-3 -left-3 w-full h-full border-solid border-[3px] border-blue-light
+  @apply absolute -top-3 -left-3 w-[90%] h-3/4 border-solid border-[3px] border-blue-light
 }
 
 /* Gutenberg Hub Block Patterns

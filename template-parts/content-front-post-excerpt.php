@@ -25,9 +25,9 @@ if ( has_post_thumbnail() ) :
 		<div class="news-thumb ">
 		<?php
 			the_post_thumbnail(
-				'large',
+				'news-thumb',
 				array(
-					'class' => 'w-full h-48 object-cover object-left-top pr-0',
+					'class' => 'w-full h-0 sm:h-56 object-cover pr-0',
 					'alt'   => the_title_attribute(
 						array(
 							'echo' => false,

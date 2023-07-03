@@ -33,7 +33,7 @@ get_header();
 				'meta_key'       => 'ecpt_people_alpha',
 				'orderby'        => 'meta_value',
 				'order'          => 'ASC',
-				'posts_per_page' => 10,
+				'posts_per_page' => 100,
 				'tax_query'      => array(
 					array(
 						'taxonomy' => 'role',

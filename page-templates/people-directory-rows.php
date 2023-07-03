@@ -19,7 +19,7 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-		<div class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 my-4 ml-4 mr-2" role="region" aria-label="Filters" id="filters">
+		<div class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 my-4" role="region" aria-label="Filters" id="filters">
 			<h3>Filter by Position or Title:</h3>
 			<div class="flex flex-col md:flex-row justify-start">
 			<?php
@@ -38,7 +38,7 @@ get_header();
 				$faculty_titles = get_terms(
 					array(
 						'taxonomy'   => 'role',
-						'orderby'    => 'slug',
+						'orderby'    => 'ID',
 						'order'      => 'ASC',
 						'hide_empty' => true,
 						'exclude'    => $ids_to_exclude,
@@ -80,10 +80,10 @@ get_header();
 			$positions = get_terms(
 				'role',
 				array(
-					'orderby'    => 'slug',
+					'orderby'    => 'ID',
 					'order'      => 'ASC',
 					'hide_empty' => true,
-
+					'exclude'    => $ids_to_exclude,
 				)
 			);
 			$position_slugs   = array();

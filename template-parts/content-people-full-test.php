@@ -10,12 +10,33 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'people ml-4' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'people pl-4' ); ?>>
 	<div class="alignfull lg:bg-grey-cool lg:bg-opacity-50 !mt-0">
-		<div class="flex flex-wrap-reverse lg:flex-wrap justify-between container mx-auto contact-info">
-			<div class="w-full lg:w-1/2">
+		<div class="flex flex-wrap justify-start container mx-auto contact-info">
+		<?php
+			if ( has_post_thumbnail() ) :
+				?>
+			<div class="w-full lg:w-1/4 py-6 pr-10">
+				<?php
+				the_post_thumbnail(
+					'full',
+					array(
+						'class' => 'sm:max-w-xs md:max-w-sm lg:max-w-full',
+						'alt' => the_title_attribute(
+							array(
+								'echo' => false,
+							)
+						),
+					)
+				);
+				?>
+			</div>
+				<?php
+			endif;
+			?>
+			<div class="w-full lg:w-3/4">
 				<header class="entry-header">
-					<h1 class="tracking-tight leading-10 sm:leading-none text-4xl lg:text-6xl py-8">
+					<h1 class="tracking-tight leading-10 sm:leading-none py-6">
 						<?php the_title(); ?> 
 						<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
 							<small class="font-heavy">(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>
@@ -23,25 +44,21 @@
 					</h1>
 				</header>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
-				<div class="position"><p class="leading-normal pr-2 text-xl"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></p></div>
+				<div class="position"><h2 class="pr-2"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></h2></div>
 			<?php endif; ?>
 			<h3 class="sr-only">Contact Information</h3>
 
 			<ul>
 			<?php
-			if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
-				$email = get_post_meta( $post->ID, 'ecpt_email', true );
-				?>
-				<li><span class="fa-solid fa-at" aria-hidden="true"></span>
-				<?php if ( function_exists( 'email_munge' ) ) : ?>
-					<a class="munge" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge( $email ); ?>">
-						<?php echo email_munge( $email ); ?>
-					</a>
-				<?php else : ?>
-					<a href="<?php echo esc_url( 'mailto:' . $email ); ?>"><?php echo esc_html( $email ); ?></a>
+				if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
+					$email = get_post_meta( $post->ID, 'ecpt_email', true );
+					?>
+					<li><span class="fa-solid fa-envelope" aria-hidden="true"></span>
+						<a href="<?php echo esc_url( 'mailto:' . antispambot( $email )); ?>">
+						<?php echo esc_html( $email ); ?>
+						</a>
+					</li>
 				<?php endif; ?>
-				</li>
-			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_leave', true ) ) : ?>
 				<li><span class="fa-solid fa-calendar-circle-exclamation" aria-hidden="true"></span> <strong>On Leave: <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_leave', true ) ); ?></strong></li>
 			<?php endif; ?>
@@ -93,29 +110,12 @@
 			</ul>
 
 			<?php if ( get_post_meta( $post->ID, 'ecpt_expertise', true ) ) : ?>
-				<p class="leading-normal pr-2"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
+				<p class="leading-normal pr-2 text-xl"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_degrees', true ) ) : ?>
-				<p class="leading-normal pr-2"><strong>Education:&nbsp;</strong><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_degrees', true ) ); ?></p>
+				<p class="leading-normal pr-2 text-xl"><strong>Education:&nbsp;</strong><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_degrees', true ) ); ?></p>
 			<?php endif; ?>
 			</div>
-			
-			<?php
-			if ( has_post_thumbnail() ) :
-				?>
-			<div class="w-full lg:w-1/2 ">
-				<?php
-				the_post_thumbnail(
-					'full',
-					array(
-						'class' => 'max-w-xs lg:mx-auto lg:max-w-sm object-cover',
-					)
-				);
-				?>
-			</div>
-				<?php
-			endif;
-			?>
 			</div>
 		</div>
 	</div>
@@ -130,7 +130,7 @@ if ( function_exists( 'bcn_display' ) ) :
 	<?php
 	if ( is_singular( 'people' ) ) :
 		?>
-		<div class="tabbed my-4">
+		<div class="tabbed my-4 people-content">
 			<ul>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 				<li>

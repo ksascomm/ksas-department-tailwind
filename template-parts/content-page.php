@@ -19,6 +19,9 @@
 			array(
 				'page-templates/no-featured-image.php',
 				'page-templates/faculty-books.php',
+				'page-templates/people-directory-columns.php',
+				'page-templates/people-directory-rows.php',
+				'page-templates/people-directory-select.php',
 				'../templates/courses-undergrad-ksasblocks.php',
 			)
 		) ) :
@@ -29,16 +32,17 @@
 		<?php else : ?>
 			<?php get_template_part( 'template-parts/featured-image' ); ?>
 	<?php endif; ?>
-
-	<?php get_template_part( 'template-parts/sidebar-menu' ); ?>
-	<?php
-	if ( function_exists( 'bcn_display' ) ) :
-		?>
-		<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-			<?php bcn_display(); ?>
-		</div>
-	<?php endif; ?>
-
+	
+	<div class="wayfinding md:mb-8 ml-4 xl:ml-0">
+		<?php get_template_part( 'template-parts/sidebar-menu' ); ?>
+		<?php
+		if ( function_exists( 'bcn_display' ) ) :
+			?>
+			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+				<?php bcn_display(); ?>
+			</div>
+		<?php endif; ?>
+	</div>
 	<div class="entry-content">
 		<?php
 		the_content();

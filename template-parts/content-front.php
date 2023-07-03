@@ -44,10 +44,10 @@ if ( ! empty( $studyfield_response ) ) :
 	?>
 <?php endif; ?>
 
-<div class="flex border-t border-blue hero bg-grey-cool bg-opacity-50 front-featured-image-area h-auto" role="banner">
-	<div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-7/12">
+<div class="flex border-t border-blue hero bg-grey-cool bg-opacity-50 front-featured-image-area" role="banner">
+	<div class="flex items-center text-left px-8 md:px-12 lg:w-7/12">
 		<div>
-			<h2 class="text-primary text-3xl md:text-3xl lg:text-4xl !mt-0 font-heavy font-bold">
+			<h2 class="text-primary text-3xl md:text-3xl lg:text-4xl mt-4 lg:!mt-0 font-heavy font-bold">
 				<?php if ( ! empty( $studyfield_tagline ) ) : ?>
 					<?php echo esc_html( $studyfield_tagline ); ?>
 				<?php else : ?>
@@ -77,12 +77,15 @@ if ( ! empty( $studyfield_response ) ) :
 	<div class="hidden lg:block lg:w-5/12 front featured-image">
 		<?php if ( have_rows( 'homepage_hero_images' ) ) : ?>
 				<?php
+				
 				$random_images = get_field( 'homepage_hero_images' );
 				shuffle( $random_images );
+				//print("<pre>".print_r($random_images,true)."</pre>");
 				$random_img_url = $random_images[0]['homepage_hero_image']['url'];
 				$random_img_alt = $random_images[0]['homepage_hero_image']['alt'];
+				$random_img_title = $random_images[0]['homepage_hero_image']['title'];
 				?>
-			<img class="!mt-0 h-56 w-full object-cover sm:h-72 lg:w-full lg:h-full" src="<?php echo esc_url( $random_img_url ); ?>" alt="<?php echo esc_url( $random_img_alt ); ?>" />
+			<img class="!mt-0 h-56 w-full object-cover sm:h-72 lg:w-full lg:h-full" id="slide-<?php echo esc_html( $random_img_title ); ?>" src="<?php echo esc_url( $random_img_url ); ?>" alt="<?php echo esc_html( $random_img_alt ); ?>" />
 		<?php else : ?>
 			<?php
 			the_post_thumbnail(
@@ -102,35 +105,41 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 	<div class="container">
 	<?php
 	if ( have_rows( 'explore_the_department' ) ) :
+		$count = count( get_field( 'explore_the_department' ) );
 		?>
 		<?php $heading = get_field( 'buckets_heading' ); ?>
 		<!--Print Heading if there-->
 		<?php if ( $heading ) : ?>
-			<div class="px-8 mt-24 mb-4">
+			<div class="px-8 mt-12 xl:mt-18 mb-4">
 				<header aria-label="<?php the_field( 'buckets_heading' ); ?>">
 					<h2 class="!my-0  mx-auto"><?php echo esc_html( $heading ); ?></h2>
 				</header>
 			</div>
 		<?php endif; ?>
-		<div class="mx-auto grid grid-cols-1 lg:grid-cols-3 px-4 justify-items-center">
+		<!--Show Columns Dynamically-->
+		<?php if ( $count == 2):?>
+			<div class="mx-auto grid grid-cols-1 xl:grid-cols-3 px-4 justify-items-center">
+		<?php elseif ( $count == 3 ) : ?>
+			<div class="mx-auto grid grid-cols-1 xl:grid-cols-3 px-4 justify-items-center">
+		<?php endif; ?>
 		<?php
 		while ( have_rows( 'explore_the_department' ) ) :
 			the_row();
 			?>
-			<div class="relative bucket-<?php echo get_row_index(); ?>" aria-label="<?php the_sub_field( 'explore_bucket_heading' ); ?>">
+			<div class="bucket relative not-prose bucket-<?php echo get_row_index(); ?>" aria-label="<?php the_sub_field( 'explore_bucket_heading' ); ?>">
 				<?php
 				$image = get_sub_field( 'explore_bucket_image' );
 				if ( get_sub_field( 'explore_bucket_image' ) ) :
 					?>
-					<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => '!my-0 w-half lg:w-full h-auto lg:h-56 object-cover' ) ); ?>
+					<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'blur-[1px] w-full' ) ); ?>
 				<?php endif; ?>
-				<div class="p-8 bucket-text">
-					<h3 class="!mt-4 !text-3xl">
-					<a href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
-						<?php the_sub_field( 'explore_bucket_heading' ); ?>
+				<div class="p-8 bucket-text xl:top-0 xl:right-0 xl:left-0 xl:bottom-0 xl:inset-0 xl:absolute">
+					<h3 class="text-2xl 2xl:text-4xl not-prose">
+						<a href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
+							<?php the_sub_field( 'explore_bucket_heading' ); ?>
 						</a>
 					</h3>
-					<p class="text-xl leading-tight"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
+					<p class="leading-normal text-lg 2xl:text-xl tracking-wide"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
 				</div>
 			</div>
 		<?php endwhile; ?>
@@ -140,4 +149,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 		</div>
 	<?php endif; ?>
 	</div>
+<?php endif; ?>
+<?php if ( is_active_sidebar( 'events-featured' ) ) : ?>
+	<?php get_template_part( 'template-parts/events-featured-widget' ); ?>
 <?php endif; ?>

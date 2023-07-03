@@ -375,3 +375,24 @@ a.tribe-events-series-relationship-single-marker__title.tribe-common-cta--alt:ho
 .tribe-events-series-relationship-marker, .tribe-events-series-relationship-single-marker {
 	font-family: gentona-bold,"Helvetica Neue",Roboto,sans-serif !important;
 }
+
+
+.events-widget-section .tribe-events-widget-events-list__events {
+  display: grid;
+grid-auto-flow: column;
+
+}
+.events-widget-section .tribe-common-g-row.tribe-events-widget-events-list__event-row {
+  margin-right: 2rem;
+  padding-right: 2rem;
+  
+}
+.events-widget-section .tribe-events-widget-events-list__header-title.tribe-common-h6.tribe-common-h--alt {
+  font-size: 36px !important;
+}
+.events-widget-section .tribe-events-widget-events-list__event-details {
+  margin-left: 1rem !important;
+}
+.events-widget-section .tribe-events-widget .tribe-events-widget-events-list__event-row {
+  flex-wrap: wrap;
+}

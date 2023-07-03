@@ -38,7 +38,7 @@ get_header();
 				$faculty_titles = get_terms(
 					array(
 						'taxonomy'   => 'role',
-						'orderby'    => 'slug',
+						'orderby'    => 'ID',
 						'order'      => 'ASC',
 						'hide_empty' => true,
 						'exclude'    => $ids_to_exclude,
@@ -80,7 +80,7 @@ get_header();
 			$positions = get_terms(
 				'role',
 				array(
-					'orderby'    => 'slug',
+					'orderby'    => 'ID',
 					'order'      => 'ASC',
 					'hide_empty' => true,
 

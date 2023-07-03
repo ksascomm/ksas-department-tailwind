@@ -12,7 +12,18 @@
 <div class="people people-card item p-2 w-full lg:w-1/3 <?php echo esc_html( get_the_roles( $post ) ); ?> <?php echo esc_html( get_the_filters( $post ) ); ?>">
 	<div class="h-full rounded-lg field mb-4 px-6 py-4 overflow-hidden bg-white research-project-card-outline">
 		<?php if ( has_post_thumbnail() ) { ?>
-			<?php the_post_thumbnail( 'directory' ); ?>
+			<?php
+				the_post_thumbnail(
+					'directory',
+					array(
+						'alt' => the_title_attribute(
+							array(
+								'echo' => false,
+							)
+						),
+					)
+				);
+			?>
 		<?php } ?>
 		<h2 class="font-heavy !text-2xl">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_website', true ) ) : ?>
@@ -35,19 +46,15 @@
 			<li><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></li>
 		<?php endif; ?>
 		<?php
-		if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
-			$email = get_post_meta( $post->ID, 'ecpt_email', true );
-			?>
-			<li><span class="fa-solid fa-at" aria-hidden="true"></span>
-				<?php if ( function_exists( 'email_munge' ) ) : ?>
-				<a class="munge" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;<?php echo email_munge( $email ); ?>">
-					<?php echo email_munge( $email ); ?>
-				</a>
-				<?php else : ?>
-				<a href="<?php echo esc_url( 'mailto:' . $email ); ?>"><?php echo esc_html( $email ); ?></a>
-				<?php endif; ?>
-			</li>
-		<?php endif; ?>
+			if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
+				$email = get_post_meta( $post->ID, 'ecpt_email', true );
+				?>
+				<li><span class="fa-solid fa-envelope" aria-hidden="true"></span>
+					<a href="<?php echo esc_url( 'mailto:' . antispambot( $email )); ?>">
+					<?php echo esc_html( $email ); ?>
+					</a>
+				</li>
+			<?php endif; ?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_expertise', true ) ) : ?>
 			<li><strong>Research Interests:&nbsp;</strong>
 			<?php

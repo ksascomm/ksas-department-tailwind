@@ -44,7 +44,7 @@ mix
 
   // BrowserSync
   .browserSync({
-    proxy: "https://krieger.local/history",
+    proxy: "https://stage.krieger.jhu.edu/philosophy",
     host: "localhost",
     injectChanges: true,
     port: 3000,
@@ -143,6 +143,7 @@ if (mix.inProduction()) {
           "gform_footer",
           "gfield_label",
           "blog",
+          "md:inline",
           "wp-post-image",
           /^has-/,
           /(^wp-block-)\w+/,

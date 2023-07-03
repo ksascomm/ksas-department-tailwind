@@ -22,14 +22,14 @@
 			);
 			?>
 
-	<div class="hidden lg:flex lg:float-left dropdown lg:mr-8">
-		<button class="inline-flex justify-center w-full px-4 py-2 !text-[.875rem] leading-5 font-semi font-semibold  text-grey-darkest lg:bg-grey-cool lg:bg-opacity-20 lg:border lg:border-grey-cool uppercase" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
+	<div class="relative text-left dropdown sidebar-menu lg:mr-8 hidden lg:inline-block">
+		<button class="inline-flex justify-center w-full px-4 py-2 !text-[.875rem] leading-5 font-semi font-semibold text-grey-darkest lg:bg-grey-cool lg:bg-opacity-20 lg:border lg:border-grey-cool uppercase" type="button">
 			<span>In This Section</span>
 			<svg class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
 		</button>
 		<div class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-left -translate-y-2 scale-95 z-50">
-			<div class="absolute left-0 w-80 mt-12 origin-top-left bg-white border border-primary divide-y divide-primary outline-none z-auto" aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
-				<div class="py-1">
+			<div class="absolute left-0 w-80 mt-4 origin-top-right bg-white border border-primary divide-y divide-primary outline-none z-auto">
+				<div class="py-1 lg:bg-grey-cool lg:bg-opacity-40">
 					<?php
 					// If there are no ancestors display a menu of children. If no children, hide menu.
 					if ( count( $ancestors ) == 0 && is_front_page() == false ) {

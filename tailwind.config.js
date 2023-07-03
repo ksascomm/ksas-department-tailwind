@@ -53,6 +53,7 @@ module.exports = {
       white: "#fefefe",
       blue: "#002d72",
       "blue-light": "#68ace5",
+      "original-black": "#000",
     },
     fontSize: {
       base: "1rem",

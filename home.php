@@ -12,24 +12,31 @@ get_header();
 
 	<main id="site-content" class="site-main prose sm:prose lg:prose-lg mx-auto">
 		<?php
+		if ( have_posts() ) :
+
+			if ( is_home() && ! is_front_page() ) :
+				?>
+				<header>
+				<?php
+					if ( get_field( 'show_homepage_news_feed', 'option' ) ) :
+						// If ACF Conditional is YES, display news feed.
+						$heading = get_field( 'homepage_news_header', 'option' );
+					?>
+						<h1 class="entry-title tracking-tight leading-10 sm:leading-none py-8"><?php echo esc_html( $heading ); ?> Archive</h1>
+					<?php else: ?>
+					<h1 class="entry-title tracking-tight leading-10 sm:leading-none py-8"><?php single_post_title(); ?></h1>
+					<?php endif; ?>
+				</header>
+				<?php
+			endif;
+			?>
+		<?php
 		if ( function_exists( 'bcn_display' ) ) :
 			?>
 		<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 			<?php bcn_display(); ?>
 		</div>
 		<?php endif; ?>
-		<?php
-		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="entry-title"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
-			?>
-
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) :

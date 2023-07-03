@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displayingFaculty Book cards
+ * Template part for displaying Faculty Book cards
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -13,16 +13,16 @@
 	<div class="h-full px-3 py-2">
 		<?php
 			the_post_thumbnail(
-				'large',
+				'faculty-book',
 				array(
-					'class' => 'h-auto w-60 lg:mx-auto',
-					'alt'   => esc_html( get_the_title() ),
+					'class' => 'h-80 w-60 lg:mx-auto',
+					'alt'   => esc_html( 'Book Cover art for ' . get_the_title() ),
 				)
 			);
 			?>
-		<h3 class="!leading-tight !text-xl">
+		<h2 class="!leading-tight !text-xl">
 			<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
-		</h3>
+		</h2>
 		<ul class="!my-1 !pl-4">
 			<?php
 				$faculty_post_id = get_post_meta( $post->ID, 'ecpt_pub_author', true );

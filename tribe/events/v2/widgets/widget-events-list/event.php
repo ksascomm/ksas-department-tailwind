@@ -31,11 +31,15 @@ $event_classes = tribe_get_post_class( [ 'tribe-events-widget-events-list__event
 
 				<header class="tribe-events-widget-events-list__event-header">
 					<?php $this->template( 'widgets/widget-events-list/event/title', [ 'event' => $event ] ); ?>
+					<?php if ( ! is_active_sidebar( 'events-featured' ) ) : ?>
 					<?php $this->template( 'widgets/widget-events-list/event/date', [ 'event' => $event ] ); ?>
+					<?php endif;?>
 				</header>
 
 				<?php $this->do_entry_point( 'event_meta' ); ?>
-
+				<?php if ( is_active_sidebar( 'events-featured' ) ) : ?>
+					<?php echo tribe_events_get_the_excerpt($event->ID); ?>
+				<?php endif;?>
 			</div>
 		</article>
 	</div>

@@ -23,8 +23,9 @@ if ( empty( $view_more_link ) ) {
 <div class="tribe-events-widget-events-list__view-more tribe-common-b1 tribe-common-b2--min-medium">
 	<a
 		href="<?php echo esc_url(site_url('/events/')); ?>"
-		class="tribe-events-widget-events-list__view-more-link tribe-common-anchor-thin"
+		class="tribe-events-widget-events-list__view-more-link tribe-common-anchor-thin font-bold"
 	>
-		<?php esc_html_e( 'View More Events&hellip;', 'the-events-calendar' ); ?>
+		<?php esc_html_e( 'View More Events', 'the-events-calendar' ); ?>
+		&nbsp;<span class="fa-solid fa-circle-chevron-right" aria-hidden="true"></span>
 	</a>
 </div>

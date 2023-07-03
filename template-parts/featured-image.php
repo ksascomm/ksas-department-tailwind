@@ -16,15 +16,17 @@
 				<?php the_title(); ?>
 			</h1>
 		</div>
-		<div class="hidden lg:block lg:w-3/5 photoshelter-featured-image" style="clip-path:polygon(10% 0, 100% 0%, 100% 100%, 0 100%)">
+		<div class="hidden lg:block lg:w-3/5" style="clip-path:polygon(5% 0, 100% 0%, 100% 100%, 0 100%)">
 
 		<?php
 		if ( has_post_thumbnail() ) :
-
+			$thumb_id = get_post_thumbnail_id();
 			the_post_thumbnail(
 				'full',
 				array(
 					'class' => 'h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full',
+					'title' => 'Feature image',
+					'id'    => $thumb_id,
 				)
 			);
 			else :
@@ -46,7 +48,7 @@
 				$i              = wp_rand( 0, count( $bg ) - 1 ); // Generate random number size of the array.
 				$selected_image = "$bg[$i]"; // Set variable equal to which random filename was chosen.
 				?>
-				<img src="<?php echo esc_url( $selected_image ); ?>" alt="Image Alt Text" class="h-56 w-full object-cover sm:h-72 lg:w-full lg:h-full">
+				<img src="<?php echo esc_url( $selected_image ); ?>" alt="Hero Image of Students on Campus" class="h-56 w-full object-cover sm:h-72 lg:w-full lg:h-full stock-image">
 				<?php
 		endif;
 			?>

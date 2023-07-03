@@ -37,7 +37,7 @@ get_header();
 
 		<div class="news-section px-2 sm:px-0">
 			<div class="prose sm:prose lg:prose-lg xl:prose-xl mx-auto">
-				<div class="flex justify-between px-8 lg:px-0">
+				<div class="flex flex-wrap justify-between px-8 lg:px-0">
 					<div>
 						<h2><?php echo esc_html( $heading ); ?></h2>
 					</div>
@@ -84,7 +84,7 @@ get_header();
 			?>
 	<div class="news-section px-2 sm:px-0">
 	<div class="prose sm:prose lg:prose-lg xl:prose-xl mx-auto">
-				<div class="flex justify-between px-8 lg:px-0">
+				<div class="flex flex flex-wrap justify-between px-8 lg:px-0">
 					<div>
 						<h2><?php the_field( 'research_heading', 'option' ); ?>
 					</div>
