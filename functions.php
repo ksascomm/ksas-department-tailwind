@@ -114,6 +114,84 @@ add_action( 'after_setup_theme', 'ksas_department_tailwind_setup' );
 function ksas_department_tailwind_widgets_init() {
 	register_sidebar(
 		array(
+			'name'          => esc_html__( 'Front Below Explore Area', 'ksas-department-tailwind' ),
+			'id'            => 'below-explore',
+			'description'   => esc_html__( 'This sidebar will appear below the "Explore" section of homepage.', 'ksas-department-tailwind' ),
+			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside></div>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Front Events Featured', 'ksas-department-tailwind' ),
+			'id'            => 'events-featured',
+			'description'   => esc_html__( 'This widget area will only appear on the homepage and should only be used for the Events Calendar! It is located below Explore area and above news', 'ksas-department-tailwind' ),
+			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside></div>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Front News Cards', 'ksas-department-tailwind' ),
+			'id'            => 'news-inline',
+			'description'   => esc_html__( 'This widget area will only appear next to & inline with News cards.', 'ksas-department-tailwind' ),
+			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside></div>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Below News Section', 'ksas-department-tailwind' ),
+			'id'            => 'below-news',
+			'description'   => esc_html__( 'Add a maximum of two widgets to appear only on homepage here, below news', 'ksas-department-tailwind' ),
+			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside></div>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Site Footer', 'ksas-department-tailwind' ),
+			'id'            => 'sidebar-footer',
+			'description'   => esc_html__( 'Add widgets here to appear in your site-wide footer.', 'ksas-department-tailwind' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => 'Graduate Sidebar',
+			'id'            => 'graduate-sb',
+			'description'   => 'This sidebar will appear on pages under Graduate',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => 'Undergraduate Sidebar',
+			'id'            => 'undergrad-sb',
+			'description'   => 'This sidebar will appear on pages under Undergraduate',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
 			'name'          => esc_html__( 'Sidebar 1', 'ksas-department-tailwind' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'ksas-department-tailwind' ),
@@ -139,84 +217,6 @@ function ksas_department_tailwind_widgets_init() {
 			'name'          => esc_html__( 'Sidebar 3', 'ksas-department-tailwind' ),
 			'id'            => 'sidebar-3',
 			'description'   => esc_html__( 'Add widgets here.', 'ksas-department-tailwind' ),
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Explore Area Featured', 'ksas-department-tailwind' ),
-			'id'            => 'explore-featured',
-			'description'   => esc_html__( 'This sidebar will only appear in the Explore section of homepage.', 'ksas-department-tailwind' ),
-			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside></div>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Events Featured', 'ksas-department-tailwind' ),
-			'id'            => 'events-featured',
-			'description'   => esc_html__( 'This sidebar will only appear on the homepage and should only be used for the Events Calendar!', 'ksas-department-tailwind' ),
-			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside></div>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);	
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'News Section Featured', 'ksas-department-tailwind' ),
-			'id'            => 'news-featured',
-			'description'   => esc_html__( 'This sidebar will only appear next to News section.', 'ksas-department-tailwind' ),
-			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside></div>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Homepage Featured', 'ksas-department-tailwind' ),
-			'id'            => 'homepage-featured',
-			'description'   => esc_html__( 'Add a maximum of two widgets to appear only on homepage here.', 'ksas-department-tailwind' ),
-			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside></div>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Footer', 'ksas-department-tailwind' ),
-			'id'            => 'sidebar-footer',
-			'description'   => esc_html__( 'Add widgets here to appear in your footer.', 'ksas-department-tailwind' ),
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => 'Graduate Sidebar',
-			'id'            => 'graduate-sb',
-			'description'   => 'This sidebar will appear on pages under Graduate',
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-
-	register_sidebar(
-		array(
-			'name'          => 'Undergraduate Sidebar',
-			'id'            => 'undergrad-sb',
-			'description'   => 'This sidebar will appear on pages under Undergraduate',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h2 class="widget-title">',

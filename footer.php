@@ -10,7 +10,7 @@
  */
 
 ?>
-<?php get_template_part( 'template-parts/footer-widgets' ); ?>
+<?php get_template_part( 'template-parts/widgets-site-footer' ); ?>
 <footer class="site-footer bg-old-black text-white mt-20 border-t-1 border-grey-darkest relative">
 	<div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 
 	<?php

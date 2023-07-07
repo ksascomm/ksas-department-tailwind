@@ -61,8 +61,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<header id="site-header" class="header-footer-group sm:justify-between shadow-md sm:items-baseline w-full" role="banner">
 	<div class="flex justify-end">
 			<div class="container relative hidden lg:inline">
-				<div class="text-white float-right bg-blue jhu-link z-10 py-2 pr-2 font-heavy font-bold">
-					<a class="mr-3" href="https://www.jhu.edu/">Johns Hopkins University</a>
+				<div class="text-white float-right bg-blue jhu-link z-10 py-2 pr-2 font-heavy font-bold ">
+					<a class="mr-3 hover:text-blue-light hover:border-b-2 hover:border-white" href="https://www.jhu.edu/">Johns Hopkins University</a>
 				</div>
 			</div>
 		</div>
@@ -82,14 +82,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<?php endif; ?>
 					</div>
 					<div class="lg:col-span-2">
-						<h1 class="site-title font-serif font-bold text-4xl lg:text-[48px] mt-4 lg:mt-0 mb-12 md:mb-0 pt-2">
+						<h1 class="site-title font-serif font-bold text-3xl xl:text-[48px] mt-4 lg:mt-0 mb-12 md:mb-0 pt-2">
 						<?php
 								$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
-							if (
+						if (
 								$ksas_department_tailwind_description || is_customize_preview() ) :
-								$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
-								echo '<span class="block font-normal sm:pt-4 lg:pt-0 text-xl">' . $ksas_department_tailwind_description . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-								?>
+							$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
+							echo '<span class="block font-normal sm:pt-4 lg:pt-0 text-xl">' . $ksas_department_tailwind_description . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+							?>
 							<?php endif; ?>
 						<a class="text-blue hover:text-blue-light" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 							<?php bloginfo( 'name' ); ?>

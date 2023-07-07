@@ -74,16 +74,14 @@ add_action( 'template_redirect', 'redirect_empty_bios' );
 
 /**
  * Custom thumbnail sizes
- *
  */
 add_image_size( 'directory', 187, 271, true );
 add_image_size( 'news-thumb', 430, 225, false );
-add_image_size( 'event-widget-thumb', 430, 225, array( 'center', 'top' )   );
+add_image_size( 'event-widget-thumb', 430, 225, array( 'center', 'top' ) );
 add_image_size( 'faculty-book', 240, 365, false );
 
 /**
  * Custom Events Calendar Hooks
- *
  */
 // Here we hook into our template action - just before the date tag, which is the first item in the container.
 add_action(
@@ -91,17 +89,17 @@ add_action(
 	'my_action_add_event_featured_image',
 	15,
 	3
-  );
-   
+);
+
   // Here we utilize the hook variables to get our event, find the image, and echo the thumbnail.
-  function my_action_add_event_featured_image( $file, $name, $template ) {
+function my_action_add_event_featured_image( $file, $name, $template ) {
 	// Get the event for reference - we'll need it.
-	$event = $template->get('event');
-   
+	$event = $template->get( 'event' );
+
 	$link = sprintf(
-	  '<div class="event-image">%1$s</div>',
-	  get_the_post_thumbnail( $event, 'event-widget-thumb', array( 'class' => 'aligncenter w-full h-40 hidden md:inline' ) )
+		'<div class="event-image">%1$s</div>',
+		get_the_post_thumbnail( $event, 'event-widget-thumb', array( 'class' => 'aligncenter w-full h-40 hidden md:inline' ) )
 	);
-   
+
 	echo $link;
-  }
+}

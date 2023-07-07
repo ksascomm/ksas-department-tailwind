@@ -38,7 +38,9 @@ $event_classes = tribe_get_post_class( [ 'tribe-events-widget-events-list__event
 
 				<?php $this->do_entry_point( 'event_meta' ); ?>
 				<?php if ( is_active_sidebar( 'events-featured' ) ) : ?>
+					<div class="leading-normal text-lg">
 					<?php echo tribe_events_get_the_excerpt($event->ID); ?>
+					</div>
 				<?php endif;?>
 			</div>
 		</article>

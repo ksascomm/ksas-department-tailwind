@@ -17,16 +17,21 @@ get_header();
 			the_post()
 			?>
 			<?php
-			get_template_part( 'template-parts/content', 'front' );
+			get_template_part( 'template-parts/content', 'front-studyfields-explore' );
 
 		endwhile; // End of the loop.
 		?>
-
+		<?php if ( is_active_sidebar( 'below-explore' ) ) : ?>
+			<?php get_template_part( 'template-parts/widgets-below-explore' ); ?>
+		<?php endif; ?>
+		<?php if ( is_active_sidebar( 'events-featured' ) ) : ?>
+			<?php get_template_part( 'template-parts/widgets-events-featured' ); ?>
+		<?php endif; ?>
 		<?php
 		if ( get_field( 'show_homepage_news_feed', 'option' ) ) :
 			// If ACF Conditional is YES, display news feed.
 			$heading = get_field( 'homepage_news_header', 'option' );
-			if ( is_active_sidebar( 'news-featured' ) ) :
+			if ( is_active_sidebar( 'news-inline' ) ) :
 				$news_quantity = '2';
 			else :
 				$news_quantity = get_field( 'homepage_news_posts', 'option' );
@@ -64,8 +69,8 @@ get_header();
 				endwhile;
 				endif;
 				?>
-				<?php if ( is_active_sidebar( 'news-featured' ) ) : ?>
-					<?php get_template_part( 'template-parts/news-featured-widgets' ); ?>
+				<?php if ( is_active_sidebar( 'news-inline' ) ) : ?>
+					<?php get_template_part( 'template-parts/widgets-news-inline' ); ?>
 				<?php endif; ?>
 				</div>
 		</div>
@@ -78,6 +83,14 @@ get_header();
 			array(
 				'post_type'      => 'slider',
 				'posts_per_page' => 8,
+				'orderby'        => 'date',
+				'tax_query'      => array(
+					array(
+						'taxonomy' => 'slider_type',
+						'field'    => 'slug',
+						'terms'    => 'research',
+					),
+				),
 			)
 		);
 		if ( $slider_query->have_posts() ) :
@@ -103,8 +116,8 @@ get_header();
 		endif;
 		?>
 	</main><!-- #main -->
-	<?php if ( is_active_sidebar( 'homepage-featured' ) ) : ?>
-		<?php get_template_part( 'template-parts/homepage-featured-widgets' ); ?>
+	<?php if ( is_active_sidebar( 'below-news' ) ) : ?>
+		<?php get_template_part( 'template-parts/widgets-below-news' ); ?>
 	<?php endif; ?>
 <?php
 get_footer();

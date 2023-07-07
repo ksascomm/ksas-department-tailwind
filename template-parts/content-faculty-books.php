@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying Faculty Books posts
+ * Template part for displaying singular Faculty Books posts
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *

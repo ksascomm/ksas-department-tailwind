@@ -77,7 +77,6 @@ if ( ! empty( $studyfield_response ) ) :
 	<div class="hidden lg:block lg:w-5/12 front featured-image">
 		<?php if ( have_rows( 'homepage_hero_images' ) ) : ?>
 				<?php
-				
 				$random_images = get_field( 'homepage_hero_images' );
 				shuffle( $random_images );
 				//print("<pre>".print_r($random_images,true)."</pre>");
@@ -134,7 +133,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 					<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'blur-[1px] w-full' ) ); ?>
 				<?php endif; ?>
 				<div class="p-8 bucket-text xl:top-0 xl:right-0 xl:left-0 xl:bottom-0 xl:inset-0 xl:absolute">
-					<h3 class="text-2xl 2xl:text-4xl not-prose">
+					<h3 class="text-2xl 2xl:text-3xl not-prose">
 						<a href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
 							<?php the_sub_field( 'explore_bucket_heading' ); ?>
 						</a>
@@ -143,13 +142,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 				</div>
 			</div>
 		<?php endwhile; ?>
-		<?php if ( is_active_sidebar( 'explore-featured' ) ) : ?>
-			<?php get_template_part( 'template-parts/explore-featured-widgets' ); ?>
-		<?php endif; ?>
 		</div>
 	<?php endif; ?>
 	</div>
-<?php endif; ?>
-<?php if ( is_active_sidebar( 'events-featured' ) ) : ?>
-	<?php get_template_part( 'template-parts/events-featured-widget' ); ?>
 <?php endif; ?>

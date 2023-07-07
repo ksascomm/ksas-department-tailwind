@@ -10,46 +10,42 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'people py-4 ml-4' ); ?>>
-	<div class="flex flex-wrap lg:flex-nowrap">
-		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="pr-4 flex-none headshot">
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'people pl-4' ); ?>>
+	<div class="alignfull lg:bg-grey-cool lg:bg-opacity-50 !mt-0">
+		<div class="flex flex-wrap justify-start container mx-auto contact-info">
+		<?php
+			if ( has_post_thumbnail() ) :
+				?>
+			<div class="w-full lg:w-1/4 py-6 pr-10">
 				<?php
-					the_post_thumbnail(
-						'full',
-						array(
-							'class' => '',
-							'alt'   => the_title_attribute(
-								array(
-									'echo' => false,
-								)
-							),
-						)
-					);
+				the_post_thumbnail(
+					'full',
+					array(
+						'class' => 'sm:max-w-xs md:max-w-sm lg:max-w-full',
+						'alt' => the_title_attribute(
+							array(
+								'echo' => false,
+							)
+						),
+					)
+				);
 				?>
 			</div>
-		<?php endif; ?>
-		<div class="flex-grow contact-info">
-			<h2 class="font-heavy">
-			<?php if ( is_singular( 'people' ) ) : ?> 
-				<?php the_title(); ?> 
-				<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
-					<small>(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>
-				<?php endif; ?>
-			<?php else : ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>'s webpage">
-					<?php the_title(); ?>
-				</a>
-				<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
-					<small>(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>
-				<?php endif; ?>
-			<?php endif; ?>
-			</h2>
-
+				<?php
+			endif;
+			?>
+			<div class="w-full lg:w-3/4">
+				<header class="entry-header">
+					<h1 class="tracking-tight leading-10 sm:leading-none py-6">
+						<?php the_title(); ?> 
+						<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
+							<small class="font-heavy">(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>
+						<?php endif; ?>
+					</h1>
+				</header>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
-				<div class="position"><p class="leading-normal pr-2"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></p></div>
+				<div class="position"><h2 class="pr-2"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></h2></div>
 			<?php endif; ?>
-
 			<h3 class="sr-only">Contact Information</h3>
 
 			<ul>
@@ -114,76 +110,100 @@
 			</ul>
 
 			<?php if ( get_post_meta( $post->ID, 'ecpt_expertise', true ) ) : ?>
-				<p class="leading-normal pr-2"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
+				<p class="leading-normal pr-2 text-xl"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_degrees', true ) ) : ?>
-				<p class="leading-normal pr-2"><strong>Education:&nbsp;</strong><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_degrees', true ) ); ?></p>
+				<p class="leading-normal pr-2 text-xl"><strong>Education:&nbsp;</strong><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_degrees', true ) ); ?></p>
 			<?php endif; ?>
+			</div>
+			</div>
 		</div>
 	</div>
-	<?php if ( is_singular( 'people' ) ) : ?>
-		<div class="lg:mr-20 accordion">
-		<ul aria-label="Accordion Control Group Buttons" class="accordion-controls !list-none">
-		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
-			<li class="border border-solid border-grey">
-			<button class="text-left w-full block p-5 leading-normal cursor-pointer font-semi font-semibold " aria-controls="content-1" aria-expanded="false" id="accordion-control-1">
-			Biography</button>
-			<div aria-hidden="true" id="content-1" class="hidden px-5 py-2">
-			<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_bio', true ) ); ?>
-			</div>
-		</li>
-		<?php endif; ?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_research', true ) ) : ?>
-			<li class="border border-solid border-grey">
-			<button class="text-left w-full block p-5 leading-normal cursor-pointer font-semi font-semibold " aria-controls="content-2" aria-expanded="false" id="accordion-control-1">Research</button>
-			<div aria-hidden="true" id="content-2" class="hidden px-5 py-2">
-				<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_research', true ) ); ?>
-			</div>
-			</li>
-		<?php endif; ?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_teaching', true ) ) : ?>
-			<li class="border border-solid border-grey">
-			<button class="text-left w-full block p-5 leading-normal cursor-pointer font-semi font-semibold " aria-controls="content-3" aria-expanded="false" id="accordion-control-3">Teaching</button>
-			<div aria-hidden="true" id="content-3" class="hidden px-5 py-2">
-				<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_teaching', true ) ); ?>
-				</div>
-			</li>
-		<?php endif; ?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_publications', true ) ) : ?>
-			<li class="border border-solid border-grey">
-			<button class="text-left w-full block p-5 leading-normal cursor-pointer font-semi font-semibold " aria-controls="content-4" aria-expanded="false" id="accordion-control-4">Publications</button>
-			<div aria-hidden="true" id="content-4" class="hidden px-5 py-2">
-			<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_publications', true ) ); ?>
-			</div>
-			</li>
-		<?php endif; ?>
-		<?php
-		if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) :
-			?>
-			<li class="border border-solid border-grey">
-			<button class="text-left w-full block p-5 leading-normal cursor-pointer font-semi font-semibold " aria-controls="content-5" aria-expanded="false" id="accordion-control-5">Faculty Books</button>
-			<div aria-hidden="true" id="content-5" class="hidden px-5 py-2">
-			<?php get_template_part( 'template-parts/content', 'faculty-books-people-cpt' ); ?>
-			</div>
-			</li>
-		<?php endif; ?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ) : ?>
-			<li class="border border-solid border-grey">
-			<button class="text-left w-full block p-5 leading-normal cursor-pointer font-semi font-semibold " aria-controls="content-6" aria-expanded="false" id="accordion-control-6"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ); ?></button>
-			<div aria-hidden="true" id="content-6" class="hidden px-5 py-2">
-			<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) ); ?>
-			</div>
-			</li>
-		<?php endif; ?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ) : ?>
-			<li class="border border-solid border-grey">
-			<button class="text-left w-full block p-5 leading-normal cursor-pointer font-semi font-semibold " aria-controls="content-7" aria-expanded="false" id="accordion-control-7"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ); ?></button>
-			<div aria-hidden="true" id="content-7" class="hidden px-5 py-2">
-			<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) ); ?>
-			</div>
-			</li>
-		<?php endif; ?>
-		</ul>
+
+<?php
+if ( function_exists( 'bcn_display' ) ) :
+	?>
+		<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+			<?php bcn_display(); ?>
+	</div>
+	<?php endif; ?>
+	<?php
+	if ( is_singular( 'people' ) ) :
+		?>
+		<div class="tabbed my-4 people-content">
+			<ul>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
+				<li>
+				<a href="#section1">Biography</a>
+				</li>
+			<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_research', true ) ) : ?>
+				<li>
+				<a href="#section2">Research</a>
+				</li>
+			<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_teaching', true ) ) : ?>
+				<li>
+				<a href="#section3">Teaching</a>
+				</li>
+				<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_publications', true ) ) : ?>
+				<li>
+				<a href="#section4">Publications</a>
+				</li>
+			<?php endif; ?>
+				<?php
+				if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) :
+					?>
+				<li>
+				<a href="#section5">Faculty Books</a>
+				</li>
+							<?php endif; ?>
+				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ) : ?>
+				<li><a href="#section6"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ); ?></a></li>
+				<?php endif; ?>
+					<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ) : ?>
+				<li><a href="#section7"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ); ?></a></li>
+				<?php endif; ?>
+			</ul>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
+			<section class="section-content" id="section1">
+					<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_bio', true ) ); ?>
+			</section>
+			<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_research', true ) ) : ?>
+			<section class="section-content" id="section2">
+					<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_research', true ) ); ?>
+			</section>
+			<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_teaching', true ) ) : ?>
+			<section class="section-content" id="section3">
+					<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_teaching', true ) ); ?>
+			</section>
+			<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_publications', true ) ) : ?>
+			<section class="section-content" id="section4">
+					<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_publications', true ) ); ?>
+			</section>
+			<?php endif; ?>
+				<?php
+				if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) :
+					?>
+			<section class="section-content" id="section5">
+					<?php get_template_part( 'template-parts/content', 'faculty-books-people-cpt' ); ?>
+			</section>
+				<?php endif; ?>
+				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) : ?>
+			<section class="section-content" id="section6">
+					<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) ); ?>
+			</section>
+			<?php endif; ?>
+
+				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) : ?>
+			<section class="section-content" id="section7">
+					<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) ); ?>
+			</section>
+			<?php endif; ?>
 		</div>
 	<?php endif; ?>
 	<?php if ( get_edit_post_link() ) : ?>
