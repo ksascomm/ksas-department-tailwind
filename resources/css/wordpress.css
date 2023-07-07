@@ -1493,6 +1493,8 @@ footer.entry-footer {
 
 
 /* Custom Post Type Widgets ------------------------------ */
+
+/*! purgecss start ignore */
 .widget.ksas_books .book-listings {
  @apply mx-auto lg:grid lg:grid-flow-col lg:auto-cols-auto lg:gap-4; 
 }
@@ -1525,6 +1527,7 @@ footer.entry-footer {
 .widget.ksas_books article p strong {
   @apply font-sans font-normal;
 }
+/*! purgecss end ignore */
 
 /* Captions
 --------------------------------------------- */
