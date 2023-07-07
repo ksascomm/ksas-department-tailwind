@@ -1789,13 +1789,6 @@ ul.study-field li:not(:last-child) {
 }
 
 /* Single Person post */
-
-/*.single-people .site-main,*/
-.single-faculty-books .site-main {
-  @apply !mt-8;
-}
-
-
 .single-people .prose .people .contact-info li {
   @apply text-xl;
 }
@@ -1961,6 +1954,10 @@ summary::-webkit-details-marker {
   }
 }
 
+/* Faculty Books
+--------------------------------------------- */
+
+
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
@@ -1988,7 +1985,8 @@ summary::-webkit-details-marker {
     margin-left: 1rem;
   }
 }
-.single-post .breadcrumbs {
+.single-post .breadcrumbs,
+.single-faculty-books .breadcrumbs {
   @apply my-6;
 }
 

@@ -45,24 +45,38 @@
 			<p class="text-lg">Johns Hopkins University<br>3400 N. Charles St<br>Baltimore, MD 21218</p>
 			<?php endif; ?>
 		</div>
+
+		
 		<div class="col-span-4 lg:col-span-1 m-2 mt-6">
+		<?php
+		$department_email    = get_field( 'department_email', 'option' );
+		$department_phone    = get_field( 'department_phone', 'option' );
+		$department_location = get_field( 'department_location', 'option' );
+		if ( $department_email || $department_phone || $department_location ) :
+			?>
 			<h2 class="text-lg font-sans">Contact Us</h2>
-			<p class="text-lg"><span class="fa-solid fa-envelope"></span> <a href="<?php echo esc_url( 'mailto:' . antispambot( get_field('department_email', 'option' ) ) ); ?>"><?php echo esc_html( antispambot( get_field('department_email', 'option' ) ) ); ?></a></p>
-			<p class="text-lg"><span class="fa-solid fa-phone-rotary"></span> <a href="tel:<?php the_field('department_phone', 'option');?>"><?php the_field('department_phone', 'option');?></a></p>
-			<?php $department_location = get_field( 'department_location', 'option' ); ?>
-				<?php if ( $department_location ) : ?>
+			<?php if ( $department_email ) : ?>
+			<p class="text-lg"><span class="fa-solid fa-envelope"></span> <a href="<?php echo esc_url( 'mailto:' . antispambot( get_field( 'department_email', 'option' ) ) ); ?>"><?php echo esc_html( antispambot( get_field( 'department_email', 'option' ) ) ); ?></a></p>
+			<?php endif; ?>
+			<?php if ( $department_phone ) : ?>
+			<p class="text-lg"><span class="fa-solid fa-phone-rotary"></span> <a href="tel:<?php the_field( 'department_phone', 'option' ); ?>"><?php the_field( 'department_phone', 'option' ); ?></a></p>
+			<?php endif; ?>
+			<?php if ( $department_location ) : ?>
 				<p class="text-lg">
 					<?php
-					//Gist Here: https://gist.github.com/mattradford/bb7679a2671b99ada655
+					// Gist Here: https://gist.github.com/mattradford/bb7679a2671b99ada655
 					$building = $department_location['address'];
-					$address = urlencode_deep("{$building}");?>
+					$address  = urlencode_deep( "{$building}" );
+					?>
 					<a href="https://www.google.com/maps/search/?api=1&query=<?php echo esc_html( $address ); ?>" target="_blank">
 						<span class="fa-solid fa-map"></span> Google Maps Link
 					</a>
 				</p>
-				<?php endif; ?>
+			<?php endif; ?>
+		<?php endif; ?>
 		</div>
-		<div class="m-2 lg:m-4 mt-6 col-span-4 lg:col-span-1 lg:mx-auto">
+		
+		<div class="m-2 lg:m-4 mt-6 col-span-4 lg:col-span-1 lg:mx-auto justify-end">
 			<a href="https://facebook.com/JHUArtsSciences"><span class="fa-brands fa-facebook fa-2x pr-2"></span><span class="sr-only">Facebook</span></a>
 			<a href="https://www.instagram.com/JHUArtsSciences/"><span class="fa-brands fa-instagram fa-2x pr-2"></span><span class="sr-only">Instagram</span></a>
 			<a href="https://twitter.com/JHUArtsSciences"><span class="fa-brands fa-twitter fa-2x pr-2"></span><span class="sr-only">Twitter</span></a>

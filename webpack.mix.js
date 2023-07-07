@@ -145,6 +145,7 @@ if (mix.inProduction()) {
           "blog",
           "md:inline",
           "wp-post-image",
+          "!list-none",
           /^has-/,
           /(^wp-block-)\w+/,
           /(^c-accordion)\w+/,
