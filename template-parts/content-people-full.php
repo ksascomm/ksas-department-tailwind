@@ -11,29 +11,29 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'people pl-4' ); ?>>
-	<div class="alignfull lg:bg-grey-cool lg:bg-opacity-50 !mt-0">
+	<div class="alignfull lg:bg-grey-cool lg:bg-opacity-50">
 		<div class="flex flex-wrap justify-start container mx-auto contact-info">
 		<?php
-			if ( has_post_thumbnail() ) :
-				?>
-			<div class="w-full lg:w-1/4 py-6 pr-10">
-				<?php
-				the_post_thumbnail(
-					'full',
-					array(
-						'class' => 'sm:max-w-xs md:max-w-sm lg:max-w-full',
-						'alt' => the_title_attribute(
-							array(
-								'echo' => false,
-							)
-						),
-					)
-				);
-				?>
-			</div>
-				<?php
-			endif;
+		if ( has_post_thumbnail() ) :
 			?>
+			<div class="w-full lg:w-1/4 py-6 pr-10">
+			<?php
+			the_post_thumbnail(
+				'full',
+				array(
+					'class' => 'sm:max-w-xs md:max-w-sm lg:max-w-full',
+					'alt'   => the_title_attribute(
+						array(
+							'echo' => false,
+						)
+					),
+				)
+			);
+			?>
+			</div>
+			<?php
+			endif;
+		?>
 			<div class="w-full lg:w-3/4">
 				<header class="entry-header">
 					<h1 class="tracking-tight leading-10 sm:leading-none py-6">
@@ -50,12 +50,12 @@
 
 			<ul>
 			<?php
-				if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
-					$email = get_post_meta( $post->ID, 'ecpt_email', true );
-					?>
+			if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
+				$email = get_post_meta( $post->ID, 'ecpt_email', true );
+				?>
 					<li><span class="fa-solid fa-envelope" aria-hidden="true"></span>
-						<a href="<?php echo esc_url( 'mailto:' . antispambot( $email )); ?>">
-						<?php echo esc_html( $email ); ?>
+						<a href="<?php echo esc_url( 'mailto:' . antispambot( $email ) ); ?>">
+					<?php echo esc_html( $email ); ?>
 						</a>
 					</li>
 				<?php endif; ?>

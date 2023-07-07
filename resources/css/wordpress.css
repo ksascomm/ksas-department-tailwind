@@ -1789,6 +1789,10 @@ ul.study-field li:not(:last-child) {
 }
 
 /* Single Person post */
+.single-people .prose .people .alignfull {
+  @apply !mt-0;
+}
+
 .single-people .prose .people .contact-info li {
   @apply text-xl;
 }
