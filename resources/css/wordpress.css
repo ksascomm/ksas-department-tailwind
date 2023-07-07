@@ -326,7 +326,10 @@ span.posted-on {
   @apply h-20;
 }
 
-.alignfull.featured-image-area {
+.alignfull.featured-image-area,
+.front .front-featured-image-area h2,
+.front-featured-image-area .front.featured-image img
+ {
   @apply !mt-0;
 }
 
@@ -420,6 +423,10 @@ div[class^="bucket-"] {
   .bucket-2 img {
     @apply absolute bottom-0;
   }*/
+}
+
+.bucket {
+	margin-top: 1rem;
 }
 
 .bucket-1 .bucket-text, .bucket-3 .bucket-text {
