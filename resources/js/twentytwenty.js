@@ -291,6 +291,49 @@ twentytwenty.coverModals = {
 }; // twentytwenty.coverModals
 
 /*	-----------------------------------------------------------------------------------------------
+	Intrinsic Ratio Embeds
+--------------------------------------------------------------------------------------------------- */
+
+twentytwenty.intrinsicRatioVideos = {
+
+	init: function() {
+		this.makeFit();
+
+		window.addEventListener( 'resize', function() {
+			this.makeFit();
+		}.bind( this ) );
+	},
+
+	makeFit: function() {
+		document.querySelectorAll( 'iframe, object, video' ).forEach( function( video ) {
+			var ratio, iTargetWidth,
+				container = video.parentNode;
+
+			// Skip videos we want to ignore.
+			if ( video.classList.contains( 'intrinsic-ignore' ) || video.parentNode.classList.contains( 'intrinsic-ignore' ) ) {
+				return true;
+			}
+
+			if ( ! video.dataset.origwidth ) {
+				// Get the video element proportions.
+				video.setAttribute( 'data-origwidth', video.width );
+				video.setAttribute( 'data-origheight', video.height );
+			}
+
+			iTargetWidth = container.offsetWidth;
+
+			// Get ratio from proportions.
+			ratio = iTargetWidth / video.dataset.origwidth;
+
+			// Scale based on ratio, thus retaining proportions.
+			video.style.width = iTargetWidth + 'px';
+			video.style.height = ( video.dataset.origheight * ratio ) + 'px';
+		} );
+	}
+
+}; // twentytwenty.instrinsicRatioVideos
+
+/*	-----------------------------------------------------------------------------------------------
 	Modal Menu
 --------------------------------------------------------------------------------------------------- */
 twentytwenty.modalMenu = {
@@ -603,6 +646,8 @@ twentytwenty.toggles = {
  *
  * This implementation is coming from https://gomakethings.com/a-native-javascript-equivalent-of-jquerys-ready-method/
  *
+ * @since Twenty Twenty 1.0
+ *
  * @param {Function} fn Callback function to run.
  */
 function twentytwentyDomReady( fn ) {
@@ -620,6 +665,7 @@ function twentytwentyDomReady( fn ) {
 twentytwentyDomReady( function() {
 	twentytwenty.toggles.init();              // Handle toggles.
 	twentytwenty.coverModals.init();          // Handle cover modals.
+	twentytwenty.intrinsicRatioVideos.init(); // Retain aspect ratio of videos on window resize.
 	twentytwenty.modalMenu.init();            // Modal Menu.
 	twentytwenty.primaryMenu.init();          // Primary Menu.
 	twentytwenty.touchEnabled.init();         // Add class to body if device is touch-enabled.
@@ -632,24 +678,42 @@ twentytwentyDomReady( function() {
 /* Toggle an attribute ----------------------- */
 
 function twentytwentyToggleAttribute( element, attribute, trueVal, falseVal ) {
-	if ( element.classList.contains( 'close-search-toggle' ) ) {
+	var toggles;
+
+	if ( ! element.hasAttribute( attribute ) ) {
 		return;
 	}
+
 	if ( trueVal === undefined ) {
 		trueVal = true;
 	}
 	if ( falseVal === undefined ) {
 		falseVal = false;
 	}
-	if ( element.getAttribute( attribute ) !== trueVal ) {
-		element.setAttribute( attribute, trueVal );
-	} else {
-		element.setAttribute( attribute, falseVal );
-	}
+
+	/*
+	 * Take into account multiple toggle elements that need their state to be
+	 * synced. For example: the Search toggle buttons for desktop and mobile.
+	 */
+	toggles = document.querySelectorAll( '[data-toggle-target="' + element.dataset.toggleTarget + '"]' );
+
+	toggles.forEach( function( toggle ) {
+		if ( ! toggle.hasAttribute( attribute ) ) {
+			return;
+		}
+
+		if ( toggle.getAttribute( attribute ) !== trueVal ) {
+			toggle.setAttribute( attribute, trueVal );
+		} else {
+			toggle.setAttribute( attribute, falseVal );
+		}
+	} );
 }
 
 /**
  * Toggle a menu item on or off.
+ *
+ * @since Twenty Twenty 1.0
  *
  * @param {HTMLElement} target
  * @param {number} duration
@@ -751,6 +815,8 @@ function twentytwentyMenuToggle( target, duration ) {
 
 /**
  * Traverses the DOM up to find elements matching the query.
+ *
+ * @since Twenty Twenty 1.0
  *
  * @param {HTMLElement} target
  * @param {string} query

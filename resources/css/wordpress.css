@@ -25,6 +25,7 @@
 	- Reusable Patterns
 	- Breadcrumbs
 	- Yoast
+  - TablePress
 # Utilities
 	- Accessibility
 	- Alignments
@@ -327,7 +328,6 @@ span.posted-on {
 }
 
 .alignfull.featured-image-area,
-.front .front-featured-image-area h2,
 .front-featured-image-area .front.featured-image img
  {
   @apply !mt-0;
@@ -547,6 +547,15 @@ div[class^="bucket-"] {
 .entry-content a[href$=".pptx"]:after {
   font: var(--fa-font-light);
   content: "\f1c4";
+}
+
+.entry-title.external-link a:after {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  @apply text-lg pl-1;
+  font: var(--fa-font-light);
+  content: "\f360";
 }
 
 /* Tables
@@ -935,7 +944,7 @@ border-bottom-color: rgb(44 44 51 / var(--tw-border-opacity));
 
 .primary-menu ul ul::after {
   border-bottom-color: transparent;
-  border-left-color: #transparent;
+  border-left-color: transparent;
   /*bottom: auto;*/
   /*right: -1.6rem;*/
 
@@ -1179,24 +1188,37 @@ footer.entry-footer {
 }*/
 
 .below-news-widget-section .widget.widget_text {
-  @apply mt-0 mx-0 mb-6 pt-6 px-12 pb-12;
-}
-
-.below-news-widget-section .widget-area:nth-child(2) {
-  @apply bg-blue text-white pl-12;
+  @apply mt-0 mx-0 mb-6 py-3 px-6 lg:pt-6 lg:px-12 lg:pb-12 text-xl;
 }
 
 .below-news-widget-section .widget h2 {
-  @apply my-4;
+  @apply my-4 text-2xl;
 }
+
+.below-news-widget-section .widget-area:nth-of-type(1) {
+  @apply bg-grey-cool bg-opacity-50;
+}
+
+@screen lg {
+  .below-news-widget-section .widget-area:nth-of-type(1) {
+    @apply bg-white;
+  }
+}
+
+.below-news-widget-section .widget-area:nth-child(2) {
+  @apply bg-blue text-white pl-6 lg:pl-12;
+}
+
 
 .below-news-widget-section .widget-area:nth-child(2) .widget a {
   @apply text-white;
 }
 
+.below-news-widget-section .widget-area:nth-child(2) ul li::before {
+	@apply bg-white;
+}
+
 /* Graduate & Undergraduate Page Widget Sections ------------------------------ */
-
-
 .graduate-sidebar .widget,
 .graduate-sidebar .tribe-compatibility-container,
 .undergraduate-sidebar .widget,
@@ -1511,11 +1533,11 @@ footer.entry-footer {
 }
 
 .widget.ksas_books article {
-  @apply shadow-md p-2 lg:w-72;
+  @apply md:shadow-md mx-6 my-2 md:my-0 p-4 md:p-2 lg:w-72 border-2 border-grey lg:border-0;
 }
 
 .widget.ksas_books article img {
-  @apply md:h-80 md:w-60 mx-auto;
+  @apply md:h-80 md:w-60 md:mx-auto;
 }
 
 
@@ -1524,11 +1546,11 @@ footer.entry-footer {
 }
 
 .widget.ksas_books article h5 {
-  @apply text-lg leading-tight my-2 px-4;
+  @apply text-lg leading-tight my-2 md:px-4;
 }
 
 .widget.ksas_books article p {
-  @apply px-4;
+  @apply md:px-4;
 }
 
 .widget.ksas_books article p strong {
@@ -1785,7 +1807,6 @@ ul.study-field li:not(:last-child) {
 .prose .people .contact-info .position p {
   @apply text-xl;
 }
-
 
 .people-card ul {
   @apply m-0 pl-0;
@@ -2051,6 +2072,20 @@ summary::-webkit-details-marker {
   @apply bg-grey-lightest border-2 border-solid border-grey m-4 block p-4;
 }
 
+/* TablePress
+--------------------------------------------- */
+table.tablepress thead th {
+  background: rgba(148, 207, 248, 0.84)
+}
+
+.tablepress .sorting:hover, .tablepress .sorting_asc, .tablepress .sorting_desc {
+  @apply !bg-blue-light;
+}
+
+.tablepress > .row-hover > tr:hover > * {
+  @apply !bg-grey-cool bg-opacity-50 ;
+}
+
 /* Events Calendar Blocks
 --------------------------------------------- */
 .tribe-events-widget-events-list__event-title-link.tribe-common-anchor-thin,
@@ -2140,7 +2175,7 @@ p.tribe-events-back a,
   font-weight: 600;
 }
 
-.tribe-events-nav-previous a, {
+.tribe-events-nav-previous a {
   font-weight: 400 !important;
 }
 
@@ -2259,7 +2294,7 @@ p.tribe-events-back a,
 
 .news-section .prose h3.entry-title,
 .blog .site-main.prose h3.entry-title {
-  @apply mt-0;
+  @apply mt-0 lg:text-[26px];
 }
 
 .blog .site-main.prose h3.entry-title {
@@ -3680,7 +3715,9 @@ body > .is-root-container > .wp-block-template-part > .wp-block-cover,
   .header-toggles {
     display: flex;
     flex-shrink: 0;
+    /*Fix Clipping Issue
     margin-right: -3rem;
+    */
   }
 
   .header-inner .toggle {
@@ -3822,6 +3859,23 @@ body > .is-root-container > .wp-block-template-part > .wp-block-cover,
   }
 }
 
+@media (min-width: 1000px) and (max-width:1020px) { 
+  .header-toggles {
+    margin-right: -4rem;
+  }
+}
+@media (min-width: 1021px) and (max-width:1024px) { 
+  .header-toggles {
+    margin-right: -2rem;
+    padding-right: 1rem;
+  }
+}
+@media (min-width: 1025px) and (max-width:1100px) { 
+  .header-toggles {
+    margin-right: -1rem;
+  }
+} 
+
 @media (min-width: 1220px) {
   /* HEADER TOGGLES */
 
@@ -3830,7 +3884,10 @@ body > .is-root-container > .wp-block-template-part > .wp-block-cover,
   }
 
   .header-toggles {
+    /*Fix Clipping Issue
     margin-right: -4rem;
+    */
+    margin-right: 0;
   }
 
   .header-toggles .toggle {

@@ -34,7 +34,7 @@
 		</svg>
 	</div>
 	<div class="py-6 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-		<div class="col-span-4 lg:col-span-2 m-2 mt-6 ml-6">
+		<div class="col-span-4 lg:col-span-2 m-2 mt-6 md:ml-6">
 			<h1 class="text-xl font-sans"><?php bloginfo( 'description' ); ?> <?php bloginfo( 'name' ); ?></h1>
 		<?php if ( get_field( 'custom_address', 'option' ) ) : ?>
 			<div>
@@ -87,15 +87,15 @@
 	<div class="flex flex-wrap bg-original-black py-6 px-4 justify-between">
 		<div>
 			<a href="https://www.jhu.edu/" class="hover:opacity-50">
-			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/dist/images/university.shield.svg" class="w-52 inline-block pl-4" alt="JHU shield in the footer">
+			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/dist/images/university.shield.svg" class="w-52 inline-block pl-4 mb-8 md:mb-0" alt="JHU shield in the footer">
 			</a>
 		</div>
 		<div>
 			<ul class="lg:flex lg:flex-wrap lg:justify-between" role="menu" aria-label="University Policies">
-				<li role="menuitem">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> </li>
-				<li class="lg:pl-4" role="menuitem"><a href="https://accessibility.jhu.edu/">Accessibility</a></li>
-				<li class="lg:pl-4" role="menuitem"><a href="https://it.johnshopkins.edu/policies/privacystatement">Privacy Statement</a></li>
-				<li class="lg:pl-4" role="menuitem"><a href="https://policies.jhu.edu/">University Policy & Document Library</a></li>
+				<li class="pl-4 md:pl-0" role="menuitem">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> </li>
+				<li class="pl-4" role="menuitem"><a href="https://accessibility.jhu.edu/">Accessibility</a></li>
+				<li class="pl-4" role="menuitem"><a href="https://it.johnshopkins.edu/policies/privacystatement">Privacy Statement</a></li>
+				<li class="pl-4" role="menuitem"><a href="https://policies.jhu.edu/">University Policy & Document Library</a></li>
 			</ul>
 		</div>
 	</div>

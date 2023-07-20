@@ -131,7 +131,7 @@ if ( function_exists( 'bcn_display' ) ) :
 	if ( is_singular( 'people' ) ) :
 		?>
 		<div class="tabbed my-4 people-content">
-			<ul>
+			<ul class="pr-6 lg:pr-0">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 				<li>
 				<a href="#section1">Biography</a>

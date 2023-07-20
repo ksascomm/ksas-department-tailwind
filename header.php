@@ -56,7 +56,7 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDL5K37"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<a class="skip-link screen-reader-text" href="#site-content"><?php esc_html_e( 'Skip to content', 'ksas-department-tailwind' ); ?></a>
+<a class="skip-link screen-reader-text sr-only" href="#site-content"><?php esc_html_e( 'Skip to content', 'ksas-department-tailwind' ); ?></a>
 <?php wp_body_open(); ?>
 	<header id="site-header" class="header-footer-group sm:justify-between shadow-md sm:items-baseline w-full" role="banner">
 	<div class="flex justify-end">
@@ -82,7 +82,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<?php endif; ?>
 					</div>
 					<div class="lg:col-span-2">
-						<h1 class="site-title font-serif font-bold text-3xl xl:text-[48px] mt-4 lg:mt-0 mb-12 md:mb-0 pt-2">
+						<h1 class="site-title font-serif font-bold text-4xl lg:text-[42px] xl:text-[48px] mt-4 lg:mt-0 mb-12 md:mb-0 pt-2 text-center lg:text-left">
 						<?php
 								$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
 						if (

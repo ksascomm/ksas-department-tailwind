@@ -45,9 +45,9 @@ if ( ! empty( $studyfield_response ) ) :
 <?php endif; ?>
 
 <div class="flex border-t border-blue hero bg-grey-cool bg-opacity-50 front-featured-image-area" role="banner">
-	<div class="flex items-center text-left px-8 md:px-12 lg:w-7/12">
+	<div class="flex items-center text-left px-8 md:px-12 pb-4 md:py-0 lg:w-7/12 ">
 		<div>
-			<h2 class="text-primary text-3xl md:text-3xl lg:text-4xl mt-4 lg:!mt-0 font-heavy font-bold">
+			<h2 class="text-primary text-3xl md:text-3xl lg:text-4xl mt-8 lg:mt-0 font-heavy font-bold">
 				<?php if ( ! empty( $studyfield_tagline ) ) : ?>
 					<?php echo esc_html( $studyfield_tagline ); ?>
 				<?php else : ?>
@@ -130,9 +130,9 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 				$image = get_sub_field( 'explore_bucket_image' );
 				if ( get_sub_field( 'explore_bucket_image' ) ) :
 					?>
-					<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'blur-[1px] w-full' ) ); ?>
+					<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'lg:blur-[1px] w-full' ) ); ?>
 				<?php endif; ?>
-				<div class="p-8 bucket-text xl:top-0 xl:right-0 xl:left-0 xl:bottom-0 xl:inset-0 xl:absolute">
+				<div class="p-8 bucket-text lg:top-0 lg:right-0 lg:left-0 lg:bottom-0 lg:inset-0 lg:absolute">
 					<h3 class="text-2xl 2xl:text-3xl not-prose">
 						<a href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
 							<?php the_sub_field( 'explore_bucket_heading' ); ?>

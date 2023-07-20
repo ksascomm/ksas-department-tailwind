@@ -46,7 +46,7 @@ get_header();
 				);
 				?>
 				<?php foreach ( $faculty_titles as $faculty_title ) : ?>
-					<button class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary p-2" href="javascript:void(0)" data-filter=".<?php echo esc_html( $faculty_title->slug ); ?>" class="selected"><?php echo esc_html( $faculty_title->name ); ?></button>
+					<button class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary p-2 my-2 md:my-0" href="javascript:void(0)" data-filter=".<?php echo esc_html( $faculty_title->slug ); ?>" class="selected"><?php echo esc_html( $faculty_title->name ); ?></button>
 				<?php endforeach; ?>
 			</div>
 			<?php
@@ -67,11 +67,11 @@ get_header();
 					<?php endforeach; ?>
 				</div>
 			<?php endif; ?>
-			<h4>
+			<h4 class="mt-4 md:mt-0">
 				<label class="heading" for="id_search">Search by name, title, or research interests:</label>
 			</h4>
 			<div class="w-auto search-form my-2">
-				<input class="quicksearch ml-2 p-2 form-input w-1/2" type="search" name="search" id="id_search" aria-label="Search Fields of Study" placeholder="Enter description keyword"/>
+				<input class="quicksearch ml-2 p-2 form-input w-full md:w-1/2" type="search" name="search" id="id_search" aria-label="Search Fields of Study" placeholder="Enter description keyword"/>
 			</div>
 		</div>
 		<div class="mt-8 ml-4 mr-2" id="isotope-list" >

@@ -42,9 +42,9 @@ get_header();
 
 		<div class="news-section px-2 sm:px-0">
 			<div class="prose sm:prose lg:prose-lg xl:prose-xl mx-auto">
-				<div class="flex flex-wrap justify-between px-8 lg:px-0">
+				<div class="flex flex-wrap justify-between px-4 lg:px-0">
 					<div>
-						<h2><?php echo esc_html( $heading ); ?></h2>
+						<h2 class="pb-4 md:pb-0"><?php echo esc_html( $heading ); ?></h2>
 					</div>
 					<div>
 						<a class="button" href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ); ?>">

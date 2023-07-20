@@ -146,6 +146,7 @@ if (mix.inProduction()) {
           "md:inline",
           "wp-post-image",
           "!list-none",
+          "tablepress",
           /^has-/,
           /(^wp-block-)\w+/,
           /(^c-accordion)\w+/,
