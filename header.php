@@ -97,7 +97,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						</h1>
 					</div>
 				</div><!-- .header-titles -->
-				<button class="toggle search-toggle mobile-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
+				<button class="toggle search-toggle mobile-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false" type="button">
 					<span class="toggle-inner">
 						<span class="toggle-icon">
 							<?php twentytwenty_the_theme_svg( 'search' ); ?>
@@ -105,7 +105,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<span class="toggle-text"><?php _ex( 'Search', 'toggle text', 'ksas-department-tailwind' ); ?></span>
 					</span>
 				</button><!-- .search-toggle -->
-				<button class="toggle nav-toggle mobile-nav-toggle" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle">
+				<button class="toggle nav-toggle mobile-nav-toggle" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle" type="button">
 					<span class="toggle-inner">
 						<span class="toggle-icon">
 							<?php twentytwenty_the_theme_svg( 'ellipsis' ); ?>
@@ -116,28 +116,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</div><!-- .header-inner -->
 		</div><!-- .header-titles-wrapper -->
 		<div class="header-navigation-wrapper bg-white">
-			<div class="header-inner section-inner flex container">
-				<nav class="primary-menu-wrapper" aria-label="<?php echo esc_attr_x( 'Main Navigation', 'menu', 'ksas-department-tailwind' ); ?>">
-					<ul class="primary-menu nav-menu reset-list-style">
-					<?php
-						wp_nav_menu(
-							array(
-								'container'      => '',
-								'items_wrap'     => '%3$s',
-								// 'show_toggles'   => true,
-								'theme_location' => 'main-nav',
-								// 'walker'   => new TwentyTwenty_Walker_Page(),
-							)
-						);
-						?>
-					</ul>
-				</nav><!-- .primary-menu-wrapper -->
+			<div class="header-inner section-inner flex container justify-between">
+			<div class="menu-container">
+					<button class="menu-button" aria-controls="site-header-menu" type="button"><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'rwc' ); ?></span></button>
+					<div id="site-header-menu" class="site-header-menu text-primary">
+						<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'rwc' ); ?>">
+						<?php
+							wp_nav_menu(
+								array(
+									'theme_location'  => 'main-nav',
+									'menu_id'         => 'primary-menu',
+									'container_class' => 'nav-primary',
+									'depth'           => 3,
+								)
+							);
+							?>
+						</nav>
+					</div>
+				</div>
 
-				<div class="header-toggles hide-no-js flex-auto">
+				<div class="header-toggles hide-no-js">
 
 					<div class="toggle-wrapper search-toggle-wrapper">
 
-						<button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
+						<button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false" type="button">
 							<span class="toggle-inner">
 							<?php twentytwenty_the_theme_svg( 'search' ); ?>
 								<span class="toggle-text"><?php _ex( 'Search', 'toggle text', 'ksas-department-tailwind' ); ?></span>

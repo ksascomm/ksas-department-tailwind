@@ -253,20 +253,13 @@ function twentytwenty_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 			$toggle_duration      = twentytwenty_toggle_duration();
 
 			// Add the sub menu toggle.
-			$args->after .= '<button class="toggle sub-menu-toggle fill-children-current-color" data-toggle-target="' . $toggle_target_string . '" data-toggle-type="slidetoggle" data-toggle-duration="' . absint( $toggle_duration ) . '" aria-expanded="false"><span class="sr-only">' . __( 'Show sub menu', 'ksas-department-tailwind' ) . '</span>' . twentytwenty_get_theme_svg( 'chevron-down' ) . '</button>';
+			$args->after .= '<button class="toggle sub-menu-toggle fill-children-current-color" data-toggle-target="' . $toggle_target_string . '" data-toggle-type="slidetoggle" data-toggle-duration="' . absint( $toggle_duration ) . '" aria-expanded="false" type="button"><span class="sr-only">' . __( 'Show sub menu', 'ksas-department-tailwind' ) . '</span>' . twentytwenty_get_theme_svg( 'chevron-down' ) . '</button>';
 
 		}
 
 		// Close the wrapper.
 		$args->after .= '</div><!-- .ancestor-wrapper -->';
 
-		// Add sub menu icons to the primary menu without toggles.
-	} elseif ( 'main-nav' === $args->theme_location ) {
-		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
-			$args->after = '<span class="icon"></span>';
-		} else {
-			$args->after = '';
-		}
 	}
 
 	return $args;
@@ -450,25 +443,3 @@ function twentytwenty_unique_id( $prefix = '' ) {
 	}
 	return $prefix . (string) ++$id_counter;
 }
-
-
-/**
- * WCAG 2.0 Attributes for Dropdown Menus
- *
- * Adjustments to menu attributes tot support WCAG 2.0 recommendations
- * for flyout and dropdown menus.
- *
- * @ref https://www.w3.org/WAI/tutorials/menus/flyout/
- */
-function wcag_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
-
-    // Add [aria-haspopup] and [aria-expanded] to menu items that have children
-    $item_has_children = in_array( 'menu-item-has-children', $item->classes );
-    if ( $item_has_children ) {
-        $atts['aria-haspopup'] = "true";
-        $atts['aria-expanded'] = "false";
-    }
-
-    return $atts;
-}
-add_filter( 'nav_menu_link_attributes', 'wcag_nav_menu_link_attributes', 10, 4 );
