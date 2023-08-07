@@ -292,11 +292,11 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 /**
  * Include a skip to content link at the top of the page so that users can bypass the menu.
  */
-function twentytwenty_skip_link() {
-	echo '<div role="navigation" aria-label="Skip to main content"><a class="skip-link sr-only" href="#site-content">' . __( 'Skip to the content', 'ksas-department-tailwind' ) . '</a></div>';
+function ksas_skip_link() {
+	echo '<div role="navigation" aria-label="Skip to main content"><a class="skip-link screen-reader-text" href="#site-content">' . __( 'Skip to the content', 'ksas-department-tailwind' ) . '</a></div>';
 }
 
-add_action( 'wp_body_open', 'twentytwenty_skip_link', 5 );
+add_action( 'wp_body_open', 'ksas_skip_link', 5 );
 
 /**
  * Enqueue scripts and styles.
@@ -314,6 +314,26 @@ function ksas_department_tailwind_scripts() {
 	wp_script_add_data( 'fontawesome', array( 'crossorigin' ), array( 'anonymous' ) );
 }
 add_action( 'wp_enqueue_scripts', 'ksas_department_tailwind_scripts' );
+
+/**
+ * Dequeue KSAS-SIS-Courses plugin assets on non-SIS Courses template
+ *
+ * Hooked to the wp_print_scripts action, with a late priority (100),
+ * so that it is after the script was enqueued.
+ */
+function dequeue_sis_scripts() {
+	if ( ! is_page_template( '../templates/courses-undergrad-ksasblocks.php' ) ) {
+		wp_dequeue_style( 'data-tables' );
+		wp_dequeue_style( 'data-tables-searchpanes' );
+		wp_dequeue_style( 'courses-css' );
+		wp_dequeue_script( 'data-tables' );
+		wp_dequeue_script( 'data-tables-searchpanes' );
+		wp_dequeue_script( 'data-tables-select' );
+		wp_dequeue_script( 'courses-js' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'dequeue_sis_scripts', 100 );
+
 
 /** Add defer attribute to specific scripts */
 function add_defer_attribute( $tag, $handle ) {

@@ -549,7 +549,8 @@ div[class^="bucket-"] {
   content: "\f1c4";
 }
 
-.entry-title.external-link a:after {
+.entry-title.external-link a:after,
+.main-navigation li.external a:after {
   display: inline-block;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -557,6 +558,11 @@ div[class^="bucket-"] {
   font: var(--fa-font-light);
   content: "\f360";
 }
+
+.main-navigation li.external a:after {
+  font: var(--fa-font-solid);
+}
+
 
 /* Tables
 --------------------------------------------- */
@@ -698,6 +704,7 @@ ul.primary-menu a[aria-current] {
 .main-navigation .nav-primary ul.menu > li.menu-item:not(:last-child)::after {
  @apply relative mr-3 ml-6 opacity-100 text-grey-cool h-2;
  content: "\\";
+ content: "\\" / ""; 
 }
 
 .main-navigation li > a,
@@ -874,11 +881,11 @@ button.menu-button:focus {
    padding: 0.375rem 0.5rem;
    line-height: 1.5;
  }
- #primary-menu > .menu-item.opened > a {
+ #primary-menu > .menu-item.current-menu-parent > a {
    box-shadow: 0 -3px 0 0 #002d72;
  }
 /*.primary-menu ul li.menu-item-has-children:hover > ul*/
-#primary-menu ul li.menu-item-has-children.opened > ul,
+#primary-menu ul li.menu-item-has-children.current-menu-parent > ul,
 #primary-menu ul li.menu-item-has-children:focus > ul,
 #primary-menu ul li.menu-item-has-children.focus > ul {
  left: calc(100% + 1rem);

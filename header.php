@@ -39,10 +39,9 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDL5K37"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<a class="skip-link screen-reader-text sr-only" href="#site-content"><?php esc_html_e( 'Skip to content', 'ksas-department-tailwind' ); ?></a>
 <?php wp_body_open(); ?>
 	<header id="site-header" class="header-footer-group sm:justify-between shadow-md sm:items-baseline w-full" role="banner">
-	<div class="flex justify-end">
+		<div class="flex justify-end">
 			<div class="container relative hidden lg:inline">
 				<div class="text-white float-right bg-blue jhu-link z-10 py-2 pr-2 font-heavy font-bold ">
 					<a class="mr-3 hover:text-blue-light hover:border-b-2 hover:border-white" href="https://www.jhu.edu/">Johns Hopkins University</a>
@@ -100,7 +99,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div><!-- .header-titles-wrapper -->
 		<div class="header-navigation-wrapper bg-white">
 			<div class="header-inner section-inner flex container justify-between">
-			<div class="menu-container">
+				<div class="menu-container">
 					<button class="menu-button" aria-controls="site-header-menu" type="button"><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'ksas-department-tailwind' ); ?></span></button>
 					<div id="site-header-menu" class="site-header-menu text-primary">
 						<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'ksas-department-tailwind' ); ?>">
