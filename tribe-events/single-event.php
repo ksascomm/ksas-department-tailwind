@@ -75,7 +75,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 <div id="tribe-events-content" class="tribe-events-single">
 <h2>hello</h2>
 	<p class="tribe-events-back">
-		<a href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html_x( 'All %s', '%s Events plural label', 'the-events-calendar' ), $events_label_plural ); ?></a>
+		<a href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html_x( 'All %s', '%s Events plural label', 'ksas-department-tailwind' ), $events_label_plural ); ?></a>
 	</p>
 
 	<!-- Notices -->
@@ -93,7 +93,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 	<!-- Event header -->
 	<div id="tribe-events-header" <?php tribe_events_the_header_attributes(); ?>>
 		<!-- Navigation -->
-		<nav class="tribe-events-nav-pagination" aria-label="<?php printf( esc_html__( '%s Navigation', 'the-events-calendar' ), $events_label_singular ); ?>">
+		<nav class="tribe-events-nav-pagination" aria-label="<?php printf( esc_html__( '%s Navigation', 'ksas-department-tailwind' ), $events_label_singular ); ?>">
 			<ul class="tribe-events-sub-nav">
 				<li class="tribe-events-nav-previous"><?php tribe_the_prev_event_link( '<span>&laquo;</span> %title%' ); ?></li>
 				<li class="tribe-events-nav-next"><?php tribe_the_next_event_link( '%title% <span>&raquo;</span>' ); ?></li>
@@ -133,7 +133,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 	<!-- Event footer -->
 	<div id="tribe-events-footer">
 		<!-- Navigation -->
-		<nav class="tribe-events-nav-pagination" aria-label="<?php printf( esc_html__( '%s Navigation', 'the-events-calendar' ), $events_label_singular ); ?>">
+		<nav class="tribe-events-nav-pagination" aria-label="<?php printf( esc_html__( '%s Navigation', 'ksas-department-tailwind' ), $events_label_singular ); ?>">
 			<ul class="tribe-events-sub-nav">
 				<li class="tribe-events-nav-previous"><?php tribe_the_prev_event_link( '<span>&laquo;</span> %title%' ); ?></li>
 				<li class="tribe-events-nav-next"><?php tribe_the_next_event_link( '%title% <span>&raquo;</span>' ); ?></li>

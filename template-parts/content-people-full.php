@@ -213,7 +213,7 @@ if ( function_exists( 'bcn_display' ) ) :
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="sr-only">%s</span>', 'ksas-blocks' ),
+						__( 'Edit <span class="sr-only">%s</span>', 'ksas-department-tailwind' ),
 						array(
 							'span' => array(
 								'class' => array(),

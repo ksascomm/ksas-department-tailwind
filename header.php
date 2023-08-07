@@ -17,24 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="date" content="<?php the_modified_date(); ?>" />
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<meta name="msapplication-config" content="<?php echo esc_url( get_template_directory_uri() ); ?>/dist/images/favicons/browserconfig.xml" />
 	<?php wp_head(); ?>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-100553583-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'UA-100553583-1');
-		gtag('config', 'UA-40512757-1');
-		<?php
-		$analytics_id = get_field( 'google_analytics_id', 'option' );
-		if ( $analytics_id ) :
-			?>
-		gtag('config', '<?php echo $analytics_id; ?>');
-		<?php endif; ?>
-	</script>
-	<!-- End Google Analytics -->
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -118,9 +101,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<div class="header-navigation-wrapper bg-white">
 			<div class="header-inner section-inner flex container justify-between">
 			<div class="menu-container">
-					<button class="menu-button" aria-controls="site-header-menu" type="button"><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'rwc' ); ?></span></button>
+					<button class="menu-button" aria-controls="site-header-menu" type="button"><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'ksas-department-tailwind' ); ?></span></button>
 					<div id="site-header-menu" class="site-header-menu text-primary">
-						<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'rwc' ); ?>">
+						<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'ksas-department-tailwind' ); ?>">
 						<?php
 							wp_nav_menu(
 								array(

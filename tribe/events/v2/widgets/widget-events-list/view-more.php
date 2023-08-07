@@ -22,10 +22,10 @@ if ( empty( $view_more_link ) ) {
 ?>
 <div class="tribe-events-widget-events-list__view-more tribe-common-b1 tribe-common-b2--min-medium">
 	<a
-		href="<?php echo esc_url(site_url('/events/')); ?>"
+		href="<?php echo esc_url(home_url('/events/')); ?>"
 		class="tribe-events-widget-events-list__view-more-link tribe-common-anchor-thin font-bold"
 	>
-		<?php esc_html_e( 'View More Events', 'the-events-calendar' ); ?>
+		<?php esc_html_e( 'View More Events', 'ksas-department-tailwind' ); ?>
 		&nbsp;<span class="fa-solid fa-circle-chevron-right" aria-hidden="true"></span>
 	</a>
 </div>

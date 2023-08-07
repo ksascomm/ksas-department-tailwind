@@ -35,7 +35,7 @@ $event_date_start_attr = $event->dates->start->format( Dates::DBDATEFORMAT );
 				// The date returned back contains HTML and is already escaped.
 				$event_date = $event->schedule_details->value();
 			} elseif ( $event->all_day ) {
-				$event_date = esc_html_x( 'All day', 'All day label for event', 'the-events-calendar' );
+				$event_date = esc_html_x( 'All day', 'All day label for event', 'ksas-department-tailwind' );
 			} else {
 				// The date returned back contains HTML and is already escaped.
 				$event_date = $event->short_schedule_details->value();

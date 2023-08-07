@@ -50,7 +50,7 @@ $time_formatted = apply_filters( 'tribe_events_single_event_time_formatted', $ti
  * @var string Time title
  * @var int Event post id
  */
-$time_title = apply_filters( 'tribe_events_single_event_time_title', __( 'Time:', 'the-events-calendar' ), $event_id );
+$time_title = apply_filters( 'tribe_events_single_event_time_title', __( 'Time:', 'ksas-department-tailwind' ), $event_id );
 
 $cost = tribe_get_formatted_cost();
 $website = tribe_get_event_website_link();
@@ -67,13 +67,13 @@ $website = tribe_get_event_website_link();
 		if ( tribe_event_is_all_day() && tribe_event_is_multiday() ) :
 			?>
 
-			<dt> <?php esc_html_e( 'Start:', 'the-events-calendar' ); ?> </dt>
+			<dt> <?php esc_html_e( 'Start:', 'ksas-department-tailwind' ); ?> </dt>
 			<dd>
 				<abbr class="tribe-events-abbr tribe-events-start-datetime published dtstart" title="<?php echo esc_attr( $start_ts ); ?>"> <?php echo esc_html( $start_date ); ?> </abbr>
 
 			</dd>
 
-			<dt> <?php esc_html_e( 'End:', 'the-events-calendar' ); ?> </dt>
+			<dt> <?php esc_html_e( 'End:', 'ksas-department-tailwind' ); ?> </dt>
 			<dd>
 				<abbr class="tribe-events-abbr dtend" title="<?php echo esc_attr( $end_ts ); ?>"> <?php echo esc_html( $end_date ); ?> </abbr>
 			</dd>
@@ -83,7 +83,7 @@ $website = tribe_get_event_website_link();
 		elseif ( tribe_event_is_all_day() ):
 			?>
 
-			<dt> <?php esc_html_e( 'Date:', 'the-events-calendar' ); ?> </dt>
+			<dt> <?php esc_html_e( 'Date:', 'ksas-department-tailwind' ); ?> </dt>
 			<dd>
 				<abbr class="tribe-events-abbr tribe-events-start-datetime published dtstart" title="<?php echo esc_attr( $start_ts ); ?>"> <?php echo esc_html( $start_date ); ?> </abbr>
 			</dd>
@@ -93,7 +93,7 @@ $website = tribe_get_event_website_link();
 		elseif ( tribe_event_is_multiday() ) :
 			?>
 
-			<dt> <?php esc_html_e( 'Start:', 'the-events-calendar' ); ?> </dt>
+			<dt> <?php esc_html_e( 'Start:', 'ksas-department-tailwind' ); ?> </dt>
 			<dd>
 				<abbr class="tribe-events-abbr updated published dtstart" title="<?php echo esc_attr( $start_ts ); ?>"> <?php echo esc_html( $start_datetime ); ?> </abbr>
 				<?php if ( $show_time_zone ) : ?>
@@ -101,7 +101,7 @@ $website = tribe_get_event_website_link();
 				<?php endif; ?>
 			</dd>
 
-			<dt> <?php esc_html_e( 'End:', 'the-events-calendar' ); ?> </dt>
+			<dt> <?php esc_html_e( 'End:', 'ksas-department-tailwind' ); ?> </dt>
 			<dd>
 				<abbr class="tribe-events-abbr dtend" title="<?php echo esc_attr( $end_ts ); ?>"> <?php echo esc_html( $end_datetime ); ?> </abbr>
 				<?php if ( $show_time_zone ) : ?>
@@ -114,7 +114,7 @@ $website = tribe_get_event_website_link();
 		else :
 			?>
 
-			<dt> <?php esc_html_e( 'Date:', 'the-events-calendar' ); ?> </dt>
+			<dt> <?php esc_html_e( 'Date:', 'ksas-department-tailwind' ); ?> </dt>
 			<dd>
 				<abbr class="tribe-events-abbr tribe-events-start-date published dtstart" title="<?php echo esc_attr( $start_ts ); ?>"> <?php echo esc_html( $start_date ); ?> </abbr>
 			</dd>
@@ -134,7 +134,7 @@ $website = tribe_get_event_website_link();
 		<?php
 		// Event Cost
 		if ( ! empty( $cost ) ) : ?>
-			<dt> <?php esc_html_e( 'Cost:', 'the-events-calendar' ); ?> </dt>
+			<dt> <?php esc_html_e( 'Cost:', 'ksas-department-tailwind' ); ?> </dt>
 			<dd class="tribe-events-event-cost"> <?php echo esc_html( $cost ); ?> </dd>
 		<?php endif ?>
 
@@ -142,7 +142,7 @@ $website = tribe_get_event_website_link();
 		// Event Website
 		if ( ! empty( $website ) ) : ?>
 
-			<dt> <?php esc_html_e( 'Website:', 'the-events-calendar' ); ?> </dt>
+			<dt> <?php esc_html_e( 'Website:', 'ksas-department-tailwind' ); ?> </dt>
 			<dd class="tribe-events-event-url"> <a href="<?php echo tribe_get_event_website_url();?>">Event Website »</a> </dd>
 		<?php endif ?>
 

@@ -14,7 +14,7 @@
  */
 
 $recurrence_data = get_post_meta( $post_id, '_EventRecurrence', true );
-$recurrence_description = $recurrence_data['description'] ? $recurrence_data['description'] : esc_html__( 'Recurring event', 'the-events-calendar' );
+$recurrence_description = $recurrence_data['description'] ? $recurrence_data['description'] : esc_html__( 'Recurring event', 'ksas-department-tailwind' );
 ?>
 
 <div class="tribe-events-single-event-recurrence-description">
@@ -22,7 +22,7 @@ $recurrence_description = $recurrence_data['description'] ? $recurrence_data['de
 	<span><?php echo $recurrence_description ?></span>
 
 	<a href="<?php echo esc_url( tribe_all_occurences_link( $post_id, false ) ) ?>">
-		<?php echo __( '(See All)', 'the-events-calendar' ) ?>
+		<?php echo __( '(See All)', 'ksas-department-tailwind' ) ?>
 	</a>
 
 </div>
