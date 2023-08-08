@@ -21,16 +21,16 @@ const TailwindExtractor = (content) => {
   ========================================================================== */
 mix
   // handle JS files
-  .scripts(["resources/js/twentytwenty.js", "resources/js/isotope.js","resources/js/accordion.js", "resources/js/navbar.js"], "dist/js/bundle.min.js")
+  .scripts(["resources/js/twentytwenty.js", "resources/js/wai-accordion.js", "resources/js/navbar.js"], "dist/js/bundle.min.js")
   //.disableNotifications()
 
   .postCss("./resources/css/style.css", "./dist/css/style.css", [
     require("tailwindcss")("./tailwind.config.js"),
   ])
 
-  //Minify and move js to dist directory
-  //.babel(
-  //  ["resources/js/app.js"], "dist/js/bundle.js")
+  //Minify and move isotope to dist directory
+  .babel(
+    ["resources/js/isotope.js"], "dist/js/isotope.js")
 
   // Move images to dist directory
   .copyDirectory("resources/images", "dist/images")

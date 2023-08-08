@@ -70,7 +70,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						if (
 								$ksas_department_tailwind_description || is_customize_preview() ) :
 							$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
-							echo '<span class="block font-normal sm:pt-4 lg:pt-0 text-xl">' . $ksas_department_tailwind_description . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+							echo '<span class="block font-normal sm:pt-4 lg:pt-0 text-xl xl:text-2xl">' . $ksas_department_tailwind_description . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 							?>
 							<?php endif; ?>
 						<a class="text-blue hover:text-blue-light" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">

@@ -56,6 +56,6 @@ function ksas_department_tailwind_customize_partial_blogdescription() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function ksas_department_tailwind_customize_preview_js() {
-	wp_enqueue_script( 'ksas-department-tailwind-customizer', get_template_directory_uri() . '/resources/js/customizer.js', array( 'customize-preview' ), KSAS_DEPARTMENT__TAILWIND_VERSION, true );
+	wp_enqueue_script( 'ksas-department-tailwind-customizer', get_template_directory_uri() . '/resources/js/customizer.js', array( 'customize-preview' ), KSAS_DEPARTMENT_TAILWIND_VERSION, true );
 }
 add_action( 'customize_preview_init', 'ksas_department_tailwind_customize_preview_js' );

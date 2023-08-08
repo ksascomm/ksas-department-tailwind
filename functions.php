@@ -7,9 +7,9 @@
  * @package KSAS_Department_Tailwind
  */
 
-if ( ! defined( 'KSAS_DEPARTMENT__TAILWIND_VERSION' ) ) {
+if ( ! defined( 'KSAS_DEPARTMENT_TAILWIND_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'KSAS_DEPARTMENT__TAILWIND_VERSION', '1.0.0' );
+	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '1.0.0' );
 }
 
 if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
@@ -307,7 +307,7 @@ function ksas_department_tailwind_scripts() {
 	wp_enqueue_style( 'ksas-department-tailwind-style', get_template_directory_uri() . '/dist/css/style.css', array(), filemtime( get_template_directory() . '/dist/css/style.css' ), false );
 	wp_style_add_data( 'ksas-department-tailwind-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'ksas-department-tailwind-script', get_template_directory_uri() . '/dist/js/bundle.min.js', array( 'jquery' ), KSAS_DEPARTMENT__TAILWIND_VERSION, true );
+	wp_enqueue_script( 'ksas-department-tailwind-script', get_template_directory_uri() . '/dist/js/bundle.min.js', array( 'jquery' ), KSAS_DEPARTMENT_TAILWIND_VERSION, true );
 	wp_script_add_data( 'ksas-department-tailwind-script', 'defer', true );
 
 	wp_enqueue_script( 'font-awesome', 'https://kit.fontawesome.com/72c92fef89.js', array(), '6.1.2', false );
