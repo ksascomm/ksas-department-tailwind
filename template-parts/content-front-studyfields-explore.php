@@ -84,7 +84,7 @@ if ( ! empty( $studyfield_response ) ) :
 				$random_img_alt = $random_images[0]['homepage_hero_image']['alt'];
 				$random_img_title = $random_images[0]['homepage_hero_image']['title'];
 				?>
-			<img class="!mt-0 h-56 w-full object-cover sm:h-72 lg:w-full lg:h-full" id="slide-<?php echo esc_html( $random_img_title ); ?>" src="<?php echo esc_url( $random_img_url ); ?>" alt="<?php echo esc_html( $random_img_alt ); ?>" />
+			<img class="!mt-0 h-56 w-full object-cover sm:h-72 lg:w-full lg:h-full slide-<?php echo esc_html( $random_img_title ); ?>" src="<?php echo esc_url( $random_img_url ); ?>" alt="<?php echo esc_html( $random_img_alt ); ?>" />
 		<?php else : ?>
 			<?php
 			the_post_thumbnail(
@@ -110,9 +110,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 		<!--Print Heading if there-->
 		<?php if ( $heading ) : ?>
 			<div class="px-8 mt-12 xl:mt-18 mb-4">
-				<header aria-label="<?php the_field( 'buckets_heading' ); ?>">
-					<h2 class="!my-0  mx-auto"><?php echo esc_html( $heading ); ?></h2>
-				</header>
+				<h2 class="!my-0  mx-auto"><?php echo esc_html( $heading ); ?></h2>
 			</div>
 		<?php endif; ?>
 		<!--Show Columns Dynamically-->
@@ -125,7 +123,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 		while ( have_rows( 'explore_the_department' ) ) :
 			the_row();
 			?>
-			<div class="bucket relative not-prose bucket-<?php echo get_row_index(); ?>" aria-label="<?php the_sub_field( 'explore_bucket_heading' ); ?>">
+			<div class="bucket relative not-prose bucket-<?php echo get_row_index(); ?>">
 				<?php
 				$image = get_sub_field( 'explore_bucket_image' );
 				if ( get_sub_field( 'explore_bucket_image' ) ) :
