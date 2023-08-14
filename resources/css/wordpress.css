@@ -702,7 +702,7 @@ ul.primary-menu a[aria-current] {
   @apply font-sans text-lg relative;
 }
 .main-navigation .nav-primary ul.menu > li.menu-item:not(:last-child)::after {
- @apply relative mr-3 ml-6 opacity-100 text-grey-cool h-2;
+ @apply relative mr-3 ml-4 opacity-100 text-grey-cool h-2;
  content: "\\";
  content: "\\" / ""; 
 }
@@ -784,8 +784,13 @@ button.dropdown-toggle {
   position: absolute;
   right: 15px;
   margin-left: 10px;
-  padding: 2px;
+  padding: .5rem;
 }
+
+.menu-item-has-children button.dropdown-toggle:hover {
+@apply bg-grey bg-opacity-50;
+}
+
 .dropdown-toggle:after, .dropdown-toggle.toggled-on:after {
   font-size: 1rem;
 }
