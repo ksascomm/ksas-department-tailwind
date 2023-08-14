@@ -67,10 +67,10 @@ get_header();
 					<?php endforeach; ?>
 				</div>
 			<?php endif; ?>
-			<h4 class="mt-4 md:mt-0">
+			<h4 class="mt-4">
 				<label class="heading" for="id_search">Search by name, title, or research interests:</label>
 			</h4>
-			<div class="w-auto search-form my-2">
+			<div class="w-auto search-form my-2 px-2">
 				<input class="quicksearch ml-2 p-2 form-input w-full md:w-1/2" type="search" name="search" id="id_search" aria-label="Search Fields of Study" placeholder="Enter description keyword"/>
 			</div>
 		</div>

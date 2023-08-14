@@ -287,7 +287,7 @@ span.posted-on {
 }
 
 .news-section a.button {
-  @apply bg-blue text-white inline-flex py-2 px-3 text-base items-center border-none focus:outline-none;
+  @apply bg-blue text-white inline-flex py-2 px-3 text-base items-center border-none;
 }
 
 .news-section a.button:hover {
@@ -746,6 +746,7 @@ ul.primary-menu a[aria-current] {
 }
 .main-navigation ul ul li a:hover {
  @apply bg-grey-lightest border-l-4 border-blue;
+ transition: border-color .5s ease-in-out;
  border-bottom-width: 0 !important;
 }
 .main-navigation ul ul li:last-child {
@@ -888,8 +889,8 @@ button.menu-button:focus {
 #primary-menu ul li.menu-item-has-children.current-menu-parent > ul,
 #primary-menu ul li.menu-item-has-children:focus > ul,
 #primary-menu ul li.menu-item-has-children.focus > ul {
- left: calc(100% + 1rem);
- margin-top: .25rem;
+ left: calc(100% + .5rem);
+ margin-top: .125rem;
 }
  .main-navigation li > a {
    display: inline-block;
@@ -902,7 +903,7 @@ button.menu-button:focus {
     left: 0;
     padding: 0;
     z-index: 999;
-    @apply bg-white
+    @apply bg-white border-b border-l border-r border-grey-cool;
     /*border-radius: 15px;
     padding: 25px;*/
  }
@@ -2327,6 +2328,11 @@ p.tribe-events-back a,
 
 .prose .wp-block-button .wp-block-button__link {
   @apply text-white bg-blue border-0;
+}
+
+.prose .wp-block-button a.wp-block-button__link strong {
+  @apply text-white;
+  background: transparent;
 }
 
 .prose .wp-block-button.is-style-outline .wp-block-button__link {

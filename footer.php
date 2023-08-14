@@ -88,6 +88,7 @@
 		<div>
 			<a href="https://www.jhu.edu/" class="hover:opacity-50">
 			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/dist/images/university.shield.svg" class="w-52 inline-block pl-4 mb-8 md:mb-0" alt="JHU shield in the footer">
+			<div class="sr-only">Link to Johns Hopkins Univeristy main website</div>
 			</a>
 		</div>
 		<div>
