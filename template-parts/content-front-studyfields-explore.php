@@ -130,7 +130,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 					?>
 					<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'lg:blur-[1px] w-full' ) ); ?>
 				<?php endif; ?>
-				<div class="p-8 bucket-text lg:top-0 lg:right-0 lg:left-0 lg:bottom-0 lg:inset-0 lg:absolute">
+				<div class="p-6 bucket-text lg:top-0 lg:right-0 lg:left-0 lg:bottom-0 lg:inset-0 lg:absolute">
 					<h3 class="text-2xl 2xl:text-3xl not-prose">
 						<?php if ( get_sub_field( 'explore_bucket_link' ) ) : ?>
 						<a href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
@@ -140,7 +140,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 							<?php the_sub_field( 'explore_bucket_heading' ); ?>
 						<?php endif; ?>
 					</h3>
-					<p class="leading-normal text-lg 2xl:text-xl tracking-wide"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
+					<p class="leading-6 text-lg 2xl:text-xl tracking-wide"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
 				</div>
 			</div>
 		<?php endwhile; ?>

@@ -11,8 +11,8 @@
 
 <div class="alignfull featured-image-area" role="banner">
 	<div class="flex bg-white lg:bg-grey-cool lg:bg-opacity-50 h-20 lg:h-80">
-		<div class="flex lg:items-center lg:justify-center text-left px-6 sm:w-full lg:w-2/5">
-			<h1 class="tracking-tight leading-10 sm:leading-none text-3xl xl:text-[44px] py-8">
+		<div class="flex lg:items-center lg:justify-start xl:justify-center text-left px-6 sm:w-full lg:w-2/5">
+			<h1 class="tracking-tight leading-10 sm:leading-none lg:text-4xl xl:text-[44px] lg:pl-2 xl:pl-0 py-8">
 				<?php the_title(); ?>
 			</h1>
 		</div>

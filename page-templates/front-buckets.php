@@ -45,7 +45,7 @@ get_header();
 
 		<div class="news-section px-2 sm:px-0">
 			<div class="prose sm:prose lg:prose-lg xl:prose-xl mx-auto">
-				<div class="flex flex-wrap justify-between px-4 lg:px-0">
+				<div class="flex flex-wrap justify-between px-4 lg:px-2">
 					<div>
 						<h2 class="pb-4 md:pb-0"><?php echo esc_html( $heading ); ?></h2>
 					</div>

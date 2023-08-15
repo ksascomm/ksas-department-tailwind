@@ -430,7 +430,13 @@ div[class^="bucket-"] {
 }
 
 .bucket-1 .bucket-text, .bucket-3 .bucket-text {
-  @apply bg-blue bg-opacity-75 text-white;
+  @apply bg-blue text-white;
+}
+
+@screen lg {
+  .bucket-1 .bucket-text, .bucket-3 .bucket-text {
+    @apply bg-opacity-75;
+  }
 }
 
 .bucket-1 .bucket-text a, .bucket-3 .bucket-text a {
@@ -1205,9 +1211,9 @@ footer.entry-footer {
   @apply my-4 text-2xl;
 }
 
-.below-news-widget-section .widget-area:nth-of-type(1) {
+/*.below-news-widget-section .widget-area:nth-of-type(1) {
   @apply bg-grey-cool bg-opacity-50;
-}
+}*/
 
 @screen lg {
   .below-news-widget-section .widget-area:nth-of-type(1) {
@@ -1349,6 +1355,11 @@ footer.entry-footer {
   padding-top: calc(2 * var(--footer-widget----spacing-vertical));
 }
 
+.footer-widget-area h2,
+.below-news-widget-section h2 {
+  @apply text-2xl;
+}
+
 .footer-widget-area .widget,
 .footer-widget-area .tribe-compatibility-container {
   @apply bg-none border-none shadow-none lg:px-12;
@@ -1359,12 +1370,12 @@ footer.entry-footer {
   display: none;
 }
 
-@media only screen and (min-width: 652px) {
+@media only screen and (min-width: 768px) {
   .footer-widget-area {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    justify-items: end;
     column-gap: calc(2 * var(--footer-widget----spacing-horizontal));
+    padding: 1rem;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -1535,7 +1546,7 @@ footer.entry-footer {
 
 /*! purgecss start ignore */
 .widget.ksas_books .book-listings {
- @apply mx-auto lg:grid lg:grid-flow-col lg:auto-cols-auto lg:gap-4; 
+ @apply mx-auto grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4; 
 }
 
 .widget.ksas_books {
@@ -1543,11 +1554,11 @@ footer.entry-footer {
 }
 
 .widget.ksas_books article {
-  @apply md:shadow-md mx-6 my-2 md:my-0 p-4 md:p-2 lg:w-72 border-2 border-grey lg:border-0;
+  @apply md:shadow-md mx-6 my-2 md:my-0 p-4 md:p-2 lg:w-56 xl:w-72 border-2 border-grey lg:border-0;
 }
 
 .widget.ksas_books article img {
-  @apply md:h-80 md:w-60 md:mx-auto;
+  @apply xl:h-80 xl:w-60 md:mx-auto;
 }
 
 
@@ -2128,7 +2139,7 @@ table.tablepress thead th {
 }
 
 .tribe-events-widget-events-list__view-more-link.tribe-common-anchor-thin {
-  @apply font-sans bg-blue text-white inline-flex py-2 px-3 text-base items-center border-none focus:outline-none !important;
+  @apply font-sans bg-blue text-white inline-flex py-2 px-3 text-base items-center border-none !important;
   font-weight: 500;
 }
 
@@ -2445,7 +2456,7 @@ a {
   --tw-text-opacity: 1;
   color: rgba(254, 254, 254, var(--tw-text-opacity));
   border-radius: 0;
-  @apply bg-blue text-white text-base items-center border-none focus:outline-none;
+  @apply bg-blue text-white text-base items-center border-none;
 }
 
 .wp-block-buttons > .wp-block-button.wp-block-button__width-50 {
