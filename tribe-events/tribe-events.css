@@ -398,9 +398,16 @@ grid-auto-flow: column;
   flex-wrap: wrap;
 }
 
-
 .page-template.tribe-js .site-main .entry-content .tribe-common.alignwide .tribe-common-l-container {
   padding-left: 0;
   padding-right: 0;
   padding-top: 2rem;
+}
+
+/* Hide Flyers or Images without alt text! */
+.tribe-events-single img[alt=""],
+.tribe-events-single img:not([alt]),
+img.tribe-events-calendar-latest-past__event-featured-image[alt=""],
+img.tribe-events-calendar-latest-past__event-featured-image:not([alt]) {
+  display: none;
 }
