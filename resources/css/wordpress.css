@@ -1924,9 +1924,6 @@ summary::-webkit-details-marker {
   @apply !pl-0;
 }
 
-.prose .tabbed a:hover {
-  @apply border-none;
-}
 
 [role="tablist"] {
   margin-block: 0 !important;
@@ -1938,17 +1935,20 @@ summary::-webkit-details-marker {
   display: inline-block;
 }
 
+.prose .tabbed a {
+  border-bottom-width: 2px;
+  border-color: transparent;
+  border-style: solid;
+}
+
 [role="tablist"] a {
   text-decoration: none;
   padding: 0.5rem 1em;
-  @apply block p-5 leading-normal cursor-pointer font-semi font-semibold border-none;
+  @apply block p-5 leading-normal cursor-pointer font-semi font-semibold;
 }
 
 [role="tablist"] [aria-selected] {
   @apply text-primary bg-grey-cool bg-opacity-50;
-  border-bottom: 0;
-  position: relative;
-  top: 2px;
 }
 
 [role="tabpanel"] {
@@ -1972,10 +1972,6 @@ summary::-webkit-details-marker {
 
   [role="tablist"] [aria-selected]::after {
     content: "\0020⬅";
-  }
-
-  .tabbed [role="tablist"] a:hover {
-    @apply border-primary border-2 border-solid;
   }
 }
 
@@ -2009,7 +2005,13 @@ summary::-webkit-details-marker {
 
 /* Faculty Books
 --------------------------------------------- */
+.single-people .faculty-books h1 {
+ @apply leading-normal text-lg font-semi font-semibold mt-2;
+}
 
+.single-people .faculty-books p {
+  @apply !my-0;
+ }
 
 /*--------------------------------------------------------------
 # Plugins
@@ -3030,7 +3032,7 @@ body:not(.enable-search-modal) .site-logo img {
 
 .toggle-inner .toggle-text {
   font-size: 1rem;
-  font-weight: 600;
+  /*font-weight: 600;*/
   position: absolute;
   top: calc(100% + 0.25rem);
   width: auto;

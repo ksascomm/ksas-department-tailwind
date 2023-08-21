@@ -23,23 +23,6 @@ if ( is_active_sidebar( $custom_sidebar_widget ) ) :
 <?php /** Widgetized Sidebars  */ ?>
 
 	<?php
-
-	if ( function_exists( 'get_field' ) && get_field( 'ecpt_page_sidebar' ) ) :
-		?>
-
-	<aside class="custom page-widgets" aria-labelledby="custom-sidebar-content">
-		<!-- ACF Page Specific Sidebar -->
-		<div class="widget ecpt-page-sidebar" id="custom-sidebar-content">
-			<?php
-			$content = get_field( 'ecpt_page_sidebar', false, false );
-			echo apply_filters( 'acf_the_content', wp_kses_post( $content ) );
-			?>
-		</div>
-	</aside>
-		<?php
-	endif;
-	?>
-	<?php
 	// Get the array of ancestors!
 		$ancestors     = get_post_ancestors( $post->ID );
 		$ancestor_id   = ( $ancestors ) ? $ancestors[ count( $ancestors ) - 1 ] : $post->ID;

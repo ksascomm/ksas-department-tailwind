@@ -49,11 +49,11 @@ if ( $faculty_book_tab_query->have_posts() ) :
 	<div class="h-full px-3 py-2">
 		<div class="h-56 bg-cover bg-top rounded mb-4" style="background-image: url(<?php the_post_thumbnail_url( 'full' ); ?>)">
 		</div>
-		<h1 class="!leading-tight !text-lg font-semi font-semibold mt-2">
+		<h1>
 			<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 		</h1>
 
-		<p class="!my-0 !leading-tight">
+		<p>
 			<span class="capitalize pb-2"><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_role', true ) ); ?></span>
 			<?php
 			if ( get_post_meta( $post->ID, 'ecpt_author_cond', true ) == 'on' ) {
