@@ -296,7 +296,7 @@ Segoe UI, sans-serif;
 }
 
 .tribe-block__venue {
-  border: none;
+  border: none !important;
 }
 
 /* AGHI/Non-Block Editor Styles */
@@ -309,17 +309,17 @@ Segoe UI, sans-serif;
 }
 
 .tribe-events-content a {
-	border-bottom-width: 2px;
-border-style: dashed;
---tw-border-opacity: 1;
-border-color: rgba(229, 226, 224, var(--tw-border-opacity));
---tw-text-opacity: 1;
-text-decoration: none;
-transition-property: background-color, border-color, color, fill, stroke;
-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-transition-duration: 150ms;
-transition-duration: 200ms;
-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom-width: 2px;
+  border-style: dashed;
+  --tw-border-opacity: 1;
+  border-color: rgba(229, 226, 224, var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  text-decoration: none;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tribe-events-content a:hover {
