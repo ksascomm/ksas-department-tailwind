@@ -64,13 +64,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<?php endif; ?>
 					</div>
 					<div class="lg:col-span-2">
-						<h1 class="site-title font-serif font-bold text-4xl lg:text-[42px] xl:text-[48px] mt-4 lg:mt-0 mb-12 md:mb-0 pt-2 text-center lg:text-left">
+						<h1 class="site-title font-serifBold font-medium text-4xl lg:text-[42px] xl:text-[48px] mt-4 lg:mt-0 mb-12 md:mb-0 pt-2 text-center lg:text-left">
 						<?php
-								$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
-						if (
-								$ksas_department_tailwind_description || is_customize_preview() ) :
 							$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
-							echo '<span class="block font-normal sm:pt-4 lg:pt-0 text-xl xl:text-2xl">' . $ksas_department_tailwind_description . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+						if (
+							$ksas_department_tailwind_description || is_customize_preview() ) :
+							$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
+							echo '<span class="block font-medium font-serif sm:pt-4 lg:pt-0 text-xl xl:text-2xl">' . $ksas_department_tailwind_description . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 							?>
 							<?php endif; ?>
 						<a class="text-blue hover:text-blue-light" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">

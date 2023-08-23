@@ -52,7 +52,6 @@ if ( $faculty_book_tab_query->have_posts() ) :
 		<h1>
 			<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 		</h1>
-
 		<p>
 			<span class="capitalize pb-2"><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_role', true ) ); ?></span>
 			<?php

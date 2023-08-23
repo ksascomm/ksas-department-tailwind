@@ -69,8 +69,8 @@ if ( $the_query->have_posts() ) : ?>
 					<?php the_excerpt(); ?>
 				<?php endif; ?>
 			</div>
-			<p class="text-xl font-semi"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></p>
-			<p class="text-lg font-semi">
+			<p class="text-xl font-semi font-semibold"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></p>
+			<p class="text-lg font-semi font-semibold">
 			<?php
 			global $post;
 			the_field( 'fields_of_study', $post->ID );

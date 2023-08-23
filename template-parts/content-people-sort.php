@@ -31,7 +31,7 @@
 		</div>
 	<?php endif; ?>
 	<div class="flex-grow contact-info">
-		<h2 class="font-heavy !text-2xl">
+		<h2 class="font-heavy font-bold !text-2xl">
 		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>'s webpage">
 				<?php the_title(); ?>

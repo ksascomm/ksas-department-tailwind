@@ -6,6 +6,7 @@
             "key": "field_606efffac71d8",
             "label": "Custom Sidebar Widget",
             "name": "custom_sidebar",
+            "aria-label": "",
             "type": "select",
             "instructions": "Choose which sidebar widget # you want to display",
             "required": 0,
@@ -52,7 +53,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": false,
     "description": "",
-    "modified": 1623091065
+    "show_in_rest": false,
+    "modified": 1692197977
 }

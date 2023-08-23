@@ -2,6 +2,8 @@
     "/dist/css/style.css": "/dist/css/style.css",
     "/dist/js/bundle.min.js": "/dist/js/bundle.min.js",
     "/dist/js/isotope.js": "/dist/js/isotope.js",
+    "/dist/js/people-tabs.js": "/dist/js/people-tabs.js",
+    "/blocks/spotlight/spotlight.min.css": "/blocks/spotlight/spotlight.min.css",
     "/dist/images/blueInWhite_corner1.svg": "/dist/images/blueInWhite_corner1.svg",
     "/dist/images/campus1.jpg": "/dist/images/campus1.jpg",
     "/dist/images/campus2.jpg": "/dist/images/campus2.jpg",
@@ -45,5 +47,6 @@
     "/dist/fonts/gentona/Gentona-Bold.woff": "/dist/fonts/gentona/Gentona-Bold.woff",
     "/dist/fonts/gentona/Gentona-Light.woff": "/dist/fonts/gentona/Gentona-Light.woff",
     "/dist/fonts/gentona/Gentona-SemiBold.woff": "/dist/fonts/gentona/Gentona-SemiBold.woff",
+    "/dist/fonts/quadon/Quadon-Bold.woff": "/dist/fonts/quadon/Quadon-Bold.woff",
     "/dist/fonts/quadon/Quadon-Medium.woff": "/dist/fonts/quadon/Quadon-Medium.woff"
 }

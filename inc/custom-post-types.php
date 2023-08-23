@@ -18,6 +18,10 @@ function ksas_blocks_custom_posts_scripts() {
 		wp_enqueue_script( 'isotope-packaged', 'https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js', array(), '3.0.6', true );
 		wp_enqueue_script( 'isotope-local', get_template_directory_uri() . '/dist/js/isotope.js', array( 'jquery' ), KSAS_DEPARTMENT_TAILWIND_VERSION, true );
 	endif;
+
+	if ( is_singular( 'people' ) ) :
+		wp_enqueue_script( 'people-tabs', get_template_directory_uri() . '/dist/js/people-tabs.js', array( 'jquery' ), KSAS_DEPARTMENT_TAILWIND_VERSION, true );
+	endif;
 }
 
 /**

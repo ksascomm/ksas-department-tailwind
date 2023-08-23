@@ -2,7 +2,7 @@
     "name": "acf/spotlights",
     "title": "Spotlights",
     "description": "A custom block show Testimonials/Profiles.",
-    "style": [ "file:./spotlight.css" ],
+    "style": [ "file:./spotlight.min.css" ],
     "category": "formatting",
     "icon": "admin-comments",
     "keywords": ["testimonial", "quote", "spotlight", "profiles", "students", "alumni"],

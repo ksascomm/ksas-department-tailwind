@@ -44,15 +44,15 @@ module.exports = {
       '2xl': '1536px',
     },
     colors: {
-      primary: "#31261D",
-      "old-black": "#2c2c33",
-      "grey-darkest": "#4A484C",
-      grey: "#e5e2e0",
-      "grey-lightest": "#F8F8F8",
-      "grey-cool": "#bfccd9",
-      white: "#fefefe",
       blue: "#002d72",
+      primary: "#31261D",
+      white: "#fefefe",
+      grey: "#e5e2e0",
       "blue-light": "#68ace5",
+      "grey-cool": "#bfccd9",
+      "grey-darkest": "#4A484C",
+      "grey-lightest": "#F8F8F8",
+      "old-black": "#2c2c33",
       "original-black": "#000",
     },
     fontSize: {
@@ -64,30 +64,20 @@ module.exports = {
       "4xl": "2.25rem",
     },
     fontWeight: {
+      light: "300",
       normal: "400",
+      medium: "500",
       semibold: "600",
       bold: "700",
     },
     fontFamily: {
-      sans: [
-        "Gentona-Light",
-        "system-ui",
-        "BlinkMacSystemFont",
-        "-apple-system",
-        "Segoe UI",
-        "sans-serif",
-      ],
-      serif: ["Quadon", "Georgia", "serif"],
       mono: [
         "Menlo",
         "Monaco",
-        "Consolas",
-        "Liberation Mono",
-        "Courier New",
         "monospace",
       ],
-      heavy: [
-        "Gentona-Bold",
+      sans: [
+        "gentona-light",
         "system-ui",
         "BlinkMacSystemFont",
         "-apple-system",
@@ -95,13 +85,23 @@ module.exports = {
         "sans-serif",
       ],
       semi: [
-        "Gentona-SemiBold",
+        "gentona-semibold",
         "system-ui",
         "BlinkMacSystemFont",
         "-apple-system",
         "Segoe UI",
         "sans-serif",
       ],
+      heavy: [
+        "gentona-bold",
+        "system-ui",
+        "BlinkMacSystemFont",
+        "-apple-system",
+        "Segoe UI",
+        "sans-serif",
+      ],
+      serif: ["quadon-medium",  "Georgia", "serif"],
+      serifBold: ["quadon-bold",  "Georgia", "serif"],
     },
     extend: {
       typography: {
@@ -139,38 +139,49 @@ module.exports = {
               h1: {
                 marginBottom: "0rem",
                 fontSize: "2.25rem",
+                fontWeight: "500",
               },
               h2: {
                 marginTop: "0.5rem",
                 marginBottom: "0.5rem",
                 maxWidth: "90ch",
                 fontSize: "2rem",
+                fontWeight: "400",
               },
               h3: {
                 marginTop: "0.5rem",
                 marginBottom: "0.5rem",
                 fontSize: "1.6rem",
+                fontWeight: "400",
               },
               h4: {
                 marginTop: "0.5rem",
                 marginBottom: "0.5rem",
                 fontSize: "1.25rem",
+                fontWeight: "400",
+              },
+              h5 : {
+                fontWeight: "400",
               },
               p: {
                 marginTop: "1rem",
                 marginBottom: "1rem",
+                fontWeight: 300,
               },
               li: {
                 maxWidth: "90ch",
                 marginTop: "0rem",
                 marginBottom: ".25rem",
+                fontWeight: 300,
               },
               a: {
                 textDecoration: "none",
                 transition: "none",
+                fontWeight: 300,
               },
               strong: {
                 fontFamily: "Gentona-Bold, system-ui",
+                fontWeight: 700,
               },
               table: {
                 fontSize: "1rem",

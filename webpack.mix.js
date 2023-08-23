@@ -20,17 +20,24 @@ const TailwindExtractor = (content) => {
   Laravel Mix Config
   ========================================================================== */
 mix
-  // handle JS files
-  .scripts(["resources/js/twentytwenty.js", "resources/js/wai-accordion.js", "resources/js/people-tabs.js","resources/js/navbar.js"], "dist/js/bundle.min.js")
+  // handle site-wide JS files
+  .scripts(["resources/js/twentytwenty.js", "resources/js/wai-accordion.js","resources/js/navbar.js"], "dist/js/bundle.min.js")
+
+  //Minify and move isotope to dist directory
+  .scripts(
+    ["resources/js/isotope.js"], "dist/js/isotope.js")
+
+ //Minify and move People Tabs to dist directory
+  .scripts(
+    ["resources/js/people-tabs.js"], "dist/js/people-tabs.js")
   //.disableNotifications()
 
   .postCss("./resources/css/style.css", "./dist/css/style.css", [
     require("tailwindcss")("./tailwind.config.js"),
   ])
 
-  //Minify and move isotope to dist directory
-  .babel(
-    ["resources/js/isotope.js"], "dist/js/isotope.js")
+  // Minify spotlight blocks
+  .minify("./blocks/spotlight/spotlight.css")
 
   // Move images to dist directory
   .copyDirectory("resources/images", "dist/images")
@@ -147,6 +154,7 @@ if (mix.inProduction()) {
           "wp-post-image",
           "!list-none",
           "tablepress",
+          "a:where(:not(.wp-element-button))",
           /^has-/,
           /(^wp-block-)\w+/,
           /(^c-accordion)\w+/,

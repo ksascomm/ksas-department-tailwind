@@ -35,14 +35,14 @@
 	</div>
 	<div class="py-6 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
 		<div class="col-span-4 lg:col-span-2 m-2 mt-6 lg:ml-6">
-			<h1 class="text-xl font-sans"><?php bloginfo( 'description' ); ?> <?php bloginfo( 'name' ); ?></h1>
+			<h1 class="text-xl font-sans !font-light"><?php bloginfo( 'description' ); ?> <?php bloginfo( 'name' ); ?></h1>
 		<?php if ( get_field( 'custom_address', 'option' ) ) : ?>
-			<div>
+			<div class="font-sans font-light">
 				Johns Hopkins University
 				<?php the_field( 'custom_address', 'option' ); ?>
 			</div>
 			<?php else : ?>
-			<p class="text-lg">Johns Hopkins University<br>3400 N. Charles St<br>Baltimore, MD 21218</p>
+			<p class="text-lg font-sans font-light">Johns Hopkins University<br>3400 N. Charles St<br>Baltimore, MD 21218</p>
 			<?php endif; ?>
 		</div>
 
@@ -54,12 +54,12 @@
 		$department_location = get_field( 'department_location', 'option' );
 		if ( $department_email || $department_phone || $department_location ) :
 			?>
-			<h2 class="text-lg font-sans">Contact Us</h2>
+			<h2 class="text-lg font-sans !font-light">Contact Us</h2>
 			<?php if ( $department_email ) : ?>
-			<p class="text-lg"><span class="fa-solid fa-envelope"></span> <a href="<?php echo esc_url( 'mailto:' . antispambot( get_field( 'department_email', 'option' ) ) ); ?>"><?php echo esc_html( antispambot( get_field( 'department_email', 'option' ) ) ); ?></a></p>
+			<p class="text-lg"><span class="fa-solid fa-envelope"></span> <a class="font-sans font-light" href="<?php echo esc_url( 'mailto:' . antispambot( get_field( 'department_email', 'option' ) ) ); ?>"><?php echo esc_html( antispambot( get_field( 'department_email', 'option' ) ) ); ?></a></p>
 			<?php endif; ?>
 			<?php if ( $department_phone ) : ?>
-			<p class="text-lg"><span class="fa-solid fa-phone-rotary"></span> <a href="tel:<?php the_field( 'department_phone', 'option' ); ?>"><?php the_field( 'department_phone', 'option' ); ?></a></p>
+			<p class="text-lg"><span class="fa-solid fa-phone-rotary"></span> <a class="font-sans font-light" href="tel:<?php the_field( 'department_phone', 'option' ); ?>"><?php the_field( 'department_phone', 'option' ); ?></a></p>
 			<?php endif; ?>
 			<?php if ( $department_location ) : ?>
 				<p class="text-lg">
@@ -68,7 +68,7 @@
 					$building = $department_location['address'];
 					$address  = urlencode_deep( "{$building}" );
 					?>
-					<a href="https://www.google.com/maps/search/?api=1&query=<?php echo esc_html( $address ); ?>" target="_blank">
+					<a class="font-sans font-light" href="https://www.google.com/maps/search/?api=1&query=<?php echo esc_html( $address ); ?>" target="_blank">
 						<span class="fa-solid fa-map"></span> Google Maps Link
 					</a>
 				</p>
@@ -93,10 +93,10 @@
 		</div>
 		<div>
 			<ul class="lg:flex lg:flex-wrap lg:justify-between" role="menu" aria-label="University Policies">
-				<li class="pl-4 lg:pl-0" role="menuitem">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> </li>
-				<li class="pl-4" role="menuitem"><a href="https://accessibility.jhu.edu/">Accessibility</a></li>
-				<li class="pl-4" role="menuitem"><a href="https://it.johnshopkins.edu/policies/privacystatement">Privacy Statement</a></li>
-				<li class="pl-4" role="menuitem"><a href="https://policies.jhu.edu/">University Policy & Document Library</a></li>
+				<li class="pl-4 lg:pl-0 font-sans font-light" role="menuitem">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> </li>
+				<li class="pl-4" role="menuitem"><a class="font-sans font-light" href="https://accessibility.jhu.edu/">Accessibility</a></li>
+				<li class="pl-4" role="menuitem"><a class="font-sans font-light" href="https://it.johnshopkins.edu/policies/privacystatement">Privacy Statement</a></li>
+				<li class="pl-4" role="menuitem"><a class="font-sans font-light" href="https://policies.jhu.edu/">University Policy & Document Library</a></li>
 			</ul>
 		</div>
 	</div>
