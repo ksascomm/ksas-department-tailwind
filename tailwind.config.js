@@ -146,22 +146,22 @@ module.exports = {
                 marginBottom: "0.5rem",
                 maxWidth: "90ch",
                 fontSize: "2rem",
-                fontWeight: "400",
+                fontWeight: "600",
               },
               h3: {
                 marginTop: "0.5rem",
                 marginBottom: "0.5rem",
                 fontSize: "1.6rem",
-                fontWeight: "400",
+                fontWeight: "600",
               },
               h4: {
                 marginTop: "0.5rem",
                 marginBottom: "0.5rem",
                 fontSize: "1.25rem",
-                fontWeight: "400",
+                fontWeight: "600",
               },
               h5 : {
-                fontWeight: "400",
+                fontWeight: "600",
               },
               p: {
                 marginTop: "1rem",

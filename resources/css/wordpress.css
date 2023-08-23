@@ -2323,6 +2323,10 @@ p.tribe-events-back a,
   @apply mt-0 mb-2;
 }
 
+.article-excerpt h3.entry-title a {
+  @apply font-semi font-semibold;
+}
+
 .blog .prose.article-excerpt entry-meta {
   @apply mb-0;
 }
