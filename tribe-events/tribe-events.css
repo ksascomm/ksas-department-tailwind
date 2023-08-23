@@ -201,6 +201,11 @@ a.tribe-events-c-view-selector__list-item-link {
 }
 
 h1.tribe-events-single-event-title,
+.single-tribe_events .tribe-blocks-editor .tribe-events-single-event-title {
+  font-size: 2.75rem !important;
+}
+
+h1.tribe-events-single-event-title,
 .tribe-common--breakpoint-medium.tribe-events .tribe-events-header__title h1.tribe-events-header__title-text {
   font-family: Quadon-Bold, Georgia, serif;
   font-weight: 500;
