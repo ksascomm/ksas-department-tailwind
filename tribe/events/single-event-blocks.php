@@ -22,7 +22,7 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 	$is_recurring = tribe_is_recurring_event( $event_id );
 }
 ?>
-<div id="site-content" class="site-main prose sm:prose lg:prose-lg">
+<main id="site-content" class="site-main prose sm:prose lg:prose-lg">
 	<div id="tribe-events-content" class="tribe-events-single tribe-blocks-editor">
 	<?php
 	if ( function_exists( 'bcn_display' ) ) :
@@ -41,4 +41,4 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 		<?php $this->template( 'single-event/comments' ); ?>
 		<?php $this->template( 'single-event/footer' ); ?>
 	</div>
-</div>
+</main>
