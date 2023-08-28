@@ -130,6 +130,7 @@ if ( function_exists( 'bcn_display' ) ) :
 	<?php
 	if ( is_singular( 'people' ) ) :
 		?>
+		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 		<div class="tabbed my-4 people-content">
 			<ul class="pr-6 lg:pr-0">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
@@ -205,6 +206,7 @@ if ( function_exists( 'bcn_display' ) ) :
 			</section>
 			<?php endif; ?>
 		</div>
+		<?php endif; ?>
 	<?php endif; ?>
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">

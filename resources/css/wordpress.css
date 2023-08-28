@@ -1931,7 +1931,7 @@ summary::-webkit-details-marker {
   display: inline-block;
 }
 
-.prose .tabbed a {
+.prose .tabbed ul li a {
   border-bottom-width: 2px;
   border-color: transparent;
   border-style: solid;

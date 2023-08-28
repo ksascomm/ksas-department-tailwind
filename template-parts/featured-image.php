@@ -20,13 +20,11 @@
 
 		<?php
 		if ( has_post_thumbnail() ) :
-			$thumb_id = get_post_thumbnail_id();
 			the_post_thumbnail(
 				'full',
 				array(
 					'class' => 'h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full',
 					'title' => 'Feature image',
-					'id'    => $thumb_id,
 				)
 			);
 			else :
