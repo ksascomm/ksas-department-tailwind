@@ -20,9 +20,7 @@ get_header();
 		endwhile; // End of the loop.
 		?>
 		<div class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 my-4" role="region" aria-label="Filters" id="filters">
-			<h3>Filter by Position or Title:</h3>
-			<div class="flex flex-col md:flex-row justify-start">
-			<?php
+		<?php
 				$ids_to_exclude            = array();
 				$faculty_titles_to_exclude = get_terms(
 					'role',
@@ -45,10 +43,16 @@ get_header();
 					)
 				);
 				?>
+			<?php if ( count( $faculty_titles ) > 1 ) : ?>	
+			<h3>Filter by Position or Title:</h3>
+			<div class="flex flex-col md:flex-row justify-start">
+			
 				<?php foreach ( $faculty_titles as $faculty_title ) : ?>
 					<button class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary p-2 my-2 md:my-0" href="javascript:void(0)" data-filter=".<?php echo esc_html( $faculty_title->slug ); ?>" class="selected"><?php echo esc_html( $faculty_title->name ); ?></button>
 				<?php endforeach; ?>
+				
 			</div>
+			<?php endif;?>
 			<?php
 			$filters = get_terms(
 				array(
@@ -60,12 +64,14 @@ get_header();
 			);
 			if ( ! empty( $filters ) && ! is_wp_error( $filters ) ) :
 				?>
-				<h4>Filter by Area of Expertise:</h4>
-				<div class="flex flex-col md:flex-row flex-wrap justify-start">	
-					<?php foreach ( $filters as $filter ) : ?>
-						<button class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary mb-2 p-2" href="javascript:void(0)" data-filter=".<?php echo esc_html( $filter->slug ); ?>" class="selected"><?php echo esc_html( $filter->name ); ?></a>
-					<?php endforeach; ?>
-				</div>
+				<?php if ( count( $filters ) > 1 ) : ?>		
+					<h4>Filter by Area of Expertise:</h4>
+					<div class="flex flex-col md:flex-row flex-wrap justify-start">	
+						<?php foreach ( $filters as $filter ) : ?>
+							<button class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary mb-2 p-2" href="javascript:void(0)" data-filter=".<?php echo esc_html( $filter->slug ); ?>" class="selected"><?php echo esc_html( $filter->name ); ?></a>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
 			<?php endif; ?>
 			<h4 class="mt-4">
 				<label class="heading" for="id_search">Search by name, title, or research interests:</label>

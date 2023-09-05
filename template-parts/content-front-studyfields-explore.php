@@ -115,14 +115,19 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 		<?php endif; ?>
 		<!--Show Columns Dynamically-->
 		<?php if ( $count == 2):?>
-			<div class="mx-auto grid grid-cols-1 xl:grid-cols-3 px-4 justify-items-center">
+			<div class="mx-auto grid grid-cols-1 xl:grid-cols-3 px-4 xl:justify-items-center">
 		<?php elseif ( $count == 3 ) : ?>
-			<div class="mx-auto grid grid-cols-1 xl:grid-cols-3 px-4 justify-items-center">
+			<div class="mx-auto grid grid-cols-1 xl:grid-cols-3 px-4 xl:justify-items-center">
 		<?php endif; ?>
 		<?php
 		while ( have_rows( 'explore_the_department' ) ) :
 			the_row();
 			?>
+			<?php
+			// If there's an image for the bucket, do CSS magic.
+				if ( get_sub_field( 'explore_bucket_image' ) ) :
+					?>
+					
 			<div class="bucket relative not-prose bucket-<?php echo get_row_index(); ?>">
 				<?php
 				$image = get_sub_field( 'explore_bucket_image' );
@@ -143,6 +148,23 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 					<p class="leading-6 text-lg 2xl:text-xl tracking-wide font-light"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
 				</div>
 			</div>
+			<?php // Otherwise, display content in a card.
+			else :?>
+				<div class="p-2">
+					<div class="h-full rounded-lg field mb-4 px-6 py-4 overflow-hidden bg-grey-lightest research-project-card-outline">
+						<h3 class="text-2xl 2xl:text-3xl not-prose font-semi font-semibold !mt-0">
+							<?php if ( get_sub_field( 'explore_bucket_link' ) ) : ?>
+							<a href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
+								<?php the_sub_field( 'explore_bucket_heading' ); ?>
+							</a>
+							<?php else: ?>
+								<?php the_sub_field( 'explore_bucket_heading' ); ?>
+							<?php endif; ?>
+						</h3>
+						<p class="leading-6 text-lg 2xl:text-xl tracking-wide font-light"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
+					</div>
+				</div>
+			<?php endif; ?>
 		<?php endwhile; ?>
 		</div>
 	<?php endif; ?>

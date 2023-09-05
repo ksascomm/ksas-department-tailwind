@@ -43,7 +43,7 @@
 		</h2>
 		<ul class="!list-none">
 		<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
-			<li><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></li>
+			<li><strong><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></strong></li>
 		<?php endif; ?>
 		<?php
 			if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
@@ -77,5 +77,27 @@
 			<li><strong>Fields: </strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_fields', true ) ); ?></li>
 		<?php endif; ?>
 		</ul>
+		<?php if ( get_edit_post_link() ) : ?>
+		
+			<?php
+			edit_post_link(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Edit <span class="sr-only">%s</span>', 'ksas-department-tailwind' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					wp_kses_post( get_the_title() )
+				),
+				'<span class="edit-link">',
+				'</span>'
+			);
+			?>
+	<?php endif; ?>
 	</div>
+	
 </div>

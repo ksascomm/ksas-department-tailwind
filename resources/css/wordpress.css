@@ -1138,7 +1138,7 @@ footer.entry-footer {
 }
 
 .below-explore-widget-section .widget {
-  @apply mt-0 mx-0 mb-6 pt-6 px-12 pb-12;
+  @apply mt-0 mx-0 py-2 px-6;
 }
 
 .below-explore-widget-section .widget h2 {
@@ -1237,13 +1237,17 @@ footer.entry-footer {
 .graduate-sidebar .widget,
 .graduate-sidebar .tribe-compatibility-container,
 .undergraduate-sidebar .widget,
-.undergraduate-sidebar .tribe-compatibility-container {
+.undergraduate-sidebar .tribe-compatibility-container,
+.sidebar-1.sidebar .widget,
+.sidebar-1.sidebar .tribe-compatibility-container {
   @apply mt-0 mx-0 mb-6 bg-white p-3 shadow-lg overflow-hidden rounded-md
 }
 
 @media only screen and (min-width: 652px) {
   .graduate-sidebar,
-  .undergraduate-sidebar {
+  .undergraduate-sidebar,
+  .sidebar-1.sidebar
+   {
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
     justify-items: end;
@@ -1252,41 +1256,49 @@ footer.entry-footer {
 }
 @media only screen and (min-width: 1024px) {
   .graduate-sidebar,
-  .undergraduate-sidebar {
+  .undergraduate-sidebar,
+  .sidebar-1.sidebar {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .graduate-sidebar h2,
-  .undergraduate-sidebar h2 {
+  .undergraduate-sidebar h2,
+  .sidebar-1.sidebar h2 {
     @apply text-3xl;
   }
 
   .graduate-sidebar p,
   .graduate-sidebar li,
   .undergraduate-sidebar p,
-  .undergraduate-sidebar li {
+  .undergraduate-sidebar li,
+  .sidebar-1.sidebar p,
+  .sidebar-1.sidebar li {
     @apply text-lg leading-normal;
   }
 }
 @media only screen and (max-width: 481px) {
   .graduate-sidebar,
-  .undergraduate-sidebar {
+  .undergraduate-sidebar,
+  .sidebar-1.sidebar li {
     margin-top: calc(3 * 1rem );
   }
 }
 
 .graduate-sidebar ul .sub-menu-toggle,
-.undergraduate-sidebar ul .sub-menu-toggle {
+.undergraduate-sidebar ul .sub-menu-toggle,
+.sidebar-1.sidebar ul .sub-menu-toggle {
   display: none;
 }
 
 .graduate-sidebar ul li,
-.undergraduate-sidebar ul li {
+.undergraduate-sidebar ul li,
+.sidebar-1.sidebar ul li {
   @apply relative pl-7 flow-root;
 }
 
 .graduate-sidebar ul li:before,
-.undergraduate-sidebar ul li:before {
+.undergraduate-sidebar ul li:before
+.sidebar-1.sidebar ul li:before {
   content: "";
   position: absolute;
   background-color: #31261d;
@@ -1501,7 +1513,7 @@ footer.entry-footer {
   padding-top: 0.4rem;
 }
 
-/*Events Widget Homepage Section*/
+/*Events Widget Homepage Section  ------------------------------*/
 .events-widget-section .tribe-common-g-row.tribe-events-widget-events-list__event-row {
   margin-right: 1rem;
   padding-right: 1rem;
@@ -1573,6 +1585,56 @@ footer.entry-footer {
 .widget.ksas_books article p strong {
   @apply font-sans font-light;
 }
+
+.widget.ksas_profile h5.spotlight-profile-title {
+  @apply text-xl lg:text-[26px];
+}
+
+.widget.ksas_profile p {
+  @apply mt-2 mb-4 leading-normal;
+}
+
+.below-explore-widget-section .widget.ksas_profile p.view-more-link {
+  padding-top: 1rem;
+}
+.below-explore-widget-section .widget.ksas_profile p.view-more-link a {
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  background-color: var(--wp--preset--color--heritage-blue);
+  padding: calc(0.667em + 2px) calc(1.333em + 2px);
+  border-width: 0;
+  color: rgb(254 254 254/var(--tw-text-opacity));
+  margin-top: 1rem;
+  @apply hover:bg-blue-light hover:text-primary text-base;
+}
+
+.widget.ksas_video_link_widget .video-thumbnail {
+  @apply relative;
+}
+
+.widget.widget.ksas_video_link_widget .video-thumbnail a:hover {
+  @apply text-primary;
+}
+
+.widget.ksas_video_link_widget .video-thumbnail img {
+  @apply w-full py-2 px-0 my-4;
+}
+.widget.ksas_video_link_widget .video-thumbnail .playbutton::before {
+  @apply inline-block absolute top-1/2 left-1/2 antialiased not-italic;
+  text-rendering: auto;
+  font: var(--fa-font-light);
+  font-size: 4rem !important;
+  font-weight: inherit;
+  text-decoration: inherit;
+  margin-right: -50%;
+  transform: translate(-50%,-50%);
+  content: "\f144";
+}
+
+.below-explore-widget-section .ksas_video_link_widget p {
+ @apply text-primary my-2;
+}
+
 /*! purgecss end ignore */
 
 /* Captions

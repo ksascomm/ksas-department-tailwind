@@ -155,6 +155,7 @@ if (mix.inProduction()) {
           "!list-none",
           "tablepress",
           "a:where(:not(.wp-element-button))",
+          "!mt-0",
           /^has-/,
           /(^wp-block-)\w+/,
           /(^c-accordion)\w+/,
