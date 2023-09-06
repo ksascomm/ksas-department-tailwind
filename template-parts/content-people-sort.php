@@ -10,16 +10,16 @@
 ?>
 
 
-<article id="post-<?php the_ID(); ?>" class="people item p-4 md:px-0 md:py-4 my-2 md:my-0 md:ml-4 w-full <?php echo esc_html( get_the_roles( $post ) ); ?> <?php echo esc_html( get_the_filters( $post ) ); ?> border-grey border-solid border md:border-none">
+<article id="post-<?php the_ID(); ?>" class="people item p-4 lg:px-0 lg:py-4 my-2 lg:my-0 lg:ml-4 w-11/12 lg:w-full <?php echo esc_html( get_the_roles( $post ) ); ?> <?php echo esc_html( get_the_filters( $post ) ); ?> border-grey border-solid border lg:border-none">
 
 <div class="flex flex-wrap lg:flex-nowrap">
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="hidden md:block pr-4 flex-none headshot my-4 mr-4 ml-0 lg:relative lg:inline-block">
+		<div class="hidden md:block pl-4 lg:pl-0 lg:pr-4 flex-none headshot lg:my-4 lg:mr-4 lg:ml-0 lg:relative lg:inline-block">
 			<?php
 				the_post_thumbnail(
 					'directory',
 					array(
-						'class' => ' translate-x-1',
+						'class' => 'translate-x-1 !my-0',
 						'alt' => the_title_attribute(
 							array(
 								'echo' => false,
@@ -29,8 +29,9 @@
 				);
 			?>
 		</div>
+	<div class="break"></div> <!-- break -->	
 	<?php endif; ?>
-	<div class="flex-grow contact-info">
+	<div class="flex-grow contact-info px-4 lg:px-0">
 		<h2 class="font-heavy font-bold !text-2xl">
 		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>'s webpage">

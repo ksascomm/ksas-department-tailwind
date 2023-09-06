@@ -78,7 +78,6 @@
 		<?php endif; ?>
 		</ul>
 		<?php if ( get_edit_post_link() ) : ?>
-		
 			<?php
 			edit_post_link(
 				sprintf(

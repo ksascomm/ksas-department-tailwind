@@ -59,31 +59,34 @@ if ( ! empty( $studyfield_response ) ) :
 					<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_degreesoffered[0] ) ) : ?>
 						<li class="leading-normal text-lg px-2">
 							<span class="border-b-[3px] border-blue">Degrees Offered</span>
-							<span class="block font-heavy font-bold pt-2"><?php echo esc_html( $studyfield_degrees ); ?></span></li>
+							<span class="block font-heavy font-bold pt-2"><?php echo esc_html( $studyfield_degrees ); ?></span>
+						</li>
 					<?php endif; ?>
 					<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_majors[0] ) ) : ?>
 						<li class="leading-normal text-lg px-2">
 							<span class="border-b-[3px] border-blue">Major</span>
-							<span class="block font-heavy font-bold pt-2"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_majors[0] ); ?></span></li>
+							<span class="block font-heavy font-bold pt-2"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_majors[0] ); ?></span>
+						</li>
 					<?php endif; ?>
 					<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_minors[0] ) ) : ?>
 						<li class="leading-normal text-lg px-2">
 							<span class="border-b-[3px] border-blue">Minor</span>
-							<span class="block font-heavy font-bold pt-2"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_minors[0] ); ?></span></li>
+							<span class="block font-heavy font-bold pt-2"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_minors[0] ); ?></span>
+						</li>
 					<?php endif; ?>
 				</ul>
 			</div>
 	</div>
 	<div class="hidden lg:block lg:w-5/12 front featured-image">
 		<?php if ( have_rows( 'homepage_hero_images' ) ) : ?>
-				<?php
-				$random_images = get_field( 'homepage_hero_images' );
-				shuffle( $random_images );
-				//print("<pre>".print_r($random_images,true)."</pre>");
-				$random_img_url = $random_images[0]['homepage_hero_image']['url'];
-				$random_img_alt = $random_images[0]['homepage_hero_image']['alt'];
-				$random_img_title = $random_images[0]['homepage_hero_image']['title'];
-				?>
+			<?php
+			$random_images = get_field( 'homepage_hero_images' );
+			shuffle( $random_images );
+			//print("<pre>".print_r($random_images,true)."</pre>");
+			$random_img_url = $random_images[0]['homepage_hero_image']['url'];
+			$random_img_alt = $random_images[0]['homepage_hero_image']['alt'];
+			$random_img_title = $random_images[0]['homepage_hero_image']['title'];
+			?>
 			<img class="!mt-0 h-56 w-full object-cover sm:h-72 lg:w-full lg:h-full slide-<?php echo esc_html( $random_img_title ); ?>" src="<?php echo esc_url( $random_img_url ); ?>" alt="<?php echo esc_html( $random_img_alt ); ?>" />
 		<?php else : ?>
 			<?php

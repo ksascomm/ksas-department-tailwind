@@ -19,7 +19,7 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-		<div class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 my-4" role="region" aria-label="Filters" id="filters">
+		<div class="isotope-to-sort bg-grey-lightest border-solid border-grey border-2 p-4 mx-2 lg:mx-0 my-4" role="region" aria-label="Filters" id="filters">
 		<?php
 				$ids_to_exclude            = array();
 				$faculty_titles_to_exclude = get_terms(
