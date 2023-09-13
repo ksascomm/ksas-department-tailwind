@@ -81,7 +81,7 @@ add_action( 'template_redirect', 'redirect_empty_bios' );
  * Custom thumbnail sizes
  */
 add_image_size( 'directory', 187, 271, true );
-add_image_size( 'news-thumb', 430, 225, false );
+add_image_size( 'news-thumb', 960, 450, false );
 add_image_size( 'event-widget-thumb', 430, 225, array( 'center', 'top' ) );
 add_image_size( 'faculty-book', 240, 365, false );
 
