@@ -9,7 +9,7 @@
 
 ?>
 
-	<div class="container events-widget-section mx-auto my-12">
+	<div class="container events-widget-section mx-auto my-12 px-4">
 		
 		<?php dynamic_sidebar( 'events-featured' ); ?>
 		

@@ -133,7 +133,6 @@ a.acf-button.button.button-primary {
   transition: background-color 0.25s ease-out, color 0.25s ease-out;
   font-family: inherit;
   font-size: 0.9rem;
-  -webkit-appearance: none;
   line-height: 1;
   text-align: center;
   cursor: pointer;
@@ -327,4 +326,10 @@ ul.block-editor-rich-text__editable li, ol.block-editor-rich-text__editable li {
 
 .pl-12 {
   padding-left: 3rem;
+}
+
+/** === Cover Block === */
+.wp-block-cover .wp-block-cover__background.has-background-dim {
+  background-color: transparent;
+  opacity: 1 !important;
 }

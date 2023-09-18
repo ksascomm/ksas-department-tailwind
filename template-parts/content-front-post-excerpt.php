@@ -24,7 +24,7 @@ if ( has_post_thumbnail() ) :
 			the_post_thumbnail(
 				'news-thumb',
 				array(
-					'class' => 'w-full h-0 sm:h-56 object-cover pr-0',
+					'class' => 'w-full h-0 lg:h-56 lg:object-cover pr-0',
 					'alt'   => the_title_attribute(
 						array(
 							'echo' => false,

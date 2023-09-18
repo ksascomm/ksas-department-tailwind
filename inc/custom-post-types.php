@@ -81,13 +81,13 @@ add_action( 'template_redirect', 'redirect_empty_bios' );
  * Custom thumbnail sizes
  */
 add_image_size( 'directory', 187, 271, true );
-add_image_size( 'news-thumb', 960, 450, false );
+add_image_size( 'news-thumb', 800, 450, array( 'center', 'top' ) );
 add_image_size( 'event-widget-thumb', 430, 225, array( 'center', 'top' ) );
 add_image_size( 'faculty-book', 240, 365, false );
 
 /**
  * Custom Events Calendar Hooks
- */
+ 
 // Here we hook into our template action - just before the date tag, which is the first item in the container.
 add_action(
 	'tribe_template_after_include:events/v2/widgets/widget-events-list/event/date-tag',
@@ -107,4 +107,4 @@ function my_action_add_event_featured_image( $file, $name, $template ) {
 	);
 
 	echo $link;
-}
+}*/

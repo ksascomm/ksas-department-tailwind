@@ -1,10 +1,10 @@
 {
     "key": "group_60af995a1f088",
-    "title": "Block: Testimonials",
+    "title": "Block: Spotlights",
     "fields": [
         {
             "key": "field_60af9960f1a95",
-            "label": "Loop Argument Type",
+            "label": "Select Options",
             "name": "loop_argument_type",
             "type": "button_group",
             "instructions": "",
@@ -16,46 +16,17 @@
                 "id": ""
             },
             "choices": {
-                "count": "Count",
-                "select": "Select Posts"
+                "random": "Random Spotlight",
+                "select": "Select Spotlights"
             },
+            "default_value": "",
+            "return_format": "value",
             "allow_null": 0,
-            "default_value": "",
-            "layout": "horizontal",
-            "return_format": "value"
-        },
-        {
-            "key": "field_60af99d7f2eb7",
-            "label": "Testimonial Count",
-            "name": "testimonial_count",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_60af9960f1a95",
-                        "operator": "==",
-                        "value": "count"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
+            "layout": "horizontal"
         },
         {
             "key": "field_60af9da210997",
-            "label": "Select Testimonials",
+            "label": "Select Spotlights",
             "name": "select_testimonials",
             "type": "relationship",
             "instructions": "",
@@ -75,14 +46,14 @@
                 "id": ""
             },
             "post_type": [
-                "testimonial"
+                "profile"
             ],
             "taxonomy": "",
             "filters": "",
-            "elements": "",
+            "return_format": "id",
             "min": "",
             "max": "",
-            "return_format": "id"
+            "elements": ""
         }
     ],
     "location": [
@@ -90,7 +61,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/testimonials"
+                "value": "acf\/spotlights"
             }
         ]
     ],
@@ -102,5 +73,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1622731163
+    "show_in_rest": 0,
+    "modified": 1665582310
 }

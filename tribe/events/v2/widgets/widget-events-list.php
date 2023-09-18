@@ -56,17 +56,15 @@ if ( empty( $events ) && $hide_if_no_upcoming_events ) {
 
 			<?php if ( ! empty( $widget_title ) ) : ?>
 				<?php if ( is_active_sidebar( 'events-featured' ) ) : ?>
-					<div class="flex flex-wrap justify-between px-8 lg:px-0">
-					<header class="tribe-events-widget-events-list__header">
-					<h2 class="tribe-events-widget-events-list__header-title tribe-common-h6 tribe-common-h--alt !text-4xl">
-						<?php echo esc_html( $widget_title ); ?>
-					</h2>
-				</header>
-					<?php $this->template( 'widgets/widget-events-list/view-more' ); ?>
+					<div class="flex flex-wrap justify-between px-8 lg:px-0 header-area">
+						<header class="tribe-events-widget-events-list__header">
+							<h2 class="tribe-events-widget-events-list__header-title tribe-common-h6 tribe-common-h--alt !text-4xl">
+								<?php echo esc_html( $widget_title ); ?>
+							</h2>
+						</header>
+						<?php $this->template( 'widgets/widget-events-list/view-more' ); ?>
 					</div>
-					
 				<?php else:?>
-				
 				<header class="tribe-events-widget-events-list__header">
 					<h2 class="tribe-events-widget-events-list__header-title tribe-common-h6 tribe-common-h--alt">
 						<?php echo esc_html( $widget_title ); ?>

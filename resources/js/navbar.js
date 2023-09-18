@@ -1,177 +1,195 @@
-jQuery(document).ready(function($) {
-    var menuContainer = $('.menu-container');
-    var menuToggle = menuContainer.find('.menu-button');
-    var siteHeaderMenu = menuContainer.find('#site-header-menu');
-    var siteNavigation = menuContainer.find('#site-navigation');
+document.addEventListener('DOMContentLoaded', function() {
 
-    // Toggles the menu button.
-    (function() {
+    // Getting main menu elements
+    var menuContainer = document.querySelector('.menu-container');
+    var menuToggle = menuContainer.querySelector('.menu-button');
+    var siteHeaderMenu = menuContainer.querySelector('#site-header-menu');
+    var siteNavigation = menuContainer.querySelector('#site-navigation');
+    
+    // If the menu toggle button exists, set up its behaviors
+    if (menuToggle) {
+        // Initial ARIA attribute setup for accessibility
+        menuToggle.setAttribute('aria-expanded', 'false');
+        siteNavigation.setAttribute('aria-expanded', 'false');
 
-        if (!menuToggle.length) {
-            return;
-        }
+        // Event listener for main menu toggle button
+        menuToggle.addEventListener('click', function() {
+            // Toggle visual states for the button and menu
+            this.classList.toggle('toggled-on');
+            siteHeaderMenu.classList.toggle('toggled-on');
+            
+            // Determine and set the new expanded state for ARIA
+            var isExpanded = this.getAttribute('aria-expanded') === 'true';
+            var newExpandedState = isExpanded ? 'false' : 'true';
 
-        // Add aria-expanded attribute to the menu.
-        menuToggle.add(siteNavigation).attr('aria-expanded', 'false');
-
-        // Toggle the menu button.
-        menuToggle.on('click', function() {
-
-            // Add toggled-on class.
-            $(this).add(siteHeaderMenu).toggleClass('toggled-on');
-
-            // Add aria-expanded attribute value to the menu.
-            $(this).add(siteNavigation)
-                .attr('aria-expanded', $(this)
-                    .add(siteNavigation).attr('aria-expanded') === 'false' ? 'true' : 'false');
+            // Update ARIA attributes
+            this.setAttribute('aria-expanded', newExpandedState);
+            siteNavigation.setAttribute('aria-expanded', newExpandedState);
         });
-    })();
+    }
 
-    // Add the dropdown toggle button to menu items that have children menu items.
-    $('.menu-item-has-children > a').not(this).each(function() {
+    // Set up dropdown toggle buttons for menu items with children
+    var menuItemsWithChildren = document.querySelectorAll('.menu-item-has-children > a');
+    menuItemsWithChildren.forEach(function(item) {
+        var linkText = item.textContent;
+        
+        // Create the dropdown toggle button
+        var dropdownToggle = document.createElement('button');
+        dropdownToggle.className = 'dropdown-toggle';
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+        
+        // Set ARIA label for accessibility
+        dropdownToggle.setAttribute('aria-label', linkText + ' submenu');
+        
+        // Insert the dropdown button after the menu item
+        item.insertAdjacentElement('afterend', dropdownToggle);
 
-        // Get link text to prepend to screen reader text.
-        var linkText = $(this).text();
+        // Set up behavior when the dropdown button is clicked
+        dropdownToggle.addEventListener('click', function() {
+            console.log('Button clicked');
+        
+            // Determine the expanded state of the dropdown
+            var isExpanded = this.getAttribute('aria-expanded');
 
-        // Define screen reader text.
-        var screenReaderText = {
-            "expand": ": submenu",
-            "collapse": ": submenu"
-        };
-
-        // Set submenu button with screen reader text
-        var dropdownToggle = $('<button />', {
-                'class': 'dropdown-toggle',
-                'aria-expanded': false,
-                'type': 'button'
-            })
-            .append($('<span />', {
-                'class': 'screen-readers',
-                text: linkText + screenReaderText.expand
-            }));
-
-        // Add submenu button after link
-        $(this).after(dropdownToggle);
+            // Toggle the dropdown's expanded state
+            if (isExpanded === 'true') {
+                this.setAttribute('aria-expanded', 'false');
+            } else {
+                this.setAttribute('aria-expanded', 'true');
+            }
+        });
     });
 
-    // Adds aria attribute to the site menu.
-    siteHeaderMenu.find('.menu-item-has-children').attr('aria-haspopup', 'true');
+    // Toggle dropdowns behavior
+    var dropdownToggles = siteHeaderMenu.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(function(toggle) {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation(); // Prevent event from bubbling
+            
+            // Toggle the clicked dropdown
+            this.classList.toggle('toggled-on');
+            var nextSubMenu = this.nextElementSibling;
+            if (nextSubMenu && nextSubMenu.classList.contains('sub-menu')) {
+                nextSubMenu.classList.toggle('toggled-on');
+            }
 
-    // Toggles the submenu when dropdown toggle button is clicked.
-    siteHeaderMenu.find('.dropdown-toggle').click(function(e) {
-
-        // close open submenus and reset attributes.
-        $('.dropdown-toggle').not(this).each(function() {
-            $(this).removeClass('toggled-on');
-            $(this).nextAll('.sub-menu').removeClass('toggled-on');
-            $(this).attr('aria-expanded', $(this).hasClass('toggled-on') === 'false' ? 'true' : 'false');
+            // Update the ARIA expanded state of the dropdown
+            var isExpanded = (this.getAttribute('aria-expanded') === 'false') ? 'true' : 'false';
+            this.setAttribute('aria-expanded', isExpanded);
+            
+            // Close other dropdowns on the same level to avoid multiple open dropdowns
+            var siblingToggles = Array.from(this.parentElement.parentElement.children)
+                .map(el => el.querySelector('.dropdown-toggle'))
+                .filter(el => el !== null && el !== this);
+            
+            siblingToggles.forEach(sibToggle => {
+                sibToggle.classList.remove('toggled-on');
+                var sibSubMenu = sibToggle.nextElementSibling;
+                if (sibSubMenu && sibSubMenu.classList.contains('sub-menu')) {
+                    sibSubMenu.classList.remove('toggled-on');
+                }
+                sibToggle.setAttribute('aria-expanded', 'false');
+            });
         });
-
-        // open current submenu and set attributes.
-        e.preventDefault();
-        $(this).toggleClass('toggled-on');
-        $(this).nextAll('.sub-menu').toggleClass('toggled-on');
-
-        $(this).attr('aria-expanded', $(this).attr('aria-expanded') === 'false' ?
-            'true' : 'false');
     });
 
-    // Adds a class to sub-menus for styling.
-    $('.sub-menu .menu-item-has-children').parent('.sub-menu').addClass('has-sub-menu');
+    // Indicate that a menu has a sub-menu
+    var subMenus = document.querySelectorAll('.sub-menu .menu-item-has-children');
+    subMenus.forEach(function(subMenu) {
+        subMenu.parentElement.classList.add('has-sub-menu');
+    });
 
-    // Keyboard navigation.
-    $('.menu-item a, button.dropdown-toggle').on('keydown', function(e) {
-
-        if ([37, 38, 39, 40, 27].indexOf(e.keyCode) == -1) {
-            return;
-        }
-
-        switch (e.keyCode) {
-
-            case 27: // escape key
-
-                $(this).parents('ul').first().prev('.dropdown-toggle.toggled-on').focus();
-                $(this).parents('ul').first().prev('.dropdown-toggle.toggled-on').click();
-
-                break;
-
-            case 37: // left key
-                e.preventDefault();
-                e.stopPropagation();
-
-                if ($(this).hasClass('dropdown-toggle')) {
-                    $(this).prev('a').focus();
-                } else {
-                    if ($(this).parent().prev().children('button.dropdown-toggle').length) {
-                        $(this).parent().prev().children('button.dropdown-toggle').focus();
-                    } else {
-                        $(this).parent().prev().children('a').focus();
+    // Keyboard navigation setup for menu
+    var menuLinksAndDropdownToggles = document.querySelectorAll('.menu-item a, button.dropdown-toggle');
+    menuLinksAndDropdownToggles.forEach(function(element) {
+        element.addEventListener('keydown', function(e) {
+            var key = e.keyCode;
+            
+            // Key handling for improved keyboard navigation
+            if (![27, 37, 38, 39, 40].includes(key)) {
+                return;
+            }
+            
+            // Handle different keys for navigation
+            switch(key) {
+                case 27: // Escape: Close dropdown or main menu
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var parentDropdown = this.closest('ul').previousElementSibling;
+                    if (parentDropdown && parentDropdown.classList.contains('dropdown-toggle') && parentDropdown.classList.contains('toggled-on')) {
+                        parentDropdown.focus();
+                        parentDropdown.click();
+                    } else if (!parentDropdown) {
+                        // If no parent dropdown found, close the main menu.
+                        if (menuToggle && menuToggle.classList.contains('toggled-on')) {
+                            menuToggle.click();
+                            menuToggle.focus();
+                        }
                     }
-                }
-
-                if ($(this).is('ul ul ul.sub-menu.toggled-on li:first-child a')) {
-                    $(this).parents('ul.sub-menu.toggled-on li').children('button.dropdown-toggle').focus();
-                }
-
-                break;
-
-            case 39: // right key
-                e.preventDefault();
-                e.stopPropagation();
-
-                if ($(this).next('button.dropdown-toggle').length) {
-                    $(this).next('button.dropdown-toggle').focus();
-                } else {
-                    $(this).parent().next().children('a').focus();
-                }
-
-                if ($(this).is('ul.sub-menu .dropdown-toggle.toggled-on')) {
-                    $(this).parent().find('ul.sub-menu li:first-child a').focus();
-                }
-
-                break;
-
-
-            case 40: // down key
-                e.preventDefault();
-                e.stopPropagation();
-
-                if ($(this).next().length) {
-                    $(this).next().find('li:first-child a').first().focus();
-                } else {
-                    $(this).parent().next().children('a').focus();
-                }
-
-                if (($(this).is('ul.sub-menu a')) && ($(this).next('button.dropdown-toggle').length)) {
-                    $(this).parent().next().children('a').focus();
-                }
-
-                if (($(this).is('ul.sub-menu .dropdown-toggle')) && ($(this).parent().next().children('.dropdown-toggle').length)) {
-                    $(this).parent().next().children('.dropdown-toggle').focus();
-                }
-
-                break;
-
-
-            case 38: // up key
-                e.preventDefault();
-                e.stopPropagation();
-
-                if ($(this).parent().prev().length) {
-                    $(this).parent().prev().children('a').focus();
-                } else {
-                    $(this).parents('ul').first().prev('.dropdown-toggle.toggled-on').focus();
-                }
-
-                if (($(this).is('ul.sub-menu .dropdown-toggle')) && ($(this).parent().prev().children('.dropdown-toggle').length)) {
-                    $(this).parent().prev().children('.dropdown-toggle').focus();
-                }
-
-                break;
-
-        }
+                    break;
+                
+                case 37: // Left arrow: Move focus to the previous item
+                    e.preventDefault();
+                    if (this.classList.contains('dropdown-toggle')) {
+                        this.previousElementSibling.focus();
+                    } else {
+                        var prevSibling = this.parentElement.previousElementSibling;
+                        if (prevSibling && prevSibling.querySelector('button.dropdown-toggle')) {
+                            prevSibling.querySelector('button.dropdown-toggle').focus();
+                        } else if (prevSibling && prevSibling.querySelector('a')) {
+                            prevSibling.querySelector('a').focus();
+                        }
+                    }
+                    break;
+                
+                case 39: // Right arrow: Move focus to the next item or enter a submenu
+                    e.preventDefault();
+                    if (this.nextElementSibling && this.nextElementSibling.matches('button.dropdown-toggle')) {
+                        this.nextElementSibling.focus();
+                    } else {
+                        var nextSibling = this.parentElement.nextElementSibling;
+                        if (nextSibling) {
+                            nextSibling.querySelector('a').focus();
+                        }
+                    }
+                    if (this.matches('ul.sub-menu .dropdown-toggle.toggled-on')) {
+                        this.parentElement.querySelector('ul.sub-menu li:first-child a').focus();
+                    }
+                    break;
+            
+                case 40: // Down arrow: Move focus to the next item or submenu
+                    e.preventDefault();
+                    if (this.nextElementSibling) {
+                        var firstChildLink = this.nextElementSibling.querySelector('li:first-child a');
+                        if (firstChildLink) {
+                            firstChildLink.focus();
+                        }
+                    } else {
+                        var nextElem = this.parentElement.nextElementSibling;
+                        if (nextElem) {
+                            nextElem.querySelector('a').focus();
+                        }
+                    }
+                    break;
+            
+                case 38: // Up arrow: Move focus to the previous item or exit a submenu
+                    e.preventDefault();
+                    var prevElem = this.parentElement.previousElementSibling;
+                    if (prevElem) {
+                        prevElem.querySelector('a').focus();
+                    } else {
+                        var closestUl = this.closest('ul');
+                        if (closestUl && closestUl.previousElementSibling.matches('.dropdown-toggle.toggled-on')) {
+                            closestUl.previousElementSibling.focus();
+                        }
+                    }
+                    break;
+            }
+        });
     });
 });
+
 
 jQuery(document).ready(function($) {
     $('#primary-menu button.dropdown-toggle').on("click", function(e) {
