@@ -94,10 +94,12 @@ a.tribe-events-calendar-latest-past__event-title-link.tribe-common-anchor-thin:h
 
 /* Single Event View */
 .tribe-events-single.tribe-blocks-editor h2.tribe-events-schedule__datetime,
-.tribe-events-single h2.tribe-events-schedule__datetime {
+.tribe-events-single h2.tribe-events-schedule__datetime,
+.tribe-block__organizer__title,
+.tribe-block__organizer__details h3 {
   font-family: "gentona-semibold", system-ui, BlinkMacSystemFont, -apple-system,
     Segoe UI, sans-serif !important;
-    font-weight: 600;
+  font-weight: 600 !important;
 }
 
 span.tribe-events-schedule__separator.tribe-events-schedule__separator--date,
@@ -203,7 +205,16 @@ a.tribe-events-c-view-selector__list-item-link {
 
 h1.tribe-events-single-event-title,
 .single-tribe_events .tribe-blocks-editor .tribe-events-single-event-title {
-  font-size: 2.75rem !important;
+  font-size: 2.5rem !important;
+  line-height: 1.2 !important;
+  margin: .5rem 0;
+}
+
+@media screen and (max-width: 1023px) {
+  h1.tribe-events-single-event-title,
+.single-tribe_events .tribe-blocks-editor .tribe-events-single-event-title {
+  font-size: 2rem !important;
+}
 }
 
 h1.tribe-events-single-event-title,
@@ -310,6 +321,7 @@ font-weight: 600;
 
 .tribe-block__venue {
   border: none !important;
+  padding: 0 !important;
 }
 
 /* AGHI/Non-Block Editor Styles */

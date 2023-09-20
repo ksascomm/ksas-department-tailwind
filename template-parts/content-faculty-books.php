@@ -24,7 +24,7 @@
 	<div class="entry-content">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="float-left mr-6">
-				<div class="relative aspect-w-4 aspect-h-5 sm:aspect-w-16 sm:aspect-h-9 w-20 sm:w-64">
+				<div class="relative w-20 sm:w-64">
 				<?php
 					the_post_thumbnail(
 						'full',

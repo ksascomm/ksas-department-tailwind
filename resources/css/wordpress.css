@@ -2456,10 +2456,18 @@ p.tribe-events-back a,
   @apply my-2;
 }
 
+
 .prose h1.entry-title {
+  font-size: 2rem;
   @apply my-4;
-  font-size: 2.5rem;
 }
+
+@screen lg {
+  .prose h1.entry-title {
+    font-size: 2.5rem;
+  }
+}
+
 
 .photoshelter-featured-image img {
   @apply my-0;
