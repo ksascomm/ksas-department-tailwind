@@ -571,6 +571,7 @@ div[class^="bucket-"] {
 
 /* Tables
 --------------------------------------------- */
+/*! purgecss start ignore */
 .wp-block-table td,
 .wp-block-table th {
   @apply p-2 border border-solid border-grey-cool break-normal;
@@ -589,6 +590,7 @@ thead th:first-child {
 .wp-block-table th {
   @apply border-b-0 bg-grey-lightest font-semi font-semibold p-2 text-center;
 }
+/*! purgecss end ignore */
 
 /*--------------------------------------------------------------
 # Layouts
@@ -3596,11 +3598,6 @@ button.search-untoggle {
 
   .site-description {
     display: block;
-  }
-
-  .site-logo img {
-    max-height: 9rem;
-    transition: height 0.15s linear, width 0.15s linear, max-height 0.15s linear;
   }
 
   /* HEADER TOGGLES */
