@@ -28,3 +28,4 @@ phpcs.xml.dist
 *.sql
 *.sqlite
 .DS_Store
+.vscode/settings.json
