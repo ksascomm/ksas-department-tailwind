@@ -45,7 +45,7 @@ get_header();
 				?>
 			<?php if ( count( $faculty_titles ) > 1 ) : ?>	
 			<h3>Filter by Position or Title:</h3>
-			<div class="flex flex-col md:flex-row justify-start">
+			<div class="flex flex-col lg:flex-row justify-start">
 			
 				<?php foreach ( $faculty_titles as $faculty_title ) : ?>
 					<button class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary p-2 my-2 md:my-0" href="javascript:void(0)" data-filter=".<?php echo esc_html( $faculty_title->slug ); ?>" class="selected"><?php echo esc_html( $faculty_title->name ); ?></button>

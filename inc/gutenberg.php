@@ -33,7 +33,15 @@ add_filter(
 					'placeholder' => __( 'Add Event Description...', 'the-events-calendar' ),
 				),
 			),
+			array( 'tribe/event-organizer' ),
 			array( 'tribe/event-venue' ),
+			array(
+				'tribe/event-links',
+				array(
+					'placeholder' => __( 'Click Me to Add Link', 'the-events-calendar' ),
+				),
+			),
+			array( 'tribe/featured-image' ),
 		);
 		return $template;
 	},

@@ -148,7 +148,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 							<?php the_sub_field( 'explore_bucket_heading' ); ?>
 						<?php endif; ?>
 					</h3>
-					<p class="leading-6 text-lg 2xl:text-xl tracking-wide font-light"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
+					<p class="leading-normal text-lg 2xl:text-xl tracking-wide font-light"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
 				</div>
 			</div>
 			<?php // Otherwise, display content in a card.
@@ -164,7 +164,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 								<?php the_sub_field( 'explore_bucket_heading' ); ?>
 							<?php endif; ?>
 						</h3>
-						<p class="leading-6 text-lg 2xl:text-xl tracking-wide font-light"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
+						<p class="leading-normaltext-lg 2xl:text-xl tracking-wide font-light"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
 					</div>
 				</div>
 			<?php endif; ?>

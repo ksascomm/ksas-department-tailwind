@@ -52,7 +52,8 @@
 		$department_email    = get_field( 'department_email', 'option' );
 		$department_phone    = get_field( 'department_phone', 'option' );
 		$department_location = get_field( 'department_location', 'option' );
-		if ( $department_email || $department_phone || $department_location ) :
+		$department_social   = get_field( 'department_social', 'option' );
+		if ( $department_email || $department_phone || $department_location || $department_social ) :
 			?>
 			<h2 class="text-lg font-sans !font-light">Contact Us</h2>
 			<?php if ( $department_email ) : ?>
@@ -72,6 +73,26 @@
 						<span class="fa-solid fa-map"></span> Google Maps Link
 					</a>
 				</p>
+			<?php endif; ?>
+			<?php if ( have_rows( 'department_social', 'option' ) ) : ?>
+				<?php while ( have_rows( 'department_social', 'option' ) ) : the_row(); ?>
+				<p class="text-lg">
+					<a href="<?php echo esc_attr( the_sub_field( 'department_social_link' ) ); ?>">
+					<?php $department_social_platform_selected_option = get_sub_field( 'department_social_platform' ); ?>
+						<?php if ($department_social_platform_selected_option['value'] = 'facebook'):
+							echo '<span class="fa-brands fa-facebook"></span>';
+						elseif( $department_social_platform_selected_option['value'] = 'twitter'):
+							echo '<span class="fa-brands fa-twitter"></span>';
+						elseif( $department_social_platform_selected_option['value'] = 'instagram'):
+							echo '<span class="fa-brands fa-instagram"></span>';
+						elseif( $department_social_platform_selected_option['value'] = 'linkedin'):
+							echo '<span class="fa-brands fa-linkedin"></span>';
+						endif; ?>
+						Follow us on <?php echo esc_html( $department_social_platform_selected_option['label'] ); ?></a>
+				</p>
+				<?php endwhile; ?>
+			<?php else : ?>
+				<?php // No rows found ?>
 			<?php endif; ?>
 		<?php endif; ?>
 		</div>

@@ -1117,6 +1117,19 @@ footer.entry-footer {
   margin-top: 0;
 }
 
+/*! purgecss start ignore */
+.news-section .article-excerpt img[alt=""],
+.news-section .article-excerpt img:not([alt]),
+.blog .article-excerpt img[alt=""],
+.blog .article-excerpt img:not([alt]),
+.single-post .prose .post img[alt=""], 
+.single-post .prose .post img:not([alt]),
+.events-widget-section .tribe-events-event-image img[alt=""],
+.events-widget-section .tribe-events-event-image img:not([alt]) {
+  display: none;
+}
+/*! purgecss end ignore */
+
 /* Widgets
 --------------------------------------------- */
 
@@ -1537,6 +1550,11 @@ footer.entry-footer {
     @apply py-0;
   }
 }
+
+.events-widget-section .tribe-events-c-messages__message-list-item {
+  @apply font-heavy font-bold text-lg;
+}
+
 /* Custom Post Type Widgets ------------------------------ */
 
 /*! purgecss start ignore */
@@ -2096,7 +2114,8 @@ summary::-webkit-details-marker {
   }
 }
 .single-post .breadcrumbs,
-.single-faculty-books .breadcrumbs {
+.single-faculty-books .breadcrumbs,
+.single-profile .breadcrumbs {
   @apply my-6;
 }
 
@@ -2154,6 +2173,10 @@ summary::-webkit-details-marker {
 --------------------------------------------- */
 table.tablepress thead th {
   background: rgba(148, 207, 248, 0.84)
+}
+
+.tablepress > :where(thead, tfoot) > * > th {
+  @apply font-bold font-heavy;
 }
 
 .tablepress .sorting:hover, .tablepress .sorting_asc, .tablepress .sorting_desc {
@@ -2313,9 +2336,14 @@ p.tribe-events-back a,
 --------------------------------------------------------------*/
 
 .prose .entry-content ol {
-  counter-reset: section;
+  /*counter-reset: section;*/
   list-style-type: decimal;
 }
+
+.prose .entry-content ol ol {
+  list-style-type: lower-alpha;
+}
+
 .prose .entry-content ol > li::before {
   counter-increment: section;
   content: counter(section) ".";

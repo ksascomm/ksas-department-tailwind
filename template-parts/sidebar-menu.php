@@ -11,7 +11,7 @@
 <?php
 if ( ! $post->post_parent ) {
 	// get the child of the top-level page.
-	$children = wp_list_pages( 'title_li=&child_of=' . $post->ID . '&echo=0' );
+	$children = wp_list_pages( 'title_li=&child_of=' . $post->ID . '&echo=0&sort_column=post_title&sort_order=asc' );
 } else {
 	// get the child pages if we are on the first page of the child level.
 	// $children = wp_list_pages("title_li=&child_of=".$post->post_parent."&echo=0");.
@@ -20,7 +20,7 @@ if ( ! $post->post_parent ) {
 		// now get an ID of the first page.
 		// WordPress collects ID in reverse order, so the "first" will be the last page.
 		$ancestors = end( $post->ancestors );
-		$children  = wp_list_pages( 'title_li=&child_of=' . $ancestors . '&echo=0' );
+		$children  = wp_list_pages( 'title_li=&child_of=' . $ancestors . '&echo=0&sort_column=post_title&sort_order=asc' );
 	}
 }
 
