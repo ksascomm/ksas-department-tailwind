@@ -13,11 +13,18 @@
 
 $arg_type         = get_field( 'loop_argument_type' );
 $testimonial_type = get_field( 'testimonial_type' );
+$spotlight_type   = get_field( 'spotlight_type' );
 if ( $arg_type == 'random' ) :
 	$args = array(
 		'orderby'        => 'rand',
-		'post_type'      => array( 'testimonial', 'profile' ),
+		'post_type'      => 'profile',
 		'posts_per_page' => 1,
+		'tax_query'      => array(
+			array(
+				'taxonomy' => 'profiletype',
+				'terms'    => $spotlight_type,
+			),
+		),
 	);
 else :
 	$testimonials = get_field( 'select_testimonials' );
@@ -47,57 +54,35 @@ if ( $spotlight_block_query->have_posts() ) :
 	while ( $spotlight_block_query->have_posts() ) :
 		$spotlight_block_query->the_post();
 		?>
-<div class="<?php echo esc_attr( $class_name ); ?>">
-	<blockquote class="spotlight-blockquote">
-		<div class="spotlight-text">
-		<?php
-		global $post;
-		if ( get_post_meta( $post->ID, 'ecpt_pull_quote', true ) ) :
+	<div class="<?php echo esc_attr( $class_name ); ?> mx-auto flex max-w-md overflow-hidden rounded-lg shadow-sm p-8 border-2 border-grey">
+	<?php if ( has_post_thumbnail() ) :?>
+		<div class="w-full lg:w-1/3">
+			<?php the_post_thumbnail(
+				'large',
+				array(
+					'alt'   => get_the_title(),
+				)
+			); 
 			?>
-				<p><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pull_quote', true ) ); ?></p>
-			<?php elseif ( get_post_meta( $post->ID, 'ecpt_quote', true ) ) : ?>
-				<p><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_quote', true ) ); ?></p>
-			<?php else : ?>
-				<?php the_excerpt(); ?>
-			<?php endif; ?>
 		</div>
-		<div class="spotlight-author">
-			<a href="<?php echo esc_url( get_permalink() ); ?>">
-				<?php the_title(); ?>
-			</a>
-		</div>
-		<?php
-		global $post;
-		if ( have_rows( 'custom_profile_fields', $post->ID ) ) :
-			?>
-			<div class="spotlight-role">
-				<ul class="no-bullets">
-				<?php
-				while ( have_rows( 'custom_profile_fields', $post->ID ) ) :
-					the_row();
-					?>
-					<li><span class="custom-title"><?php the_sub_field( 'custom_title', $post->ID ); ?></span>&nbsp;<span class="custom-content"><?php the_sub_field( 'custom_content', $post->ID ); ?></span>
-					</li>
-				<?php endwhile; ?>
-				</ul>
-			</div>
-		<?php else : ?>
-			<?php // No rows found! ?>
 		<?php endif; ?>
-	</blockquote>
-	<div class="spotlight-image">
+		<div class="w-full lg:w-2/3 p-4 md:p-4">
+			<h3 class="text-2xl font-bold text-gray-800 dark:text-white">
+				<a href="<?php the_permalink(); ?>" id="post-<?php the_ID(); ?>">
+					<?php the_title(); ?>
+				</a>
+			</h3>
+			<p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
 			<?php
-			if ( has_post_thumbnail() ) {
-				the_post_thumbnail(
-					'full',
-					array(
-						'alt' => esc_html( get_the_title() ),
-					)
-				);
-			}
+			if ( get_post_meta( $post->ID, 'ecpt_pull_quote', true ) ) {
+				echo esc_html( get_post_meta( $post->ID, 'ecpt_pull_quote', true ) );
+			} else {
+				echo wp_trim_words( get_the_excerpt(), 40, '...' ); }
 			?>
+			</p>
+			
+		</div>
 	</div>
-</div>
 	<?php endwhile;
 endif;
 ?>

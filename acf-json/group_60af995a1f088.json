@@ -6,6 +6,7 @@
             "key": "field_60af9960f1a95",
             "label": "Select Options",
             "name": "loop_argument_type",
+            "aria-label": "",
             "type": "button_group",
             "instructions": "",
             "required": 0,
@@ -28,6 +29,7 @@
             "key": "field_60af9da210997",
             "label": "Select Spotlights",
             "name": "select_testimonials",
+            "aria-label": "",
             "type": "relationship",
             "instructions": "",
             "required": 0,
@@ -53,7 +55,41 @@
             "return_format": "id",
             "min": "",
             "max": "",
-            "elements": ""
+            "elements": "",
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_653938e8a1ff5",
+            "label": "Spotlight Type",
+            "name": "spotlight_type",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60af9960f1a95",
+                        "operator": "==",
+                        "value": "random"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "profiletype",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "checkbox",
+            "bidirectional": 0,
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -74,5 +110,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1665582310
+    "modified": 1698249537
 }
