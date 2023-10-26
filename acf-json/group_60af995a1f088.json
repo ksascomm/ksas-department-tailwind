@@ -90,6 +90,42 @@
             "multiple": 0,
             "allow_null": 0,
             "bidirectional_target": []
+        },
+        {
+            "key": "field_653a9fb8870ac",
+            "label": "Spotlight Archive Link",
+            "name": "spotlight_archive_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url"
+        },
+        {
+            "key": "field_653aa6c593564",
+            "label": "Spotlight Archive Label",
+            "name": "spotlight_archive_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -110,5 +146,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1698249537
+    "modified": 1698342615
 }
