@@ -528,28 +528,42 @@ div[class^="bucket-"] {
 .entry-content a[href$=".xls"]:after,
 .entry-content a[href$=".xlsx"]:after,
 .entry-content a[href$=".ppt"]:after,
-.entry-content a[href$=".pptx"]:after {
+.entry-content a[href$=".pptx"]:after,
+.widget.widget_text a[href$=".pdf"]:after,
+.widget.widget_text a[href$=".doc"]:after,
+.widget.widget_text a[href$=".docx"]:after,
+.widget.widget_text a[href$=".xls"]:after,
+.widget.widget_text a[href$=".xlsx"]:after,
+.widget.widget_text a[href$=".ppt"]:after,
+.widget.widget_text a[href$=".pptx"]:after {
   display: inline-block;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   @apply text-primary text-lg pl-1;
 }
-.entry-content a[href$=".pdf"]:after {
+.entry-content a[href$=".pdf"]:after,
+.widget.widget_text a[href$=".pdf"]:after {
   font: var(--fa-font-light);
   content: "\f1c1";
 }
 .entry-content a[href$=".doc"]:after,
-.entry-content a[href$=".docx"]:after {
+.entry-content a[href$=".docx"]:after,
+.widget.widget_text a[href$=".doc"]:after,
+.widget.widget_text a[href$=".docx"]:after {
   font: var(--fa-font-light);
   content: "\f1c2";
 }
 .entry-content a[href$=".xls"]:after,
-.entry-content a[href$=".xlsx"]:after {
+.entry-content a[href$=".xlsx"]:after,
+.widget.widget_text a[href$=".xls"]:after,
+.widget.widget_text a[href$=".xlsx"]:after  {
   font: var(--fa-font-light);
   content: "\f1c3";
 }
 .entry-content a[href$=".ppt"]:after,
-.entry-content a[href$=".pptx"]:after {
+.entry-content a[href$=".pptx"]:after,
+.widget.widget_text a[href$=".ppt"]:after,
+.widget.widget_text a[href$=".pptx"]:after {
   font: var(--fa-font-light);
   content: "\f1c4";
 }
@@ -1234,7 +1248,6 @@ footer.entry-footer {
    {
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    justify-items: end;
     column-gap: calc(2 * 1rem );
   }
 }
