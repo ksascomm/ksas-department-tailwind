@@ -78,17 +78,12 @@
 				<?php while ( have_rows( 'department_social', 'option' ) ) : the_row(); ?>
 				<p class="text-lg">
 					<a href="<?php echo esc_attr( the_sub_field( 'department_social_link' ) ); ?>">
-					<?php $department_social_platform_selected_option = get_sub_field( 'department_social_platform' ); ?>
-						<?php if ($department_social_platform_selected_option['value'] = 'facebook'):
-							echo '<span class="fa-brands fa-facebook"></span>';
-						elseif( $department_social_platform_selected_option['value'] = 'twitter'):
-							echo '<span class="fa-brands fa-twitter"></span>';
-						elseif( $department_social_platform_selected_option['value'] = 'instagram'):
-							echo '<span class="fa-brands fa-instagram"></span>';
-						elseif( $department_social_platform_selected_option['value'] = 'linkedin'):
-							echo '<span class="fa-brands fa-linkedin"></span>';
-						endif; ?>
-						Follow us on <?php echo esc_html( $department_social_platform_selected_option['label'] ); ?></a>
+						<?php $department_social_platform_selected_option = get_sub_field( 'department_social_platform' ); ?>
+						<?php if ( $department_social_platform_selected_option ) : ?>
+						<span class="fa-brands fa-<?php echo esc_html( $department_social_platform_selected_option['value'] ); ?>"></span>
+						Follow us on <?php echo esc_html( $department_social_platform_selected_option['label'] ); ?>
+						<?php endif; ?>
+					</a>
 				</p>
 				<?php endwhile; ?>
 			<?php else : ?>
