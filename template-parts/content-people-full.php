@@ -96,15 +96,19 @@
 				<li><span class="fa-solid fa-phone-office" aria-hidden="true"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_phone', true ) ); ?></li>
 			<?php endif; ?>
 
+			<?php if ( get_post_meta( $post->ID, 'ecpt_website', true ) ) : ?>
+				<li><span class="fa-solid fa-earth-americas" aria-hidden="true"></span> <a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_website', true ) ); ?>">Personal Website</a></li>
+			<?php endif; ?>
+
 			<?php if ( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ) : ?>
-				<li><span class="fa-solid fa-earth-americas"></span> <a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ); ?>" target="_blank" aria-label="<?php the_title(); ?>'s Group/Lab Website">Group/Lab Website</a></li>
+				<li><span class="fa-solid fa-earth-americas"></span> <a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ); ?>" aria-label="<?php the_title(); ?>'s Group/Lab Website">Group/Lab Website</a></li>
 			<?php endif; ?>
 
 			<?php if ( get_post_meta( $post->ID, 'ecpt_google_id', true ) ) : ?>
-				<li><span class="fa-brands fa-google"></span> <a href="https://scholar.google.com/citations?user=<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_google_id', true ) ); ?>" target="_blank">Google Scholar Profile</a></li>
+				<li><span class="fa-brands fa-google"></span> <a href="https://scholar.google.com/citations?user=<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_google_id', true ) ); ?>">Google Scholar Profile</a></li>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_twitter', true ) ) : ?>
-				<li><span class="fa-brands fa-twitter"></span> <a href="https://twitter.com/<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_twitter', true ) ); ?>" target="_blank"> @<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_twitter', true ) ); ?></a></li>
+				<li><span class="fa-brands fa-twitter"></span> <a href="https://twitter.com/<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_twitter', true ) ); ?>"> @<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_twitter', true ) ); ?></a></li>
 			<?php endif; ?>
 
 			</ul>
