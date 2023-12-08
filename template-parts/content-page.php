@@ -26,9 +26,15 @@
 			)
 		) ) :
 		?>
-		<header class="entry-header">
-			<?php the_title( '<h1 class="entry-title tracking-tight leading-10 sm:leading-none py-8">', '</h1>' ); ?>
-		</header><!-- .entry-header -->
+		<div class="alignfull !mt-0" role="banner">
+			<div class="flex bg-white lg:bg-grey-cool lg:bg-opacity-50 front-featured-image-area h-20 lg:h-40">
+				<div class="flex lg:items-center px-6 xl:ml-32">
+					<h1 class="tracking-tight leading-10 sm:leading-none lg:text-4xl xl:text-[44px] lg:pl-2 xl:pl-0 py-8 !mb-0">
+						<?php the_title(); ?>
+					</h1>
+				</div>
+			</div>
+		</div>
 		<?php else : ?>
 			<?php get_template_part( 'template-parts/featured-image' ); ?>
 	<?php endif; ?>
