@@ -116,7 +116,7 @@
                     },
                     "choices": {
                         "facebook": "Facebook",
-                        "twitter": "Twitter",
+                        "x-twitter": "Twitter",
                         "instagram": "Instagram",
                         "linkedin": "LinkedIn"
                     },

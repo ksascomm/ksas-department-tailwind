@@ -108,7 +108,7 @@
 				<li><span class="fa-brands fa-google"></span> <a href="https://scholar.google.com/citations?user=<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_google_id', true ) ); ?>">Google Scholar Profile</a></li>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_twitter', true ) ) : ?>
-				<li><span class="fa-brands fa-twitter"></span> <a href="https://twitter.com/<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_twitter', true ) ); ?>"> @<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_twitter', true ) ); ?></a></li>
+				<li><span class="fa-brands fa-x-twitter"></span> <a href="https://twitter.com/<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_twitter', true ) ); ?>"> @<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_twitter', true ) ); ?></a></li>
 			<?php endif; ?>
 
 			</ul>
