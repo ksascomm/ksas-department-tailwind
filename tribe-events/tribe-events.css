@@ -477,3 +477,7 @@ img.tribe-events-calendar-list__event-featured-image:not([alt]) {
 .tribe-events-single ul.tribe-related-events li {
   padding: 0;
 }
+
+.tribe-events-content blockquote::before {
+  content: none !important;
+}

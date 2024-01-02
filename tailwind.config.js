@@ -208,8 +208,7 @@ module.exports = {
                 fontSize: "75%",
               },
               blockquote: {
-                fontFamily: "Gentona-SemiBold, system-ui",
-                fontWeight: "600",
+                fontStyle: "normal",
                 borderLeftColor: "#bfccd9",
               },
               "blockquote p:first-of-type::before": {

@@ -14,12 +14,13 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<div class="entry-content flex flex-wrap flex-col md:flex-row">
+		<div class="flex-initial">
 		<?php
 			the_post_thumbnail(
 				'large',
 				array(
-					'class' => 'md:float-left max-w-sm',
+					'class' => 'max-w-sm',
 					'alt'   => the_title_attribute(
 						array(
 							'echo' => false,
@@ -28,12 +29,14 @@
 				)
 			);
 			?>
+		</div>
+		<div class="flex-1">
 		<?php if ( have_rows( 'custom_profile_fields' ) ) : ?>
 			<?php
 			while ( have_rows( 'custom_profile_fields' ) ) :
 				the_row();
 				?>
-			<h4><span class="custom-title"><?php the_sub_field( 'custom_title' ); ?></span>&nbsp;<span class="custom-content"><?php the_sub_field( 'custom_content' ); ?></span></h4>
+			<h2 class="!text-2xl"><span class="custom-title"><?php the_sub_field( 'custom_title' ); ?></span>&nbsp;<span class="custom-content"><?php the_sub_field( 'custom_content' ); ?></span></h2>
 			<?php endwhile; ?>
 		<?php else : ?>
 			<?php // No rows found! ?>
@@ -49,6 +52,7 @@
 			)
 		);
 		?>
+		</div>
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>

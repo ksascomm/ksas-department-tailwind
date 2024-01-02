@@ -124,6 +124,7 @@ if (mix.inProduction()) {
           "b",
           "strong",
           "blockquote",
+          "cite",
           "wp-block-quote",
           "main-navigation",
           "nav-menu",
