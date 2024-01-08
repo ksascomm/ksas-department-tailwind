@@ -956,17 +956,30 @@ button.menu-button:focus {
   visibility: visible;
 }
 
-.dropdown ul {
+.dropdown.sidebar-menu ul {
   list-style: none;
   margin-block: 0;
   padding-left: 0;
 }
 
 .dropdown.sidebar-menu a {
-  @apply font-semi font-semibold;
+  @apply font-semi font-semibold text-base;
+  border-bottom: none;
 }
 
-.dropdown ul.nav ul.children {
+.dropdown.sidebar-menu ul.nav {
+  @apply ml-3 leading-6;
+}
+
+.dropdown.sidebar-menu .dropdown-menu > div {
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+.dropdown.sidebar-menu .dropdown-menu ul.nav li.page_item {
+@apply border-l-2 border-grey-cool;
+}
+
+.dropdown.sidebar-menu .dropdown ul.nav ul.children {
   @apply ml-4 leading-5 -mt-1;
 }
 
