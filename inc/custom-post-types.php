@@ -87,24 +87,27 @@ add_image_size( 'faculty-book', 240, 365, false );
 
 /**
  * Custom Events Calendar Hooks
- 
-// Here we hook into our template action - just before the date tag, which is the first item in the container.
-add_action(
-	'tribe_template_after_include:events/v2/widgets/widget-events-list/event/date-tag',
-	'my_action_add_event_featured_image',
-	15,
-	3
-);
+*/ 
 
-  // Here we utilize the hook variables to get our event, find the image, and echo the thumbnail.
-function my_action_add_event_featured_image( $file, $name, $template ) {
-	// Get the event for reference - we'll need it.
-	$event = $template->get( 'event' );
+add_filter( 'tribe_get_event_website_link_label', 'tribe_get_event_website_link_label_default' );
 
-	$link = sprintf(
-		'<div class="event-image">%1$s</div>',
-		get_the_post_thumbnail( $event, 'event-widget-thumb', array( 'class' => 'aligncenter w-full h-40 hidden md:inline' ) )
-	);
+/** Modern Tribe Events change the text from the URL to a “Visit Website” */
+function tribe_get_event_website_link_label_default( $label ) {
 
-	echo $link;
-}*/
+	if ( $label === tribe_get_event_website_url() ) {
+		$label = 'Visit Website';
+		return $label;
+	}
+
+	return $label;
+}
+
+// Inject the list of categories after the title
+add_action( 'tribe_template_before_include:events/v2/list/event/venue', function() {
+    global $post;
+    ?>
+    <ul class='tribe-event-categories'>
+        <?php echo tribe_get_event_taxonomy( $post->ID ); ?>
+    </ul>
+    <?php
+} );

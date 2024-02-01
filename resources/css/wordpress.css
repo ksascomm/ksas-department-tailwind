@@ -419,6 +419,11 @@ div[class^="bucket-"] {
   box-shadow: inset 0 -2.5rem 0 0 #fefefe;
 }
 
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .bucket-1, .bucket-2, .bucket-3, .bucket-4, .bucket-5, .bucket-6 {
+    width: 1024px;
+  }
+}
 
 /* Blog Meta
 --------------------------------------------- */
@@ -2296,7 +2301,6 @@ p.tribe-events-back a,
 .tribe-events-nav-previous a {
   font-weight: 400 !important;
 }
-
 
 .tribe-common--breakpoint-medium.tribe-common .tribe-common-h4--min-medium {
   @apply font-semi font-semibold;
