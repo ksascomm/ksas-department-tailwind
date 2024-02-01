@@ -2107,7 +2107,20 @@ summary::-webkit-details-marker {
 
 .single-people .faculty-books p {
   @apply !my-0;
- }
+}
+
+.single-people .tabbed .section-content ul li a {
+  --tw-border-opacity: 1;
+  border-bottom: 2px;
+  border-color: rgb(229 226 224/var(--tw-border-opacity));
+  border-style: dashed;
+}
+
+.single-people .tabbed .section-content ul li a:hover {
+  border-bottom: 2px;
+  border-color: rgb(49 38 29/var(--tw-border-opacity));
+  border-style: solid;
+}
 
 /*--------------------------------------------------------------
 # Plugins
