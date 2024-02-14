@@ -28,7 +28,7 @@ if ( $children ) :
 	?>
 	 
  
- <div class="menu-button-links relative text-left lg:mr-8 lg:inline-block">
+ <div class="menu-button-links relative text-left lg:mr-8 hidden lg:inline-block">
 	<button type="button"
 		id="id-button"
 		aria-haspopup="true"
