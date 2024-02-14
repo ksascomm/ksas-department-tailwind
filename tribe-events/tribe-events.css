@@ -279,6 +279,21 @@ ul.tribe-events-sub-nav a,
   }
 }
 
+@media screen and (min-width:1024px) {
+  .tribe-events-tooltip-theme {
+    width: 600px !important;
+    max-width: unset !important;
+  }
+  .tribe-events-tooltip-theme .tribe-events-calendar-month__calendar-event-tooltip-featured-image-wrapper {
+    float: left;
+    margin-right: 2em;
+  }
+  .tribe-events-tooltip-theme .tribe-events-calendar-month__calendar-event-tooltip-title {
+      clear: none;
+    line-height: 1.3;
+  } 
+}
+
 a.tribe-events-c-subscribe-dropdown__list-item-link {
   border-bottom-width: 0px !important;
 }

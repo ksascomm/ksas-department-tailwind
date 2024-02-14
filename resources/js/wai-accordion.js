@@ -1,4 +1,10 @@
-/*
+/**
+ * File wai-accordion.js
+ *
+ * Customized script for Menu Button Links 
+ * 
+ * @link https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/
+ * 
  *   This content is licensed according to the W3C Software License at
  *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
  *

@@ -257,6 +257,12 @@ mark {
   background: transparent;
 }
 
+.site-main .entry-content p,
+.site-main .people-content p,
+.tribe-events-widget-events-list__event-details p {
+  -webkit-text-stroke: 0.025rem rgba(49,38,29,0.50);
+}
+
 /* Elements
 --------------------------------------------- */
 @screen lg {
@@ -419,11 +425,10 @@ div[class^="bucket-"] {
   box-shadow: inset 0 -2.5rem 0 0 #fefefe;
 }
 
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .bucket-1, .bucket-2, .bucket-3, .bucket-4, .bucket-5, .bucket-6 {
-    width: 1024px;
-  }
+.front.prose .bucket-text p {
+  @apply !mx-0;
 }
+
 
 /* Blog Meta
 --------------------------------------------- */
@@ -954,38 +959,74 @@ button.menu-button:focus {
  }
 }
 
-/* Dropdown Menu ---------------------------- */
-.dropdown:focus-within .dropdown-menu {
-  opacity: 1;
-  transform: translate(0) scale(1);
-  visibility: visible;
+/* Interior Page Dropdown Menu ---------------------------- */
+.menu-button-links button {
+  @apply inline-block justify-center px-4 py-2 !text-[.875rem] leading-5 font-semi font-semibold text-grey-darkest lg:bg-grey-lightest lg:border lg:border-grey-cool uppercase;
 }
 
-.dropdown.sidebar-menu ul {
+.menu-button-links .menu {
+  @apply lg:bg-grey-lightest w-72 z-auto;
+  margin: 0;
+  padding: 7px 4px;
+  list-style: none;
+  display: none;
+  position: absolute;
+}
+
+.menu-button-links .menu ul {
   list-style: none;
   margin-block: 0;
   padding-left: 0;
 }
 
-.dropdown.sidebar-menu a {
+.menu-button-links > .menu {
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+
+}
+
+.menu-button-links .menu a {
   @apply font-semi font-semibold text-base;
   border-bottom: none;
 }
 
-.dropdown.sidebar-menu ul.nav {
-  @apply ml-3 leading-6;
+.menu-button-links ul.nav li.page_item {
+  @apply border-l-2 border-grey-cool;
+  }
+  
+  .menu-button-links .menu > li {
+    @apply ml-3 leading-6;
+  }
+
+  .menu-button-links ul.nav ul.children {
+    @apply ml-4 leading-5 -mt-1;
+  }
+
+.menu-button-links button svg.down {
+  padding-left: 0.125em;
+  fill: currentColor;
+  stroke: currentColor;
 }
 
-.dropdown.sidebar-menu .dropdown-menu > div {
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+.menu-button-links button.open svg.down {
+  transform: rotate(180deg);
 }
 
-.dropdown.sidebar-menu .dropdown-menu ul.nav li.page_item {
-@apply border-l-2 border-grey-cool;
+.menu-button-links button svg.down {
+  padding-left: 0.125em;
+  fill: currentcolor;
+  stroke: currentcolor;
 }
 
-.dropdown.sidebar-menu .dropdown ul.nav ul.children {
-  @apply ml-4 leading-5 -mt-1;
+.menu-button-links button[aria-expanded="true"] svg.down {
+  transform: rotate(180deg);
+}
+
+/* focus styling */
+
+.menu-button-links button:hover,
+.menu-button-links button:focus,
+.menu-button-links button[aria-expanded="true"] {
+  @apply bg-grey;
 }
 
 /* Posts and pages
@@ -1496,11 +1537,13 @@ footer.entry-footer {
   @apply font-sans font-light;
 }
 
-.widget.ksas_profile h5.spotlight-profile-title {
+.widget.ksas_profile h5.spotlight-profile-title,
+.widget.widget_job_candidate {
   @apply text-xl lg:text-[26px];
 }
 
-.widget.ksas_profile p {
+.widget.ksas_profile p,
+.widget.widget_job_candidate p {
   @apply mt-2 mb-4 leading-normal;
 }
 
@@ -2132,12 +2175,70 @@ summary::-webkit-details-marker {
   @apply my-2;
 }
 
+.prose .wp-block-columns {
+  align-items: start !important;
+}
+
+.publication {
+  @apply border-2 border-grey shadow-sm px-4;
+}
+
+.publication h4.publication-category {
+  @apply text-base uppercase mt-2 mb-0;
+}
+
+.publication h3.article-title {
+  @apply font-bold font-heavy text-xl leading-tight;
+}
+
+.publication h3.article-title a {
+  color: #002d72;
+  border: none;
+  border-bottom: 0.125em solid;
+  border-bottom-color: #d6d6d6;
+  background-color: transparent;
+  border-radius: 0;
+  transition: border-color, background-color, color;
+  transition-duration: 250ms, 250ms, 250ms;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
+}
+
+.publication h3.article-title a:hover {
+  color: #31261d;
+  border-bottom: 0.125em solid;
+  border-bottom-color: #4a484c;
+}
+
+.publication .publication-title, .publication .publication-date {
+  @apply font-semi font-semibold my-0 text-base;
+}
+
+.publication .article-author {
+  @apply text-base my-2;
+}
+
+.publication .publication-date {
+  @apply mb-2;
+}
+
+.publication .publication-cover {
+  @apply relative my-4 box-border;
+  max-height: 60%;
+}
+
+.publication .publication-cover img {
+  max-width: 150px;
+  height: auto;
+}
+
 /* Breadcrumbs
 --------------------------------------------- */
 
 .breadcrumbs {
-  @apply block lg:inline-block -mb-4 pl-2 text-grey-darkest lg:border lg:border-grey-cool py-0.5;
+  @apply block lg:inline-block -mb-4 pl-2 text-grey-darkest lg:border lg:border-grey-cool;
   background-color: rgba(191, 204, 217, 0);
+  padding-top:.125rem;
+  padding-bottom: 0.25rem
 }
 
 .breadcrumbs span {
@@ -2221,6 +2322,20 @@ table.tablepress thead th {
 
 .tablepress > .row-hover > tr:hover > * {
   @apply !bg-grey-cool bg-opacity-50 ;
+}
+
+/* SwiperJS
+--------------------------------------------- */
+.research-lab  {
+  grid-template-rows: 50% 50%;
+}
+
+.research-lab .research-excerpt {
+  grid-column: span 2
+}
+
+.research-lab .research-excerpt:nth-child(5) {
+  grid-column: 2 / span 2;
 }
 
 /* Events Calendar Blocks
@@ -2492,7 +2607,7 @@ p.tribe-events-back a,
 }
 
 .prose .wp-block-button a.wp-block-button__link strong {
-  @apply text-white;
+  @apply text-white border-0;
   background: transparent;
 }
 
@@ -2555,9 +2670,15 @@ p.tribe-events-back a,
   }
 }
 
-
 .photoshelter-featured-image img {
   @apply my-0;
+}
+
+@screen xl {
+  .page .entry-content p,
+  .single-post .entry-content p {
+    max-width: 95ch;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -2672,7 +2793,7 @@ figure.wp-block-pullquote {
 }
 
 .wp-block-ksas-callouts-ksas-callout-block.warning,
-..wp-block-ksas-block-ksas-callouts.warning {
+.wp-block-ksas-block-ksas-callouts.warning {
   background-color: #fff3d9;
 }
 

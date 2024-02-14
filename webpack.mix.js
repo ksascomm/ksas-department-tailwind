@@ -21,11 +21,15 @@ const TailwindExtractor = (content) => {
   ========================================================================== */
 mix
   // handle site-wide JS files
-  .scripts(["resources/js/twentytwenty.js", "resources/js/wai-accordion.js","resources/js/navbar.js"], "dist/js/bundle.min.js")
+  .scripts(["resources/js/twentytwenty.js", "resources/js/wai-dropdown.js" ,"resources/js/wai-accordion.js","resources/js/navbar.js", "resources/js/custom-jquery.js"], "dist/js/bundle.min.js")
 
   //Minify and move isotope to dist directory
   .scripts(
     ["resources/js/isotope.js"], "dist/js/isotope.js")
+
+ //Minify and move swiper to dist directory
+  //.js(
+  //  ["resources/js/swiper.js"], "dist/js/swiper.js")
 
  //Minify and move People Tabs to dist directory
   .scripts(

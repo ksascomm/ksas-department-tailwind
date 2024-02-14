@@ -1,3 +1,12 @@
+/**
+ * File people-tabs.js.
+ *
+ * Customized script for keyboard navigation on People CPT
+ * 
+ * @link http://web-accessibility.carnegiemuseums.org/code/tabs/
+ */
+
+
 jQuery(document).ready(function($) {
 	var index = 0;
 	var $tabs = $('a.tab');
