@@ -965,7 +965,7 @@ button.menu-button:focus {
 }
 
 .menu-button-links .menu {
-  @apply lg:bg-grey-lightest w-72 z-auto;
+  @apply lg:bg-grey-lightest w-72 z-10;
   margin: 0;
   padding: 7px 4px;
   list-style: none;
