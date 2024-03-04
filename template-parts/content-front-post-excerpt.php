@@ -40,9 +40,9 @@ if ( has_post_thumbnail() ) :
 			ksas_department_tailwind_posted_on();
 			?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_external_link', true ) ) : ?>
-			<?php the_title( '<h3 class="entry-title external-link"><a href="' . esc_url( get_post_meta( $post->ID, 'ecpt_external_link', true ) ) . '" rel="bookmark" target="_blank" rel="noopener">', '</a></h3>' ); ?>
+			<?php the_title( '<h3 class="entry-title external-link"><a class="front-post" href="' . esc_url( get_post_meta( $post->ID, 'ecpt_external_link', true ) ) . '" rel="bookmark" target="_blank" rel="noopener">', '</a></h3>' ); ?>
 		<?php else : ?>
-			<?php the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
+			<?php the_title( '<h3 class="entry-title"><a class="front-post" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
 		<?php endif; ?>
 		</header><!-- .entry-header -->
 		<div class="entry-content px-4 leading-normal text-lg">
