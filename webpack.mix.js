@@ -27,10 +27,6 @@ mix
   .scripts(
     ["resources/js/isotope.js"], "dist/js/isotope.js")
 
- //Minify and move swiper to dist directory
-  //.js(
-  //  ["resources/js/swiper.js"], "dist/js/swiper.js")
-
  //Minify and move People Tabs to dist directory
   .scripts(
     ["resources/js/people-tabs.js"], "dist/js/people-tabs.js")

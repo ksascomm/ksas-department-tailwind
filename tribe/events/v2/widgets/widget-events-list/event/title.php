@@ -23,7 +23,7 @@
 		rel="bookmark"
 		class="tribe-events-widget-events-list__event-title-link tribe-common-anchor-thin"
 	>
-	<?php if ( is_active_sidebar( 'events-featured' ) ) : ?>
+	<?php if ( is_active_sidebar( 'events-featured' ) || is_active_sidebar( 'below-news' )  ) : ?>
 		<?php
 		$thetitle =  $event->title; /* or you can use get_the_title() */
 		$getlength = strlen($thetitle);

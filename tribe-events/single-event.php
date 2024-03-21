@@ -73,6 +73,16 @@ $cost  = tribe_get_formatted_cost( $event_id );
 ?>
 
 <main id="site-content" class="site-main prose sm:prose lg:prose-lg">
+<div class="wayfinding md:mb-8 ml-4 xl:ml-0">
+		<?php get_template_part( 'template-parts/sidebar-menu' ); ?>
+		<?php
+		if ( function_exists( 'bcn_display' ) ) :
+			?>
+			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+				<?php bcn_display(); ?>
+			</div>
+		<?php endif; ?>
+	</div>
 	<div id="tribe-events-content" class="tribe-events-single">
 		<p class="tribe-events-back">
 			<a href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html_x( 'All %s', '%s Events plural label', 'ksas-department-tailwind' ), $events_label_plural ); ?></a>

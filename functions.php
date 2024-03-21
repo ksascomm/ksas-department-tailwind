@@ -9,7 +9,7 @@
 
 if ( ! defined( 'KSAS_DEPARTMENT_TAILWIND_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '3.0.1' );
+	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '4.0.0' );
 }
 
 if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
@@ -112,6 +112,17 @@ add_action( 'after_setup_theme', 'ksas_department_tailwind_setup' );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function ksas_department_tailwind_widgets_init() {
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Front Above Explore Area', 'ksas-department-tailwind' ),
+			'id'            => 'above-explore',
+			'description'   => esc_html__( 'This sidebar will appear above the "Explore" section of homepage.', 'ksas-department-tailwind' ),
+			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside></div>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Front Below Explore Area', 'ksas-department-tailwind' ),

@@ -101,9 +101,16 @@ if ( ! empty( $studyfield_response ) ) :
 	</div>
 </div>
 
+<?php if ( is_active_sidebar( 'above-explore' ) ) : ?>
+	<?php get_template_part( 'template-parts/widgets-above-explore' );
+	wp_reset_query(); ?>
+<?php endif; ?>
+
+
 <?php
 if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 	?>
+	
 	<div class="container">
 	<?php
 	if ( have_rows( 'explore_the_department' ) ) :
@@ -154,7 +161,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 			<?php // Otherwise, display content in a card.
 			else :?>
 				<div class="p-2">
-					<div class="h-full rounded-lg field mb-4 px-6 py-4 overflow-hidden bg-grey-lightest research-project-card-outline">
+					<div class="h-full rounded-lg field mb-4 px-6 py-4 overflow-hidden bg-grey-lightest grey-card-outline">
 						<h3 class="text-2xl 2xl:text-3xl not-prose font-semi font-semibold !mt-0">
 							<?php if ( get_sub_field( 'explore_bucket_link' ) ) : ?>
 							<a href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
@@ -164,7 +171,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 								<?php the_sub_field( 'explore_bucket_heading' ); ?>
 							<?php endif; ?>
 						</h3>
-						<p class="leading-normaltext-lg 2xl:text-xl tracking-wide font-light"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
+						<p class="leading-normal text-lg 2xl:text-xl tracking-wide font-light !mb-0"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
 					</div>
 				</div>
 			<?php endif; ?>

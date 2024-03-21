@@ -55,7 +55,7 @@ if ( empty( $events ) && $hide_if_no_upcoming_events ) {
 			<?php $this->template( 'components/data' ); ?>
 
 			<?php if ( ! empty( $widget_title ) ) : ?>
-				<?php if ( is_active_sidebar( 'events-featured' ) ) : ?>
+				<?php if ( is_active_sidebar( 'events-featured' ) || is_active_sidebar( 'below-news' )  ) : ?>
 					<div class="flex flex-wrap justify-between px-8 lg:px-0 header-area">
 						<header class="tribe-events-widget-events-list__header">
 							<h2 class="tribe-events-widget-events-list__header-title tribe-common-h6 tribe-common-h--alt !text-4xl">
@@ -80,7 +80,7 @@ if ( empty( $events ) && $hide_if_no_upcoming_events ) {
 						<?php $this->template( 'widgets/widget-events-list/event', [ 'event' => $event ] ); ?>
 					<?php endforeach; ?>
 				</div>
-				<?php if ( ! is_active_sidebar( 'events-featured' ) ) : ?>
+				<?php if ( ! is_active_sidebar( 'events-featured' ) || ! is_active_sidebar( 'below-news' ) ) : ?>
 					<?php $this->template( 'widgets/widget-events-list/view-more' ); ?>
 				<?php endif;?>
 			<?php else : ?>

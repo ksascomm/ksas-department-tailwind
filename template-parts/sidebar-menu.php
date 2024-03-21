@@ -33,8 +33,8 @@ if ( $children ) :
 		id="id-button"
 		aria-haspopup="true"
 		aria-controls="section-menu"
-        aria-expanded="false">
-		<span> Inside
+		aria-expanded="false">
+		<span><i class="fa-solid fa-bars"></i>&nbsp; Inside
 			<?php
 			global $post;
 			$ancestors = get_post_ancestors( $post->ID );

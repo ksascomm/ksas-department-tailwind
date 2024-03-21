@@ -105,7 +105,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<div class="header-navigation-wrapper bg-white">
 			<div class="header-inner section-inner flex container justify-between">
 				<div class="menu-container">
-					<button class="menu-button" aria-controls="site-header-menu" type="button"><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'ksas-department-tailwind' ); ?></span></button>
+					<button class="menu-button" aria-expanded="false" aria-controls="site-header-menu" aria-label="<?php esc_attr_e( 'Menu', 'textdomain' ); ?>"></button>
 					<div id="site-header-menu" class="site-header-menu text-primary">
 						<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'ksas-department-tailwind' ); ?>">
 						<?php

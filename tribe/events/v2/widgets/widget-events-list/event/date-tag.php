@@ -25,7 +25,7 @@ $event_day_num   = $display_date->format_i18n( 'j' );
 $event_date_attr = $display_date->format( Dates::DBDATEFORMAT );
 $event_date_start_attr = $event->dates->start->format( Dates::DBDATEFORMAT );
 ?>
-<?php if ( is_active_sidebar( 'events-featured' ) ) : ?>
+<?php if ( is_active_sidebar( 'events-featured' ) || is_active_sidebar( 'below-news' ) ) : ?>
 	
 	<time class="font-heavy font-bold" datetime="<?php echo esc_attr( $event_date_attr ); ?>">
 		

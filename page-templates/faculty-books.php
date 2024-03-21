@@ -11,7 +11,7 @@ get_header();
 ?>
 
 <?php
-// Set Faculty Bokoks Query Parameters.
+// Set Faculty Books Query Parameters.
 $faculty_books_query = new WP_Query(
 	array(
 		'post_type'      => 'faculty-books',

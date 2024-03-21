@@ -49,8 +49,8 @@ get_header();
 
 					<?php get_template_part( 'template-parts/content', 'people-cards' ); ?>
 
-							<?php
-						endwhile;
+					<?php
+				endwhile;
 			endif;
 			?>
 			<?php
