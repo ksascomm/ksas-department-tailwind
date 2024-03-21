@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-excerpt blog-excerpt prose sm:prose lg:prose-lg xl:prose-xl mx-auto mb-4' ); ?> aria-label="<?php the_title(); ?>">
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'research-excerpt article-excerpt blog-excerpt prose sm:prose lg:prose-lg xl:prose-xl mx-auto mb-4 bg-white' ); ?>>
 <?php
 	/**
 	 * This differs from theme's post_thumbnail()
@@ -35,12 +35,9 @@ if ( has_post_thumbnail() ) :
 		</div>
 	<?php endif; ?>
 		<header class="entry-header px-4 pt-4">
-			<?php
-			ksas_department_tailwind_posted_on();
-			?>
-			<?php the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
+			<?php the_title( '<h3 class="entry-title !text-xl"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
 		</header><!-- .entry-header -->
-		<div class="entry-content px-4 leading-normal text-lg">
+		<div class="entry-content px-4 leading-normal text-base">
 			<?php
 				the_excerpt();
 			?>
