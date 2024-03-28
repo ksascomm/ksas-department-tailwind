@@ -22,49 +22,29 @@
 
 	<div class="entry-content">
 		<?php
-		if ( has_post_thumbnail() ) :
-			the_post_thumbnail(
-				'large',
-				array(
-					'class' => 'max-w-sm',
-					'alt'   => the_title_attribute(
-						array(
-							'echo' => false,
-						)
-					),
-				)
-			);
-		endif	
-			?>
-			<ul>
-			<?php
-					if ( get_post_meta( $post->ID, 'publication_name', true ) ) :
-						?>
-					<?php
-					if ( get_post_meta( $post->ID, 'publication_link', true ) ) :
-						?>
-						<li>
-							<a href="<?php echo esc_url( get_post_meta( $post->ID, 'publication_link', true ) ); ?>">
-								<em><?php echo esc_html( get_post_meta( $post->ID, 'publication_name', true ) ); ?></em>, <?php echo esc_html( get_post_meta( $post->ID, 'publication_year', true ) ); ?>&nbsp;<i class="fa-sharp fa-solid fa-square-arrow-up-right"></i>
-							</a>	
-						</li>
-					<?php else : ?>
-						<li><em><?php echo esc_html( get_post_meta( $post->ID, 'publication_name', true ) ); ?></em>, <?php echo esc_html( get_post_meta( $post->ID, 'publication_year', true ) ); ?></li>
-					<?php endif; ?>
+			$faculty_post_id = get_post_meta( $post->ID, 'publication_author', true );
+			if ( get_post_meta( $post->ID, 'publication_author', true ) ) :
+				?>
+				<a href="<?php echo esc_html( get_the_permalink( $faculty_post_id ) ); ?>"><?php echo esc_html( get_the_title( $faculty_post_id ) ); ?></a>
+				<?php if ( get_post_meta( $post->ID, 'publication_author_other', true ) ) : ?>
+					and <?php echo esc_html( get_post_meta( $post->ID, 'publication_author_other', true ) ); ?>
 				<?php endif; ?>
-					<?php
-					$faculty_post_id = get_post_meta( $post->ID, 'publication_author', true );
-					if ( get_post_meta( $post->ID, 'publication_author', true ) ) :
-						?>
-						<li>
-						<a href="<?php echo esc_html( get_the_permalink( $faculty_post_id ) ); ?>"><?php echo esc_html( get_the_title( $faculty_post_id ) ); ?></a>
-						<?php if ( get_post_meta( $post->ID, 'publication_author_other', true ) ) : ?>
-							and <?php echo esc_html( get_post_meta( $post->ID, 'publication_author_other', true ) ); ?>
-						<?php endif; ?>
-						</li>
-					<?php endif; ?>
-			</ul>
-		</div>
+			<?php endif; ?>
+			<?php
+			if ( get_post_meta( $post->ID, 'publication_name', true ) ) :
+				?>
+			<?php
+			if ( get_post_meta( $post->ID, 'publication_link', true ) ) :
+				?>
+				|
+					<a href="<?php echo esc_url( get_post_meta( $post->ID, 'publication_link', true ) ); ?>">
+						<em><?php echo esc_html( get_post_meta( $post->ID, 'publication_name', true ) ); ?></em>, <?php echo esc_html( get_post_meta( $post->ID, 'publication_year', true ) ); ?>&nbsp;<i class="fa-sharp fa-solid fa-square-arrow-up-right"></i>
+					</a>
+				
+			<?php else : ?>
+				| <em><?php echo esc_html( get_post_meta( $post->ID, 'publication_name', true ) ); ?></em>, <?php echo esc_html( get_post_meta( $post->ID, 'publication_year', true ) ); ?></li>
+			<?php endif; ?>
+		<?php endif; ?>
 	<?php
 	if ( is_singular() ) :
 			the_content(
@@ -92,8 +72,23 @@
 			)
 		);
 		?>
-	</div><!-- .entry-content -->
+	<?php
+		if ( has_post_thumbnail() ) :
+			the_post_thumbnail(
+				'full',
+				array(
+					'class' => 'max-w-screen-lg',
+					'alt'   => the_title_attribute(
+						array(
+							'echo' => false,
+						)
+					),
+				)
+			);
+		endif
+			?>
 	<?php if ( ! is_single() ) : ?>
 		<hr>
 	<?php endif; ?>
+	</div><!-- .entry-content -->
 </article><!-- #post-<?php the_ID(); ?> -->
