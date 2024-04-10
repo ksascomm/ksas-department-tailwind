@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Set up dropdown toggle buttons for menu items with children
 	const menuItemsWithChildren = document.querySelectorAll(
-		'.menu-item-has-children > a'
+		'.main-navigation .menu-item-has-children > a'
 	);
 	menuItemsWithChildren.forEach(function (item) {
 		const linkText = item.textContent;

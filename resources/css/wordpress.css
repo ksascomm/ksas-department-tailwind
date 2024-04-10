@@ -308,7 +308,7 @@ span.posted-on {
   @apply my-0 !important;
 }
 
-.news-section .news-thumb {
+.news-section .news-thumb img {
   object-position: 0% 20%;
 }
 
@@ -961,11 +961,11 @@ button.menu-button:focus {
 
 /* Interior Page Dropdown Menu ---------------------------- */
 .menu-button-links button {
-  @apply inline-block justify-center px-4 py-2 !text-[.875rem] leading-5 font-semi font-semibold text-grey-darkest lg:bg-grey-lightest lg:border lg:border-grey-cool uppercase;
+  @apply inline-block justify-center px-4 py-2 !text-[.875rem] leading-5 font-semi font-semibold text-white lg:bg-blue lg:border lg:border-grey-cool uppercase ;
 }
 
 .menu-button-links .menu {
-  @apply lg:bg-grey-lightest w-72 z-10;
+  @apply lg:bg-white w-72 z-10;
   margin: 0;
   padding: 7px 4px;
   list-style: none;
@@ -989,17 +989,20 @@ button.menu-button:focus {
   border-bottom: none;
 }
 
-.menu-button-links ul.nav li.page_item {
+.menu-button-links ul.nav li.page_item,
+.menu-button-links ul.nav li.menu-item {
   @apply border-l-2 border-grey-cool;
-  }
+}
   
-  .menu-button-links .menu > li {
-    @apply ml-3 leading-6;
-  }
+.menu-button-links .menu > li,
+.menu-button-links ul.menu ul.sub-menu > li {
+  @apply ml-3 leading-6;
+}
 
-  .menu-button-links ul.nav ul.children {
-    @apply ml-4 leading-5 -mt-1;
-  }
+
+.menu-button-links ul.nav ul.children {
+  @apply ml-4 leading-5 -mt-1;
+}
 
 .menu-button-links button svg.down {
   padding-left: 0.125em;
@@ -1026,7 +1029,7 @@ button.menu-button:focus {
 .menu-button-links button:hover,
 .menu-button-links button:focus,
 .menu-button-links button[aria-expanded="true"] {
-  @apply bg-grey;
+  @apply bg-blue-light text-primary
 }
 
 /* Posts and pages
@@ -1755,6 +1758,27 @@ footer.entry-footer {
   @apply hover:bg-blue-light hover:text-primary text-base;
 }
 
+/*
+.widget.ksas_profile h3.spotlight-profile-title {
+  @apply mt-2 mb-8;
+}
+
+.widget.ksas_profile .image {
+  @apply h-48 w-48;
+}
+
+.widget.ksas_profile .image img.wp-post-image {
+  @apply h-full w-full object-cover rounded;
+}
+
+.widget.ksas_profile .meta-area {
+  @apply my-8;
+}
+
+.widget.ksas_profile p.view-more-link {
+  @apply mx-0;
+}*/
+
 .widget.ksas_video_link_widget .video-thumbnail {
   @apply relative;
 }
@@ -2343,6 +2367,14 @@ summary::-webkit-details-marker {
   }
 }
 
+/* Exhibits
+--------------------------------------------- */
+ul.exhibit-meta {
+  @apply list-none pl-0;
+}
+ul.exhibit-meta li {
+  @apply pl-0;
+}
 /* Faculty Books
 --------------------------------------------- */
 .single-people .faculty-books h1 {
@@ -2454,7 +2486,8 @@ summary::-webkit-details-marker {
 .single-post .breadcrumbs,
 .single-faculty-books .breadcrumbs,
 .single-profile .breadcrumbs,
-.single-research-highlight .breadcrumbs {
+.single-research-highlight .breadcrumbs,
+.single-ksasexhibits .breadcrumbs {
   @apply my-6;
 }
 
@@ -2494,6 +2527,9 @@ summary::-webkit-details-marker {
   content: "\f015";
   padding-right: .25rem;
 }
+
+/* DataTables
+--------------------------------------------- */
 
 /* Yoast
 --------------------------------------------- */
