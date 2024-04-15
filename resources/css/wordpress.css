@@ -93,6 +93,10 @@ sup {
   top: -0.5em;
 }
 
+u { 
+  text-decoration: none;
+}
+
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -1880,27 +1884,27 @@ footer.entry-footer {
 /* Pagination
 --------------------------------------------- */
 
-ul.page-numbers {
+.navigation ul.page-numbers {
   @apply flex flex-row py-1 px-2 justify-center;
 }
 
-ul.page-numbers li {
+.navigation ul.page-numbers li {
   @apply m-4 inline-block;
 }
 
-ul.page-numbers li:before {
+.navigation ul.page-numbers li:before {
   @apply hidden;
 }
 
-ul.page-numbers li a.page-numbers {
+.navigation ul.page-numbers li a {
   @apply p-2 border-0 font-sans font-light;
 }
 
-ul.page-numbers li a.page-numbers:hover {
+ul.page-numbers li a:hover {
   @apply bg-grey-lightest;
 }
 
-ul.page-numbers li .page-numbers.current {
+ul.page-numbers li.active a {
   @apply bg-blue text-white p-2;
 }
 
@@ -2487,7 +2491,8 @@ ul.exhibit-meta li {
 .single-faculty-books .breadcrumbs,
 .single-profile .breadcrumbs,
 .single-research-highlight .breadcrumbs,
-.single-ksasexhibits .breadcrumbs {
+.single-ksasexhibits .breadcrumbs,
+.single-bulletinboard .breadcrumbs {
   @apply my-6;
 }
 
@@ -4419,7 +4424,6 @@ body > .is-root-container > .wp-block-template-part > .wp-block-cover,
   }
 
   /* Entry Content ------------------------- */
-
   .entry-content > .alignwide:not(.wp-block-group.has-background),
   .entry-content > .alignfull:not(.wp-block-group.has-background) {
     margin-bottom: 2rem;
