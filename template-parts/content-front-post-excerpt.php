@@ -19,7 +19,7 @@
 	 */
 if ( has_post_thumbnail() ) :
 	?>
-		<div class="news-thumb h-[21rem]">
+		<div class="news-thumb h-0 lg:h-[21rem]">
 		<?php
 			the_post_thumbnail(
 				'large',
