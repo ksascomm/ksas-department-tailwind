@@ -333,7 +333,7 @@ add_action( 'wp_enqueue_scripts', 'ksas_department_tailwind_scripts' );
  * so that it is after the script was enqueued.
  */
 function dequeue_sis_scripts() {
-	if ( ! is_page_template( '../templates/courses-undergrad-ksasblocks.php' ) ) {
+	if ( ! is_page_template( array( '../templates/courses-undergrad-ksasblocks.php', 'page-templates/language-program-courses.php') ) ) {
 		wp_dequeue_style( 'data-tables' );
 		wp_dequeue_style( 'data-tables-searchpanes' );
 		wp_dequeue_style( 'courses-css' );
