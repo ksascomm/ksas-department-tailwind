@@ -1221,7 +1221,7 @@ footer.entry-footer {
 .undergraduate-sidebar .tribe-compatibility-container,
 .sidebar-1.sidebar .widget,
 .sidebar-1.sidebar .tribe-compatibility-container {
-  @apply mt-0 mx-0 mb-6 bg-white p-3 shadow-lg overflow-hidden rounded-md
+  @apply mt-0 mx-0 mb-6 bg-white p-6 shadow-lg overflow-hidden rounded-md
 }
 
 @media only screen and (min-width: 652px) {
@@ -1273,7 +1273,7 @@ footer.entry-footer {
 .graduate-sidebar ul li,
 .undergraduate-sidebar ul li,
 .sidebar-1.sidebar ul li {
-  @apply relative pl-7 flow-root;
+  @apply relative;
 }
 
 .graduate-sidebar ul li:before,
@@ -1565,12 +1565,10 @@ footer.entry-footer {
   @apply font-sans font-light;
 }
 
-.widget.ksas_profile h5.spotlight-profile-title,
 .widget.widget_job_candidate {
   @apply text-xl lg:text-[26px];
 }
 
-.widget.ksas_profile p,
 .widget.widget_job_candidate p {
   @apply mt-2 mb-4 leading-normal;
 }
@@ -1746,22 +1744,6 @@ footer.entry-footer {
    @apply font-sans font-light;
  }*/
 
-.below-explore-widget-section .widget.ksas_profile p.view-more-link,
-.below-news-widget-section .widget.ksas_profile p.view-more-link {
-  padding-top: 1rem;
-}
-.below-explore-widget-section .widget.ksas_profile p.view-more-link a,
-.below-news-widget-section .widget.ksas_profile p.view-more-link a {
-  --tw-bg-opacity: 1;
-  --tw-text-opacity: 1;
-  background-color: var(--wp--preset--color--heritage-blue);
-  padding: calc(0.667em + 2px) calc(1.333em + 2px);
-  border-width: 0;
-  color: rgb(254 254 254/var(--tw-text-opacity));
-  margin-top: 1rem;
-  @apply hover:bg-blue-light hover:text-primary text-base;
-}
-
 /*
 .widget.ksas_profile h3.spotlight-profile-title {
   @apply mt-2 mb-8;
@@ -1783,6 +1765,7 @@ footer.entry-footer {
   @apply mx-0;
 }*/
 
+/* Video Link Widgets ------------------------------ */
 .widget.ksas_video_link_widget .video-thumbnail {
   @apply relative;
 }
@@ -1809,6 +1792,42 @@ footer.entry-footer {
 .below-explore-widget-section .ksas_video_link_widget p,
 .below-news-widget-section .ksas_video_link_widget p {
  @apply text-primary my-2;
+}
+
+/* Profile Widgets ------------------------------ */
+
+.widget.ksas_profile p {
+  @apply text-xl mt-2 mb-4 leading-normal;
+}
+
+.widget.ksas_profile .spotlight-image-meta {
+  @apply mt-8 flex gap-4 items-center;
+}
+
+.widget.ksas_profile .spotlight-image-meta img {
+  @apply h-36 w-36 rounded-full object-cover;
+}
+
+.widget.ksas_profile .spotlight-image-meta .spotlight-author h3 {
+  @apply text-xl lg:text-[26px] my-2;
+}
+
+.widget.ksas_profile .spotlight-image-meta .spotlight-author span {
+  font-size: 1rem;
+}
+
+.widget.ksas_profile p.view-more-link {
+  @apply pt-8;
+}
+.widget.ksas_profile p.view-more-link a {
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  background-color: var(--wp--preset--color--heritage-blue);
+  padding: calc(0.667em + 2px) calc(1.333em + 2px);
+  border-width: 0;
+  color: rgb(254 254 254/var(--tw-text-opacity));
+  margin-top: 1rem;
+  @apply hover:bg-blue-light hover:text-primary text-base;
 }
 
 /*! purgecss end ignore */
@@ -3084,7 +3103,7 @@ figure.wp-block-pullquote {
 }
 
 .prose .c-accordion__content p {
-  @apply my-2;
+  @apply my-5;
 }
 
 /* Block: Group ------------------------------ */

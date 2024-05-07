@@ -232,6 +232,9 @@ module.exports = {
               marginTop: "0rem",
               marginBottom: "0rem",
             },
+            li: {
+              lineHeight:"1.6",
+            },
           },
         },
       },
