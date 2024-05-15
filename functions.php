@@ -336,10 +336,12 @@ function dequeue_sis_scripts() {
 	if ( ! is_page_template( array( '../templates/courses-undergrad-ksasblocks.php', 'page-templates/language-program-courses.php') ) ) {
 		wp_dequeue_style( 'data-tables' );
 		wp_dequeue_style( 'data-tables-searchpanes' );
+		wp_dequeue_style( 'data-tables-responsive' );
 		wp_dequeue_style( 'courses-css' );
 		wp_dequeue_script( 'data-tables' );
 		wp_dequeue_script( 'data-tables-searchpanes' );
 		wp_dequeue_script( 'data-tables-select' );
+		wp_dequeue_script( 'data-tables-responsive' );
 		wp_dequeue_script( 'courses-js' );
 	}
 }
