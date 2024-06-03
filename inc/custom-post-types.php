@@ -62,6 +62,7 @@ function get_the_filters( $post ) {
  * Redirect empty People CPT 'ecpt_bio' meta fields
  * to whats in 'ecpt_website' meta
  */
+add_action( 'template_redirect', 'redirect_empty_bios' );
 function redirect_empty_bios() {
 	if ( is_singular( 'people' ) ) {
 		global $post;
@@ -69,13 +70,12 @@ function redirect_empty_bios() {
 		$link = get_post_meta( $post->ID, 'ecpt_website', true );
 		if ( has_term( array( 'faculty', 'tenured-and-tenure-track-faculty', 'joint-faculty', 'advisory-board' ), 'role' ) ) {
 			if ( empty( $bio ) && isset( $link ) ) {
-				wp_safe_redirect( esc_url( $link ), 301 );
-				exit;
+				wp_redirect( esc_url( $link ), 301 );
+				exit();
 			}
 		}
 	}
 }
-add_action( 'template_redirect', 'redirect_empty_bios' );
 
 /**
  * Custom thumbnail sizes
