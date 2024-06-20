@@ -63,7 +63,7 @@
 				<li><span class="fa-solid fa-calendar-circle-exclamation" aria-hidden="true"></span> <strong>On Leave: <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_leave', true ) ); ?></strong></li>
 			<?php endif; ?>
 			<?php if ( get_field( 'ecpt_cv' ) ) : ?>
-				<li><span class="fa-solid fa-file-pdf" aria-hidden="true"></span> <a href="<?php the_field( 'ecpt_cv' ); ?>">Curriculum Vitae</a></li>
+				<li><span class="fa-solid fa-file-pdf" aria-hidden="true"></span> <a href="<?php echo wp_kses_post( the_field( 'ecpt_cv' ) ); ?>">Curriculum Vitae</a></li>
 				<?php endif; ?>
 				<?php
 				$file = get_field( 'cv_file' );

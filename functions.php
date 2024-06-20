@@ -9,7 +9,7 @@
 
 if ( ! defined( 'KSAS_DEPARTMENT_TAILWIND_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '4.1.0' );
+	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '4.2.0' );
 }
 
 if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
@@ -172,8 +172,8 @@ function ksas_department_tailwind_widgets_init() {
 			'name'          => esc_html__( 'Site Footer', 'ksas-department-tailwind' ),
 			'id'            => 'sidebar-footer',
 			'description'   => esc_html__( 'Add widgets here to appear in your site-wide footer.', 'ksas-department-tailwind' ),
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside>',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s"><div class="widget-wrapper">',
+			'after_widget'  => '</div></aside>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
 		)

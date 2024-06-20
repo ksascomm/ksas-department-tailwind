@@ -41,12 +41,12 @@ if ( $is_preview ) {
 						<div class="swiper-lazy-preloader"></div>
 					</div>
 					<div class="slide-caption">
-						<h3><?php the_sub_field( 'title' ); ?></h3>
-						<p><?php the_sub_field( 'caption' ); ?></p>
+						<h3><?php echo wp_kses_post( the_sub_field( 'title' ) ); ?></h3>
+						<p><?php echo wp_kses_post( the_sub_field( 'caption' ) ); ?></p>
 						<?php
 						if ( get_sub_field( 'link' ) ) :
 							?>
-							<a class="button p-4 bg-blue hover:bg-blue-light hover:text-primary transform" href="<?php the_sub_field( 'link' ); ?>" aria-label="Find Out More <?php the_sub_field( 'title' ); ?>">Find Out More <span class="sr-only"><?php the_sub_field( 'title' ); ?></span><span class="far fa-arrow-alt-circle-right"></span></a>
+							<a class="button p-4 bg-blue hover:bg-blue-light hover:text-primary transform" href="<?php echo esc_attr( the_sub_field( 'link' ) ); ?>" aria-label="Find Out More <?php echo wp_kses_post( the_sub_field( 'title' ) ); ?>">Find Out More <span class="sr-only"><?php echo wp_kses_post( the_sub_field( 'title' ) ); ?></span><span class="far fa-arrow-alt-circle-right"></span></a>
 						<?php endif; ?>
 					</div>
 				</div>

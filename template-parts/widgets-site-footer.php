@@ -9,7 +9,7 @@
 
 if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
 
-	<div class="footer-widget-area w-full bg-grey-cool bg-opacity-50 px-6">
+	<div class="footer-widget-area w-full bg-blue px-6 py-10">
 		<?php dynamic_sidebar( 'sidebar-footer' ); ?>
 		<?php 
 		/*<div class="image <?php ksas_department_tailwind_sidebar_class( 'sidebar-footer' ); ?>">

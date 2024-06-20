@@ -73,7 +73,7 @@ if ( $the_query->have_posts() ) : ?>
 			<p class="text-lg font-semi font-semibold">
 			<?php
 			global $post;
-			the_field( 'fields_of_study', $post->ID );
+			echo wp_kses_post( the_field( 'fields_of_study', $post->ID ) );
 			?>
 			</p>
 		</div>

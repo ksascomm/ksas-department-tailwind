@@ -21,7 +21,7 @@
 			while ( have_rows( 'custom_profile_fields' ) ) :
 				the_row();
 				?>
-			<h4><span class="custom-title"><?php the_sub_field( 'custom_title' ); ?></span>&nbsp;<span class="custom-content"><?php the_sub_field( 'custom_content' ); ?></span></h4>
+			<h4><span class="custom-title"><?php echo wp_kses_post( the_sub_field( 'custom_title' ) ); ?></span>&nbsp;<span class="custom-content"><?php echo wp_kses_post( the_sub_field( 'custom_content' ) ); ?></span></h4>
 			<?php endwhile; ?>
 		<?php else : ?>
 			<?php // No rows found! ?>

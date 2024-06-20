@@ -59,7 +59,7 @@ get_header();
 						<ul class="entry-meta">
 							<li>Posted: <?php the_time( 'F j, Y' ); ?></li>
 							<?php if ( get_field( 'bulletin_deadline' ) ) : ?>
-							<li>Deadline: <?php the_field( 'bulletin_deadline' ); ?></li>
+							<li>Deadline: <?php echo wp_kses_post( the_field( 'bulletin_deadline' ) ); ?></li>
 							<?php endif; ?>
 						</ul>
 						<p>

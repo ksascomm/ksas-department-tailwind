@@ -130,7 +130,7 @@ label.gfield_label {
 .magazine.features h3 a,
 .widget a,
 .prose a strong {
-  @apply text-blue border-grey border-b-2 border-dashed no-underline transition-colors ease-in-out duration-200;
+  @apply text-blue border-grey border-b-2 no-underline transition-colors ease-in-out duration-200;
 }
 
 .site-main a:hover,
@@ -142,6 +142,41 @@ label.gfield_label {
 .widget a:hover,
 .prose a strong:hover {
   @apply text-primary border-grey-darkest border-b-2 border-solid;
+}
+
+.entry-content p a,
+.entry-content li a,
+.people .section-content p a,
+.people .section-content li a,
+.people .contact-info li a,
+.tribe-events-single-event-description.tribe-events-content p a,
+.tribe-events-single-event-description.tribe-events-content li a
+ {
+  @apply border-none transition-shadow duration-200;
+  box-shadow: inset 0 -.125rem 0 0 #002d72;
+  transition: border-color,background-color,color;
+    transition-duration: 0s, 0s, 0s;
+    transition-timing-function: ease, ease, ease;
+  transition-duration: .25s,.25s,.25s;
+  transition-timing-function: ease-in-out,ease-in-out,ease-in-out;
+}
+
+.entry-content p a:hover,
+.entry-content li a:hover,
+.people .section-content p a:hover,
+.people .section-content li a:hover,
+.people .contact-info li a:hover,
+.tribe-events-single-event-description.tribe-events-content p a:hover,
+.tribe-events-single-event-description.tribe-events-content li a:hover {
+  @apply text-white border-none;
+  box-shadow: inset 0 -2.5rem 0 0 #002d72;
+  color: #fff;
+  outline: 0;
+}
+
+li.tribe-events-c-view-selector__list-item a.tribe-events-c-view-selector__list-item-link,
+li.tribe-events-c-top-bar__nav-list-item a.tribe-common-c-btn-icon {
+  box-shadow: none;
 }
 
 .custom-logo {
@@ -319,6 +354,7 @@ span.posted-on {
 .front-featured-image-area {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1267%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(248%2c 248%2c 248%2c 1)'%3e%3c/rect%3e%3cpath d='M-141.35 161.4C8.13 165.26 116.21 371.92 415.45 379.8 714.7 387.68 822.5 597.36 972.26 601.38' stroke='rgba(229%2c 226%2c 224%2c 0.4)' stroke-width='2'%3e%3c/path%3e%3cpath d='M-42.94 175.63C98.65 177.18 264.97 314.9 501.33 332.43 737.69 349.96 672.62 624.91 773.47 657.54' stroke='rgba(229%2c 226%2c 224%2c 0.4)' stroke-width='2'%3e%3c/path%3e%3cpath d='M-20.29 418.24C99.68 418.43 217.08 488.24 454.44 488.24 691.81 488.24 689.36 417.89 929.17 418.24 1168.98 418.59 1274.53 620.5 1403.9 624.92' stroke='rgba(229%2c 226%2c 224%2c 0.4)' stroke-width='2'%3e%3c/path%3e%3cpath d='M-45.12 150.34C150.67 151.14 411.43 298.15 722.19 307.14 1032.95 316.13 983.39 602.05 1105.85 621.21' stroke='rgba(229%2c 226%2c 224%2c 0.4)' stroke-width='2'%3e%3c/path%3e%3cpath d='M-21.08 449.18C107.24 447.28 220.98 292.06 467.71 292.38 714.43 292.7 814.56 573.6 956.49 584.44' stroke='rgba(229%2c 226%2c 224%2c 0.4)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1267'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
   background-position: bottom;
+  background-attachment: fixed;
 }
 
 .featured-image-area {
@@ -541,7 +577,8 @@ div[class^="bucket-"] {
 }
 
 .entry-title.external-link a:after,
-.main-navigation li.external a:after {
+.main-navigation li.external a:after,
+#section-menu li.external a:after {
   display: inline-block;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -550,8 +587,13 @@ div[class^="bucket-"] {
   content: "\f360";
 }
 
-.main-navigation li.external a:after {
+.main-navigation li.external a:after,
+ #section-menu li.external a:after {
   font: var(--fa-font-solid);
+}
+
+#section-menu li.external a:after {
+  padding-left: .25rem
 }
 
 
@@ -944,8 +986,8 @@ button.menu-button:focus {
     content: "\f077";
     font: var(--fa-font-solid);
     font-size: 0.75rem;
-    @apply border-b-2 border-blue;
-    padding-bottom: .65rem;
+    /*@apply border-b-2 border-blue;
+    padding-bottom: .65rem;*/
  }
   .main-navigation ul ul .dropdown-toggle.toggled-on:after {
     content: "\f053";
@@ -1114,7 +1156,8 @@ footer.entry-footer {
 .single-post .prose .post img[alt=""], 
 .single-post .prose .post img:not([alt]),
 .events-widget-section .tribe-events-event-image img[alt=""],
-.events-widget-section .tribe-events-event-image img:not([alt]) {
+.events-widget-section .tribe-events-event-image img:not([alt]),
+.news-thumb.no-alt {
   display: none;
 }
 /*! purgecss end ignore */
@@ -1309,6 +1352,18 @@ footer.entry-footer {
   margin-top: calc(3 * var(--footer-widget----spacing-vertical));
   position: relative;
   padding-top: calc(2 * var(--footer-widget----spacing-vertical));
+  background: url("../images/community-white-on-288.svg") no-repeat right;
+  background-size: 450px;
+  background-position-y: 50%;
+}
+
+
+
+.footer-widget-area .widget > div {
+  @apply bg-white px-6 pb-6 shadow-md;
+  border: 2px solid rgba(237, 242, 247, 1);
+  box-shadow: -10px 10px 0 0 #418fde;
+  margin: 1em;
 }
 
 .footer-widget-area h2,
@@ -1316,7 +1371,6 @@ footer.entry-footer {
   @apply text-2xl;
 }
 
-.footer-widget-area .widget,
 .footer-widget-area .tribe-compatibility-container {
   @apply bg-none border-none shadow-none lg:px-12;
 }
@@ -1435,6 +1489,7 @@ footer.entry-footer {
   @apply !font-bold !font-heavy p-4 mx-auto;
 }
 
+/*Below News Widget Homepage Section  ------------------------------*/
 .below-news-widget-section
   .tribe-events-widget
   .tribe-events-widget-events-list__header {
@@ -2014,8 +2069,69 @@ ul.study-field {
 }
 
 ul.study-field li {
-  @apply inline-block;
+  @apply inline-block relative bg-white bg-opacity-75 my-2;
+  /*
+  background-color: #fefefe;
+  padding: .625rem 1.5625rem .625rem .625rem;
+  border: 1px solid #68ace5;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+  border-width: 0 5px 5px 0;
+  -webkit-text-decoration: underline transparent;
+  text-decoration: underline transparent;
+  transition: border-color .125s,-webkit-text-decoration .125s;
+  transition: border-color .125s,text-decoration .125s;
+  transition: border-color .125s,text-decoration .125s,-webkit-text-decoration .125s;*/
+  align-items: center;
+  box-shadow: -3.5px 3.5px 0 0 #418fde;
+  display: inline-block;
+  /*margin: 1em;
+  padding: 0;*/
+  border: 3px solid rgba(237, 242, 247, 1);
+  padding: .625rem 1.5625rem .625rem .625rem;
 }
+
+ul.study-field li:before {
+  /*
+  content: "";
+    display: block;
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    top: 0px;
+    left: -5px;
+    transform: none;
+    border: 1px solid #002d72;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-width: 4px 0 0 4px;
+    background-color: transparent;*/
+}
+
+ul.study-field li:after {
+ /* content: "";
+    display: block;
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    bottom: 0px;
+    right: -5px;
+    transform: none;
+    border: 1px solid #002d72;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-width: 4px 0 0 4px;
+    background-color: transparent;
+    transform: rotate(180deg);
+    */
+}
+
 
 /*@screen lg {
   ul.study-field li {
@@ -2025,7 +2141,7 @@ ul.study-field li {
 
 
 ul.study-field li:not(:last-child) {
-  @apply mr-8;
+  @apply sm:mr-8;
 }
 
 .grey-card-outline {
@@ -2511,7 +2627,8 @@ ul.exhibit-meta li {
 .single-profile .breadcrumbs,
 .single-research-highlight .breadcrumbs,
 .single-ksasexhibits .breadcrumbs,
-.single-bulletinboard .breadcrumbs {
+.single-bulletinboard .breadcrumbs,
+.error404 .breadcrumbs {
   @apply my-6;
 }
 
@@ -2596,7 +2713,7 @@ table.tablepress thead th {
 }
 
 .tribe-events-widget-events-list__event-title-link.tribe-common-anchor-thin {
-  @apply text-blue border-grey border-b-2 border-dashed no-underline transition-colors ease-in-out duration-200 !important;
+  @apply text-blue border-grey border-b-2 no-underline transition-colors ease-in-out duration-200 !important;
 }
 
 .tribe-events-widget-events-list__event-title-link.tribe-common-anchor-thin:hover {

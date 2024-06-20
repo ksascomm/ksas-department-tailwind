@@ -25,7 +25,7 @@
 				ksas_department_tailwind_posted_on();
 				?>
 				<?php if ( get_field( 'bulletin_deadline' ) ) : ?>
-					<br><span class="deadline"><?php the_field( 'bulletin_deadline' ); ?></span>
+					<br><span class="deadline"><?php echo wp_kses_post( the_field( 'bulletin_deadline' ) ); ?></span>
 				<?php endif; ?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>

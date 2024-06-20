@@ -95,7 +95,8 @@ a.tribe-events-calendar-latest-past__event-title-link.tribe-common-anchor-thin:h
 .tribe-events-single.tribe-blocks-editor h2.tribe-events-schedule__datetime,
 .tribe-events-single h2.tribe-events-schedule__datetime,
 .tribe-block__organizer__title,
-.tribe-block__organizer__details h3 {
+.tribe-block__organizer__details h3,
+.tribe-events-calendar-latest-past__event-date-tag-daynum.tribe-common-h5.tribe-common-h4--min-medium {
   font-family: "gentona-semibold", system-ui, BlinkMacSystemFont, -apple-system,
     Segoe UI, sans-serif !important;
   font-weight: 600 !important;
@@ -112,13 +113,10 @@ span.tribe-events-schedule__separator.tribe-events-schedule__separator--date,
   color: #31261d;
 }
 
-.tribe-events-single.tribe-blocks-editor p a,
-.tribe-events-single p a,
 .tribe-events-nav-previous a,
 .tribe-events-nav-next a {
   color: #002d72;
   border-bottom-width: 2px;
-  border-style: dashed;
   --tw-border-opacity: 1;
   border-color: rgba(229, 226, 224, var(--tw-border-opacity));
   --tw-text-opacity: 1;
@@ -130,8 +128,6 @@ span.tribe-events-schedule__separator.tribe-events-schedule__separator--date,
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.tribe-events-single.tribe-blocks-editor p a:hover,
-.tribe-events-single p a:hover,
 .tribe-events-nav-previous a:hover,
 .tribe-events-nav-next a:hover {
   border-bottom-width: 2px;
@@ -172,6 +168,11 @@ a.tribe-events-calendar-list__event-title-link.tribe-common-anchor-thin,
 .tribe-events-event-meta a,
 h3.tribe-events-calendar-list__event-title a.tribe-events-calendar-list__event-title-link.tribe-common-anchor-thin:visited {
   color: #002d72;
+}
+
+.tribe-events-single-event-description.tribe-events-content p a:hover,
+.tribe-events-single-event-description.tribe-events-content li a:hover {
+  color: #fefefe !important;
 }
 
 a.tribe-events-calendar-list__event-title-link.tribe-common-anchor-thin:hover {
@@ -353,7 +354,6 @@ font-weight: 600;
 
 .tribe-events-content a {
   border-bottom-width: 2px;
-  border-style: dashed;
   --tw-border-opacity: 1;
   border-color: rgba(229, 226, 224, var(--tw-border-opacity));
   --tw-text-opacity: 1;
@@ -528,7 +528,10 @@ Segoe UI, sans-serif;
   Segoe UI, sans-serif;
 }
 
-.tribe-events-section-category dd {
+.tribe-events-section-category dd,
+.tribe-venue-url,
+.tribe-organizer,
+.tribe-organizer-url {
   font-family: "gentona-light", system-ui, BlinkMacSystemFont, -apple-system,
 Segoe UI, sans-serif;
 }

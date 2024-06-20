@@ -16,7 +16,7 @@
 	<?php
 	if ( is_active_sidebar( 'sidebar-footer' ) ) :
 		?>
-		bg-grey-cool bg-opacity-50 <?php endif; ?>" style="height: 80px" >
+		bg-blue <?php endif; ?>" style="height: 80px" >
 		<svg
 		alt=""
 			class="absolute -bottom-px overflow-hidden"
@@ -39,7 +39,7 @@
 		<?php if ( get_field( 'custom_address', 'option' ) ) : ?>
 			<div class="font-sans font-light">
 				Johns Hopkins University
-				<?php the_field( 'custom_address', 'option' ); ?>
+				<?php echo wp_kses_post( the_field( 'custom_address', 'option' ) ); ?>
 			</div>
 			<?php else : ?>
 			<p class="text-lg font-sans font-light">Johns Hopkins University<br>3400 N. Charles St<br>Baltimore, MD 21218</p>
@@ -55,12 +55,12 @@
 		$department_social   = get_field( 'department_social', 'option' );
 		if ( $department_email || $department_phone || $department_location || $department_social ) :
 			?>
-			<h2 class="text-lg font-sans !font-light">Contact Us</h2>
+			<h2 class="text-xl font-sans !font-light">Contact Us</h2>
 			<?php if ( $department_email ) : ?>
 			<p class="text-lg"><span class="fa-solid fa-envelope"></span> <a class="font-sans font-light" href="<?php echo esc_url( 'mailto:' . antispambot( get_field( 'department_email', 'option' ) ) ); ?>"><?php echo esc_html( antispambot( get_field( 'department_email', 'option' ) ) ); ?></a></p>
 			<?php endif; ?>
 			<?php if ( $department_phone ) : ?>
-			<p class="text-lg"><span class="fa-solid fa-phone-rotary"></span> <a class="font-sans font-light" href="tel:<?php the_field( 'department_phone', 'option' ); ?>"><?php the_field( 'department_phone', 'option' ); ?></a></p>
+			<p class="text-lg"><span class="fa-solid fa-phone-rotary"></span> <a class="font-sans font-light" href="tel:<?php echo wp_kses_post( the_field( 'department_phone', 'option' ) ); ?>"><?php echo wp_kses_post( the_field( 'department_phone', 'option' ) ); ?></a></p>
 			<?php endif; ?>
 			<?php if ( $department_location ) : ?>
 				<p class="text-lg">
@@ -70,7 +70,7 @@
 					$address  = urlencode_deep( "{$building}" );
 					?>
 					<a class="font-sans font-light" href="https://www.google.com/maps/search/?api=1&query=<?php echo esc_html( $address ); ?>" target="_blank">
-						<span class="fa-solid fa-map"></span> Google Maps Link
+						<span class="fa-solid fa-map"></span> Find Us on Google Maps
 					</a>
 				</p>
 			<?php endif; ?>

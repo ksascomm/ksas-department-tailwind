@@ -99,7 +99,7 @@ if ( $spotlight_block_query->have_posts() ) :
 				</p>
 				<?php $spotlight_archive_link = get_field( 'spotlight_archive_link' ); ?>
 		<?php if ( $spotlight_archive_link ) : ?>
-			<a class="button" href="<?php echo esc_url( $spotlight_archive_link) ; ?>"><?php the_field( 'spotlight_archive_label' ); ?>&nbsp; <span class="fa fa-chevron-circle-right" aria-hidden="true"></span></a>
+			<a class="button" href="<?php echo esc_url( $spotlight_archive_link) ; ?>"><?php echo wp_kses_post( the_field( 'spotlight_archive_label' ) ); ?>&nbsp; <span class="fa fa-chevron-circle-right" aria-hidden="true"></span></a>
 		<?php endif; ?>
 			</div>
 	</div>
