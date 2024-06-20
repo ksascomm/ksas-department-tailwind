@@ -16,7 +16,7 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.13",
-    "@wordpress/scripts": "^19.2.4",
+    "@wordpress/scripts": "^28.1.0",
     "autoprefixer": "^10.4.19",
     "browser-sync": "^3.0.2",
     "browser-sync-webpack-plugin": "^2.3.0",
