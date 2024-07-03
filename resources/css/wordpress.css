@@ -923,7 +923,7 @@ button.menu-button:focus {
 }
  .main-navigation li > a {
    display: inline-block;
-   padding: 0.375rem 0.5rem;
+   padding: 0.5rem;
  }
   .no-js .main-navigation ul ul, .main-navigation ul ul {
     position: absolute;
@@ -1593,6 +1593,12 @@ footer.entry-footer {
 
 .widget.ksas_books {
   @apply mb-20 mx-auto sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl;
+}
+
+@screen lg {
+  .widget.ksas_books .view-more-link {
+    @apply -mt-16 mb-8;
+  }
 }
 
 .widget.ksas_books article {
@@ -2536,6 +2542,8 @@ ul.exhibit-meta li {
   border-color: rgb(49 38 29/var(--tw-border-opacity));
   border-style: solid;
 }
+
+
 
 /*--------------------------------------------------------------
 # Plugins
