@@ -34,7 +34,7 @@
 	if ( get_field( 'siteimprove', 'option' ) ) :
 		?>
 	<!-- Siteimprove Analytics -->
-	<script async src="https://siteimproveanalytics.com/js/siteanalyze_11464.js"></script>
+	<script async src="https://siteimproveanalytics.com/js/siteanalyze_11112.js"></script>
 	<!-- End Siteimprove Analytics -->
 	<?php endif; ?>
 </head>
