@@ -55,6 +55,9 @@
 					</a>
 				</li>
 			<?php endif; ?>
+			<?php if ( get_post_meta( $post->ID, 'ecpt_office', true ) ) : ?>
+				<li><span class="fa-solid fa-location-dot"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_office', true ) ); ?></li>
+			<?php endif; ?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_expertise', true ) ) : ?>
 			<li><strong>Research Interests:&nbsp;</strong>
 			<?php
