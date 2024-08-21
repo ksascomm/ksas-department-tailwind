@@ -23,7 +23,7 @@
 	</div>
 	<div class="flex">
 	<div class="entry-content">
-		<h1 class="tracking-tight leading-10 sm:leading-none lg:text-4xl xl:text-[44px] lg:pl-2 xl:pl-0 py-8 !mb-0">
+		<h1 class="tracking-tight leading-10 sm:leading-none lg:text-4xl xl:text-[44px] lg:pl-2 xl:pl-0 py-8">
 			<?php the_title(); ?>
 		</h1>
 		<?php

@@ -377,26 +377,9 @@ span.posted-on {
   }
 }
 
-.featured-image-area .entry-title {
-  @apply text-4xl py-4;
-}
-
-@screen sm {
-  .featured-image-area .entry-title {
-    font-size: 2.5rem;
-  }
-}
-
-@screen md {
-  .featured-image-area .entry-title {
-    @apply text-4xl;
-  }
-}
-
-@screen lg {
-  .featured-image-area .entry-title {
-    font-size: 3.5rem;
-  }
+.featured-image-area h1,
+.front-featured-image-area h1 {
+  @apply mb-0;
 }
 
 .front-featured-image-area {
@@ -1895,6 +1878,10 @@ footer.entry-footer {
 
 /* Captions
 --------------------------------------------- */
+figure.wp-block-image .wp-element-caption {
+  @apply text-primary;
+}
+
 .wp-caption {
   @apply mb-6 max-w-full;
 }

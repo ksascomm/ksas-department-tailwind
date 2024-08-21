@@ -44,7 +44,7 @@ if ( ! empty( $studyfield_response ) ) :
 	?>
 <?php endif; ?>
 
-<div class="flex border-t border-blue hero bg-grey-cool bg-opacity-50 front-featured-image-area">
+<div class="flex hero bg-grey-cool bg-opacity-50 front-featured-image-area">
 	<div class="flex items-center text-left px-8 md:px-12 pb-4 md:py-0 lg:w-7/12 ">
 		<div>
 			<h2 class="text-primary text-3xl md:text-3xl lg:text-4xl mt-8 lg:mt-0 font-heavy font-bold">

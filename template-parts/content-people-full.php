@@ -16,7 +16,7 @@
 		<?php
 		if ( has_post_thumbnail() ) :
 			?>
-			<div class="w-full lg:w-1/4 py-6 pr-10">
+			<div class="w-full lg:w-1/4 py-10 pr-10">
 			<?php
 			the_post_thumbnail(
 				'full',
@@ -34,9 +34,9 @@
 			<?php
 			endif;
 		?>
-			<div class="w-full lg:w-3/4">
+			<div class="w-full lg:w-3/4 py-8">
 				<header class="entry-header">
-					<h1 class="tracking-tight leading-10 sm:leading-none py-6">
+					<h1 class="tracking-tight leading-10 sm:leading-none pt-2 pb-4">
 						<?php the_title(); ?> 
 						<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
 							<small class="font-heavy">(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>
