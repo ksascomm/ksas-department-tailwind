@@ -386,9 +386,15 @@ span.posted-on {
   height: auto;
 }
 
+@screen md {
+  .front .front-featured-image-area {
+    height: 28rem;
+  }
+}
+
 @screen lg {
   .front .front-featured-image-area {
-    height: 26rem;
+    height: 30rem;
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1166px) {

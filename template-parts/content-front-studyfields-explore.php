@@ -47,7 +47,7 @@ if ( ! empty( $studyfield_response ) ) :
 <div class="flex hero bg-grey-cool bg-opacity-50 front-featured-image-area">
 	<div class="flex items-center text-left px-8 md:px-12 pb-4 md:py-0 lg:w-7/12 ">
 		<div>
-			<h2 class="text-primary text-3xl md:text-3xl lg:text-4xl mt-8 lg:mt-0 font-heavy font-bold">
+			<h2 class="text-primary text-2xl md:text-3xl lg:text-4xl mt-8 lg:mt-0 font-heavy font-bold">
 				<?php if ( ! empty( $studyfield_tagline ) ) : ?>
 					<?php echo esc_html( $studyfield_tagline ); ?>
 				<?php else : ?>
@@ -57,19 +57,19 @@ if ( ! empty( $studyfield_response ) ) :
 			<div class="mt-2 text-primary text-lg md:text-xl tracking-tight"><?php the_content(); ?></div>
 				<ul class="flex flex-wrap study-field list-none">
 					<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_degreesoffered[0] ) ) : ?>
-						<li class="leading-normal text-lg px-2">
+						<li class="leading-tight text-base xl:text-lg px-2">
 							<span class="">Degrees Offered</span>
 							<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_degrees ); ?></span>
 						</li>
 					<?php endif; ?>
 					<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_majors[0] ) ) : ?>
-						<li class="leading-normal text-lg px-2">
+						<li class="leading-tight text-base xl:text-lg px-2">
 							<span class="">Major</span>
 							<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_majors[0] ); ?></span>
 						</li>
 					<?php endif; ?>
 					<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_minors[0] ) ) : ?>
-						<li class="leading-normal text-lg px-2">
+						<li class="leading-tight text-base xl:text-lg px-2">
 							<span class="">Minor</span>
 							<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_minors[0] ); ?></span>
 						</li>
