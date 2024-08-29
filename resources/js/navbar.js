@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (menuToggle) {
 		// Initial ARIA attribute setup for accessibility
 		menuToggle.setAttribute('aria-expanded', 'false');
-		siteNavigation.setAttribute('aria-expanded', 'false');
+		//siteNavigation.setAttribute('aria-expanded', 'false');
 
 		// Event listener for main menu toggle button
 		menuToggle.addEventListener('click', function () {
