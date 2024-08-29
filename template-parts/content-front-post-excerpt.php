@@ -44,8 +44,6 @@ if ( has_post_thumbnail() ) :
 		<?php endif; ?>
 		</header><!-- .entry-header -->
 		<div class="entry-content px-4 leading-normal text-lg">
-			<?php
-				the_excerpt();
-			?>
+			<p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 55, '...' ) ); ?></p>
 		</div><!-- .entry-content -->
 	</article><!-- #post-<?php the_ID(); ?> -->
