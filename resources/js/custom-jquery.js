@@ -34,6 +34,6 @@ jQuery(document).ready(function($) {
 		}
     });
     // Below sets aria-roles for sidebar/page menu. 
-    $('#section-menu li').attr('aria-role', 'none');
-    $('#section-menu li a').attr('aria-role', 'menuitem');
+    $('#section-menu li').attr('role', 'none');
+    $('#section-menu li a').attr('role', 'menuitem');
 });
