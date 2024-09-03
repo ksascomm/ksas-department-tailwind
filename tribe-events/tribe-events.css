@@ -543,3 +543,21 @@ Segoe UI, sans-serif;
 .tribe-event-categories li a {
   color: #fefefe !important;
 }
+
+.tribe-common .tribe-common-a11y-visual-hide {
+  overflow: visible;
+}
+
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-c-nav__next, .tribe-common--breakpoint-medium.tribe-events .tribe-events-c-nav__prev {
+  color: #31261d;
+}
+
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-c-nav__prev:hover,
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-c-nav__next:hover {
+  color: #fefefe;
+}
+
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-c-nav__prev:hover .tribe-events-c-nav__prev-icon-svg path,
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-c-nav__next:hover .tribe-events-c-nav__next-icon-svg path {
+  fill: #fefefe;
+}
