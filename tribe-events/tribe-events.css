@@ -39,7 +39,8 @@ span.tribe-events-c-top-bar__datepicker-desktop.tribe-common-a11y-hidden, {
 .tribe-event-date-end, 
 .tribe-event-time,
 .tribe-events-calendar-list__event-venue-title.tribe-common-b2--bold,
-.tribe-events-calendar-latest-past__event-venue-title.tribe-common-b2--bold
+.tribe-events-calendar-latest-past__event-venue-title.tribe-common-b2--bold,
+.tribe-events .tribe-events-calendar-list__event-datetime
  {
   font-family: "gentona-semibold", system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif !important;
   font-weight: 600 !important;
@@ -209,7 +210,7 @@ h1.tribe-events-single-event-title,
 .single-tribe_events .tribe-blocks-editor .tribe-events-single-event-title {
   font-size: 2.5rem !important;
   line-height: 1.2 !important;
-  margin: .5rem 0;
+  margin: 2rem 0;
 }
 
 @media screen and (max-width: 1023px) {
@@ -309,7 +310,8 @@ a.tribe-events-c-subscribe-dropdown__list-item-link:hover {
 
 .tribe-events .tribe-common .tribe-common-form-control-text__input, .tribe-events .tribe-common--breakpoint-medium.tribe-common .tribe-common-form-control-text__input, .tribe-events .tribe-events-c-view-selector__list-item-text, .tribe-events .tribe-events-calendar-latest-past__event-row, .tribe-events .tribe-events-calendar-list__event-date-tag-weekday,
 .tribe-events-calendar-list__event-date-tag-daynum.tribe-common-h5.tribe-common-h4--min-medium,
-.tribe-common .tribe-common-h5 {
+.tribe-common .tribe-common-h5,
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-list__event-datetime-featured-text {
   font-family: gentona-bold, "Helvetica Neue", Roboto, sans-serif;
   font-weight: 700;
 }
@@ -335,6 +337,7 @@ font-weight: 600;
 }
 .tribe-events-calendar-list .tribe-event-categories li:hover a {
   color: #002d72 !important;
+  box-shadow: none;
 }
 
 .tribe-block__venue {
@@ -560,4 +563,12 @@ Segoe UI, sans-serif;
 .tribe-common--breakpoint-medium.tribe-events .tribe-events-c-nav__prev:hover .tribe-events-c-nav__prev-icon-svg path,
 .tribe-common--breakpoint-medium.tribe-events .tribe-events-c-nav__next:hover .tribe-events-c-nav__next-icon-svg path {
   fill: #fefefe;
+}
+
+.single-tribe_events ul.tribe-related-events .tribe-related-events-title {
+	line-height:1.4;
+}
+
+.tribe-events-single ul.tribe-related-events li {
+	font-size: inherit;
 }

@@ -31,7 +31,6 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 		<?php bcn_display(); ?>
 		</div>
 	<?php endif; ?>
-		<?php $this->template( 'single-event/back-link' ); ?>
 		<?php $this->template( 'single-event/notices' ); ?>
 		<?php $this->template( 'single-event/title' ); ?>
 		<?php if ( $is_recurring ) { ?>
