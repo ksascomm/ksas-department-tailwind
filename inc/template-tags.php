@@ -146,11 +146,6 @@ if ( ! function_exists( 'ksas_department_tailwind_post_thumbnail' ) ) :
 				'large',
 				array(
 					'class' => 'md:float-left max-w-xs mr-6 mb-6',
-					'alt'   => the_title_attribute(
-						array(
-							'echo' => false,
-						)
-					),
 				)
 			);
 			?>
@@ -164,13 +159,6 @@ if ( ! function_exists( 'ksas_department_tailwind_post_thumbnail' ) ) :
 				<?php
 					the_post_thumbnail(
 						'large',
-						array(
-							'alt' => the_title_attribute(
-								array(
-									'echo' => false,
-								)
-							),
-						)
 					);
 				?>
 			</a>

@@ -142,7 +142,7 @@ span.tribe-events-schedule__separator.tribe-events-schedule__separator--date,
 .tribe-events-single .tribe-events-notices {
   background-color: #fff2d9;
   position: relative;
-  margin: 0 0 1rem;
+  margin: 1rem 0;
   padding: 1rem;
   border: 1px solid rgba(10, 10, 10, 0.25);
   border-radius: 0;
