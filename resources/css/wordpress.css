@@ -128,8 +128,7 @@ label.gfield_label {
 .hub h1 a,
 .magazine-heading h1 a,
 .magazine.features h3 a,
-.widget a,
-.prose a strong {
+.widget a {
   @apply text-blue border-grey border-b-2 no-underline transition-colors ease-in-out duration-200;
 }
 
@@ -139,9 +138,16 @@ label.gfield_label {
 .hub h1 a:hover,
 .magazine-heading h1 a:hover,
 .magazine.features h3 a:hover,
-.widget a:hover,
-.prose a strong:hover {
+.widget a:hover {
   @apply text-primary border-grey-darkest border-b-2 border-solid;
+}
+
+.prose a strong
+ {
+  color: inherit;
+ }
+.prose a strong:hover {
+  @apply text-white border-none;
 }
 
 .entry-content p a,
