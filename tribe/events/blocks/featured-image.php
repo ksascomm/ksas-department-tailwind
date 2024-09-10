@@ -19,7 +19,7 @@ $event_id = $this->get( 'post_id' );
 $class = isset( $attributes['className'] ) ? $attributes['className'] : '';
 
 // Generate the featured image HTML.
-$featured_image = tribe_event_featured_image( $event_id, 'full', false );
+$featured_image = tribe_event_featured_image( $event_id, 'large', false );
 
 // If a featured image and custom class are present, append the custom class to the parent container.
 if ( $featured_image && $class ) {
