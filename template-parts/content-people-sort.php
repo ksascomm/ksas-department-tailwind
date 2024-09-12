@@ -29,7 +29,7 @@
 				);
 			?>
 		</div>
-	<div class="break"></div> <!-- break -->	
+	<div class="break"></div> <!-- break -->
 	<?php endif; ?>
 	<div class="flex-grow contact-info px-4 lg:px-0">
 		<h2 class="font-heavy font-bold !text-2xl">
@@ -54,7 +54,6 @@
 				<?php endif; ?>
 		<?php endif; ?>
 		</h2>
-
 		<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
 				<div class="position"><p class="leading-normal pr-2"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></p></div>
 			<?php endif; ?>
@@ -89,6 +88,10 @@
 			<?php if ( get_post_meta( $post->ID, 'ecpt_expertise', true ) ) : ?>
 				<p class="leading-normal pr-2"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
 			<?php endif; ?>
+			<?php
+			if ( is_object_in_term( $post->ID, 'role', 'training faculty' ) ) :?>
+				<div class="training-faculty-note"><?php echo '<span class="fa-regular fa-circle-exclamation"></span> ' . term_description( '86','role' ); ?></div>
+			<?php endif;?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_degrees', true ) ) : ?>
 				<p class="leading-normal pr-2"><strong>Education:&nbsp;</strong><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_degrees', true ) ); ?></p>
 			<?php endif; ?>
