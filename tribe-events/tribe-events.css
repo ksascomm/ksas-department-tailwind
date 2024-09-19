@@ -576,3 +576,13 @@ Segoe UI, sans-serif;
 .tribe-events-single ul.tribe-related-events li {
 	font-size: inherit;
 }
+@media screen and (max-width:767px) {
+  .tribe-events-single ul.tribe-related-events li {
+    width: 100%;
+  }
+}
+
+/* Category Archive */
+.post-type-archive-tribe_events .tribe-common-l-container.tribe-events-l-container {
+  padding-top: 2rem;
+}
