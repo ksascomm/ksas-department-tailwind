@@ -27,7 +27,7 @@
 		) ) :
 		?>
 		<div class="alignfull !mt-0" role="banner">
-			<div class="flex bg-white lg:bg-grey-cool lg:bg-opacity-50 front-featured-image-area h-20 lg:h-40">
+			<div class="flex bg-white lg:bg-grey-cool lg:bg-opacity-50 front-featured-image-area h-auto lg:h-40">
 				<div class="flex lg:items-center px-6 xl:ml-32">
 					<h1 class="tracking-tight leading-10 sm:leading-none lg:text-4xl xl:text-[44px] lg:pl-2 xl:pl-0 py-8 !mb-0">
 						<?php the_title(); ?>
