@@ -10,7 +10,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'people pl-4' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'people pl-4 lg:pl-0' ); ?>>
 	<div class="alignfull lg:bg-grey-cool lg:bg-opacity-50">
 		<div class="flex flex-wrap justify-start container mx-auto contact-info">
 		<?php
