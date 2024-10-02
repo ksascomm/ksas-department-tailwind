@@ -108,7 +108,7 @@
 			</a>
 		</div>
 		<div>
-			<ul class="lg:flex lg:flex-wrap lg:justify-between" role="menu" aria-label="University Policies">
+			<ul class="lg:flex lg:flex-wrap lg:justify-between text-lg" role="menu" aria-label="University Policies">
 				<li class="pl-4 lg:pl-0 font-sans font-light" role="menuitem">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> </li>
 				<li class="pl-4" role="menuitem"><a class="font-sans font-light" href="https://accessibility.jhu.edu/">Accessibility</a></li>
 				<li class="pl-4" role="menuitem"><a class="font-sans font-light" href="https://it.johnshopkins.edu/policies/privacystatement">Privacy Statement</a></li>

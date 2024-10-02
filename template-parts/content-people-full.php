@@ -35,6 +35,15 @@
 			endif;
 		?>
 			<div class="w-full lg:w-3/4 py-8">
+			<?php if ( !get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
+				<?php
+				if ( function_exists( 'bcn_display' ) ) :
+					?>
+						<div class="breadcrumbs bg-white mb-4" typeof="BreadcrumbList" vocab="https://schema.org/">
+							<?php bcn_display(); ?>
+					</div>
+					<?php endif; ?>
+				<?php endif;?>
 				<header class="entry-header">
 					<h1 class="tracking-tight leading-10 sm:leading-none pt-2 pb-4">
 						<?php the_title(); ?> 
@@ -124,6 +133,8 @@
 		</div>
 	</div>
 
+
+<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 <?php
 if ( function_exists( 'bcn_display' ) ) :
 	?>
@@ -131,6 +142,7 @@ if ( function_exists( 'bcn_display' ) ) :
 			<?php bcn_display(); ?>
 	</div>
 	<?php endif; ?>
+<?php endif;?>
 	<?php
 	if ( is_singular( 'people' ) ) :
 		?>

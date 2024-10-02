@@ -161,8 +161,8 @@ label.gfield_label {
   @apply border-none transition-shadow duration-200;
   box-shadow: inset 0 -.125rem 0 0 #002d72;
   transition: border-color,background-color,color;
-    transition-duration: 0s, 0s, 0s;
-    transition-timing-function: ease, ease, ease;
+  transition-duration: 0s, 0s, 0s;
+  transition-timing-function: ease, ease, ease;
   transition-duration: .25s,.25s,.25s;
   transition-timing-function: ease-in-out,ease-in-out,ease-in-out;
 }
@@ -2244,6 +2244,12 @@ ul.study-field li:not(:last-child) {
   @apply mb-0;
 }
 
+@screen lg {
+  .no-bio {
+    @apply -mb-20;
+  }
+}
+
 .single-people .prose .people .contact-info .position h2 { 
   @apply leading-normal text-xl font-sans font-light !my-4;
 }
@@ -2529,6 +2535,7 @@ ul.exhibit-meta li {
   @apply !my-0;
 }
 
+/*
 .single-people .tabbed .section-content ul li a {
   --tw-border-opacity: 1;
   border-bottom: 2px;
@@ -2540,7 +2547,7 @@ ul.exhibit-meta li {
   border-bottom: 2px;
   border-color: rgb(49 38 29/var(--tw-border-opacity));
   border-style: solid;
-}
+}*/
 
 
 
