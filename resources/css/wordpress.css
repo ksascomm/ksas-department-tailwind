@@ -2198,6 +2198,10 @@ ul.study-field li:not(:last-child) {
   @apply bg-blue-light text-primary;
 }
 
+.isotope-to-sort legend {
+  @apply text-xl font-bold font-heavy px-2;
+}
+
 .people p.interests {
   @apply my-2;
 }
@@ -3368,14 +3372,15 @@ figure.wp-block-pullquote {
   @apply pl-0;
 }
 
-.prose .role-title h3 {
+.prose .role-title h2 {
   @apply my-4;
 }
 
-.role-title h3:after {
+.role-title h2:after {
   @apply block w-1/2 pt-3 border-b-4 border-blue;
   content: "";
 }
+
 
 .break {
   flex-basis: 100%;
