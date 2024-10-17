@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package KSAS_Blocks
+ * @package KSAS_Department_Tailwind
  */
 
 get_header();
@@ -68,7 +68,7 @@ get_header();
 					<fieldset class="flex flex-col md:flex-row flex-wrap justify-start">
 					<legend class="mt-6 mb-2">Filter by Area of Expertise:</legend>
 						<?php foreach ( $filters as $filter ) : ?>
-							<button class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary mb-2 p-2" href="javascript:void(0)" data-filter=".<?php echo esc_html( $filter->slug ); ?>"><?php echo esc_html( $filter->name ); ?></a>
+							<button class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary mb-2 p-2" href="javascript:void(0)" data-filter=".<?php echo esc_html( $filter->slug ); ?>"><?php echo esc_html( $filter->name ); ?></button>
 						<?php endforeach; ?>
 					</fieldset>
 				<?php endif; ?>
