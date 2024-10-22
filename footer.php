@@ -39,7 +39,7 @@
 		<?php if ( get_field( 'custom_address', 'option' ) ) : ?>
 			<div class="font-sans font-light">
 				Johns Hopkins University
-				<?php echo wp_kses_post( the_field( 'custom_address', 'option' ) ); ?>
+				<?php the_field( 'custom_address', 'option' ); ?>
 			</div>
 			<?php else : ?>
 			<p class="text-lg font-sans font-light">Johns Hopkins University<br>3400 N. Charles St<br>Baltimore, MD 21218</p>
@@ -60,7 +60,7 @@
 			<p class="text-lg"><span class="fa-solid fa-envelope"></span> <a class="font-sans font-light" href="<?php echo esc_url( 'mailto:' . antispambot( get_field( 'department_email', 'option' ) ) ); ?>"><?php echo esc_html( antispambot( get_field( 'department_email', 'option' ) ) ); ?></a></p>
 			<?php endif; ?>
 			<?php if ( $department_phone ) : ?>
-			<p class="text-lg"><span class="fa-solid fa-phone-rotary"></span> <a class="font-sans font-light" href="tel:<?php echo wp_kses_post( the_field( 'department_phone', 'option' ) ); ?>"><?php echo wp_kses_post( the_field( 'department_phone', 'option' ) ); ?></a></p>
+			<p class="text-lg"><span class="fa-solid fa-phone-rotary"></span> <a class="font-sans font-light" href="tel:<?php the_field( 'department_phone', 'option' ); ?>"><?php the_field( 'department_phone', 'option' ); ?></a></p>
 			<?php endif; ?>
 			<?php if ( $department_location ) : ?>
 				<p class="text-lg">

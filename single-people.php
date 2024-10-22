@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package KSAS_Blocks
+ * @package KSAS_Department_Tailwind
  */
 
 get_header();

@@ -150,14 +150,14 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 				<div class="p-6 bucket-text lg:top-0 lg:right-0 lg:left-0 lg:bottom-0 lg:inset-0 lg:absolute">
 					<h3 class="text-2xl 2xl:text-3xl not-prose font-semi font-semibold">
 						<?php if ( get_sub_field( 'explore_bucket_link' ) ) : ?>
-						<a href="<?php echo esc_attr(the_sub_field( 'explore_bucket_link' ) ); ?>">
-							<?php echo wp_kses_post( the_sub_field( 'explore_bucket_heading' ) ); ?>
+						<a href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
+							<?php the_sub_field( 'explore_bucket_heading' ); ?>
 						</a>
 						<?php else: ?>
-							<?php echo wp_kses_post( the_sub_field( 'explore_bucket_heading' ) ); ?>
+							<?php the_sub_field( 'explore_bucket_heading' ); ?>
 						<?php endif; ?>
 					</h3>
-					<p class="leading-normal text-lg 2xl:text-xl tracking-wide font-light"><?php echo wp_kses_post( the_sub_field( 'explore_bucket_text' ) ); ?></p>
+					<p class="leading-normal text-lg 2xl:text-xl tracking-wide font-light"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
 				</div>
 			</div>
 			<?php // Otherwise, display content in a card.
@@ -166,14 +166,14 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 					<div class="h-full rounded-lg field mb-4 px-6 py-4 overflow-hidden bg-grey-lightest grey-card-outline">
 						<h3 class="text-2xl 2xl:text-3xl not-prose font-semi font-semibold !mt-0">
 							<?php if ( get_sub_field( 'explore_bucket_link' ) ) : ?>
-							<a href="<?php echo esc_attr( the_sub_field( 'explore_bucket_link' ) ); ?>">
-								<?php echo wp_kses_post( the_sub_field( 'explore_bucket_heading' ) ); ?>
+							<a href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
+								<?php the_sub_field( 'explore_bucket_heading' ); ?>
 							</a>
 							<?php else: ?>
-								<?php echo wp_kses_post( the_sub_field( 'explore_bucket_heading' ) ); ?>
+								<?php echo the_sub_field( 'explore_bucket_heading' ); ?>
 							<?php endif; ?>
 						</h3>
-						<p class="leading-normal text-lg 2xl:text-xl tracking-wide font-light !mb-0"><?php echo wp_kses_post( the_sub_field( 'explore_bucket_text' ) ); ?></p>
+						<p class="leading-normal text-lg 2xl:text-xl tracking-wide font-light !mb-0"><?php echo the_sub_field( 'explore_bucket_text' ); ?></p>
 					</div>
 				</div>
 			<?php endif; ?>

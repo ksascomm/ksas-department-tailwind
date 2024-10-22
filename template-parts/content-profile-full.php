@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package KSAS_Blocks
+ * @package KSAS_Department_Tailwind
  */
 
 ?>
@@ -36,7 +36,7 @@
 			while ( have_rows( 'custom_profile_fields' ) ) :
 				the_row();
 				?>
-			<h2 class="!text-2xl"><span class="custom-title"><?php echo wp_kses_post( the_sub_field( 'custom_title' ) ); ?></span>&nbsp;<span class="custom-content"><?php echo wp_kses_post( the_sub_field( 'custom_content' ) ); ?></span></h2>
+			<h2 class="!text-2xl"><span class="custom-title"><?php the_sub_field( 'custom_title' ); ?></span>&nbsp;<span class="custom-content"><?php the_sub_field( 'custom_content' ); ?></span></h2>
 			<?php endwhile; ?>
 		<?php else : ?>
 			<?php // No rows found! ?>

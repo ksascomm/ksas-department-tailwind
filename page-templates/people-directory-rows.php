@@ -76,7 +76,7 @@ get_header();
 			<fieldset class="w-auto search-form my-2 px-2">
 				<legend class="mt-4 mb-2">Search by name, title, or research interests:</legend>
 				<label class="sr-only" for="id_search">Enter term</label>
-				<input class="quicksearch ml-2 p-2 form-input w-full md:w-1/2" type="text" name="search" id="id_search" aria-label="Search Fields of Study" placeholder="Enter description keyword"/>
+				<input class="quicksearch ml-2 p-2 form-input w-full md:w-1/2" type="text" name="search" id="id_search" aria-label="Search Form" placeholder="Enter description keyword"/>
 			</fieldset>
 		</form>
 		<div class="mt-8 ml-4 mr-2" id="isotope-list" >

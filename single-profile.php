@@ -2,8 +2,8 @@
 /**
  * The template for displaying all single Spotlight Profiles
  *
- * @package KSASAcademicDepartment
- * @since KSASAcademicDepartment 1.0.0
+ * @package KSAS_Department_Tailwind
+ * @since KSAS_Department_Tailwind 1.0.0
  */
 
 get_header();

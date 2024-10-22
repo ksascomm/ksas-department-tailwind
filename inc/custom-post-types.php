@@ -1,19 +1,19 @@
 <?php
 /**
- * KSAS Blocks Custom Post Types functions and definitions
+ * Custom Post Types functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package KSAS_Blocks
+ * @package KSAS_Department_Tailwind
  */
 
-add_action( 'wp_enqueue_scripts', 'ksas_blocks_custom_posts_scripts' );
+add_action( 'wp_enqueue_scripts', 'ksas_department_tailwind_custom_posts_scripts' );
 	/**
 	 * Conditionally add isotope scripts to Research Projects page
 	 *
 	 * Note that this function is hooked into the wp_enqueue_scripts
 	 */
-function ksas_blocks_custom_posts_scripts() {
+function ksas_department_tailwind_custom_posts_scripts() {
 	if ( is_page_template( 'page-templates/research-projects.php' ) || is_page_template( 'page-templates/people-directory-rows.php' ) || is_page_template( 'page-templates/people-directory-columns.php' ) ) :
 		wp_enqueue_script( 'isotope-packaged', 'https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js', array(), '3.0.6', true );
 		wp_enqueue_script( 'isotope-local', get_template_directory_uri() . '/dist/js/isotope.js', array( 'jquery' ), KSAS_DEPARTMENT_TAILWIND_VERSION, true );

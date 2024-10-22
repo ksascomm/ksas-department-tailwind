@@ -2,8 +2,8 @@
 /**
  * The sidebar containing the main widget area
  *
- * @package KSASAcademicDepartment
- * @since KSASAcademicDepartment 1.0.0
+ * @package KSAS_Department_Tailwind
+ * @since KSAS_Department_Tailwind 1.0.0
  */
 
 ?>
