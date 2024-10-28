@@ -2979,12 +2979,12 @@ p.tribe-events-back a,
   margin-left: 0px !important;
 }
 
-.news-section .prose h2.entry-title,
-.blog .site-main.prose h2.entry-title {
+.news-section .prose h3.entry-title,
+.blog .site-main.prose h3.entry-title {
   @apply mt-0 lg:text-[26px];
 }
 
-.blog .site-main.prose h2.entry-title {
+.blog .site-main.prose h3.entry-title {
   @apply mb-0;
 }
 
