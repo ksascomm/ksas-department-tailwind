@@ -57,26 +57,28 @@ if ( ! empty( $studyfield_response ) ) :
 			<div class="mt-2 text-primary text-lg md:text-xl tracking-tight">
 				<?php the_content(); ?>
 			</div>
-			<ul class="flex flex-wrap study-field list-none">
-			<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_degreesoffered[0] ) ) : ?>
-				<li class="leading-tight text-base xl:text-lg px-2">
-					<span class="">Degrees Offered</span>
-					<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_degrees ); ?></span>
-				</li>
+			<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_degreesoffered[0] ) || ! empty ( $studyfield_data->post_meta_fields->ecpt_majors[0] ) || ! empty( $studyfield_data->post_meta_fields->ecpt_minors[0] ) ) : ?>
+				<ul class="flex flex-wrap study-field list-none">
+				<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_degreesoffered[0] ) ) : ?>
+					<li class="leading-tight text-base xl:text-lg px-2">
+						<span class="">Degrees Offered</span>
+						<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_degrees ); ?></span>
+					</li>
+				<?php endif; ?>
+				<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_majors[0] ) ) : ?>
+					<li class="leading-tight text-base xl:text-lg px-2">
+						<span class="">Major</span>
+						<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_majors[0] ); ?></span>
+					</li>
+				<?php endif; ?>
+				<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_minors[0] ) ) : ?>
+					<li class="leading-tight text-base xl:text-lg px-2">
+						<span class="">Minor</span>
+						<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_minors[0] ); ?></span>
+					</li>
+				<?php endif; ?>
+				</ul>
 			<?php endif; ?>
-			<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_majors[0] ) ) : ?>
-				<li class="leading-tight text-base xl:text-lg px-2">
-					<span class="">Major</span>
-					<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_majors[0] ); ?></span>
-				</li>
-			<?php endif; ?>
-			<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_minors[0] ) ) : ?>
-				<li class="leading-tight text-base xl:text-lg px-2">
-					<span class="">Minor</span>
-					<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_minors[0] ); ?></span>
-				</li>
-			<?php endif; ?>
-			</ul>
 		</div>
 	</div>
 	<div class="hidden lg:block lg:w-5/12 front featured-image">

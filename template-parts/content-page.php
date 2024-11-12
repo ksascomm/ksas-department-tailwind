@@ -19,7 +19,6 @@
 			array(
 				'page-templates/no-featured-image.php',
 				'page-templates/faculty-books.php',
-				'page-templates/people-directory-columns.php',
 				'page-templates/people-directory-rows.php',
 				'page-templates/people-directory-select.php',
 				'../templates/courses-undergrad-ksasblocks.php',
@@ -50,6 +49,19 @@
 		<?php endif; ?>
 	</div>
 	<div class="entry-content">
+	<?php
+	if (
+		is_page_template(
+			array(
+				'page-templates/people-directory-rows.php',
+				'page-templates/people-directory-select.php',
+			)
+		) ) :
+		?> 
+		<div class="sr-only">
+			Use the filters and search box to explore our people directory.
+		</div>
+	<?php endif; ?>
 		<?php
 		the_content();
 

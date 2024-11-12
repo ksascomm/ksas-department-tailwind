@@ -1,7 +1,9 @@
 const { NoEmitOnErrorsPlugin } = require("webpack");
 
 module.exports = {
-  content: [
+  content: {
+    relative: true,
+    files: [
     "./404.php",
     "./archive.php",
     "./comments.php",
@@ -18,11 +20,11 @@ module.exports = {
     "./inc/*.php",
     "./page-templates/*.php",
     "./resources/js/*.js",
-    "./resources/css/*.css",
     "./template-parts/*.php",
     "./template-parts/*/*.php",
     "./template-parts/*/*/*.php",
-  ],
+    ],
+  },
   theme: {
     container: {
       padding: {

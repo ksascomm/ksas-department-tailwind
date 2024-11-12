@@ -2505,6 +2505,10 @@ summary::-webkit-details-marker {
 
 /* Testimonials/Profiles
 --------------------------------------------- */
+.profile-card {
+  margin: 0 !important;
+}
+
 .single-profile .profile img.wp-post-image,
 .single-testimonial .testimonial img.wp-post-image {
   margin-right: 1.5rem;
@@ -3341,6 +3345,14 @@ figure.wp-block-pullquote {
 }
 
 /* Block Pattern: People/Staff Listing ------------------------------ */
+.wp-block-group.staff-listing {
+  @apply py-4;
+}
+
+.wp-block-group.staff-listing figure {
+  @apply my-0; 
+ }
+
 .wp-block-columns.staff-listing-horizontal {
   @apply mb-0;
 }

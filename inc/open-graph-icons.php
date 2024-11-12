@@ -19,6 +19,10 @@ function meta_open_graph() {
 		$longexcerpt = wp_strip_all_tags( get_post_meta( $post->ID, 'ecpt_bio', true ) );
 		$longexcerpt = str_replace( '', "'", $longexcerpt );
 		$excerpt     = wp_trim_words( $longexcerpt, 15, '...' );
+	} elseif (is_page_template( 'page-templates/people-directory-rows.php' )) {
+		$excerpt     = 'Use the filters or search box to explore our people directory';
+	} elseif (is_page_template( 'page-templates/people-directory-select.php' )) {
+		$excerpt     = 'Explore our ' . esc_html( get_the_title() ) ;
 	} else {
 		$excerpt = get_bloginfo( 'title' );
 	}
