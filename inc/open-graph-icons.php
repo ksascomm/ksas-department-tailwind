@@ -40,7 +40,7 @@ function meta_open_graph() {
 		echo '<meta property="og:site_name" content="' . get_bloginfo( 'title' ) . '"/>';
 	if ( ! has_post_thumbnail( $post->ID ) ) { // the post does not have featured image, use a default image.
 		// Create a default image on your server or an image in your media library, and insert it's URL here.
-		$default_image = get_template_directory_uri() . '/dist/images/favicons/android-icon-192x192.png';
+		$default_image = get_template_directory_uri() . '/dist/images/favicons/apple-touch-icon-180x180.png';
 		echo '<meta property="og:image" content="' . $default_image . '"/>';
 	} else {
 		$thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
