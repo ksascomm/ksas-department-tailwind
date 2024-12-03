@@ -130,7 +130,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 		<!--Show Columns Dynamically-->
 		<?php if ( $count == 2):?>
 			<div class="mx-auto grid grid-cols-1 xl:grid-cols-3 px-4 xl:justify-items-center">
-		<?php elseif ( $count == 3 ) : ?>
+		<?php elseif ( $count >= 3 ) : ?>
 			<div class="mx-auto grid grid-cols-1 xl:grid-cols-3 px-4 xl:justify-items-center">
 		<?php endif; ?>
 		<?php
@@ -142,12 +142,12 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 				if ( get_sub_field( 'explore_bucket_image' ) ) :
 					?>
 					
-			<div class="bucket relative not-prose bucket-<?php echo get_row_index(); ?>">
+			<div class="group bucket relative not-prose overflow-hidden lg:max-h-[640px] bucket-<?php echo get_row_index(); ?>">
 				<?php
 				$image = get_sub_field( 'explore_bucket_image' );
 				if ( get_sub_field( 'explore_bucket_image' ) ) :
 					?>
-					<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'lg:blur-[1px] w-full' ) ); ?>
+					<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'lg:blur-[1px] w-full transition-all group-hover:scale-125 group-hover:transition-all group-hover:ease-in-out group-hover:delay-100' ) ); ?>
 				<?php endif; ?>
 				<div class="p-6 bucket-text lg:top-0 lg:right-0 lg:left-0 lg:bottom-0 lg:inset-0 lg:absolute">
 					<h3 class="text-2xl 2xl:text-3xl not-prose font-semi font-semibold">
@@ -164,8 +164,14 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 			</div>
 			<?php // Otherwise, display content in a card.
 			else :?>
-				<div class="p-2">
+				<div class="group p-2 plain-bucket-<?php echo get_row_index(); ?>">
 					<div class="h-full rounded-lg field mb-4 px-6 py-4 overflow-hidden bg-grey-lightest grey-card-outline">
+					<?php
+					$image = get_sub_field( 'explore_bucket_icon' );
+					if ( get_sub_field( 'explore_bucket_icon' ) ) :
+						?>
+						<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'bucket-icon group-hover:scale-110 group-hover:drop-shadow-[0_0_.5rem_rgba(0,45,114,1)]' ) ); ?>
+					<?php endif; ?>
 						<h3 class="text-2xl 2xl:text-3xl not-prose font-semi font-semibold !mt-0">
 							<?php if ( get_sub_field( 'explore_bucket_link' ) ) : ?>
 							<a href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
@@ -175,7 +181,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 								<?php echo the_sub_field( 'explore_bucket_heading' ); ?>
 							<?php endif; ?>
 						</h3>
-						<p class="leading-normal text-lg 2xl:text-xl tracking-wide font-light !mb-0"><?php echo the_sub_field( 'explore_bucket_text' ); ?></p>
+						<p class="leading-normal text-lg 2xl:text-xl tracking-wide font-light !mb-0"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
 					</div>
 				</div>
 			<?php endif; ?>

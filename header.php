@@ -59,12 +59,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<div class="h-auto shield pl-4">
 					<?php if ( get_field( 'shield', 'option' ) == 'jhu' ) : ?>
 						<a href="https://www.jhu.edu/" title="Johns Hopkins University">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/dist/images/university.shield.svg" class="h-auto w-full p-2" alt="JHU Shield" role="img">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/dist/images/university.shield.svg" class="h-auto w-full p-2" alt="JHU Shield, to the JHU homepage" role="img">
 						</a>
 					<?php else : ?>
 						<a href="https://krieger.jhu.edu" rel="home" class="hover:opacity-50">
 							<?php echo file_get_contents( get_template_directory() . '/dist/images/krieger.logo.horizontal.blue.svg' ); ?>
-							<span class="sr-only">Krieger School of Arts & Sciences</span>
+							<span class="sr-only">Krieger School of Arts & Sciences shield, to the KSAS homepage</span>
 						</a>
 					<?php endif; ?>
 					</div>
