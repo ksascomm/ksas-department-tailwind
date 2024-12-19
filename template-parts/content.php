@@ -18,17 +18,21 @@
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
-		if ( get_post_type() === 'post' || get_post_type() === 'bulletinboard' ) :
+		if ( get_post_type() === 'post') :
 			?>
 			<div class="entry-meta">
 				<?php
 				ksas_department_tailwind_posted_on();
 				?>
-				<?php if ( get_field( 'bulletin_deadline' ) ) : ?>
-					<br><span class="deadline"><?php the_field( 'bulletin_deadline' ); ?></span>
-				<?php endif; ?>
 			</div><!-- .entry-meta -->
-		<?php endif; ?>
+		<?php elseif ( get_post_type() === 'bulletinboard'): ?>
+			<ul class="entry-meta">
+				<li>Posted: <?php the_time( 'F j, Y' ); ?></li>
+				<?php if ( get_field( 'bulletin_deadline' ) ) : ?>
+				<li>Deadline: <?php the_field( 'bulletin_deadline' ); ?></li>
+				<?php endif; ?>
+			</ul>
+		<?php endif; ?><!-- .bulletin .entry-meta -->
 	</header><!-- .entry-header -->
 
 	<?php ksas_department_tailwind_post_thumbnail(); ?>
