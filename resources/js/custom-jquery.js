@@ -36,4 +36,6 @@ jQuery(document).ready(function($) {
     // Below sets aria-roles for sidebar/page menu. 
     $('#section-menu li').attr('role', 'none');
     $('#section-menu li a').attr('role', 'menuitem');
+    // Below sets aria-hidden to true for front bucket icons within a link
+    $('.grey-card-outline h3 a .bucket-icon').attr('aria-hidden', 'true');
 });

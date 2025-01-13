@@ -2160,9 +2160,10 @@ ul.study-field li:not(:last-child) {
   @apply transition duration-500;
 }
 
+/*
 .grey-card-outline:hover {
   @apply border-blue;
-}
+}*/
 
 .front .grey-card-outline p {
   @apply mb-0;
