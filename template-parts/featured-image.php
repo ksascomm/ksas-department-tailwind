@@ -31,12 +31,8 @@
 					// Otherwise, randomly display one of the following images.
 				$theme = get_template_directory_uri();
 				$bg    = array(
-					$theme . '/dist/images/header-images/deptThemeStandard01.jpg',
 					$theme . '/dist/images/header-images/deptThemeStandard02.jpg',
-					$theme . '/dist/images/header-images/deptThemeStandard04.jpg',
-					$theme . '/dist/images/header-images/deptThemeStandard05.jpg',
 					$theme . '/dist/images/header-images/deptThemeStandard06.jpg',
-					$theme . '/dist/images/header-images/deptThemeStandard07.jpg',
 					$theme . '/dist/images/header-images/deptThemeStandard08.jpg',
 					$theme . '/dist/images/header-images/deptThemeStandard09.jpg',
 					$theme . '/dist/images/header-images/deptThemeStandard10.jpg',
