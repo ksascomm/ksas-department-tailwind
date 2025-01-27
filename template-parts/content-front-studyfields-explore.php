@@ -115,7 +115,7 @@ if ( ! empty( $studyfield_response ) ) :
 if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 	?>
 	
-	<div class="container">
+	<div class="container lg:max-xl:px-8">
 	<?php
 	if ( have_rows( 'explore_the_department' ) ) :
 		$count = count( get_field( 'explore_the_department' ) );
@@ -142,14 +142,14 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 				if ( get_sub_field( 'explore_bucket_image' ) ) :
 					?>
 					
-			<div class="group bucket relative not-prose overflow-hidden lg:max-h-[640px] bucket-<?php echo get_row_index(); ?>">
+			<div class="group bucket relative not-prose overflow-hidden w-auto xl:w-inherit bucket-<?php echo get_row_index(); ?>">
 				<?php
 				$image = get_sub_field( 'explore_bucket_image' );
 				if ( get_sub_field( 'explore_bucket_image' ) ) :
 					?>
-					<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'lg:blur-[1px] w-full' ) ); ?>
+					<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'xl:blur-[1px] w-full' ) ); ?>
 				<?php endif; ?>
-				<div class="p-6 bucket-text lg:top-0 lg:right-0 lg:left-0 lg:bottom-0 lg:inset-0 lg:absolute">
+				<div class="p-6 bucket-text xl:top-0 xl:right-0 xl:left-0 xl:bottom-0 xl:inset-0 xl:absolute">
 					<h3 class="text-2xl 2xl:text-3xl not-prose font-semi font-semibold">
 						<?php if ( get_sub_field( 'explore_bucket_link' ) ) : ?>
 						<a href="<?php the_sub_field( 'explore_bucket_link' ); ?>">

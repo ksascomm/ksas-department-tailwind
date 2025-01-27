@@ -436,7 +436,7 @@ div[class^="bucket-"] {
   @apply bg-blue text-white;
 }
 
-@screen lg {
+@screen xl {
   .bucket-1 .bucket-text, .bucket-3 .bucket-text {
     @apply bg-opacity-75;
   }
