@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying Exhibits posts
+ * Template part for displaying singular Exhibits posts
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+	<header class="entry-header pl-4 pr-2 xl:pl-0 xl:pr-0">
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -20,13 +20,13 @@
 
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
-		<ul class="exhibit-meta">
+	<div class="entry-content pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
+		<ul class="exhibit-meta !list-none !pl-0">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_location', true ) ) : ?>
-				<li><strong>Location:</strong> <?php echo get_post_meta( $post->ID, 'ecpt_location', true ); ?></li>
+				<li class="!pl-0"><strong>Location:</strong> <?php echo get_post_meta( $post->ID, 'ecpt_location', true ); ?></li>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_dates', true ) ) : ?>
-				<li><strong>Dates:</strong> <?php echo get_post_meta( $post->ID, 'ecpt_dates', true ); ?></li>
+				<li class="pl-0"><strong>Dates:</strong> <?php echo get_post_meta( $post->ID, 'ecpt_dates', true ); ?></li>
 			<?php endif; ?>
 		</ul>
 	<?php
@@ -49,12 +49,6 @@
 			the_excerpt();
 		endif;
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ksas-department-tailwind' ),
-				'after'  => '</div>',
-			)
-		);
 		?>
 	<?php
 		if ( has_post_thumbnail() ) :

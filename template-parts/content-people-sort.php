@@ -55,18 +55,18 @@
 		<?php endif; ?>
 		</h3>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
-				<div class="position"><p class="leading-normal pr-2"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></p></div>
+				<div class="position"><p class="leading-normal pr-2 text-xl !my-3"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></p></div>
 			<?php endif; ?>
 
 			<h4 class="sr-only">Contact Information</h4>
 
-			<ul role="list">
+			<ul class="not-prose" role="list">
 			<?php
 				if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
 					$email = get_post_meta( $post->ID, 'ecpt_email', true );
 					?>
 					<li><span class="fa-solid fa-envelope" aria-hidden="true"></span>
-						<a href="<?php echo esc_url( 'mailto:' . antispambot( $email )); ?>">
+						<a class="text-blue" href="<?php echo esc_url( 'mailto:' . antispambot( $email )); ?>">
 						<?php echo esc_html( $email ); ?>
 						</a>
 					</li>
@@ -86,14 +86,14 @@
 			</ul>
 
 			<?php if ( get_post_meta( $post->ID, 'ecpt_expertise', true ) ) : ?>
-				<p class="leading-normal pr-2"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
+				<p class="leading-normal pr-2 my-3"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
 			<?php endif; ?>
 			<?php
 			if ( is_object_in_term( $post->ID, 'role', 'carnegie faculty' ) ) :?>
 				<div class="training-faculty-note"><?php echo '<span class="fa-regular fa-circle-exclamation"></span> ' . term_description( '86','role' ); ?></div>
 			<?php endif;?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_degrees', true ) ) : ?>
-				<p class="leading-normal pr-2"><strong>Education:&nbsp;</strong><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_degrees', true ) ); ?></p>
+				<p class="leading-normal pr-2 my-3"><strong>Education:&nbsp;</strong><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_degrees', true ) ); ?></p>
 			<?php endif; ?>
 	</div>
 </div>

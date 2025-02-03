@@ -10,7 +10,7 @@
 ?>
 
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-excerpt blog-excerpt prose sm:prose lg:prose-lg xl:prose-xl mx-auto mb-4' ); ?> aria-label="<?php the_title(); ?>">
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-excerpt blog-excerpt border-2 border-grey shadow-sm prose sm:prose lg:prose-lg xl:prose-xl mx-auto mb-4' ); ?> aria-label="<?php the_title(); ?>">
 <?php
 	/**
 	 * This differs from theme's post_thumbnail()
@@ -27,7 +27,7 @@ if ( has_post_thumbnail() ) :
 			the_post_thumbnail(
 				'large',
 				array(
-					'class' => 'w-full h-0 lg:h-full object-cover pr-0',
+					'class' => 'w-full h-0 lg:h-full object-cover pr-0 !mt-0 mb-2 object-[0%_20%]',
 				)
 			);
 		?>
@@ -38,9 +38,9 @@ if ( has_post_thumbnail() ) :
 			ksas_department_tailwind_posted_on();
 			?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_external_link', true ) ) : ?>
-			<?php the_title( '<h3 class="entry-title external-link"><a class="front-post" href="' . esc_url( get_post_meta( $post->ID, 'ecpt_external_link', true ) ) . '" rel="bookmark" target="_blank" rel="noopener">', '</a></h3>' ); ?>
+			<?php the_title( '<h3 class="entry-title external-link"><a class="front-post hover:text-primary" href="' . esc_url( get_post_meta( $post->ID, 'ecpt_external_link', true ) ) . '" rel="bookmark" target="_blank" rel="noopener">', '</a></h3>' ); ?>
 		<?php else : ?>
-			<?php the_title( '<h3 class="entry-title"><a class="front-post" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
+			<?php the_title( '<h3 class="entry-title"><a class="front-post hover:text-primary" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
 		<?php endif; ?>
 		</header><!-- .entry-header -->
 		<div class="entry-content px-4 leading-normal text-lg">

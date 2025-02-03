@@ -1,13 +1,15 @@
 {
   "name": "ksas-department-tailwind",
-  "version": "4.0",
+  "version": "5.0",
   "private": true,
   "scripts": {
     "development": "mix",
     "watch": "mix watch",
     "watch-poll": "mix watch -- --watch-options-poll=1000",
     "hot": "mix watch --hot",
-    "production": "mix --production"
+    "production": "mix --production",
+    "browser": "browser-sync start --proxy \"https://stage.krieger.jhu.edu/philosophy\" --files \"**/*\"",
+    "watch-mix-browser": "npm run watch & npm run browser"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
@@ -18,7 +20,6 @@
     "@tailwindcss/typography": "^0.5.16",
     "autoprefixer": "^10.4.20",
     "browser-sync": "^3.0.3",
-    "browser-sync-webpack-plugin": "^2.3.0",
     "glob-all": "^3.3.1",
     "postcss": "^8.4.49",
     "postcss-loader": "^8.1.1",

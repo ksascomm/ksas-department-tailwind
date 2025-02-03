@@ -1,0 +1,344 @@
+/*--------------------------------------------------------------
+# Plugins
+--------------------------------------------------------------*/
+
+/* Breadcrumbs NavXT
+  --------------------------------------------- */
+
+.breadcrumbs {
+	@apply block lg:inline-block -mb-4 pl-2 text-grey-darkest lg:border lg:border-grey-cool;
+	background-color: rgba(191, 204, 217, 0);
+	padding-top: .125rem;
+	padding-bottom: 0.25rem
+}
+
+.breadcrumbs span {
+	@apply font-semi font-semibold;
+}
+
+@media screen and (max-width: 1536px) {
+	.breadcrumbs {
+		margin-left: 1rem;
+	}
+}
+
+.single-post .breadcrumbs,
+.single-faculty-books .breadcrumbs,
+.single-profile .breadcrumbs,
+.single-research-highlight .breadcrumbs,
+.single-ksasexhibits .breadcrumbs,
+.single-bulletinboard .breadcrumbs,
+.error404 .breadcrumbs {
+	@apply my-6;
+}
+
+.blog .breadcrumbs {
+	@apply mb-6;
+}
+
+.breadcrumbs span.current-item,
+.breadcrumbs span a {
+	@apply uppercase border-none mx-4 tracking-wide;
+	font-size: 0.875rem;
+}
+
+.breadcrumbs span.current-item {
+	@apply text-primary;
+}
+
+.breadcrumbs span a.home,
+.breadcrumbs span a.main-home {
+	@apply ml-0 !important;
+}
+
+@media only screen and (max-width: 740px) {
+	.breadcrumbs {
+		@apply overflow-hidden absolute w-px h-px;
+		clip: rect(1px 1px 1px 1px);
+		clip: rect(1px, 1px, 1px, 1px);
+	}
+}
+
+.breadcrumbs a:hover {
+	@apply text-primary;
+}
+
+.breadcrumbs a.home::before {
+	/* removed font- based rules */
+	display: inline-block;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font: var(--fa-font-solid);
+	content: "\f015";
+	padding-right: .25rem;
+}
+
+
+/* Yoast
+  --------------------------------------------- */
+.prose p.schema-how-to-step-text,
+.prose p.schema-faq-answer,
+.prose p.schema-how-to-description {
+	@apply my-2;
+}
+
+.wp-block-yoast-how-to-block,
+.wp-block-yoast-faq-block {
+	@apply bg-grey-lightest border-2 border-solid border-grey m-4 block p-4;
+}
+
+/* TablePress
+  --------------------------------------------- */
+table.tablepress thead th {
+	background: rgba(148, 207, 248, 0.84)
+}
+
+.tablepress> :where(thead, tfoot)>*>th {
+	@apply font-bold font-heavy;
+}
+
+.tablepress .sorting:hover,
+.tablepress .sorting_asc,
+.tablepress .sorting_desc {
+	@apply !bg-blue-light;
+}
+
+.tablepress>.row-hover>tr:hover>* {
+	@apply !bg-grey-cool bg-opacity-50;
+}
+
+/* Events Calendar Blocks
+  --------------------------------------------- */
+.tribe-events-widget-events-list__event-title-link.tribe-common-anchor-thin,
+.tribe-events-widget-events-list__event-date-tag-daynum.tribe-common-h2.tribe-common-h4--min-medium,
+.tribe-events-widget-events-list__event-date-tag-month,
+.tribe-events-widget-events-list__header-title.tribe-common-h6.tribe-common-h--alt {
+	@apply font-heavy !important;
+}
+
+.tribe-events-widget-events-list__event-title-link.tribe-common-anchor-thin {
+	@apply text-blue border-grey border-b-2 no-underline transition-colors ease-in-out duration-200 !important;
+}
+
+.tribe-events-widget-events-list__event-title-link.tribe-common-anchor-thin:hover {
+	@apply text-primary border-grey-darkest border-b-2 border-solid !important;
+}
+
+.front.prose .tribe-events-widget-events-list__event-title.tribe-common-h7,
+.front.prose .tribe-events-widget-events-list__header-title.tribe-common-h6.tribe-common-h--alt {
+	@apply ml-0 mr-0 !important;
+}
+
+.tribe-events-widget-events-list__event-datetime {
+	@apply text-lg font-sans font-light;
+}
+
+.tribe-events-widget-events-list__header-title.tribe-common-h6.tribe-common-h--alt {
+	@apply text-3xl !important;
+}
+
+.tribe-events-widget-events-list__view-more-link.tribe-common-anchor-thin {
+	@apply font-sans font-light bg-blue text-white inline-flex py-2 px-3 text-base items-center border-none font-normal !important;
+}
+
+.tribe-events-widget-events-list__view-more-link.tribe-common-anchor-thin:hover {
+	@apply border-none text-primary bg-blue-light !important;
+}
+
+.tribe-common-g-row.tribe-events-widget-events-list__event-row {
+	@apply p-4 border-grey border-solid border-2;
+}
+
+.tribe-events-widget-events-list__event-date-tag-month {
+	@apply text-primary font-semi font-semibold !important;
+}
+
+p.tribe-events-back a,
+.tribe-events-c-subscribe-dropdown__list-item-link {
+	@apply font-semi font-semibold;
+}
+
+.tribe-common .tribe-common-c-btn-border,
+.tribe-common a.tribe-common-c-btn-border {
+	@apply border-blue !important;
+}
+
+.tribe-common button,
+.tribe-common-c-svgicon.tribe-common-c-svgicon--cal-export.tribe-events-c-subscribe-dropdown__export-icon,
+.tribe-common-c-svgicon.tribe-common-c-svgicon--caret-down.tribe-events-c-subscribe-dropdown__button-icon {
+	@apply text-blue;
+}
+
+.single-tribe_events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:hover {
+	@apply bg-blue !important;
+}
+
+.single-tribe_events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:hover>.tribe-events-c-subscribe-dropdown__button-text,
+.single-tribe_events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:hover>.tribe-common-c-svgicon.tribe-common-c-svgicon--cal-export.tribe-events-c-subscribe-dropdown__export-icon,
+.single-tribe_events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:hover>.tribe-common-c-svgicon.tribe-common-c-svgicon--caret-down.tribe-events-c-subscribe-dropdown__button-icon {
+	@apply text-white;
+}
+
+.single-tribe_events .tribe-blocks-editor .tribe-events-schedule .tribe-events-schedule__datetime {
+	font-weight: 600;
+}
+
+.tribe-events-nav-previous a {
+	font-weight: 400 !important;
+}
+
+.tribe-common--breakpoint-medium.tribe-common .tribe-common-h4--min-medium {
+	@apply font-semi font-semibold;
+}
+
+#tribe-events-pg-template,
+.tribe-events-pg-template {
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+.tribe-events-notices ul {
+	margin-block: 0;
+}
+
+.tribe-events-schedule h2 {
+	font-size: 1.25rem !important;
+}
+
+.tribe-events-single p {
+	@apply font-sans font-light;
+}
+
+.tribe-events-meta-group-details dt,
+.tribe-events-single-section-title {
+	@apply font-bold font-heavy;
+}
+
+.tribe-events-meta-group-details dd,
+.tribe-venue,
+.tribe-events-nav-previous,
+.tribe-events-nav-next {
+	@apply font-sans font-light text-lg;
+}
+
+/* Events Calendar Widgets ------------------------------ */
+/* Events Calendar Widget Styes Must Go Here, Not in Tribe-Events Directory */
+.footer-widget-area .tribe-events-widget h2.tribe-events-widget-events-list__header-title.tribe-common-h6.tribe-common-h--alt {
+	font-size: 1.875rem;
+	margin-bottom: 0.5rem;
+	@apply font-bold font-heavy;
+}
+
+.below-news-widget-section .tribe-events-widget .tribe-events-widget-events-list__event-title,
+.footer-widget-area .tribe-events-widget .tribe-events-widget-events-list__event-title a {
+	@apply text-blue font-heavy !text-xl;
+}
+
+.footer-widget-area .tribe-events-widget span.tribe-event-date-start,
+.footer-widget-area .tribe-events-widget span.tribe-events-widget-events-list__event-date-tag-month,
+.footer-widget-area .tribe-events-widget span.tribe-events-widget-events-list__event-date-tag-daynum.tribe-common-h2.tribe-common-h4--min-medium {
+	@apply text-primary;
+}
+
+.footer-widget-area .tribe-events-widget .tribe-events-widget-events-list__view-more.tribe-common-b1.tribe-common-b2--min-medium {
+	@apply bg-blue text-white m-4 inline-block font-bold font-heavy;
+}
+
+.footer-widget-area .tribe-events-widget .tribe-events-widget-events-list__view-more.tribe-common-b1.tribe-common-b2--min-medium a {
+	@apply !font-bold !font-heavy p-4 mx-auto;
+}
+
+/*Below News Widget Homepage Section  ------------------------------*/
+.below-news-widget-section
+  .tribe-events-widget
+  .tribe-events-widget-events-list__header {
+  margin-bottom: 0;
+}
+
+.below-news-widget-section
+  .tribe-common--breakpoint-medium.tribe-events-widget
+  .tribe-events-widget-events-list__event-title {
+  font-size: 1.25rem;
+}
+
+.below-news-widget-section
+  .tribe-common-g-row.tribe-events-widget-events-list__event-row {
+  padding: 0.5rem;
+}
+
+.below-news-widget-section
+  .tribe-events-widget
+  .tribe-events-widget-events-list__event-date-tag {
+  padding-top: 0.4rem;
+}
+
+/*Events Widget Homepage Section  ------------------------------*/
+.events-widget-section .tribe-common-g-row.tribe-events-widget-events-list__event-row,
+.below-news-widget-section .tribe-common-g-row.tribe-events-widget-events-list__event-row {
+  margin-right: 1rem;
+  padding-right: 1rem;
+}
+.events-widget-section .tribe-events-widget-events-list__header-title.tribe-common-h6.tribe-common-h--alt,
+.below-news-widget-section .tribe-events-widget-events-list__header-title.tribe-common-h6.tribe-common-h--alt {
+  font-size: 36px !important;
+}
+
+.events-widget-section .tribe-events-widget-events-list__event-details p,
+.below-news-widget-section .tribe-events-widget-events-list__event-details p {
+  @apply mt-2 mb-4;
+  margin-left: 0px !important;
+}
+
+.events-widget-section .tribe-events-widget .tribe-events-widget-events-list__event-row,
+.below-news-widget-section .tribe-events-widget .tribe-events-widget-events-list__event-row {
+  flex-wrap: wrap;
+}
+
+.events-widget-section .tribe-events-widget-events-list__event-title,
+.below-news-widget-section .tribe-events-widget-events-list__event-title {
+  padding-top: 1rem !important;
+  line-height: 1.2 !important;
+}
+
+.events-widget-section .tribe-events-widget .tribe-events-widget-events-list__event-row:last-child,
+.below-news-widget-section .tribe-events-widget .tribe-events-widget-events-list__event-row:last-child {
+  margin-bottom: 20px;
+}
+
+.events-widget-section .tribe-events-event-image img,
+.below-news-widget-section .tribe-events-event-image img {
+  @apply hidden md:inline py-2;
+}
+
+.events-widget-section .tribe-common--breakpoint-medium.tribe-events-widget .tribe-events-widget-events-list__event-title,
+.below-news-widget-section .tribe-common--breakpoint-medium.tribe-events-widget .tribe-events-widget-events-list__event-title {
+  @apply !text-2xl;
+}
+
+.events-widget-section .header-area,
+.below-widget-section .header-area {
+  @apply py-4;
+}
+
+@screen lg {
+  .events-widget-section .tribe-events-widget-events-list__events,
+  .below-news-widget-section .tribe-events-widget-events-list__events {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .events-widget-section .tribe-common-g-row.tribe-events-widget-events-list__event-row,
+  .below-news-widget-section .tribe-common-g-row.tribe-events-widget-events-list__event-row {
+    display: initial;
+  }
+  .events-widget-section .header-area,
+  .below-news-widget-section .header-area {
+    @apply py-0;
+  }
+}
+
+.events-widget-section .tribe-events-c-messages__message-list-item,
+.below-news-widget-section .tribe-events-c-messages__message-list-item {
+  @apply font-heavy font-bold text-lg;
+}

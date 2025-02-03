@@ -3,4 +3,5 @@
 @tailwind utilities;
 
 @import "wordpress.css";
+@import "plugins.css";
 @import "fonts.css";

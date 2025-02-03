@@ -9,7 +9,7 @@
 
 if ( ! defined( 'KSAS_DEPARTMENT_TAILWIND_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '4.5.0' );
+	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '5.0.0' );
 }
 
 if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
@@ -75,21 +75,6 @@ if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support(
-			'custom-logo',
-			array(
-				'height'      => 250,
-				'width'       => 250,
-				'flex-width'  => true,
-				'flex-height' => true,
-			)
-		);
-
 		// Set content-width.
 		global $content_width;
 		if ( ! isset( $content_width ) ) {
@@ -147,23 +132,12 @@ function ksas_department_tailwind_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Front News Cards', 'ksas-department-tailwind' ),
-			'id'            => 'news-inline',
-			'description'   => esc_html__( 'This widget area will only appear next to & inline with News cards.', 'ksas-department-tailwind' ),
-			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside></div>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
 			'name'          => esc_html__( 'Below News Section', 'ksas-department-tailwind' ),
 			'id'            => 'below-news',
 			'description'   => esc_html__( 'Add a maximum of two widgets to appear only on homepage here, below news', 'ksas-department-tailwind' ),
 			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside></div>',
-			'before_title'  => '<h2 class="widget-title">',
+			'before_title'  => '<h2 class="widget-title widget-title text-2xl font-semi font-semibold">',
 			'after_title'   => '</h2>',
 		)
 	);
@@ -174,7 +148,7 @@ function ksas_department_tailwind_widgets_init() {
 			'description'   => esc_html__( 'Add widgets here to appear in your site-wide footer.', 'ksas-department-tailwind' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s"><div class="widget-wrapper">',
 			'after_widget'  => '</div></aside>',
-			'before_title'  => '<h2 class="widget-title">',
+			'before_title'  => '<h2 class="widget-title text-2xl font-semi font-semibold">',
 			'after_title'   => '</h2>',
 		)
 	);

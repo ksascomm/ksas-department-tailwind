@@ -56,17 +56,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<div class="header-titles-wrapper">
 			<div class="header-inner section-inner container">
 				<div class="header-titles grid grid-cols-1 lg:grid-cols-3 gap-x-5">
-					<div class="h-auto shield pl-4">
-					<?php if ( get_field( 'shield', 'option' ) == 'jhu' ) : ?>
-						<a href="https://www.jhu.edu/" title="Johns Hopkins University">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/dist/images/university.shield.svg" class="h-auto w-full p-2" alt="JHU Shield, to the JHU homepage" role="img">
-						</a>
-					<?php else : ?>
-						<a href="https://krieger.jhu.edu" rel="home" class="hover:opacity-50">
-							<?php echo file_get_contents( get_template_directory() . '/dist/images/krieger.logo.horizontal.blue.svg' ); ?>
-							<span class="sr-only">Krieger School of Arts & Sciences shield, to the KSAS homepage</span>
-						</a>
-					<?php endif; ?>
+					<div class="h-auto shield pl-4">			
+					<a href="https://krieger.jhu.edu" rel="home" class="hover:opacity-50 max-w-[200px] block sm:max-w-xs mx-auto lg:mx-0">
+						<?php echo file_get_contents( get_template_directory() . '/dist/images/krieger.logo.horizontal.blue.svg' ); ?>
+						<span class="sr-only">Krieger School of Arts & Sciences shield, to the KSAS homepage</span>
+					</a>
 					</div>
 					<div class="lg:col-span-2">
 						<h1 class="site-title font-serifBold font-medium text-4xl lg:text-[42px] xl:text-[48px] mt-4 lg:mt-0 mb-12 md:mb-0 pt-2 lg:pt-0 text-center lg:text-left">

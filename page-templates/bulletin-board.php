@@ -56,7 +56,7 @@ get_header();
 						</button>
 					</h3>
 					<div id="<?php the_ID(); ?>" role="region" aria-labelledby="accordion<?php the_ID(); ?>" class="accordion-panel" hidden="">
-						<ul class="entry-meta">
+						<ul class="entry-meta mt-0 mb-2 uppercase font-semi font-semibold text-xl">
 							<li>Posted: <?php the_time( 'F j, Y' ); ?></li>
 							<?php if ( get_field( 'bulletin_deadline' ) ) : ?>
 							<li>Deadline: <?php the_field( 'bulletin_deadline' ); ?></li>

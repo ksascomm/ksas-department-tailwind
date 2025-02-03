@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+	<header class="entry-header pl-4 pr-2 xl:pl-0 xl:pr-0">
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -20,7 +20,7 @@
 		?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<div class="entry-content pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
 		<?php
 			$faculty_post_id = get_post_meta( $post->ID, 'publication_author', true );
 			if ( get_post_meta( $post->ID, 'publication_author', true ) ) :
@@ -65,12 +65,6 @@
 			the_excerpt();
 		endif;
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ksas-department-tailwind' ),
-				'after'  => '</div>',
-			)
-		);
 		?>
 	<?php
 		if ( has_post_thumbnail() ) :

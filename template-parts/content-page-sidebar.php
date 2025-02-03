@@ -22,26 +22,20 @@
 		<?php endif; ?>
 	</div>
 	<div class="flex">
-	<div class="entry-content">
-		<h1 class="tracking-tight leading-10 sm:leading-none lg:text-4xl xl:text-[44px] lg:pl-2 xl:pl-0 py-8">
-			<?php the_title(); ?>
-		</h1>
-		<?php
-		the_content();
+		<div class="entry-content pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
+			<h1 class="tracking-tight leading-10 sm:leading-none lg:text-4xl xl:text-[44px] lg:pl-2 xl:pl-0 py-8">
+				<?php the_title(); ?>
+			</h1>
+			<?php
+			the_content();
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ksas-department-tailwind' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
+			?>
+		</div><!-- .entry-content -->
 	<?php
 $custom_sidebar_widget = get_field( 'custom_sidebar', false, false );
 if ( is_active_sidebar( $custom_sidebar_widget ) ) :
 	?>
-	<aside id="secondary" class="sidebar widget-area w-full lg:w-1/4 mt-4 lg:mt-8">
+	<aside id="secondary" class="sidebar xl:pl-4 widget-area w-full lg:w-1/4 mt-4 lg:mt-8">
 		<?php dynamic_sidebar( $custom_sidebar_widget ); ?>
 	</aside><!-- #secondary -->
 <?php endif; ?>

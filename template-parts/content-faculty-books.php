@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'faculty-book' ); ?>>
-	<header class="entry-header">
+	<header class="entry-header pl-4 pr-2 xl:pl-0 xl:pr-0">
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -21,7 +21,7 @@
 
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<div class="entry-content pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="float-left mr-6">
 				<div class="relative w-20 sm:w-64">
@@ -94,12 +94,6 @@
 			the_excerpt();
 		endif;
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ksas-department-tailwind' ),
-				'after'  => '</div>',
-			)
-		);
 		?>
 	</div><!-- .entry-content -->
 	<?php if ( ! is_single() ) : ?>

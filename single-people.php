@@ -11,7 +11,7 @@ get_header();
 ?>
 <?php global $post;
 $bio = get_post_meta( $post->ID, 'ecpt_bio', true ); ?>
-	<main id="site-content" class="site-main prose sm:prose md:prose-md lg:prose-lg mx-auto <?php if ( empty( $bio ) ) : ?> no-bio <?php else: ?> has-bio <?php endif; ?>
+	<main id="site-content" class="site-main prose sm:prose md:prose-md lg:prose-lg mx-auto <?php if ( empty( $bio ) ) : ?> no-bio -mb-20<?php else: ?> has-bio <?php endif; ?>
 	">
 		<?php
 		while ( have_posts() ) :

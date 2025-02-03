@@ -22,9 +22,9 @@ get_header();
 						// If ACF Conditional is YES, display news feed.
 						$heading = get_field( 'homepage_news_header', 'option' );
 					?>
-						<h1 class="entry-title tracking-tight leading-10 sm:leading-none py-8"><?php echo esc_html( $heading ); ?> Archive</h1>
+						<h1 class="entry-title tracking-tight leading-10 sm:leading-none py-8 px-4"><?php echo esc_html( $heading ); ?> Archive</h1>
 					<?php else: ?>
-					<h1 class="entry-title tracking-tight leading-10 sm:leading-none py-8"><?php single_post_title(); ?></h1>
+					<h1 class="entry-title tracking-tight leading-10 sm:leading-none py-8 px-4"><?php single_post_title(); ?></h1>
 					<?php endif; ?>
 				</header>
 				<?php

@@ -10,7 +10,7 @@
 get_header();
 ?>
 <div class="flex flex-wrap md:flex-row-reverse p-1 sm:p-2 md:p-4">
-	<main id="site-content" class="site-main page-with-sidebar w-full lg:w-3/4 prose sm:prose lg:prose-lg mx-auto">
+	<main id="site-content" class="site-main lg:pl-8 page-with-sidebar w-full lg:w-3/4 prose sm:prose lg:prose-lg mx-auto">
 
 		<?php
 		while ( have_posts() ) :

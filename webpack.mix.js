@@ -13,7 +13,9 @@ const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
   Purge CSS Extractors
   ========================================================================== */
 const TailwindExtractor = (content) => {
-  return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
+  const defaultSelectors = content.match(/[A-Za-z0-9_-]+/g) || [];
+  const extendedSelectors = content.match(/[^<>"=\s]+/g) || [];
+  return defaultSelectors.concat(extendedSelectors);
 };
 
 /* ==========================================================================
@@ -48,18 +50,6 @@ mix
   .options({
     processCssUrls: false,
   })
-
-  // BrowserSync
-  .browserSync({
-    proxy: "https://stage.krieger.jhu.edu/philosophy",
-    host: "localhost",
-    injectChanges: true,
-    port: 3000,
-    openOnStart: true,
-    files: [
-      "**/*"
-    ]
-  });
 
 // remove unused CSS from files - only used when running npm run production
 if (mix.inProduction()) {
@@ -157,8 +147,10 @@ if (mix.inProduction()) {
           "!list-none",
           "tablepress",
           "a:where(:not(.wp-element-button))",
-          "!mt-0",
+          "max-w-[112ch]",
           "ul.page-numbers li a",
+          "after:",
+          "before:",
           /^has-/,
           /(^wp-block-)\w+/,
           /(^c-accordion)\w+/,

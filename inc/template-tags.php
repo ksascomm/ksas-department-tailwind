@@ -29,7 +29,7 @@ if ( ! function_exists( 'ksas_department_tailwind_posted_on' ) ) :
 			$time_string
 		);
 
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<span class="posted-on font-semi font-semibold text-base md:text-lg -my-2">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 endif;

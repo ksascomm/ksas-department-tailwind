@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'px-12 py-8' ); ?>>
-	<header class="entry-header">
+	<header class="entry-header pl-4 pr-2 xl:pl-0 xl:pr-0">
 		<div class="post-type font-heavy font-bold border-l-2 border-blue pl-2 text-xl leading-none">
 		<?php
 			$current_post_type = get_post_type_object( $post->post_type );
@@ -20,7 +20,7 @@
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
+		<div class="entry-meta mb-2 uppercase font-semi font-semibold text-xl">
 			<?php
 			ksas_department_tailwind_posted_on();
 			?>

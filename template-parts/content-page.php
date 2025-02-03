@@ -48,7 +48,7 @@
 			</div>
 		<?php endif; ?>
 	</div>
-	<div class="entry-content">
+	<div class="entry-content pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
 	<?php
 	if (
 		is_page_template(
@@ -64,13 +64,6 @@
 	<?php endif; ?>
 		<?php
 		the_content();
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ksas-department-tailwind' ),
-				'after'  => '</div>',
-			)
-		);
 		?>
 	</div><!-- .entry-content -->
 

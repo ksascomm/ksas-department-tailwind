@@ -10,17 +10,17 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	<header class="entry-header pl-4 pr-2 xl:pl-0 xl:pr-0">
+		<?php the_title( '<h1 class="entry-title py-8">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content flex flex-wrap flex-col md:flex-row">
+	<div class="entry-content flex flex-wrap flex-col md:flex-row pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
 		<div class="flex-initial">
 		<?php
 			the_post_thumbnail(
 				'large',
 				array(
-					'class' => 'max-w-sm',
+					'class' => 'max-w-sm mr-6',
 					'alt'   => the_title_attribute(
 						array(
 							'echo' => false,
@@ -45,12 +45,6 @@
 		<?php
 		the_content();
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ksas-department-tailwind' ),
-				'after'  => '</div>',
-			)
-		);
 		?>
 		</div>
 	</div><!-- .entry-content -->
