@@ -1156,7 +1156,13 @@ button.menu-button:focus {
 }
 
 .widget.ksas_books {
-  @apply mb-20 mx-auto sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl;
+  @apply mb-20 mx-auto sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg;
+}
+
+@screen xl {
+  .widget.ksas_books {
+    max-width: 1400px;
+  }
 }
 
 @screen lg {
@@ -1170,7 +1176,7 @@ button.menu-button:focus {
 }
 
 .widget.ksas_books article img {
-  @apply xl:h-80 xl:w-60 md:mx-auto;
+  @apply w-64 xl:h-80 xl:w-60 md:mx-auto;
 }
 
 
