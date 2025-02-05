@@ -125,7 +125,7 @@ if ( ! function_exists( 'ksas_department_tailwind_post_thumbnail' ) ) :
 			// Add 'alignfull' class on front page template.
 			?>
 
-			<div class="post-thumbnail alignfull">
+			<div class="post-thumbnail alignfull !mt-0">
 				<?php the_post_thumbnail( 'full' ); ?>
 			</div><!-- .post-thumbnail -->
 			<?php

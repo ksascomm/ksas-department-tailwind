@@ -44,7 +44,7 @@ if ( ! empty( $studyfield_response ) ) :
 	?>
 <?php endif; ?>
 
-<div class="flex hero bg-grey-cool bg-opacity-50 front-featured-image-area h-auto md:h-[28rem] lg:h-[30rem]">
+<div class="flex hero bg-grey-lightest front-featured-image-area h-auto md:h-[28rem] lg:h-[30rem]">
 	<div class="flex items-center text-left px-8 md:px-12 pb-4 md:py-0 lg:w-7/12">
 		<div>
 			<h2 class="text-primary text-2xl md:text-3xl lg:text-4xl mt-8 lg:mt-0 font-heavy font-bold">
@@ -60,19 +60,19 @@ if ( ! empty( $studyfield_response ) ) :
 			<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_degreesoffered[0] ) || ! empty ( $studyfield_data->post_meta_fields->ecpt_majors[0] ) || ! empty( $studyfield_data->post_meta_fields->ecpt_minors[0] ) ) : ?>
 				<ul class="flex flex-wrap study-field list-none !pl-0">
 				<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_degreesoffered[0] ) ) : ?>
-					<li class="leading-tight text-base xl:text-lg px-2 inline-block relative bg-white bg-opacity-75 my-2">
+					<li class="leading-tight text-base xl:text-lg px-2 inline-block relative bg-white my-2">
 						<span class="">Degrees Offered</span>
 						<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_degrees ); ?></span>
 					</li>
 				<?php endif; ?>
 				<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_majors[0] ) ) : ?>
-					<li class="leading-tight text-base xl:text-lg px-2  inline-block relative bg-white bg-opacity-75 my-2">
+					<li class="leading-tight text-base xl:text-lg px-2 inline-block relative bg-white my-2">
 						<span class="">Major</span>
 						<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_majors[0] ); ?></span>
 					</li>
 				<?php endif; ?>
 				<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_minors[0] ) ) : ?>
-					<li class="leading-tight text-base xl:text-lg px-2  inline-block relative bg-white bg-opacity-75 my-2">
+					<li class="leading-tight text-base xl:text-lg px-2 inline-block relative bg-white my-2">
 						<span class="">Minor</span>
 						<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_minors[0] ); ?></span>
 					</li>
@@ -115,7 +115,7 @@ if ( ! empty( $studyfield_response ) ) :
 if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 	?>
 	
-	<div class="container lg:max-xl:px-8 pt-6 pb-12">
+	<div class="container md:px-12 pt-6 pb-12">
 	<?php
 	if ( have_rows( 'explore_the_department' ) ) :
 		$count = count( get_field( 'explore_the_department' ) );
@@ -123,7 +123,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 		<?php $heading = get_field( 'buckets_heading' ); ?>
 		<!--Print Heading if there-->
 		<?php if ( $heading ) : ?>
-			<div class="px-8 mt-14 mb-8">
+			<div class="px-4 mt-14 mb-8">
 				<h2 class="!my-0  mx-auto font-semi font-semibold"><?php echo esc_html( $heading ); ?></h2>
 			</div>
 		<?php endif; ?>

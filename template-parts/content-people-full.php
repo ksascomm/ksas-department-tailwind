@@ -11,7 +11,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'people pl-4 lg:pl-0' ); ?>>
-	<div class="alignfull lg:bg-grey-cool lg:bg-opacity-50 !mt-0">
+	<div class="alignfull lg:bg-grey-lightest !mt-0">
 		<div class="flex flex-wrap justify-start container mx-auto contact-info">
 		<?php
 		if ( has_post_thumbnail() ) :

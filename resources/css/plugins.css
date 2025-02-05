@@ -104,7 +104,7 @@ table.tablepress thead th {
 }
 
 .tablepress>.row-hover>tr:hover>* {
-	@apply !bg-grey-cool bg-opacity-50;
+	@apply !bg-grey-cool;
 }
 
 /* Events Calendar Blocks

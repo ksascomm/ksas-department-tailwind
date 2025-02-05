@@ -37,25 +37,25 @@ get_header();
 		<h2 class="bulletin-category-title" id="<?php echo esc_html( $bulletin_term->slug ); ?>">
 				<?php echo esc_html( $bulletin_term->name ); ?>
 		</h2>
-		<div class="accordion">
+		<div class="accordion my-8 p-0 border border-grey not-prose focus-within:border-[#0077D8]">
 				<?php
 				while ( $bulletins->have_posts() ) :
 					$bulletins->the_post();
 					?>
 				<div class="accordion-element">
-					<h3 class="accordion-heading">
+					<h3 class="accordion-heading my-0 font-heavy font-bold focus-within:bg-grey">
 						<button type="button"
 								aria-expanded="false"
-								class="accordion-trigger"
+								class="border-none accordion-trigger block text-lg relative text-left w-full m-0 px-[1.5em] py-[1em] bg-none focus:bg-[hsl(216,_94%,_94%)] hover:bg-[hsl(216,_94%,_94%)] focus:outline-none aria-expanded:border-l-2 aria-expanded:border-blue aria-expanded:bg-grey-lightest"
 								aria-controls="<?php the_ID(); ?>"
 								id="accordion<?php the_ID(); ?>">
-								<span class="accordion-title">
+								<span class="accordion-title block pointer-events-none p-[0.25em] rounded-[5px] border-[transparent] border-[solid]">
 									<?php the_title(); ?>
-									<span class="accordion-icon"></span>
+									<span class="accordion-icon h-2 pointer-events-none absolute translate-y-[-60%] rotate-45 w-2 border-solid border-primary border-b-2 border-r-2 right-8 top-2/4"></span>
 								</span>
 						</button>
 					</h3>
-					<div id="<?php the_ID(); ?>" role="region" aria-labelledby="accordion<?php the_ID(); ?>" class="accordion-panel" hidden="">
+					<div id="<?php the_ID(); ?>" role="region" aria-labelledby="accordion<?php the_ID(); ?>" class="accordion-panel m-0 py-4 px-6 border-blue border-l-2" hidden="">
 						<ul class="entry-meta mt-0 mb-2 uppercase font-semi font-semibold text-xl">
 							<li>Posted: <?php the_time( 'F j, Y' ); ?></li>
 							<?php if ( get_field( 'bulletin_deadline' ) ) : ?>
@@ -64,7 +64,7 @@ get_header();
 						</ul>
 						<p>
 							<?php echo esc_html( wp_trim_words( get_the_excerpt(), 65 ) ); ?>
-							<a href="<?php the_permalink(); ?>">Read Full Posting &raquo</a>
+							<a class="text-blue hover:text-primary" href="<?php the_permalink(); ?>">Read Full Posting &raquo</a>
 						</p>
 						<?php if ( get_edit_post_link() ) : ?>
 						<footer class="entry-footer">

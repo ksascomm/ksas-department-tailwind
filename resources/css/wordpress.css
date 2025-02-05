@@ -573,7 +573,7 @@ button.dropdown-toggle {
 }
 
 .menu-item-has-children button.dropdown-toggle:hover {
-@apply bg-grey bg-opacity-50;
+background-color: #e5e2e080;
 }
 
 .dropdown-toggle:after, .dropdown-toggle.toggled-on:after {
@@ -1049,19 +1049,6 @@ button.menu-button:focus {
 }
 
 /* Footer Widgets ------------------------------ */
-:root {
-  --footer-widget----spacing-horizontal: 1rem;
-  --footer-widget----spacing-vertical: 1rem;
-}
-.footer-widget-area {
-  margin-top: calc(3 * var(--footer-widget----spacing-vertical));
-  position: relative;
-  padding-top: calc(2 * var(--footer-widget----spacing-vertical));
-  background: url("../images/community-white-on-288.svg") no-repeat right;
-  background-size: 450px;
-  background-position-y: 50%;
-}
-
 .footer-widget-area .widget > div {
   @apply bg-white px-6 pb-6 shadow-md;
   border: 2px solid rgba(237, 242, 247, 1);
@@ -1073,23 +1060,7 @@ button.menu-button:focus {
   @apply bg-none border-none shadow-none lg:px-12;
 }
 
-.footer-widget-area .image,
-.footer-widget-area .image:not(.one):not(.two) {
-  display: none;
-}
-
-@media only screen and (min-width: 768px) {
-  .footer-widget-area {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: calc(2 * var(--footer-widget----spacing-horizontal));
-    padding: 1rem;
-  }
-}
 @media only screen and (min-width: 1024px) {
-  .footer-widget-area {
-    grid-template-columns: repeat(3, 1fr);
-  }
 
   .footer-widget-area h2,
   .below-news-widget-section h2 {
@@ -1109,26 +1080,6 @@ button.menu-button:focus {
   .below-news-widget-section li strong{
     @apply font-heavy;
   }
-
-  .footer-widget-area .image {
-    @apply absolute right-20 block top-10 opacity-60;
-  }
-}
-@media only screen and (max-width: 481px) {
-  .footer-widget-area {
-    margin-top: calc(3 * var(--footer-widget----spacing-vertical));
-  }
-}
-
-.footer-widget-area ul .sub-menu-toggle,
-.below-news-widget-section ul .sub-menu-toggle {
-  display: none;
-}
-
-.footer-widget-area:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 .footer-widget-area ul li,
@@ -1159,15 +1110,19 @@ button.menu-button:focus {
   @apply mb-20 mx-auto sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg;
 }
 
+.widget.ksas_books .view-more-link {
+  @apply ml-4 pb-4;
+}
+
+@screen md {
+.widget.ksas_books .view-more-link {
+  @apply -mt-24 mb-8 pb-0 flex-row-reverse pt-0;
+}
+}
+
 @screen xl {
   .widget.ksas_books {
     max-width: 1400px;
-  }
-}
-
-@screen lg {
-  .widget.ksas_books .view-more-link {
-    @apply -mt-16 mb-8;
   }
 }
 
@@ -1355,7 +1310,8 @@ button.menu-button:focus {
 .widget.ksas_profile p.view-more-link {
   @apply pt-8;
 }
-.widget.ksas_profile p.view-more-link a {
+.widget.ksas_profile p.view-more-link a,
+.widget.ksas_books .view-more-link  a {
   --tw-bg-opacity: 1;
   --tw-text-opacity: 1;
   background-color: var(--wp--preset--color--heritage-blue);
@@ -1392,7 +1348,7 @@ figure.wp-block-image .wp-element-caption {
 
 /* Galleries
 --------------------------------------------- */
-gallery {
+.gallery {
   @apply grid gap-[1.5em] mb-[1.5em];
 }
 .gallery-item {
@@ -1520,7 +1476,7 @@ summary::-webkit-details-marker {
 }
 
 [role="tablist"] [aria-selected] {
-  @apply text-primary bg-grey-cool bg-opacity-50;
+  @apply text-primary bg-grey-lightest;
 }
 
 [role="tabpanel"] {
@@ -1554,49 +1510,8 @@ summary::-webkit-details-marker {
 }
 
 /* WAI Accordion used on Bulletins CPT */
-
-.accordion {
-  margin: 0;
-  padding: 0;
-  border: 1px solid #e6e6e6;
-}
-
-.accordion:focus-within {
-  border-color: hsl(216deg 94% 43%);
-}
-
-.accordion:focus-within h3 {
-  background-color: hsl(0deg 0% 97%);
-}
-
-.accordion h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
 .accordion > * + * {
   border-top: 1px solid #e6e6e6;
-}
-
-.accordion-trigger {
-  background: none;
-  display: block;
-  font-size: 1.125rem;
-  margin: 0;
-  padding: 1em 1.5em;
-  position: relative;
-  text-align: left;
-  width: 100%;
-  outline: none;
-}
-
-.accordion-trigger:focus,
-.accordion-trigger:hover {
-  background: hsl(216deg 94% 94%);
-}
-
-.accordion-trigger:focus {
-  outline: 4px solid transparent;
 }
 
 .accordion > *:first-child .accordion-trigger,
@@ -1609,37 +1524,8 @@ summary::-webkit-details-marker {
   border-radius: 0 0 5px 5px;
 }
 
-.accordion button {
-  border-style: none;
-}
-
-.accordion button::-moz-focus-inner {
-  border: 0;
-}
-
-.accordion-title {
-  display: block;
-  pointer-events: none;
-  border: transparent 2px solid;
-  border-radius: 5px;
-  padding: 0.25em;
-  outline: none;
-}
-
 .accordion-trigger:focus .accordion-title {
   border-color: hsl(216deg 94% 43%);
-}
-
-.accordion-icon {
-  border: solid currentcolor;
-  border-width: 0 2px 2px 0;
-  height: 0.5rem;
-  pointer-events: none;
-  position: absolute;
-  right: 2em;
-  top: 50%;
-  transform: translateY(-60%) rotate(45deg);
-  width: 0.5rem;
 }
 
 .accordion-trigger:focus .accordion-icon,
@@ -1649,21 +1535,6 @@ summary::-webkit-details-marker {
 
 .accordion-trigger[aria-expanded="true"] .accordion-icon {
   transform: translateY(-50%) rotate(-135deg);
-}
-
-.accordion-panel {
-  margin: 0;
-  padding: 1em 1.5em;
-  border-left-color: #002d72;
-  border-left-width: 2px;
-}
-
-
-.accordion-trigger[aria-expanded="true"] {
-  background-color: #f8fafc;
-  border-left-width: 2px;
-  border-color: #002d72;
-  background-color: #f8fafc;
 }
 
 /* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
@@ -2549,7 +2420,10 @@ body:not(.enable-search-modal) .site-logo img {
 
 .header-inner .toggle:focus .toggle-text,
 .header-inner .toggle:hover .toggle-text {
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 45 114 / var(--tw-border-opacity, 1));
 }
 
 /*.header-inner .toggle.mobile-search-toggle path,
