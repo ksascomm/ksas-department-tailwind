@@ -105,7 +105,7 @@ module.exports = {
         "sans-serif",
       ],
       serif: ["quadon-medium",  "Georgia", "serif"],
-      serifBold: ["quadon-bold",  "Georgia", "serif"],
+      serifbold: ["quadon-bold",  "Georgia", "serif"],
     },
     extend: {
       typography: {

@@ -25,7 +25,7 @@
 				);
 			?>
 		<?php } ?>
-		<h2 class="font-heavy font-bold !text-2xl">
+		<h2 class="font-heavy font-bold text-2xl!">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_website', true ) ) : ?>
 				<a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_website', true ) ); ?>" title="<?php the_title(); ?>'s webpage" target="_blank">
 					<?php the_title(); ?>

@@ -48,7 +48,7 @@ get_header();
 			<fieldset class="flex flex-col lg:flex-row justify-start">
 				<legend class="mb-2 text-xl font-bold font-heavy px-2">Filter by Position or Title:</legend>
 				<?php foreach ( $faculty_titles as $faculty_title ) : ?>
-					<button class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary p-2 my-2 md:my-0 mx-1 text-center font-semi font-semibold align-bottom leading-tight text-white border-b-0 capitalize" href="javascript:void(0)" data-filter=".<?php echo esc_html( $faculty_title->slug ); ?>"><?php echo esc_html( $faculty_title->name ); ?></button>
+					<button class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary p-2 my-2 md:my-0 mx-1 text-center font-semi font-semibold align-bottom leading-tight border-b-0 capitalize" href="javascript:void(0)" data-filter=".<?php echo esc_html( $faculty_title->slug ); ?>"><?php echo esc_html( $faculty_title->name ); ?></button>
 				<?php endforeach; ?>
 				
 			</fieldset>
@@ -68,7 +68,7 @@ get_header();
 					<fieldset class="flex flex-col md:flex-row flex-wrap justify-start">
 					<legend class="mt-6 mb-2 text-xl font-bold font-heavy px-2">Filter by Area of Expertise:</legend>
 						<?php foreach ( $filters as $filter ) : ?>
-							<button class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary mb-2 p-2 mx-1 text-center font-semi font-semibold align-bottom leading-tight text-white border-b-0 capitalize" href="javascript:void(0)" data-filter=".<?php echo esc_html( $filter->slug ); ?>"><?php echo esc_html( $filter->name ); ?></button>
+							<button class="all button bg-blue text-white text-lg hover:bg-blue-light hover:text-primary mb-2 p-2 mx-1 text-center font-semi font-semibold align-bottom leading-tight border-b-0 capitalize" href="javascript:void(0)" data-filter=".<?php echo esc_html( $filter->slug ); ?>"><?php echo esc_html( $filter->name ); ?></button>
 						<?php endforeach; ?>
 					</fieldset>
 				<?php endif; ?>
@@ -111,7 +111,7 @@ get_header();
 				if ( $people_query->have_posts() ) :
 					?>
 					<div class="item pt-2 w-full role-title quicksearch-match <?php echo esc_html( $position->slug ); ?>">
-						<h2 class="uppercase !my-4 after:block after:w-1/2 after:pt-3 after:border-b-4 after:border-blue content-[''];"><?php echo esc_html( $position_name ); ?></h2>
+						<h2 class="uppercase my-4! after:block after:w-1/2 after:pt-3 after:border-b-4 after:border-blue content-[''];"><?php echo esc_html( $position_name ); ?></h2>
 					</div>
 					<?php
 					while ( $people_query->have_posts() ) :

@@ -49,27 +49,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<div class="flex justify-end">
 			<div class="container relative hidden lg:inline">
 				<div class="text-white float-right bg-blue jhu-link z-10 py-2 pr-2 font-heavy font-bold ">
-					<a class="mr-3 hover:text-blue-light hover:border-b-2 hover:border-white" href="https://www.jhu.edu/">Johns Hopkins University</a>
+					<a class="mr-3 text-white hover:text-blue-light hover:border-b-2 hover:border-white" href="https://www.jhu.edu/">Johns Hopkins University</a>
 				</div>
 			</div>
 		</div>
 		<div class="header-titles-wrapper">
 			<div class="header-inner section-inner container">
 				<div class="header-titles grid grid-cols-1 lg:grid-cols-3 gap-x-5">
-					<div class="h-auto shield pl-4">			
+					<div class="h-auto shield lg:pl-4">
 					<a href="https://krieger.jhu.edu" rel="home" class="hover:opacity-50 max-w-[200px] block sm:max-w-xs mx-auto lg:mx-0">
 						<?php echo file_get_contents( get_template_directory() . '/dist/images/krieger.logo.horizontal.blue.svg' ); ?>
 						<span class="sr-only">Krieger School of Arts & Sciences shield, to the KSAS homepage</span>
 					</a>
 					</div>
 					<div class="lg:col-span-2">
-						<h1 class="site-title font-serifBold font-medium text-4xl lg:text-[42px] xl:text-[48px] mt-4 lg:mt-0 mb-12 md:mb-0 pt-2 lg:pt-0 text-center lg:text-left">
+						<h1 class="site-title font-serifbold font-medium text-4xl lg:text-[42px] xl:text-[48px] mt-4 lg:mt-0 mb-12 md:mb-0 pt-2 lg:pt-0 text-center lg:text-left">
 						<?php
 							$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
 						if (
 							$ksas_department_tailwind_description || is_customize_preview() ) :
 							$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
-							echo '<span class="block font-medium font-serif sm:pt-4 lg:pt-0 text-xl xl:text-2xl">' . $ksas_department_tailwind_description . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+							echo '<span class="block font-medium font-serif py-2 lg:pt-0 text-xl xl:text-2xl">' . $ksas_department_tailwind_description . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 							?>
 							<?php endif; ?>
 						<a class="text-blue hover:text-blue-light" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">

@@ -19,7 +19,7 @@
 				the_post_thumbnail(
 					'directory',
 					array(
-						'class' => 'translate-x-1 !my-0',
+						'class' => 'translate-x-1 my-0!',
 						'alt' => the_title_attribute(
 							array(
 								'echo' => false,
@@ -31,8 +31,8 @@
 		</div>
 	<div class="break"></div> <!-- break -->
 	<?php endif; ?>
-	<div class="flex-grow contact-info px-4 lg:px-0">
-		<h3 class="font-heavy font-bold !text-2xl">
+	<div class="grow contact-info px-4 lg:px-0">
+		<h3 class="font-heavy font-bold text-2xl!">
 		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>'s webpage">
 				<?php the_title(); ?>
@@ -55,7 +55,7 @@
 		<?php endif; ?>
 		</h3>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
-				<div class="position"><p class="leading-normal pr-2 text-xl !my-3"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></p></div>
+				<div class="position"><p class="leading-normal pr-2 text-xl my-3!"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></p></div>
 			<?php endif; ?>
 
 			<h4 class="sr-only">Contact Information</h4>

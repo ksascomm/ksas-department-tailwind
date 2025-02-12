@@ -279,7 +279,7 @@ mark {
 
 /* Elements
 --------------------------------------------- */
-@screen lg {
+@media (width >= theme(--breakpoint-lg)) {
   .jhu-link::before {
     content: '';
     display: block;
@@ -305,7 +305,7 @@ mark {
 }
 
 
-@screen lg {
+@media (width >= theme(--breakpoint-lg)) {
   .featured-image-area .bg-white {
     background-color: inherit;
   }
@@ -440,12 +440,12 @@ mark {
 
 .wp-block-table td p,
 .wp-block-table th p {
-  @apply m-0 !important;
+  @apply m-0!;
 }
 
 tbody td:first-child,
 thead th:first-child {
-  @apply pl-3 !important;
+  @apply pl-3!;
 }
 
 .wp-block-table th {
@@ -881,7 +881,7 @@ button.menu-button:focus {
 /* Below Explore Widget Section ------------------------------ */
 
 .below-explore-widget-section .widget-area {
-  @apply border-2 border-grey shadow-sm mx-2;
+  @apply border-2 border-grey shadow-xs mx-2;
 }
 
 .below-explore-widget-section.one-widgets .widget-area {
@@ -927,7 +927,7 @@ button.menu-button:focus {
   @apply my-4 text-2xl;
 }
 
-@screen lg {
+@media (width >= theme(--breakpoint-lg)) {
   .below-news-widget-section .widget-area:nth-of-type(1) {
     @apply bg-white;
   }
@@ -1099,231 +1099,6 @@ button.menu-button:focus {
   left: 0.25em;
 }
 
-/* Custom Post Type Widgets ------------------------------ */
-
-/*! purgecss start ignore */
-.widget.ksas_books .book-listings {
- @apply mx-auto grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4; 
-}
-
-.widget.ksas_books {
-  @apply mb-20 mx-auto sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg;
-}
-
-.widget.ksas_books .view-more-link {
-  @apply ml-4 pb-4;
-}
-
-@screen md {
-.widget.ksas_books .view-more-link {
-  @apply -mt-24 mb-8 pb-0 flex-row-reverse pt-0;
-}
-}
-
-@screen xl {
-  .widget.ksas_books {
-    max-width: 1400px;
-  }
-}
-
-.widget.ksas_books article {
-  @apply md:shadow-md mx-6 my-2 md:my-0 p-4 md:p-2 lg:w-56 xl:w-72 border-2 border-grey lg:border-0;
-}
-
-.widget.ksas_books article img {
-  @apply w-64 xl:h-80 xl:w-60 md:mx-auto;
-}
-
-
-.widget.ksas_books h2.widget-title {
-  @apply text-3xl px-4 md:px-0;
-}
-
-.widget.ksas_books article h3 {
-  @apply text-lg font-semibold font-semi leading-tight my-2 md:px-4;
-}
-
-.widget.ksas_books article p {
-  @apply md:px-4 font-light;
-}
-
-.widget.ksas_books article p strong {
-  @apply font-sans font-light;
-}
-
-.widget.widget_job_candidate h3 {
-  @apply text-xl lg:text-[26px] my-2 font-heavy font-bold;
-}
-
-.widget.widget_job_candidate p {
-  @apply mt-2 mb-4 leading-normal;
-}
-
-.widget.widget_job_candidate p.view-more-link {
-  @apply mt-4;
-}
-
-.widget.widget_job_candidate img {
-  @apply h-36 w-36 rounded-full object-cover object-top float-left mr-6;
-}
-
-.above-explore-widget-section.prose {
-  max-width: 100vw;
-}
-
-.above-explore-widget-section.prose .research-listings > div {
-  @apply space-x-4 flex-wrap lg:flex-nowrap;
-}
-
-.widget.research-highlight .research-category {
-  @apply inline-block mb-4 text-base font-bold font-heavy uppercase;
-}
-
-.widget.research-highlight .widget-title {
-  @apply !my-0 mx-auto font-semi font-semibold px-8 mt-12 mb-4 lg:text-white;
-}
-
-.widget.research-highlight a.button {
-  @apply bg-blue text-white inline-flex py-2 px-3 text-base items-center border-none;
-}
-
-.widget.research-highlight a.button:hover {
-  @apply border-none text-primary bg-blue-light;
-}
-
-.widget.research-highlight .single-highlight {
-  @apply w-full max-w-full my-8 lg:w-1/3 flex flex-col bg-white border-2 border-grey shadow-sm transition duration-500 hover:border-primary;
-}
-
-.widget.research-highlight .wp-post-image {
-  @apply my-0;
-}
-
-.widget.research-highlight .single-highlight h3 {
-  @apply !text-xl !leading-tight !mb-4 !mt-0;
-}
-
-.widget.research-highlight .single-highlight p {
-  font-size: 1.1rem;
-  line-height: 1.25;
-}
-
-
-.widget.research-highlight .single-highlight p.publication-title {
-  @apply mb-0;
-}
-
-.above-explore-widget-section.prose .research-listings {
-  max-width: 100vw;
-  @apply px-8;
-}
-
-.above-explore-widget-section.prose .research-listings .card {
-  @apply hover:border-blue-light hover:shadow-blue-light;
-}
-
-.above-explore-widget-section.prose .research-listings .wp-block-column {
-  @apply px-2;
-}
-
-.above-explore-widget-section.prose .research-listings .cover-image-overlay::after {
-  content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 1;
-    background-color: rgba(33, 33, 33, 0.4);
-    transition: background-color 0.3s ease;
-}
-
-.above-explore-widget-section.prose .research-listings .cover-image-overlay img {
-  filter: blur(1px);
-}
-
-.above-explore-widget-section.prose .research-listings .wp-block-cover__inner-container h2 {
-  @apply absolute top-0;
-}
-
-.above-explore-widget-section.prose .research-listings .wp-block-cover__inner-container h2 a {
-  backdrop-filter: blur(2px);
-  background-color: #f8fafc;
-}
-
-.above-explore-widget-section.prose .research-listings .wp-block-cover__inner-container .text-content {
-  @apply opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center;
-}
-
-/* Video Link Widgets ------------------------------ */
-.widget.ksas_video_link_widget .video-thumbnail {
-  @apply relative;
-}
-
-.widget.widget.ksas_video_link_widget .video-thumbnail a:hover {
-  @apply text-primary;
-}
-
-.widget.ksas_video_link_widget .video-thumbnail img {
-  @apply w-full py-2 px-0 my-4;
-}
-.widget.ksas_video_link_widget .video-thumbnail .playbutton::before {
-  @apply inline-block absolute top-1/2 left-1/2 antialiased not-italic;
-  text-rendering: auto;
-  font: var(--fa-font-light);
-  font-size: 4rem !important;
-  font-weight: inherit;
-  text-decoration: inherit;
-  margin-right: -50%;
-  transform: translate(-50%,-50%);
-  content: "\f144";
-}
-
-.below-explore-widget-section .ksas_video_link_widget p,
-.below-news-widget-section .ksas_video_link_widget p {
- @apply text-primary my-2;
-}
-
-/* Profile Widgets ------------------------------ */
-
-.widget.ksas_profile p {
-  @apply text-xl mt-2 mb-4 leading-normal;
-}
-
-.widget.ksas_profile .spotlight-image-meta {
-  @apply mt-8 flex gap-4 items-center;
-}
-
-.widget.ksas_profile .spotlight-image-meta img {
-  @apply h-36 w-36 rounded-full object-cover;
-}
-
-.widget.ksas_profile .spotlight-image-meta .spotlight-author h3 {
-  @apply text-xl lg:text-[26px] my-2 font-heavy font-bold;
-}
-
-.widget.ksas_profile .spotlight-image-meta .spotlight-author span {
-  font-size: 1rem;
-}
-
-.widget.ksas_profile p.view-more-link {
-  @apply pt-8;
-}
-.widget.ksas_profile p.view-more-link a,
-.widget.ksas_books .view-more-link  a {
-  --tw-bg-opacity: 1;
-  --tw-text-opacity: 1;
-  background-color: var(--wp--preset--color--heritage-blue);
-  padding: calc(0.667em + 2px) calc(1.333em + 2px);
-  border-width: 0;
-  color: rgb(254 254 254/var(--tw-text-opacity));
-  margin-top: 1rem;
-  @apply hover:bg-blue-light hover:text-primary text-base;
-}
-
-/*! purgecss end ignore */
-
 /* Captions
 --------------------------------------------- */
 figure.wp-block-image .wp-element-caption {
@@ -1455,7 +1230,7 @@ summary::-webkit-details-marker {
 /* People Bio and custom meta fields */
 [role="tablist"] {
   margin-block: 0 !important;
-  @apply !mb-0 p-0 !pl-0;
+  @apply mb-0! p-0 pl-0!;
 }
 
 [role="tablist"] li,
@@ -1467,6 +1242,12 @@ summary::-webkit-details-marker {
   border-bottom-width: 2px;
   border-color: transparent;
   border-style: solid;
+}
+
+.prose .tabbed ul li a:hover {
+  border-bottom-width: 2px;
+  border-style: solid;
+  border-color: #4A484C;
 }
 
 [role="tablist"] a {
@@ -1534,7 +1315,7 @@ summary::-webkit-details-marker {
 }
 
 .accordion-trigger[aria-expanded="true"] .accordion-icon {
-  transform: translateY(-50%) rotate(-135deg);
+  transform: translateY(0%) rotate(-180deg);
 }
 
 /* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
@@ -1597,8 +1378,8 @@ summary::-webkit-details-marker {
 }
 
 .alignfull {
-  margin: 2rem calc(50% - 50vw) !important;
-  max-width: 100vw !important;
+  margin: 2rem calc(50% - 50vw);
+  max-width: 100vw;
   width: 100vw;
 }
 
@@ -1682,7 +1463,7 @@ summary::-webkit-details-marker {
 .front.prose .entry-content h2,
 .front.prose .entry-content h3,
 .front.prose .entry-content h4 {
-  @apply mx-auto max-w-5xl !important;
+  @apply mx-auto! max-w-5xl!;
 }
 
 
@@ -1761,13 +1542,13 @@ summary::-webkit-details-marker {
   @apply my-4;
 }
 
-@screen lg {
+@media (width >= theme(--breakpoint-lg)) {
   .prose h1.entry-title {
     font-size: 2.5rem;
   }
 }
 
-@screen xl {
+@media (width >= theme(--breakpoint-xl)) {
   .page .entry-content p,
   .single-post .entry-content p {
     max-width: 95ch;
@@ -1806,7 +1587,7 @@ summary::-webkit-details-marker {
 .has-heritage-blue-background-color *,
 .has-black-background-color *,
 .has-primary-background-color * {
-  @apply text-white !important;
+  @apply text-white!;
 }
 
 .color-accent,
@@ -1847,7 +1628,7 @@ a {
 .calls-to-action h2,
 .calls-to-action h3,
 .calls-to-action h4 {
-  @apply mt-0 mb-3 !important;
+  @apply mt-0! mb-3!;
 }
 
 .prose .calls-to-action ul > li::before {
@@ -1855,7 +1636,7 @@ a {
 }
 
 figure.wp-block-pullquote {
-  @apply my-0 mx-auto p-2 !important;
+  @apply my-0! mx-auto! p-2!;
 }
 
 .wp-block-column figure.wp-block-embed.is-type-video,
@@ -1899,7 +1680,7 @@ figure.wp-block-pullquote {
 
 .wp-block-ksas-callouts-ksas-callout-block p,
 .wp-block-ksas-block-ksas-callouts p {
-  @apply my-0 !important;
+  @apply my-0!;
 }
 
 /* Block: Accordion ------------------------------ */
@@ -2002,13 +1783,13 @@ figure.wp-block-pullquote {
 .three-column-feature h2,
 .three-column-feature h3,
 .three-column-feature h4 {
-  @apply mt-0 mb-3 !important;
+  @apply mt-0! mb-3!;
 }
 
 .four-column-feature h2,
 .four-column-feature h3,
 .four-column-feature h4 {
-  @apply my-2 px-6 !important;
+  @apply my-2! px-6!;
 }
 
 .four-column-feature p,
@@ -2038,21 +1819,21 @@ figure.wp-block-pullquote {
 
 .staff-listing-heading h2,
 .staff-listing-heading p {
-  @apply mb-2 !important;
+  @apply mb-2!;
 }
 
 .staff-listing-single img {
-  @apply object-cover object-center w-full h-64 rounded-md shadow mt-0;
+  @apply object-cover object-center w-full h-64 rounded-md shadow-sm mt-0;
 }
 
 .staff-listing-single h2,
 .staff-listing-single h3,
 .staff-listing-single h4 {
-  @apply mt-0 !important;
+  @apply mt-0!;
 }
 
 .staff-listing-single figure {
-  @apply my-2 !important;
+  @apply my-2!;
 }
 
 .break {
@@ -2060,7 +1841,7 @@ figure.wp-block-pullquote {
   height: 0;
 }
 
-@screen lg {
+@media (width >= theme(--breakpoint-lg)) {
   .headshot {
     height: 18rem;
   }
@@ -2078,7 +1859,7 @@ figure.wp-block-pullquote {
 /* Gutenberg Hub Block Patterns
 --------------------------------------------- */
 [class^="eplus"] {
-  @apply mt-2 !important;
+  @apply mt-2!;
 }
 
 /* Block: Heading ------------------------------ */
@@ -2090,7 +1871,7 @@ h2.alignfull,
 h3.alignfull,
 h4.alignfull,
 h5.alignfull {
-  @apply ml-0 my-2 !important;
+  @apply ml-0! my-2!;
 }
 
 /* Block: Paragraph ------------------------------ */
@@ -2258,7 +2039,7 @@ button.toggle.search-toggle.desktop-search-toggle svg {
 
 .header-inner {
   max-width: 168rem;
-  padding: 1rem 0 3.15rem 0;
+  padding: 1rem 0 5.15rem 0;
   z-index: 100;
 }
 
@@ -2470,7 +2251,7 @@ body:not(.enable-search-modal) .site-logo img {
 
 .mobile-nav-toggle .toggle-text,
 .mobile-search-toggle .toggle-text {
-  @apply text-white;
+
 }
 
 /* Menu Modal ------------------------------ */
@@ -3301,5 +3082,24 @@ body > .is-root-container > .wp-block-template-part > .wp-block-cover,
     margin-left: auto;
     margin-right: auto;
     max-width: 75rem;
+  }
+}
+
+.header-inner.section-inner.container {
+  width: 100%;
+  @media (width >= 640px) {
+    max-width: 640px;
+  }
+  @media (width >= 768px) {
+    max-width: 768px;
+  }
+  @media (width >= 1024px) {
+    max-width: 1024px;
+  }
+  @media (width >= 1280px) {
+    max-width: 1280px;
+  }
+  @media (width >= 1536px) {
+    max-width: 1536px;
   }
 }

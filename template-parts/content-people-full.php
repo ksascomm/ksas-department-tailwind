@@ -9,9 +9,10 @@
  */
 
 ?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'people pl-4 lg:pl-0' ); ?>>
-	<div class="alignfull lg:bg-grey-lightest !mt-0">
+<?php global $post;
+$bio = get_post_meta( $post->ID, 'ecpt_bio', true ); ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'people pl-4 lg:pl-0 pb-8' ); ?>>
+	<div class="alignfull mt-0! <?php if ( ! empty( $bio ) ) : ?>lg:bg-grey-lightest<?php endif;?>">
 		<div class="flex flex-wrap justify-start container mx-auto contact-info">
 		<?php
 		if ( has_post_thumbnail() ) :
@@ -45,7 +46,7 @@
 					<?php endif; ?>
 				<?php endif;?>
 				<header class="entry-header pl-0 pr-2">
-					<h1 class="tracking-tight leading-10 sm:leading-none pt-2 pb-4 !mb-0 ">
+					<h1 class="tracking-tight leading-10 sm:leading-none pt-2 pb-4 mb-0! ">
 						<?php the_title(); ?> 
 						<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
 							<small class="font-heavy">(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>
@@ -125,10 +126,10 @@
 			</ul>
 
 			<?php if ( get_post_meta( $post->ID, 'ecpt_expertise', true ) ) : ?>
-				<p class="leading-normal pr-2 text-xl !my-3"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
+				<p class="leading-normal pr-2 text-xl my-3!"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_degrees', true ) ) : ?>
-				<p class="leading-normal pr-2 text-xl !my-3"><strong>Education:&nbsp;</strong><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_degrees', true ) ); ?></p>
+				<p class="leading-normal pr-2 text-xl my-3!"><strong>Education:&nbsp;</strong><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_degrees', true ) ); ?></p>
 			<?php endif; ?>
 			</div>
 			</div>

@@ -15,10 +15,10 @@ get_header();
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header prose px-12 py-6">
-				<h1 class="entry-title">
+				<h1 class="entry-title font-semibold! font-semi!">
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'ksas-department-tailwind' ), '<span>' . get_search_query() . '</span>' );
+					printf( esc_html__( 'Search Results for: %s', 'ksas-department-tailwind' ), '<span class="font-bold font-serifbold">' . get_search_query() . '</span>' );
 					?>
 				</h1>
 			</header><!-- .page-header -->

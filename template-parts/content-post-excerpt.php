@@ -49,10 +49,10 @@
 				</div><!-- .entry-meta -->
 				<?php endif; ?>
 				<?php if ( get_post_meta( get_the_ID(), 'ecpt_external_link', true ) ) : ?>
-					<?php the_title( '<h2 class="entry-title !mt-2"><a class="archive-post" href="' . esc_url( get_post_meta( $post->ID, 'ecpt_external_link', true ) ) . '" rel="bookmark">', ' <i class="fa-regular fa-square-arrow-up-right"></i></a></h2>' ); ?>
+					<?php the_title( '<h2 class="entry-title mt-2!"><a class="archive-post" href="' . esc_url( get_post_meta( $post->ID, 'ecpt_external_link', true ) ) . '" rel="bookmark">', ' <i class="fa-regular fa-square-arrow-up-right"></i></a></h2>' ); ?>
 						</a>
 					<?php else : ?>
-						<?php the_title( '<h2 class="entry-title !mt-2"><a class="archive-post" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+						<?php the_title( '<h2 class="entry-title mt-2!"><a class="archive-post" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 				<?php endif; ?>
 			</header><!-- .entry-header -->
 			<div class="entry-content xl:px-2">
@@ -74,10 +74,10 @@
 				</div><!-- .entry-meta -->
 			<?php endif; ?>
 			<?php if ( get_post_meta( get_the_ID(), 'ecpt_external_link', true ) ) : ?>
-				<?php the_title( '<h2 class="entry-title !mt-2"><a class="archive-post" href="' . esc_url( get_post_meta( $post->ID, 'ecpt_external_link', true ) ) . '" rel="bookmark">', ' <i class="fa-regular fa-square-arrow-up-right"></i></a></h2>' ); ?>
+				<?php the_title( '<h2 class="entry-title mt-2!"><a class="archive-post" href="' . esc_url( get_post_meta( $post->ID, 'ecpt_external_link', true ) ) . '" rel="bookmark">', ' <i class="fa-regular fa-square-arrow-up-right"></i></a></h2>' ); ?>
 					</a>
 				<?php else : ?>
-					<?php the_title( '<h2 class="entry-title !mt-2"><a class="archive-post" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+					<?php the_title( '<h2 class="entry-title mt-2!"><a class="archive-post" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 		<div class="entry-content w-full pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">

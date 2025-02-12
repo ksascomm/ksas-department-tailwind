@@ -36,7 +36,7 @@
 			);
 		endif;
 			?>
-		<h2 class="!leading-tight !text-xl">
+		<h2 class="leading-tight! text-xl!">
 			<?php
 				if ( get_post_meta( $post->ID, 'publication_link', true ) ) :
 				?>
@@ -45,7 +45,7 @@
 				<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 			<?php endif; ?>
 		</h2>
-		<ul class="!my-1 !pl-4">
+		<ul class="my-1! pl-4!">
 		<?php
 					if ( get_post_meta( $post->ID, 'publication_name', true ) ) :
 						?>

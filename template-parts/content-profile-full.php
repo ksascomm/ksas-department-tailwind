@@ -10,17 +10,13 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header pl-4 pr-2 xl:pl-0 xl:pr-0">
-		<?php the_title( '<h1 class="entry-title py-8">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
-
-	<div class="entry-content flex flex-wrap flex-col md:flex-row pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
+	<div class="entry-header pl-4 pr-2 xl:pl-0 xl:pr-0 flex flex-wrap flex-col md:flex-row my-4">
 		<div class="flex-initial">
 		<?php
 			the_post_thumbnail(
-				'large',
+				'medium',
 				array(
-					'class' => 'max-w-sm mr-6',
+					'class' => 'mr-6',
 					'alt'   => the_title_attribute(
 						array(
 							'echo' => false,
@@ -29,24 +25,30 @@
 				)
 			);
 			?>
-		</div>
-		<div class="flex-1">
+			</div>
+			<div class="flex-1">
+			<?php the_title( '<h1 class="entry-title mt-0! pb-4">', '</h1>' ); ?>
 		<?php if ( have_rows( 'custom_profile_fields' ) ) : ?>
 			<?php
 			while ( have_rows( 'custom_profile_fields' ) ) :
 				the_row();
 				?>
-			<h2 class="!text-2xl"><span class="custom-title"><?php the_sub_field( 'custom_title' ); ?></span>&nbsp;<span class="custom-content"><?php the_sub_field( 'custom_content' ); ?></span></h2>
+			<h2>
+				<span class="custom-title text-2xl">
+					<?php the_sub_field( 'custom_title' ); ?>
+				</span>
+				<span class="custom-content text-2xl">
+					<?php the_sub_field( 'custom_content' ); ?>
+				</span>
+			</h2>
 			<?php endwhile; ?>
-		<?php else : ?>
-			<?php // No rows found! ?>
+
 		<?php endif; ?>
+			</div>
+		</div><!-- .entry-header -->
 
-		<?php
-		the_content();
-
-		?>
-		</div>
+	<div class="entry-content py-2 pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0 xl:max-w-[95ch]">
+		<?php the_content(); ?>
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>

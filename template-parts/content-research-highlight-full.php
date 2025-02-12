@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header pl-4 pr-2 xl:pl-0 xl:pr-0">
+	<header class="entry-header px-4 lg:pr-12">
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -20,7 +20,7 @@
 		?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
+	<div class="entry-content px-4 lg:pr-12 xl:max-w-[95ch]">
 		<?php
 			$faculty_post_id = get_post_meta( $post->ID, 'publication_author', true );
 			if ( get_post_meta( $post->ID, 'publication_author', true ) ) :
@@ -71,7 +71,7 @@
 			the_post_thumbnail(
 				'full',
 				array(
-					'class' => 'max-w-screen-lg',
+					'class' => 'xl:max-w-(--breakpoint-lg)',
 					'alt'   => the_title_attribute(
 						array(
 							'echo' => false,

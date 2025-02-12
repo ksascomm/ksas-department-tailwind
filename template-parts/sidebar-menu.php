@@ -11,16 +11,32 @@
 <?php
 if ( ! $post->post_parent ) {
 	// get the child of the top-level page.
-	$children = wp_list_pages( 'title_li=&child_of=' . $post->ID . '&echo=0&sort_column=post_title&sort_order=asc' );
+	$children = wp_list_pages(
+		array(
+			'sort_column' => 'post_title',
+			'sort_order'  => 'ASC',
+			'echo'        => 0,
+			'title_li'    => '',
+			'child_of'    => $post->ID,
+		)
+	);
 } else {
 	// get the child pages if we are on the first page of the child level.
 	// $children = wp_list_pages("title_li=&child_of=".$post->post_parent."&echo=0");.
-
-	if ( $post->ancestors ) {
+	$ancestors = $post->ancestors;
+	if ( ! empty( $ancestors ) ) {
 		// now get an ID of the first page.
 		// WordPress collects ID in reverse order, so the "first" will be the last page.
-		$ancestors = end( $post->ancestors );
-		$children  = wp_list_pages( 'title_li=&child_of=' . $ancestors . '&echo=0&sort_column=post_title&sort_order=asc' );
+		$ancestors = end( $ancestors );
+		$children  = wp_list_pages(
+			array(
+				'sort_column' => 'post_title',
+				'sort_order'  => 'ASC',
+				'echo'        => 0,
+				'title_li'    => '',
+				'child_of'    => $ancestors,
+			)
+		);
 	}
 }
 
@@ -30,7 +46,7 @@ if ( $children ) :
  
  <div class="menu-button-links relative text-left lg:mr-8 hidden lg:inline-block">
 	<button 
-		class="inline-block justify-center px-4 py-2 !text-[.875rem] leading-5 font-semi font-semibold text-white lg:bg-blue lg:border lg:border-grey-cool uppercase"
+		class="inline-block justify-center px-4 py-2 text-[.875rem]! leading-5 font-semi font-semibold text-white lg:bg-blue lg:border lg:border-grey-cool uppercase"
 		type="button"
 		id="menu-button"
 		aria-haspopup="true"

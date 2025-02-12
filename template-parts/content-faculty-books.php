@@ -13,7 +13,7 @@
 	<header class="entry-header pl-4 pr-2 xl:pl-0 xl:pr-0">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
+			the_title( '<h1 class="entry-title py-4 lg:py-4">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
@@ -23,8 +23,8 @@
 
 	<div class="entry-content pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
 		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="float-left mr-6">
-				<div class="relative w-20 sm:w-64">
+			<div class="md:float-left mr-6">
+				<div class="relative sm:w-64">
 				<?php
 					the_post_thumbnail(
 						'full',
@@ -37,12 +37,12 @@
 				</div>
 			</div>
 	<?php endif; ?>
-	<ul class="!list-none">
+	<ul class="list-none! not-prose">
 		<?php
 			$faculty_post_id  = get_post_meta( $post->ID, 'ecpt_pub_author', true );
 			$faculty_post_id2 = get_post_meta( $post->ID, 'ecpt_pub_author2', true );
 		?>
-		<li>
+		<li class="py-2">
 			<a href="<?php echo esc_url( get_permalink( $faculty_post_id ) ); ?>">
 			<?php echo esc_html( get_the_title( $faculty_post_id ) ); ?></a>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_pub_role', true ) ) : ?>
@@ -57,7 +57,7 @@
 					<div class="capitalize inline">(<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_role2', true ) ); ?>)</div>
 		<?php } ?>
 		</li>
-		<li>
+		<li class="py-2">
 		<?php if ( get_post_meta( $post->ID, 'ecpt_publisher', true ) ) : ?>
 			<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_publisher', true ) ); ?>
 		<?php endif; ?>
@@ -66,7 +66,7 @@
 			<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_date', true ) ); ?>
 		<?php endif; ?>
 		</li>
-		<li>
+		<li class="py-2">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_pub_link', true ) ) : ?>
 			<a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_pub_link', true ) ); ?>" aria-label="Purchase Online">
 				Purchase Online <span class="fa-solid fa-square-arrow-up-right"></span>

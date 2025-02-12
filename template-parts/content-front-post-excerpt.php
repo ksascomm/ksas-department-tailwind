@@ -10,7 +10,7 @@
 ?>
 
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-excerpt blog-excerpt border-2 border-grey shadow-sm prose sm:prose lg:prose-lg xl:prose-xl mx-auto mb-4' ); ?> aria-label="<?php the_title(); ?>">
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-excerpt blog-excerpt border-2 border-grey shadow-xs prose sm:prose lg:prose-lg xl:prose-xl mx-auto mb-4' ); ?> aria-label="<?php the_title(); ?>">
 <?php
 	/**
 	 * This differs from theme's post_thumbnail()
@@ -27,7 +27,7 @@ if ( has_post_thumbnail() ) :
 			the_post_thumbnail(
 				'large',
 				array(
-					'class' => 'w-full h-0 lg:h-full object-cover pr-0 !mt-0 mb-2 object-[0%_20%]',
+					'class' => 'w-full h-0 lg:h-full object-cover pr-0 mt-0! mb-2 object-[0%_20%]',
 				)
 			);
 		?>

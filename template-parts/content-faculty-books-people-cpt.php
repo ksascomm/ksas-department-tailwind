@@ -47,7 +47,7 @@ if ( $faculty_book_tab_query->have_posts() ) :
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="shadow-md p-2">
 			<div class="h-full px-3 py-2">
-				<div class="h-56 bg-cover bg-top rounded mb-4" style="background-image: url(<?php the_post_thumbnail_url( 'full' ); ?>)">
+				<div class="h-56 bg-cover bg-top rounded-sm mb-4" style="background-image: url(<?php the_post_thumbnail_url( 'full' ); ?>)">
 				</div>
 				<h1 class="not-prose leading-normal text-lg font-semi font-semibold my-2">
 					<a class="text-blue" href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>

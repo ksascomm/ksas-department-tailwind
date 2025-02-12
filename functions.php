@@ -9,7 +9,7 @@
 
 if ( ! defined( 'KSAS_DEPARTMENT_TAILWIND_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '5.1.0' );
+	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '6.0.0' );
 }
 
 if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
@@ -307,7 +307,7 @@ add_action( 'wp_enqueue_scripts', 'ksas_department_tailwind_scripts' );
  * so that it is after the script was enqueued.
  */
 function dequeue_sis_scripts() {
-	if ( ! is_page_template( array( '../templates/courses-undergrad-ksasblocks.php', 'page-templates/language-program-courses.php') ) ) {
+	if ( ! is_page_template( array( '../templates/courses-undergrad-ksasblocks.php', 'page-templates/language-program-courses.php' ) ) ) {
 		wp_dequeue_style( 'data-tables' );
 		wp_dequeue_style( 'data-tables-searchpanes' );
 		wp_dequeue_style( 'data-tables-responsive' );
@@ -435,7 +435,7 @@ function get_the_top_ancestor_id() {
  *
  * @param array $args Arguments
  * @return String If $echo value is set to FALSE.
- * 
+ *
  * @link https://www.isitwp.com/wp_nav_menu-separate-submenu-output/
  */
 function internal_page_submenu( $args = array() ) {

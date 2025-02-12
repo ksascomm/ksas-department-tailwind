@@ -21,34 +21,37 @@ const TailwindExtractor = (content) => {
 /* ==========================================================================
   Laravel Mix Config
   ========================================================================== */
-mix
+mix.setResourceRoot('../');
+mix.setPublicPath(path.resolve('./'));
+
+  mix.webpackConfig({
+    watchOptions: { ignored: [
+        path.posix.resolve(__dirname, './node_modules'),
+        path.posix.resolve(__dirname, './dist/css'),
+        path.posix.resolve(__dirname, './dist/js'),
+        path.posix.resolve(__dirname, './dist/fonts'),
+        path.posix.resolve(__dirname, './dist/images')
+      ]}
+  });
+
   // handle site-wide JS files
-  .scripts(["resources/js/twentytwenty.js", "resources/js/wai-dropdown.js" ,"resources/js/wai-accordion.js","resources/js/navbar.js", "resources/js/custom-jquery.js"], "dist/js/bundle.min.js")
+  mix.scripts(["resources/js/twentytwenty.js", "resources/js/wai-dropdown.js" ,"resources/js/wai-accordion.js","resources/js/navbar.js", "resources/js/custom-jquery.js"], "dist/js/bundle.min.js")
 
   //Minify and move isotope to dist directory
-  .scripts(
+  mix.scripts(
     ["resources/js/isotope.js"], "dist/js/isotope.js")
 
- //Minify and move People Tabs to dist directory
-  .scripts(
+  //Minify and move People Tabs to dist directory
+  mix.scripts(
     ["resources/js/people-tabs.js"], "dist/js/people-tabs.js")
-  //.disableNotifications()
 
-  .postCss("./resources/css/style.css", "./dist/css/style.css", [
-    require("tailwindcss")("./tailwind.config.js"),
+  mix.postCss("./resources/css/style.css", "./dist/css/style.css", [
+    require("@tailwindcss/postcss"),
   ])
 
-  // Minify spotlight blocks
-  .minify("./blocks/spotlight/spotlight.css")
-
-  // Move images to dist directory
-  .copyDirectory("resources/images", "dist/images")
-
-  // Move fonts to dist directory
-  .copyDirectory("resources/fonts", "dist/fonts")
-
-  .options({
+  mix.options({
     processCssUrls: false,
+    manifest: false,
   })
 
 // remove unused CSS from files - only used when running npm run production
@@ -79,7 +82,6 @@ if (mix.inProduction()) {
       },
     },
   });
-
   // Purge CSS config
   // more examples can be found at https://gist.github.com/jack-pallot/217a5d172ffa43c8c85df2cb41b80bad
   mix.webpackConfig({
@@ -93,7 +95,7 @@ if (mix.inProduction()) {
         extractors: [
           {
             extractor: TailwindExtractor,
-            extensions: ["html", "php", "js", "vue"],
+            extensions: ["php", "js"],
           },
         ],
 
@@ -146,11 +148,16 @@ if (mix.inProduction()) {
           "wp-post-image",
           "!list-none",
           "tablepress",
-          "a:where(:not(.wp-element-button))",
+          ":root :where(a:where(:not(.wp-element-button)",
           "max-w-[112ch]",
           "ul.page-numbers li a",
           "after:",
           "before:",
+          "book-listings",
+          /^widget$/,
+          /(^widget)\w+/,
+          /^ksas_books$/,
+          /(^ksas_books)\w+/,
           /^has-/,
           /(^wp-block-)\w+/,
           /(^c-accordion)\w+/,
@@ -163,4 +170,10 @@ if (mix.inProduction()) {
       }),
     ],
   });
+  // Move images to dist directory
+  mix.copyDirectory("resources/images", "dist/images")
+
+  // Move fonts to dist directory
+  mix.copyDirectory("resources/fonts", "dist/fonts")
+
 }

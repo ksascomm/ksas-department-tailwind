@@ -9,12 +9,12 @@
 
 ?>
 
-<figure class="profile-card p-2 w-full md:w-1/3 !m-0">
+<figure class="profile-card p-2 w-full md:w-1/3 m-0!">
 	<div class="h-full mb-4 px-6 py-4">
-		<div class="h-80 bg-cover rounded" style="background-image: url(<?php the_post_thumbnail_url( 'large' ); ?>)">
+		<div class="h-80 bg-cover rounded-sm" style="background-image: url(<?php the_post_thumbnail_url( 'large' ); ?>)">
 		</div>
-		<figcaption class="!text-primary">
-		<h2 class="!text-2xl">
+		<figcaption class="text-primary!">
+		<h2 class="text-2xl!">
 			<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 		</h2>
 		<?php if ( have_rows( 'custom_profile_fields' ) ) : ?>
