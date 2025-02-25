@@ -22,7 +22,7 @@
 			while ( have_rows( 'custom_profile_fields' ) ) :
 				the_row();
 				?>
-			<div class="text-lg my-2 leading-normal font-bold font-heavy"><span class="custom-title"><?php the_sub_field( 'custom_title' ); ?></span>&nbsp;<span class="custom-content"><?php the_sub_field( 'custom_content' ); ?></span></div>
+			<div class="text-lg my-2 leading-normal font-bold font-heavy"><span class="custom-title"><?php echo get_sub_field( 'custom_title' ); ?></span>&nbsp;<span class="custom-content"><?php echo get_sub_field( 'custom_content' ); ?></span></div>
 			<?php endwhile; ?>
 		<?php else : ?>
 			<?php // No rows found! ?>

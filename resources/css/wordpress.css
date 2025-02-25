@@ -97,6 +97,16 @@ u {
   text-decoration: none;
 }
 
+.container {
+  padding-inline: 1rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 0rem;
+  }
+}
+
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -1215,6 +1225,10 @@ ul.study-field li:not(:last-child) {
 
 .isotope-to-sort button.is-checked {
   @apply bg-blue-light text-primary;
+}
+
+.isotope-to-sort .search-form {
+  margin-bottom: 1rem;
 }
 
 .prose .people .contact-info ul {

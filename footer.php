@@ -81,7 +81,7 @@
 					the_row();
 					?>
 				<p class="text-lg">
-					<a class="text-white hover:text-blue-light" href="<?php echo esc_attr( the_sub_field( 'department_social_link' ) ); ?>">
+					<a class="text-white hover:text-blue-light" href="<?php echo esc_attr( get_sub_field( 'department_social_link' ) ); ?>">
 						<?php $department_social_platform_selected_option = get_sub_field( 'department_social_platform' ); ?>
 						<?php if ( $department_social_platform_selected_option ) : ?>
 						<span class="fa-brands fa-<?php echo esc_html( $department_social_platform_selected_option['value'] ); ?>"></span>
@@ -101,7 +101,7 @@
 			<a class="text-white hover:text-blue-light" href="https://www.instagram.com/JHUArtsSciences/"><span class="fa-brands fa-instagram fa-2x pr-2"></span><span class="sr-only">Follow us on Instagram</span></a>
 			<a class="text-white hover:text-blue-light" href="https://bsky.app/profile/jhuartssciences.bsky.social"><span class="fa-brands fa-bluesky fa-2x pr-2"></span><span class="sr-only">Follow us on Bluesky</span></a>
 			<a class="text-white hover:text-blue-light" href="https://www.youtube.com/user/jhuksas"><span class="fa-brands fa-youtube fa-2x pr-2"></span><span class="sr-only">Follow us on YouTube</span></a>
-			<a class="text-white hover:text-blue-light" href="https://www.tiktok.com/@jhuartssciences"><span class="fa-brands fa-tiktok fa-2x"></span><span class="sr-only pr-2">TFollow us on ikTok</span></a>
+			<a class="text-white hover:text-blue-light" href="https://www.tiktok.com/@jhuartssciences"><span class="fa-brands fa-tiktok fa-2x"></span><span class="sr-only pr-2">Follow us on TikTok</span></a>
 		</div>
 	</div>
 	<div class="flex flex-wrap bg-original-black py-6 px-4 justify-between">

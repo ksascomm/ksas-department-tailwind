@@ -8,7 +8,7 @@
     "watch-poll": "mix watch -- --watch-options-poll=1000",
     "hot": "mix watch --hot",
     "production": "mix --production",
-    "browser": "browser-sync start --proxy \"https://krieger.local/philosophy\" --files \"**/*\"",
+    "browser": "browser-sync start --proxy \"https://stage.krieger.jhu.edu/philosophy\" --files \"**/*\"",
     "watch-browser": "npm run watch & npm run browser"
   },
   "dependencies": {

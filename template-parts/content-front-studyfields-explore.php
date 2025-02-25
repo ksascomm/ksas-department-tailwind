@@ -160,16 +160,16 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 					<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'w-full' ) ); ?>
 				<?php endif; ?>
 				<div class="p-6 bucket-text">
-					<h3 class="text-2xl 2xl:text-3xl not-prose font-semi font-semibold">
+					<h3 class="text-2xl 2xl:text-3xl not-prose font-semi font-semibold mb-4">
 					<?php if ( get_sub_field( 'explore_bucket_link' ) ) : ?>
-						<a href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
-							<?php the_sub_field( 'explore_bucket_heading' ); ?>
+						<a href="<?php echo get_sub_field( 'explore_bucket_link' ); ?>">
+							<?php echo get_sub_field( 'explore_bucket_heading' ); ?>
 						</a>
 						<?php else : ?>
-							<?php the_sub_field( 'explore_bucket_heading' ); ?>
+							<?php echo get_sub_field( 'explore_bucket_heading' ); ?>
 						<?php endif; ?>
 					</h3>
-					<p class="leading-normal text-lg 2xl:text-xl tracking-wide font-light mx-0"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
+					<p class="leading-normal text-lg 2xl:text-xl tracking-wide font-light mx-0"><?php echo get_sub_field( 'explore_bucket_text' ); ?></p>
 				</div>
 			</div>
 				<?php
@@ -180,20 +180,20 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 					<div class="h-full rounded-lg field mb-4 px-6 py-4 overflow-hidden bg-grey-lightest grey-card-outline border-2 border-grey shadow-xs">
 						<h3 class="text-2xl 2xl:text-3xl not-prose font-semi font-semibold mt-0!">
 							<?php if ( get_sub_field( 'explore_bucket_link' ) ) : ?>
-							<a class="text-blue hover:text-primary" href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
+							<a class="text-blue hover:text-primary" href="<?php echo get_sub_field( 'explore_bucket_link' ); ?>">
 								<?php
 								$image = get_sub_field( 'explore_bucket_icon' );
 								if ( get_sub_field( 'explore_bucket_icon' ) ) :
 									?>
-									<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'bucket-icon' ) ); ?>
+									<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'bucket-icon group-hover:scale-110' ) ); ?>
 								<?php endif; ?>
-								<?php the_sub_field( 'explore_bucket_heading' ); ?>
+								<?php echo get_sub_field( 'explore_bucket_heading' ); ?>
 							</a>
 							<?php else : ?>
-								<?php echo the_sub_field( 'explore_bucket_heading' ); ?>
+								<?php echo get_sub_field( 'explore_bucket_heading' ); ?>
 							<?php endif; ?>
 						</h3>
-						<p class="leading-normal text-lg 2xl:text-xl tracking-wide font-light mb-0!"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
+						<p class="leading-normal text-lg 2xl:text-xl tracking-wide font-light mb-0!"><?php echo get_sub_field( 'explore_bucket_text' ); ?></p>
 					</div>
 				</div>
 			<?php endif; ?>

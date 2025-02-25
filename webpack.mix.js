@@ -137,6 +137,7 @@ if (mix.inProduction()) {
           "loop-entry",
           "role-title",
           "people",
+          "playbutton",
           ":after",
           ":before",
           "form",
