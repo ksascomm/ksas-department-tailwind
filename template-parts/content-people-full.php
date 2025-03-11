@@ -66,22 +66,22 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true ); ?>
 				$email = get_post_meta( $post->ID, 'ecpt_email', true );
 				?>
 					<li class="text-xl"><span class="fa-solid fa-envelope" aria-hidden="true"></span>
-						<a class="text-blue" href="<?php echo esc_url( 'mailto:' . antispambot( $email ) ); ?>">
+						<a class="text-blue hover:text-primary" href="<?php echo esc_url( 'mailto:' . antispambot( $email ) ); ?>">
 					<?php echo esc_html( $email ); ?>
 						</a>
 					</li>
 				<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_leave', true ) ) : ?>
-				<li class="text-xl"><span class="fa-solid fa-calendar-circle-exclamation" aria-hidden="true"></span> <strong>On Leave: <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_leave', true ) ); ?></strong></li>
+				<li class="text-xl"><span class="fa-solid fa-calendar-circle-exclamation" aria-hidden="true"></span> <strong class="font-heavy">On Leave: <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_leave', true ) ); ?></strong></li>
 			<?php endif; ?>
 			<?php if ( get_field( 'ecpt_cv' ) ) : ?>
-				<li class="text-xl"><span class="fa-solid fa-file-pdf" aria-hidden="true"></span> <a class="text-blue" href="<?php echo wp_kses_post( the_field( 'ecpt_cv' ) ); ?>">Curriculum Vitae</a></li>
+				<li class="text-xl"><span class="fa-solid fa-file-pdf" aria-hidden="true"></span> <a class="text-blue hover:text-primary" href="<?php echo wp_kses_post( the_field( 'ecpt_cv' ) ); ?>">Curriculum Vitae</a></li>
 				<?php endif; ?>
 				<?php
 				$file = get_field( 'cv_file' );
 				if ( $file ) :
 					?>
-				<li class="text-xl"><span class="fa-solid fa-file-pdf" aria-hidden="true"></span> <a class="text-blue" href="<?php echo esc_url( $file['url'] ); ?>">Curriculum Vitae</a></li>
+				<li class="text-xl"><span class="fa-solid fa-file-pdf" aria-hidden="true"></span> <a class="text-blue hover:text-primary" href="<?php echo esc_url( $file['url'] ); ?>">Curriculum Vitae</a></li>
 				<?php endif; ?>
 				<?php if ( get_post_meta( $post->ID, 'ecpt_office', true ) ) : ?>
 					<li class="text-xl"><span class="fa-solid fa-location-dot" aria-hidden="true"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_office', true ) ); ?></li>
@@ -93,7 +93,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true ); ?>
 					<?php if ( get_post_meta( $post->ID, 'ecpt_hours', true ) ) : ?>
 						<li class="text-xl"><span class="fa-solid fa-door-open" aria-hidden="true"></span> 
 						<?php if ( get_post_meta( $post->ID, 'ecpt_hours_link', true ) ) : ?>
-							<a class="text-blue" href="<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_hours_link', true ) ); ?>">
+							<a class="text-blue hover:text-primary" href="<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_hours_link', true ) ); ?>">
 								<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_hours', true ) ); ?>
 							</a>
 						<?php else : ?>
@@ -109,18 +109,18 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true ); ?>
 			<?php endif; ?>
 
 			<?php if ( get_post_meta( $post->ID, 'ecpt_website', true ) ) : ?>
-				<li class="text-xl"><span class="fa-solid fa-earth-americas" aria-hidden="true"></span> <a class="text-blue" href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_website', true ) ); ?>">Personal Website</a></li>
+				<li class="text-xl"><span class="fa-solid fa-earth-americas" aria-hidden="true"></span> <a class="text-blue hover:text-primary" href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_website', true ) ); ?>">Personal Website</a></li>
 			<?php endif; ?>
 
 			<?php if ( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ) : ?>
-				<li class="text-xl"><span class="fa-solid fa-earth-americas"></span> <a class="text-blue" href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ); ?>" aria-label="<?php the_title(); ?>'s Group/Lab Website">Group/Lab Website</a></li>
+				<li class="text-xl"><span class="fa-solid fa-earth-americas"></span> <a class="text-blue hover:text-primary" href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ); ?>" aria-label="<?php the_title(); ?>'s Group/Lab Website">Group/Lab Website</a></li>
 			<?php endif; ?>
 
 			<?php if ( get_post_meta( $post->ID, 'ecpt_google_id', true ) ) : ?>
-				<li class="text-xl"><span class="fa-brands fa-google"></span> <a class="text-blue" href="https://scholar.google.com/citations?user=<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_google_id', true ) ); ?>">Google Scholar Profile</a></li>
+				<li class="text-xl"><span class="fa-brands fa-google"></span> <a class="text-blue hover:text-primary" href="https://scholar.google.com/citations?user=<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_google_id', true ) ); ?>">Google Scholar Profile</a></li>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_twitter', true ) ) : ?>
-				<li class="text-xl"><span class="fa-brands fa-x-twitter"></span> <a class="text-blue" href="https://twitter.com/<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_twitter', true ) ); ?>"> @<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_twitter', true ) ); ?></a></li>
+				<li class="text-xl"><span class="fa-solid fa-circle-user"></span> <a class="text-blue hover:text-primary" href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_twitter', true ) ); ?>"> Follow Me on Social Media</a></li>
 			<?php endif; ?>
 
 			</ul>
@@ -151,7 +151,7 @@ if ( function_exists( 'bcn_display' ) ) :
 		?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 		<div class="tabbed my-4 people-content">
-			<ul class="pr-6 lg:pr-0">
+			<ul class="pr-6 lg:pr-0 section-headings">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 				<li class="text-xl">
 				<a href="#section1">Biography</a>

@@ -62,7 +62,7 @@ if ( ! empty( $studyfield_response ) ) :
 					<?php the_title(); ?>
 				<?php endif; ?>
 			</h2>
-			<div class="mt-2 text-primary text-lg md:text-xl tracking-tight">
+			<div class="mt-2 text-primary text-lg md:text-xl tracking-tight leading-[1.5]">
 				<?php the_content(); ?>
 			</div>
 			<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_degreesoffered[0] ) || ! empty( $studyfield_data->post_meta_fields->ecpt_majors[0] ) || ! empty( $studyfield_data->post_meta_fields->ecpt_minors[0] ) ) : ?>
@@ -169,7 +169,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 							<?php echo get_sub_field( 'explore_bucket_heading' ); ?>
 						<?php endif; ?>
 					</h3>
-					<p class="leading-normal text-lg 2xl:text-xl tracking-wide font-light mx-0"><?php echo get_sub_field( 'explore_bucket_text' ); ?></p>
+					<p class="text-lg 2xl:text-xl leading-[1.5] tracking-wide font-light mx-0"><?php echo get_sub_field( 'explore_bucket_text' ); ?></p>
 				</div>
 			</div>
 				<?php
@@ -193,7 +193,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 								<?php echo get_sub_field( 'explore_bucket_heading' ); ?>
 							<?php endif; ?>
 						</h3>
-						<p class="leading-normal text-lg 2xl:text-xl tracking-wide font-light mb-0!"><?php echo get_sub_field( 'explore_bucket_text' ); ?></p>
+						<p class="text-lg 2xl:text-xl leading-[1.5] tracking-wide font-light mb-0!"><?php echo get_sub_field( 'explore_bucket_text' ); ?></p>
 					</div>
 				</div>
 			<?php endif; ?>

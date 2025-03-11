@@ -6,7 +6,7 @@
   --------------------------------------------- */
 
 .breadcrumbs {
-	@apply block lg:inline-block -mb-4 pl-2 text-grey-darkest lg:border lg:border-grey-cool;
+	@apply block lg:inline-block -mb-4 pl-2 text-grey-darkest lg:border lg:border-grey-cool ml-4;
 	background-color: rgba(191, 204, 217, 0);
 	padding-top: .125rem;
 	padding-bottom: 0.25rem
@@ -14,12 +14,6 @@
 
 .breadcrumbs span {
 	@apply font-semi font-semibold;
-}
-
-@media screen and (max-width: 1536px) {
-	.breadcrumbs {
-		margin-left: 1rem;
-	}
 }
 
 .single-post .breadcrumbs,
@@ -40,7 +34,7 @@
 
 .breadcrumbs span.current-item,
 .breadcrumbs span a {
-	@apply uppercase border-none mx-4 tracking-wide;
+	@apply uppercase mx-4 tracking-wide;
 	font-size: 0.875rem;
 }
 

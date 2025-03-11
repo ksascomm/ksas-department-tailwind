@@ -47,7 +47,7 @@
 			</div>
 		</div><!-- .entry-header -->
 
-	<div class="entry-content py-2 pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0 xl:max-w-[95ch]">
+	<div class="entry-content py-2 pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0 xl:max-w-[85ch]">
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
 

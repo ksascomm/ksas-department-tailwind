@@ -57,51 +57,61 @@
 		if ( $department_email || $department_phone || $department_location || $department_social ) :
 			?>
 			<h3 class="text-xl font-sans font-light!">Contact Us</h3>
+			
+			<ul class="text-lg">
+			
 			<?php if ( $department_email ) : ?>
-			<p class="text-lg"><span class="fa-solid fa-envelope"></span> <a class="font-sans font-light text-white hover:text-blue-light" href="<?php echo esc_url( 'mailto:' . antispambot( get_field( 'department_email', 'option' ) ) ); ?>"><?php echo esc_html( antispambot( get_field( 'department_email', 'option' ) ) ); ?></a></p>
+				<li><span class="fa-solid fa-envelope"></span> <a class="font-sans font-light text-white hover:text-blue-light !underline !decoration-dotted" href="<?php echo esc_url( 'mailto:' . antispambot( get_field( 'department_email', 'option' ) ) ); ?>"><?php echo esc_html( antispambot( get_field( 'department_email', 'option' ) ) ); ?></a></li>
 			<?php endif; ?>
+			
 			<?php if ( $department_phone ) : ?>
-			<p class="text-lg"><span class="fa-solid fa-phone-rotary"></span> <a class="font-sans font-light text-white hover:text-blue-light" href="tel:<?php the_field( 'department_phone', 'option' ); ?>"><?php the_field( 'department_phone', 'option' ); ?></a></p>
+				<li><span class="fa-solid fa-phone-rotary"></span> <a class="font-sans font-light text-white hover:text-blue-light !underline !decoration-dotted" href="tel:<?php the_field( 'department_phone', 'option' ); ?>"><?php the_field( 'department_phone', 'option' ); ?></a></li>
 			<?php endif; ?>
+
 			<?php if ( $department_location ) : ?>
-				<p class="text-lg">
+				<li>
 					<?php
 					// Gist Here: https://gist.github.com/mattradford/bb7679a2671b99ada655
 					$building = $department_location['address'];
 					$address  = urlencode_deep( "{$building}" );
 					?>
-					<a class="font-sans text-white font-light hover:text-blue-light" href="https://www.google.com/maps/search/?api=1&query=<?php echo esc_html( $address ); ?>" target="_blank">
-						<span class="fa-solid fa-map"></span> Find Us on Google Maps
+					<span class="fa-solid fa-map"></span>
+					<a class="font-sans text-white font-light hover:text-blue-light !underline !decoration-dotted" href="https://www.google.com/maps/search/?api=1&query=<?php echo esc_html( $address ); ?>" target="_blank">
+						Find Us on Google Maps
 					</a>
-				</p>
+				</li>
 			<?php endif; ?>
+
 			<?php if ( have_rows( 'department_social', 'option' ) ) : ?>
 				<?php
 				while ( have_rows( 'department_social', 'option' ) ) :
 					the_row();
 					?>
-				<p class="text-lg">
-					<a class="text-white hover:text-blue-light" href="<?php echo esc_attr( get_sub_field( 'department_social_link' ) ); ?>">
-						<?php $department_social_platform_selected_option = get_sub_field( 'department_social_platform' ); ?>
-						<?php if ( $department_social_platform_selected_option ) : ?>
-						<span class="fa-brands fa-<?php echo esc_html( $department_social_platform_selected_option['value'] ); ?>"></span>
+				<li>
+					<?php $department_social_platform_selected_option = get_sub_field( 'department_social_platform' ); ?>
+					<?php if ( $department_social_platform_selected_option ) : ?>
+					<span class="fa-brands fa-<?php echo esc_html( $department_social_platform_selected_option['value'] ); ?>"></span>
+					<?php endif; ?>
+					<a class="text-white hover:text-blue-light !underline !decoration-dotted" href="<?php echo esc_attr( get_sub_field( 'department_social_link' ) ); ?>">
 						Follow us on <?php echo esc_html( $department_social_platform_selected_option['label'] ); ?>
-						<?php endif; ?>
 					</a>
-				</p>
+				</li>
 				<?php endwhile; ?>
 			<?php else : ?>
 				<?php // No rows found ?>
 			<?php endif; ?>
+			</ul>
 		<?php endif; ?>
 		</div>
 		
 		<div class="m-2 lg:m-4 mt-6 col-span-4 lg:col-span-1 lg:mx-auto justify-end">
-			<a class="text-white hover:text-blue-light" href="https://facebook.com/JHUArtsSciences"><span class="fa-brands fa-facebook fa-2x pr-2"></span><span class="sr-only">Follow us on Facebook</span></a>
-			<a class="text-white hover:text-blue-light" href="https://www.instagram.com/JHUArtsSciences/"><span class="fa-brands fa-instagram fa-2x pr-2"></span><span class="sr-only">Follow us on Instagram</span></a>
-			<a class="text-white hover:text-blue-light" href="https://bsky.app/profile/jhuartssciences.bsky.social"><span class="fa-brands fa-bluesky fa-2x pr-2"></span><span class="sr-only">Follow us on Bluesky</span></a>
-			<a class="text-white hover:text-blue-light" href="https://www.youtube.com/user/jhuksas"><span class="fa-brands fa-youtube fa-2x pr-2"></span><span class="sr-only">Follow us on YouTube</span></a>
-			<a class="text-white hover:text-blue-light" href="https://www.tiktok.com/@jhuartssciences"><span class="fa-brands fa-tiktok fa-2x"></span><span class="sr-only pr-2">Follow us on TikTok</span></a>
+			<ul class="lg:flex lg:flex-wrap lg:justify-between text-lg" role="menu" aria-label="Social Media Accounts">
+			<li><a class="text-white hover:text-blue-light" href="https://facebook.com/JHUArtsSciences"><span class="fa-brands fa-facebook fa-2x pr-2"></span><span class="sr-only">Follow us on Facebook</span></a></li>
+			<li><a class="text-white hover:text-blue-light" href="https://www.instagram.com/JHUArtsSciences/"><span class="fa-brands fa-instagram fa-2x pr-2"></span><span class="sr-only">Follow us on Instagram</span></a></li>
+			<li><a class="text-white hover:text-blue-light" href="https://bsky.app/profile/jhuartssciences.bsky.social"><span class="fa-brands fa-bluesky fa-2x pr-2"></span><span class="sr-only">Follow us on Bluesky</span></a></li>
+			<li><a class="text-white hover:text-blue-light" href="https://www.youtube.com/user/jhuksas"><span class="fa-brands fa-youtube fa-2x pr-2"></span><span class="sr-only">Follow us on YouTube</span></a></li>
+			<li><a class="text-white hover:text-blue-light" href="https://www.tiktok.com/@jhuartssciences"><span class="fa-brands fa-tiktok fa-2x"></span><span class="sr-only pr-2">Follow us on TikTok</span></a></li>
+			</ul>
 		</div>
 	</div>
 	<div class="flex flex-wrap bg-original-black py-6 px-4 justify-between">
@@ -115,9 +125,9 @@
 			<h2 class="sr-only">Legal Navigation</h2>
 			<ul class="lg:flex lg:flex-wrap lg:justify-between text-lg" role="menu" aria-label="University Policies">
 				<li class="pl-4 lg:pl-0 font-sans font-light" role="menuitem">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> </li>
-				<li class="pl-4" role="menuitem"><a class="text-white font-sans font-light hover:text-blue-light" href="https://accessibility.jhu.edu/">Accessibility</a></li>
-				<li class="pl-4" role="menuitem"><a class="text-white font-sans font-light hover:text-blue-light" href="https://it.johnshopkins.edu/policies/privacystatement">Privacy Statement</a></li>
-				<li class="pl-4" role="menuitem"><a class="text-white font-sans font-light hover:text-blue-light" href="https://policies.jhu.edu/">University Policy & Document Library</a></li>
+				<li class="pl-4" role="menuitem"><a class="text-white font-sans font-light hover:text-blue-light !underline !decoration-dotted" href="https://accessibility.jhu.edu/">Accessibility</a></li>
+				<li class="pl-4" role="menuitem"><a class="text-white font-sans font-light hover:text-blue-light !underline !decoration-dotted" href="https://it.johnshopkins.edu/policies/privacystatement">Privacy Statement</a></li>
+				<li class="pl-4" role="menuitem"><a class="text-white font-sans font-light hover:text-blue-light !underline !decoration-dotted" href="https://policies.jhu.edu/">University Policy & Document Library</a></li>
 			</ul>
 		</div>
 	</div>

@@ -9,7 +9,7 @@
 
 if ( ! defined( 'KSAS_DEPARTMENT_TAILWIND_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '6.0.0' );
+	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '6.1.0' );
 }
 
 if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
@@ -380,24 +380,6 @@ function ksas_department_tailwind_sidebar_class( $sidebar_name ) {
 			break;
 		case '4':
 			$class = 'four';
-			break;
-		case '5':
-			$class = 'five';
-			break;
-		case '6':
-			$class = 'six';
-			break;
-		case '7':
-			$class = 'seven';
-			break;
-		case '8':
-			$class = 'eight';
-			break;
-		case '9':
-			$class = 'nine';
-			break;
-		case '10':
-			$class = 'ten';
 			break;
 		default:
 			$class = '';

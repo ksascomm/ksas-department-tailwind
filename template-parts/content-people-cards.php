@@ -37,7 +37,7 @@
 		<?php else : ?>
 			<?php the_title(); ?>
 				<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
-					<small>(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>
+					<span class="text-lg">(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</span>
 				<?php endif; ?>
 		<?php endif; ?>
 		</h2>

@@ -34,29 +34,29 @@
 	<div class="grow contact-info px-4 lg:px-0">
 		<h3 class="font-heavy font-bold text-2xl!">
 		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>'s webpage">
+			<a class="hover:text-primary" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>'s webpage">
 				<?php the_title(); ?>
 			</a>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
-				<small>(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>
+				<span class="text-lg">(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</span>
 			<?php endif; ?>
 		<?php elseif ( get_post_meta( $post->ID, 'ecpt_website', true ) ) : ?>
-			<a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_website', true ) ); ?>" title="<?php the_title(); ?>'s webpage" target="_blank">
+			<a class="hover:text-primary" href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_website', true ) ); ?>" title="<?php the_title(); ?>'s webpage" target="_blank">
 				<?php the_title(); ?>
 			</a>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
-				<small>(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>
+				<span class="text-lg">(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</span>
 			<?php endif; ?>
 		<?php else : ?>
 			<?php the_title(); ?>
 				<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
-					<small>(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>
+					<span class="text-lg">(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</span>
 				<?php endif; ?>
 		<?php endif; ?>
 		</h3>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
-				<div class="position"><p class="leading-normal pr-2 text-xl my-3!"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></p></div>
-			<?php endif; ?>
+			<div class="position"><p class="leading-normal pr-2 text-xl my-3!"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></p></div>
+		<?php endif; ?>
 
 			<h4 class="sr-only">Contact Information</h4>
 
@@ -66,7 +66,7 @@
 					$email = get_post_meta( $post->ID, 'ecpt_email', true );
 					?>
 					<li><span class="fa-solid fa-envelope" aria-hidden="true"></span>
-						<a class="text-blue" href="<?php echo esc_url( 'mailto:' . antispambot( $email )); ?>">
+						<a class="text-blue hover:text-primary" href="<?php echo esc_url( 'mailto:' . antispambot( $email )); ?>">
 						<?php echo esc_html( $email ); ?>
 						</a>
 					</li>
@@ -80,7 +80,7 @@
 				<?php endif; ?>
 
 				<?php if ( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ) : ?>
-				<li><span class="fa-solid fa-earth-americas"></span> <a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ); ?>" target="_blank" aria-label="<?php the_title(); ?>'s Group/Lab Website">Group/Lab Website</a></li>
+				<li><span class="fa-solid fa-earth-americas"></span> <a class="hover:text-primary" href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_lab_website', true ) ); ?>" target="_blank" aria-label="<?php the_title(); ?>'s Group/Lab Website">Group/Lab Website</a></li>
 				<?php endif; ?>
 
 			</ul>

@@ -132,32 +132,36 @@ label.gfield_label {
 /* Link Overrides
 --------------------------------------------- */
 
-.site-main a,
-.prose a,
-.widget a {
-  @apply border-grey border-b-2 no-underline transition-colors ease-in-out duration-200;
+/* Override WP Global Style */
+a:where(:not(.wp-element-button)) {
+  text-decoration: inherit !important;
 }
 
-.site-main a:hover,
+/* Establish Global Non-Nav, Non-Button Link Styles */
+.prose a,
+.widget a {
+  @apply border-grey border-b-2 transition-colors ease-in-out duration-200;
+  text-decoration: none;
+}
+
 .prose a:hover,
 .widget a:hover {
   @apply border-grey-darkest border-b-2 border-solid;
 }
 
-.prose a strong
- {
-  color: inherit;
- }
+
 .prose a strong:hover {
   color: #fefefe;
   border: none;
 }
 
+/* Change Link Styles for Body and Widget Text */
 .entry-content p a,
 .entry-content li a,
+.widget p a,
+.widget li a,
 .people .section-content p a,
 .people .section-content li a,
-.people .contact-info li a,
 .tribe-events-single-event-description.tribe-events-content p a,
 .tribe-events-single-event-description.tribe-events-content li a
  {
@@ -175,9 +179,10 @@ label.gfield_label {
 
 .entry-content p a:hover,
 .entry-content li a:hover,
+.widget p a:hover,
+.widget li a:hover,
 .people .section-content p a:hover,
 .people .section-content li a:hover,
-.people .contact-info li a:hover,
 .tribe-events-single-event-description.tribe-events-content p a:hover,
 .tribe-events-single-event-description.tribe-events-content li a:hover {
   color: white;
@@ -192,9 +197,6 @@ li.tribe-events-c-top-bar__nav-list-item a.tribe-common-c-btn-icon {
   box-shadow: none;
 }
 
-a:where(:not(.wp-element-button)) {
-  text-decoration: inherit !important;
-}
 
 /* Lists (Override Prose's Inexplicable ::before)
 --------------------------------------------- */
@@ -385,7 +387,6 @@ mark {
   display: inline-block;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
-  color: #31261d;
   font-size: 1.125rem;
   line-height: 1.75rem;
   padding-left: 0.5rem;
@@ -792,7 +793,7 @@ button.menu-button:focus {
   padding-left: 0;
 }
 
-.menu-button-links > .menu {
+.menu-button-links #section-menu > .menu {
   box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
 
 }
@@ -809,18 +810,18 @@ button.menu-button:focus {
   color: rgb(49 38 29);
 }
 
-.menu-button-links ul.nav li.page_item,
-.menu-button-links ul.nav li.menu-item {
+.menu-button-links .nav li.page_item,
+.menu-button-links .nav li.menu-item {
   @apply border-l-2 border-grey-cool;
 }
   
 .menu-button-links .menu > li,
-.menu-button-links ul.menu ul.sub-menu > li {
+.menu-button-links .menu ul.sub-menu > li {
   @apply ml-3 leading-6;
 }
 
 
-.menu-button-links ul.nav ul.children {
+.menu-button-links .nav ul.children {
   @apply ml-4 leading-5 -mt-1;
 }
 
@@ -863,9 +864,10 @@ button.menu-button:focus {
   display: none;
 }
 
+/*
 .single-post .prose .post img.wp-post-image {
   margin-bottom: 1.5rem !important;
-}
+}*/
 
 .single-post .prose .entry-content p:first-of-type {
   margin-top: 0;
@@ -1060,7 +1062,7 @@ button.menu-button:focus {
 
 /* Footer Widgets ------------------------------ */
 .footer-widget-area .widget > div {
-  @apply bg-white px-6 pb-6 shadow-md;
+  @apply bg-white p-6 shadow-md;
   border: 2px solid rgba(237, 242, 247, 1);
   box-shadow: -10px 10px 0 0 #418fde;
   margin: 1em;
@@ -1252,13 +1254,13 @@ summary::-webkit-details-marker {
   display: inline-block;
 }
 
-.prose .tabbed ul li a {
+.prose .tabbed ul.section-headings li a {
   border-bottom-width: 2px;
   border-color: transparent;
   border-style: solid;
 }
 
-.prose .tabbed ul li a:hover {
+.prose .tabbed ul.section-headings li a:hover {
   border-bottom-width: 2px;
   border-style: solid;
   border-color: #4A484C;
@@ -1494,9 +1496,21 @@ summary::-webkit-details-marker {
   @apply my-2 max-w-full;
 }
 
-.prose .wp-block-button .wp-block-button__link {
-  @apply text-white bg-blue border-0;
+.prose .wp-block-button .wp-block-button__link,
+:root :where(.wp-element-button, .wp-block-button__link) {
+  color: var(--color-white) !important;
+  background-color: var(--color-blue) !important;
+  border-radius: 0 !important;
+  padding: 8px 12px !important;
 }
+
+.prose .wp-block-button .wp-block-button__link:hover,
+:root :where(.wp-element-button:hover, .wp-block-button__link:hover) {
+  background-color: var(--color-blue-light) !important;
+  color: var(--color-primary) !important;
+}
+
+
 
 .prose .wp-block-button a.wp-block-button__link strong {
   @apply text-white border-0;
@@ -1508,7 +1522,7 @@ summary::-webkit-details-marker {
 }
 
 .prose .wp-block-button .wp-block-button__link:hover,
-.prose .wp-block-button.is-style-outline .wp-block-button__link:hover {
+.prose .wp-block-button.is-style-outline .wp-block-button__link:hover,  {
   @apply bg-blue-light;
 }
 
@@ -1562,12 +1576,26 @@ summary::-webkit-details-marker {
   }
 }
 
-@media (width >= theme(--breakpoint-xl)) {
-  .page .entry-content p,
-  .single-post .entry-content p {
-    max-width: 95ch;
-  }
+
+.page .entry-content p,
+.page .entry-content li,
+.single-post.missing-post-thumbnail .entry-content p,
+.single-post.missing-post-thumbnail .entry-content li,
+.single-people #section1 *,
+.single-people #section2 *,
+.single-people #section3 *,
+.single-people #section4 *,
+.single-people #section6 *,
+.single-people #section7 *
+.faculty-books * {
+  max-width: 85ch;
 }
+
+.single-post.has-post-thumbnail .entry-content p,
+.single-post.has-post-thumbnail .entry-content li {
+  max-width: 100ch;
+}
+
 
 /*--------------------------------------------------------------
 # Block Overrides
@@ -1619,6 +1647,10 @@ a {
   color: rgba(254, 254, 254, var(--tw-text-opacity));
   border-radius: 0;
   @apply bg-blue text-white text-base items-center border-none;
+}
+
+a.wp-block-button__link.has-heritage-blue-background-color:hover {
+  background-color: var(--color-blue-light) !important;
 }
 
 .wp-block-buttons > .wp-block-button.wp-block-button__width-50 {
@@ -1707,8 +1739,8 @@ figure.wp-block-pullquote {
 }
 
 .wp-block-pb-accordion-item.c-accordion__item .c-accordion__title::after {
-  @apply text-blue;
-  right: 1rem;
+  color: var(--color-blue) !important;
+  right: 1rem !important;
 }
 
 .wp-block-pb-accordion-item.c-accordion__item .c-accordion__content {

@@ -33,7 +33,11 @@ jQuery(document).ready(function($) {
 			$(this).closest('ul.has-sub-menu').addClass('toggled-on');
 		}
     });
-    // Below sets aria-roles for sidebar/page menu. 
+    // Below sets aria-roles for sidebar/page menu.
+    $('#section-menu ul').addClass( "menu nav" );
+    $('#section-menu ul').removeClass( "sub-menu has-sub-menu" );
+    $('#section-menu ul').attr('role', 'menu');
+    $('#section-menu ul').attr('aria-labelledby', 'menu-button');
     $('#section-menu li').attr('role', 'none');
     $('#section-menu li a').attr('role', 'menuitem');
     // Below sets aria-hidden to true for front bucket icons within a link

@@ -20,13 +20,13 @@
 
 	</header><!-- .entry-header -->
 
-	<div class="entry-content pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
+	<div class="entry-content pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0 xl:max-w-[85ch]">
 		<ul class="exhibit-meta list-none! pl-0!">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_location', true ) ) : ?>
 				<li class="pl-0!"><strong>Location:</strong> <?php echo get_post_meta( $post->ID, 'ecpt_location', true ); ?></li>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_dates', true ) ) : ?>
-				<li class="pl-0"><strong>Dates:</strong> <?php echo get_post_meta( $post->ID, 'ecpt_dates', true ); ?></li>
+				<li class="pl-0!"><strong>Dates:</strong> <?php echo get_post_meta( $post->ID, 'ecpt_dates', true ); ?></li>
 			<?php endif; ?>
 		</ul>
 	<?php

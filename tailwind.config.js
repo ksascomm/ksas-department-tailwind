@@ -87,6 +87,9 @@ module.exports = {
                 fontFamily: "Gentona-Bold, system-ui",
                 fontWeight: 700,
               },
+              "a strong": {
+                color: "inherit"
+              },
               table: {
                 fontSize: "1rem",
                 marginTop: ".5rem",
@@ -123,6 +126,7 @@ module.exports = {
         },
         lg: {
           css: {
+            fontSize: "1.25rem",
             maxWidth: "110ch",
             h2: {
               marginTop: "0.5rem",

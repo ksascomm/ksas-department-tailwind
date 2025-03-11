@@ -38,7 +38,7 @@
 			<?php get_template_part( 'template-parts/featured-image' ); ?>
 	<?php endif; ?>
 	
-	<div class="wayfinding md:mb-8 ml-4 xl:ml-0">
+	<div class="wayfinding md:mb-8 ml-4 xl:ml-0 pl-4 xl:pl-0">
 		<?php get_template_part( 'template-parts/sidebar-menu' ); ?>
 		<?php
 		if ( function_exists( 'bcn_display' ) ) :
@@ -48,7 +48,7 @@
 			</div>
 		<?php endif; ?>
 	</div>
-	<div class="entry-content pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
+	<div class="entry-content pl-8 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
 	<?php
 	if (
 		is_page_template(

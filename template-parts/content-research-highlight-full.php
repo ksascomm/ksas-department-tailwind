@@ -20,7 +20,7 @@
 		?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content px-4 lg:pr-12 xl:max-w-[95ch]">
+	<div class="entry-content px-4 lg:pr-12 xl:max-w-[85ch]">
 		<?php
 			$faculty_post_id = get_post_meta( $post->ID, 'publication_author', true );
 			if ( get_post_meta( $post->ID, 'publication_author', true ) ) :

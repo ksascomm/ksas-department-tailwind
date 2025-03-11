@@ -9,8 +9,8 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<header class="entry-header pl-4 pr-2 xl:pl-0 xl:pr-0">
+<article id="post-<?php the_ID(); ?>" <?php post_class("pl-4"); ?>>
+	<header class="entry-header pr-2 xl:pl-0 xl:pr-0 max-w-[90ch]">
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -35,9 +35,19 @@
 		<?php endif; ?><!-- .bulletin .entry-meta -->
 	</header><!-- .entry-header -->
 
-	<?php ksas_department_tailwind_post_thumbnail(); ?>
-
-	<div class="entry-content pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
+	<div class="entry-content">
+	<?php if ( has_post_thumbnail() ) :?>
+		<div class="lg:max-w-[375px] lg:mr-8 lg:float-left mb-10">
+			<?php
+			the_post_thumbnail(
+				'large',
+				array(
+					'class' => 'block mb-0 w-full lg:w-auto',
+				)
+			);
+			?>
+		</div>
+	<?php endif; ?>
 	<?php
 	if ( is_singular() ) :
 			the_content(
