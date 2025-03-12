@@ -821,8 +821,9 @@ button.menu-button:focus {
 }
 
 
-.menu-button-links .nav ul.children {
-  @apply ml-4 leading-5 -mt-1;
+.menu-button-links ul.nav ul.nav {
+  @apply ml-4 leading-5 -my-1;
+  display: contents;
 }
 
 .menu-button-links button svg.down {

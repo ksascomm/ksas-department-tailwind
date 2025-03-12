@@ -105,7 +105,7 @@
 		</div>
 		
 		<div class="m-2 lg:m-4 mt-6 col-span-4 lg:col-span-1 lg:mx-auto justify-end">
-			<ul class="lg:flex lg:flex-wrap lg:justify-between text-lg" role="menu" aria-label="Social Media Accounts">
+			<ul class="lg:flex lg:flex-wrap lg:justify-between text-lg" aria-label="Social Media Accounts">
 			<li><a class="text-white hover:text-blue-light" href="https://facebook.com/JHUArtsSciences"><span class="fa-brands fa-facebook fa-2x pr-2"></span><span class="sr-only">Follow us on Facebook</span></a></li>
 			<li><a class="text-white hover:text-blue-light" href="https://www.instagram.com/JHUArtsSciences/"><span class="fa-brands fa-instagram fa-2x pr-2"></span><span class="sr-only">Follow us on Instagram</span></a></li>
 			<li><a class="text-white hover:text-blue-light" href="https://bsky.app/profile/jhuartssciences.bsky.social"><span class="fa-brands fa-bluesky fa-2x pr-2"></span><span class="sr-only">Follow us on Bluesky</span></a></li>
