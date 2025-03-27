@@ -73,7 +73,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 ?>
 
 <main id="site-content" class="site-main prose sm:prose lg:prose-lg">
-<div class="wayfinding md:mb-8 ml-4 xl:ml-0">
+	<div class="wayfinding md:mb-8 ml-4 2xl:ml-0">
 		<?php get_template_part( 'template-parts/sidebar-menu' ); ?>
 		<?php
 		if ( function_exists( 'bcn_display' ) ) :

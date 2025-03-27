@@ -62,7 +62,7 @@ if ( ! empty( $studyfield_response ) ) :
 					<?php the_title(); ?>
 				<?php endif; ?>
 			</h2>
-			<div class="mt-2 text-primary text-lg md:text-xl tracking-tight leading-[1.5]">
+			<div class="mt-2 text-primary text-lg md:text-xl tracking-tight leading-[1.5] backdrop-blur-md">
 				<?php the_content(); ?>
 			</div>
 			<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_degreesoffered[0] ) || ! empty( $studyfield_data->post_meta_fields->ecpt_majors[0] ) || ! empty( $studyfield_data->post_meta_fields->ecpt_minors[0] ) ) : ?>

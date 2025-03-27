@@ -13,16 +13,16 @@
 	<div class="h-full mb-4 px-6 py-4">
 		<div class="h-80 bg-cover rounded-sm" style="background-image: url(<?php the_post_thumbnail_url( 'large' ); ?>)">
 		</div>
-		<figcaption class="text-primary!">
+		<figcaption>
 		<h2 class="text-2xl!">
-			<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
+			<a class="hover:text-primary" href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 		</h2>
 		<?php if ( have_rows( 'custom_profile_fields' ) ) : ?>
 			<?php
 			while ( have_rows( 'custom_profile_fields' ) ) :
 				the_row();
 				?>
-			<div class="text-lg my-2 leading-normal font-bold font-heavy"><span class="custom-title"><?php echo get_sub_field( 'custom_title' ); ?></span>&nbsp;<span class="custom-content"><?php echo get_sub_field( 'custom_content' ); ?></span></div>
+			<div class="text-lg my-2 leading-normal font-bold font-heavy text-primary"><span class="custom-title"><?php echo get_sub_field( 'custom_title' ); ?></span>&nbsp;<span class="custom-content"><?php echo get_sub_field( 'custom_content' ); ?></span></div>
 			<?php endwhile; ?>
 		<?php else : ?>
 			<?php // No rows found! ?>
@@ -34,9 +34,9 @@
 		</svg>
 		<div class="relative z-10">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_pull_quote', true ) ) : ?>
-				<?php echo wp_kses_post(  wp_trim_words ( get_post_meta( $post->ID, 'ecpt_pull_quote', true ), 50, '...' ) ); ?>
+				<?php echo wp_kses_post( wp_trim_words( get_post_meta( $post->ID, 'ecpt_pull_quote', true ), 50, '...' ) ); ?>
 			<?php elseif ( get_post_meta( $post->ID, 'ecpt_quote', true ) ) : ?>
-				<?php echo wp_kses_post( wp_trim_words ( get_post_meta( $post->ID, 'ecpt_quote', true ), 50, '...' ) ); ?>
+				<?php echo wp_kses_post( wp_trim_words( get_post_meta( $post->ID, 'ecpt_quote', true ), 50, '...' ) ); ?>
 			<?php else : ?>
 				<?php echo esc_html( wp_trim_words( get_the_excerpt(), 50, '...' ) ); ?>
 			<?php endif; ?>

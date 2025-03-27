@@ -38,7 +38,7 @@
 			<?php get_template_part( 'template-parts/featured-image' ); ?>
 	<?php endif; ?>
 	
-	<div class="wayfinding md:mb-8 ml-4 xl:ml-0 pl-4 xl:pl-0">
+	<div class="wayfinding md:mb-8 ml-4 2xl:ml-0 pl-4 xl:pl-0">
 		<?php get_template_part( 'template-parts/sidebar-menu' ); ?>
 		<?php
 		if ( function_exists( 'bcn_display' ) ) :
@@ -57,7 +57,8 @@
 				'page-templates/people-directory-select.php',
 			)
 		) ) :
-		?> 
+		?>
+		 
 		<div class="sr-only">
 			Use the filters and search box to explore our people directory.
 		</div>

@@ -57,7 +57,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<div class="header-inner section-inner container">
 				<div class="header-titles grid grid-cols-1 lg:grid-cols-3 gap-x-5">
 					<div class="h-auto shield lg:pl-4">
-					<a href="https://krieger.jhu.edu" rel="home" class="hover:opacity-50 max-w-[200px] block sm:max-w-xs mx-auto lg:mx-0">
+					<a href="https://krieger.jhu.edu" class="hover:opacity-50 block max-w-[200px] sm:max-w-2xs lg:max-w-xs mx-auto lg:mx-0">
 						<?php echo file_get_contents( get_template_directory() . '/dist/images/krieger.logo.horizontal.blue.svg' ); ?>
 						<span class="sr-only">Krieger School of Arts & Sciences shield, to the KSAS homepage</span>
 					</a>
