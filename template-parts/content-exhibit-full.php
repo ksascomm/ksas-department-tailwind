@@ -10,23 +10,24 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header pl-4 pr-2 xl:pl-0 xl:pr-0">
+	<header class="pl-4 pr-4 entry-header xl:pl-0 xl:pr-0">
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif; ?>
+		endif;
+		?>
 
 	</header><!-- .entry-header -->
 
-	<div class="entry-content pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0 xl:max-w-[85ch]">
+	<div class="entry-content pl-4 pr-4 lg:pr-12 xl:pl-0 xl:pr-0 xl:max-w-[85ch]">
 		<ul class="exhibit-meta list-none! pl-0!">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_location', true ) ) : ?>
-				<li class="pl-0!"><strong>Location:</strong> <?php echo get_post_meta( $post->ID, 'ecpt_location', true ); ?></li>
+				<li class="pl-0!"><strong>Location:</strong> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_location', true ) ); ?></li>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_dates', true ) ) : ?>
-				<li class="pl-0!"><strong>Dates:</strong> <?php echo get_post_meta( $post->ID, 'ecpt_dates', true ); ?></li>
+				<li class="pl-0!"><strong>Dates:</strong> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_dates', true ) ); ?></li>
 			<?php endif; ?>
 		</ul>
 	<?php
@@ -51,15 +52,15 @@
 
 		?>
 	<?php
-		if ( has_post_thumbnail() ) :
-			the_post_thumbnail(
-				'large',
-				array(
-					'class' => 'max-w-(--breakpoint-lg)',
-				)
-			);
+	if ( has_post_thumbnail() ) :
+		the_post_thumbnail(
+			'large',
+			array(
+				'class' => 'max-w-(--breakpoint-lg)',
+			)
+		);
 		endif
-			?>	
+	?>
 	</div><!-- .entry-content -->
 	<?php if ( ! is_single() ) : ?>
 		<hr>

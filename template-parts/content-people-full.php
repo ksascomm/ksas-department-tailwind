@@ -9,15 +9,20 @@
  */
 
 ?>
-<?php global $post;
-$bio = get_post_meta( $post->ID, 'ecpt_bio', true ); ?>
+<?php
+global $post;
+$bio = get_post_meta( $post->ID, 'ecpt_bio', true );
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'people pl-4 lg:pl-0 pb-8' ); ?>>
-	<div class="alignfull mt-0! <?php if ( ! empty( $bio ) ) : ?>lg:bg-grey-lightest<?php endif;?>">
-		<div class="flex flex-wrap justify-start container mx-auto contact-info">
+	<div class="alignfull mt-0! 
+	<?php if ( ! empty( $bio ) ) : ?>
+		lg:bg-grey-lightest
+	<?php endif; ?>">
+		<div class="container flex flex-wrap justify-start mx-auto contact-info">
 		<?php
 		if ( has_post_thumbnail() ) :
 			?>
-			<div class="w-full lg:w-1/4 py-10 pr-10">
+			<div class="w-full py-10 pr-10 lg:w-1/4">
 			<?php
 			the_post_thumbnail(
 				'full',
@@ -35,17 +40,17 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true ); ?>
 			<?php
 			endif;
 		?>
-			<div class="w-full lg:w-3/4 py-8">
-			<?php if ( !get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
+			<div class="w-full py-8 lg:w-3/4">
+			<?php if ( ! get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 				<?php
 				if ( function_exists( 'bcn_display' ) ) :
 					?>
-						<div class="breadcrumbs bg-white mb-4" typeof="BreadcrumbList" vocab="https://schema.org/">
+						<div class="mb-4 bg-white breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 							<?php bcn_display(); ?>
 					</div>
 					<?php endif; ?>
-				<?php endif;?>
-				<header class="entry-header pl-0 pr-2">
+				<?php endif; ?>
+				<header class="pl-0 pr-2 entry-header">
 					<h1 class="tracking-tight leading-10 sm:leading-none pt-2 pb-4 mb-0! ">
 						<?php the_title(); ?> 
 						<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
@@ -55,7 +60,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true ); ?>
 				</header>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
 				<div class="position not-prose">
-					<h2 class="text-2xl pr-2 leading-normal font-sans font-light my-4"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></h2>
+					<h2 class="pr-2 my-4 font-sans text-2xl font-light leading-normal"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></h2>
 				</div>
 			<?php endif; ?>
 			<h3 class="sr-only">Contact Information</h3>
@@ -138,19 +143,19 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true ); ?>
 
 
 <?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
-<?php
-if ( function_exists( 'bcn_display' ) ) :
-	?>
+	<?php
+	if ( function_exists( 'bcn_display' ) ) :
+		?>
 		<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 			<?php bcn_display(); ?>
 	</div>
 	<?php endif; ?>
-<?php endif;?>
+<?php endif; ?>
 	<?php
 	if ( is_singular( 'people' ) ) :
 		?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
-		<div class="tabbed my-4 people-content">
+		<div class="my-4 tabbed people-content">
 			<ul class="pr-6 lg:pr-0 section-headings">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 				<li class="text-xl">

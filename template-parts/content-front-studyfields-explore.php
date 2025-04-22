@@ -53,9 +53,9 @@ if ( ! empty( $studyfield_response ) ) :
 <?php endif; ?>
 
 <div class="flex hero bg-grey-lightest front-featured-image-area h-auto md:h-[28rem] lg:h-[30rem]">
-	<div class="flex items-center text-left px-8 md:px-12 pb-4 md:py-0 lg:w-7/12">
+	<div class="flex items-center px-8 pb-4 text-left md:px-12 md:py-0 lg:w-7/12">
 		<div>
-			<h2 class="text-primary text-2xl md:text-3xl lg:text-4xl mt-8 lg:mt-0 font-heavy font-bold">
+			<h2 class="mt-8 text-2xl font-bold text-primary md:text-3xl lg:text-4xl lg:mt-0 font-heavy">
 				<?php if ( ! empty( $studyfield_tagline ) ) : ?>
 					<?php echo esc_html( $studyfield_tagline ); ?>
 				<?php else : ?>
@@ -68,21 +68,21 @@ if ( ! empty( $studyfield_response ) ) :
 			<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_degreesoffered[0] ) || ! empty( $studyfield_data->post_meta_fields->ecpt_majors[0] ) || ! empty( $studyfield_data->post_meta_fields->ecpt_minors[0] ) ) : ?>
 				<ul class="flex flex-wrap study-field list-none pl-0!">
 				<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_degreesoffered[0] ) ) : ?>
-					<li class="leading-tight text-base xl:text-lg px-2 inline-block relative bg-white my-2">
+					<li class="relative inline-block px-2 my-2 text-base leading-tight bg-white xl:text-lg">
 						<span class="">Degrees Offered</span>
-						<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_degrees ); ?></span>
+						<span class="block font-bold font-heavy"><?php echo esc_html( $studyfield_degrees ); ?></span>
 					</li>
 				<?php endif; ?>
 				<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_majors[0] ) ) : ?>
-					<li class="leading-tight text-base xl:text-lg px-2 inline-block relative bg-white my-2">
+					<li class="relative inline-block px-2 my-2 text-base leading-tight bg-white xl:text-lg">
 						<span class="">Major</span>
-						<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_majors[0] ); ?></span>
+						<span class="block font-bold font-heavy"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_majors[0] ); ?></span>
 					</li>
 				<?php endif; ?>
 				<?php if ( ! empty( $studyfield_data->post_meta_fields->ecpt_minors[0] ) ) : ?>
-					<li class="leading-tight text-base xl:text-lg px-2 inline-block relative bg-white my-2">
+					<li class="relative inline-block px-2 my-2 text-base leading-tight bg-white xl:text-lg">
 						<span class="">Minor</span>
-						<span class="block font-heavy font-bold"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_minors[0] ); ?></span>
+						<span class="block font-bold font-heavy"><?php echo esc_html( $studyfield_data->post_meta_fields->ecpt_minors[0] ); ?></span>
 					</li>
 				<?php endif; ?>
 				</ul>
@@ -125,7 +125,7 @@ if ( ! empty( $studyfield_response ) ) :
 if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 	?>
 	
-	<div class="container md:px-12 pt-6 pb-12">
+	<div class="container pt-6 pb-12 md:px-12">
 	<?php
 	if ( have_rows( 'explore_the_department' ) ) :
 		$count = count( get_field( 'explore_the_department' ) );
@@ -133,15 +133,15 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 		<?php $heading = get_field( 'buckets_heading' ); ?>
 		<!--Print Heading if there-->
 		<?php if ( $heading ) : ?>
-			<div class="px-4 mt-14 mb-8">
+			<div class="px-4 mb-8 mt-14">
 				<h2 class="my-0!  mx-auto font-semi font-semibold"><?php echo esc_html( $heading ); ?></h2>
 			</div>
 		<?php endif; ?>
 		<!--Show Columns Dynamically-->
 		<?php if ( $count == 2 ) : ?>
-			<div class="mx-auto grid grid-cols-1 xl:grid-cols-3 gap-4 px-4 justify-items-center">
+			<div class="grid grid-cols-1 gap-4 px-4 mx-auto xl:grid-cols-3 justify-items-center">
 		<?php elseif ( $count >= 3 ) : ?>
-			<div class="mx-auto grid grid-cols-1 xl:grid-cols-3 gap-4 px-4 justify-items-center">
+			<div class="grid grid-cols-1 gap-4 px-4 mx-auto xl:grid-cols-3 justify-items-center">
 		<?php endif; ?>
 		<?php
 		while ( have_rows( 'explore_the_department' ) ) :
@@ -160,16 +160,16 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 					<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'w-full' ) ); ?>
 				<?php endif; ?>
 				<div class="p-6 bucket-text">
-					<h3 class="text-2xl 2xl:text-3xl not-prose font-semi font-semibold mb-4">
+					<h3 class="mb-4 text-2xl font-semibold 2xl:text-3xl not-prose font-semi">
 					<?php if ( get_sub_field( 'explore_bucket_link' ) ) : ?>
-						<a href="<?php echo get_sub_field( 'explore_bucket_link' ); ?>">
-							<?php echo get_sub_field( 'explore_bucket_heading' ); ?>
+						<a href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
+							<?php the_sub_field( 'explore_bucket_heading' ); ?>
 						</a>
 						<?php else : ?>
-							<?php echo get_sub_field( 'explore_bucket_heading' ); ?>
+							<?php the_sub_field( 'explore_bucket_heading' ); ?>
 						<?php endif; ?>
 					</h3>
-					<p class="text-lg 2xl:text-xl leading-[1.5] tracking-wide font-light mx-0"><?php echo get_sub_field( 'explore_bucket_text' ); ?></p>
+					<p class="text-lg 2xl:text-xl leading-[1.5] tracking-wide font-light mx-0"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
 				</div>
 			</div>
 				<?php
@@ -177,23 +177,23 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 			else :
 				?>
 				<div class="group p-2 plain-bucket-<?php echo get_row_index(); ?>">
-					<div class="h-full rounded-lg field mb-4 px-6 py-4 overflow-hidden bg-grey-lightest grey-card-outline border-2 border-grey shadow-xs">
+					<div class="h-full px-6 py-4 mb-4 overflow-hidden border-2 rounded-lg shadow-xs field bg-grey-lightest grey-card-outline border-grey">
 						<h3 class="text-2xl 2xl:text-3xl not-prose font-semi font-semibold mt-0!">
 							<?php if ( get_sub_field( 'explore_bucket_link' ) ) : ?>
-							<a class="text-blue hover:text-primary" href="<?php echo get_sub_field( 'explore_bucket_link' ); ?>">
+							<a class="text-blue hover:text-primary" href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
 								<?php
 								$image = get_sub_field( 'explore_bucket_icon' );
 								if ( get_sub_field( 'explore_bucket_icon' ) ) :
 									?>
 									<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'bucket-icon group-hover:scale-110' ) ); ?>
 								<?php endif; ?>
-								<?php echo get_sub_field( 'explore_bucket_heading' ); ?>
+								<?php the_sub_field( 'explore_bucket_heading' ); ?>
 							</a>
 							<?php else : ?>
-								<?php echo get_sub_field( 'explore_bucket_heading' ); ?>
+								<?php the_sub_field( 'explore_bucket_heading' ); ?>
 							<?php endif; ?>
 						</h3>
-						<p class="text-lg 2xl:text-xl leading-[1.5] tracking-wide font-light mb-0!"><?php echo get_sub_field( 'explore_bucket_text' ); ?></p>
+						<p class="text-lg 2xl:text-xl leading-[1.5] tracking-wide font-light mb-0!"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
 					</div>
 				</div>
 			<?php endif; ?>

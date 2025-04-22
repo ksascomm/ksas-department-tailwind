@@ -9,7 +9,7 @@
 
 if ( ! defined( 'KSAS_DEPARTMENT_TAILWIND_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '6.1.1' );
+	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '6.2.0' );
 }
 
 if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
@@ -137,7 +137,7 @@ function ksas_department_tailwind_widgets_init() {
 			'description'   => esc_html__( 'Add a maximum of two widgets to appear only on homepage here, below news', 'ksas-department-tailwind' ),
 			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside></div>',
-			'before_title'  => '<h2 class="widget-title widget-title text-2xl font-semi font-semibold">',
+			'before_title'  => '<h2 class="text-2xl font-semibold widget-title font-semi">',
 			'after_title'   => '</h2>',
 		)
 	);
@@ -148,7 +148,7 @@ function ksas_department_tailwind_widgets_init() {
 			'description'   => esc_html__( 'Add widgets here to appear in your site-wide footer.', 'ksas-department-tailwind' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s"><div class="widget-wrapper">',
 			'after_widget'  => '</div></aside>',
-			'before_title'  => '<h2 class="widget-title text-2xl font-semi font-semibold">',
+			'before_title'  => '<h2 class="text-2xl font-semibold widget-title font-semi">',
 			'after_title'   => '</h2>',
 		)
 	);
@@ -456,7 +456,6 @@ function internal_page_submenu( $args = array() ) {
 	} else {
 		return implode( '', $output );
 	}
-
 }
 
 /**

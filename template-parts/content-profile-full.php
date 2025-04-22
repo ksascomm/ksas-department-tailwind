@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="entry-header pl-4 pr-2 xl:pl-0 xl:pr-0 flex flex-wrap flex-col md:flex-row my-4">
+	<div class="flex flex-col flex-wrap pl-4 pr-4 my-4 entry-header xl:pl-0 xl:pr-0 md:flex-row">
 		<div class="flex-initial">
 		<?php
 			the_post_thumbnail(
@@ -34,11 +34,11 @@
 				the_row();
 				?>
 			<h2>
-				<span class="custom-title text-2xl">
-					<?php echo get_sub_field( 'custom_title' ); ?>
+				<span class="text-2xl custom-title">
+					<?php the_sub_field( 'custom_title' ); ?>
 				</span>
-				<span class="custom-content text-2xl">
-					<?php echo get_sub_field( 'custom_content' ); ?>
+				<span class="text-2xl custom-content">
+					<?php the_sub_field( 'custom_content' ); ?>
 				</span>
 			</h2>
 			<?php endwhile; ?>
@@ -47,7 +47,7 @@
 			</div>
 		</div><!-- .entry-header -->
 
-	<div class="entry-content py-2 pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0 xl:max-w-[85ch]">
+	<div class="entry-content py-2 pl-4 pr-4 lg:pr-12 xl:pl-0 xl:pr-0 xl:max-w-[85ch]">
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
 

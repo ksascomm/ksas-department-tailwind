@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-<main id="site-content" class="site-main prose sm:prose lg:prose-lg mx-auto pb-2">
+<main id="site-content" class="pb-2 mx-auto prose site-main sm:prose lg:prose-lg">
 	<?php
 	while ( have_posts() ) :
 		the_post();
@@ -34,16 +34,16 @@ get_header();
 
 			if ( $bulletins->have_posts() ) :
 				?>
-		<h2 class="bulletin-category-title" id="<?php echo esc_html( $bulletin_term->slug ); ?>">
+		<h2 class="pl-8 lg:pr-12 2xl:pl-0 bulletin-category-title " id="<?php echo esc_html( $bulletin_term->slug ); ?>">
 				<?php echo esc_html( $bulletin_term->name ); ?>
 		</h2>
-		<div class="accordion my-8 p-0 border border-grey not-prose focus-within:border-[#0077D8]">
+		<div class="accordion my-8 ml-8 mr-4 lg:mr-12 2xl:ml-0 2xl:mr-0 p-0 border border-grey not-prose focus-within:border-[#0077D8]">
 				<?php
 				while ( $bulletins->have_posts() ) :
 					$bulletins->the_post();
 					?>
 				<div class="accordion-element">
-					<h3 class="accordion-heading my-0 font-heavy font-bold focus-within:bg-grey">
+					<h3 class="my-0 font-bold accordion-heading font-heavy focus-within:bg-grey">
 						<button type="button"
 								aria-expanded="false"
 								class="border-none accordion-trigger block text-lg relative text-left w-full m-0 px-[1.5em] py-[1em] bg-none focus:bg-[hsl(216,_94%,_94%)] hover:bg-[hsl(216,_94%,_94%)] focus:outline-hidden aria-expanded:border-l-2 aria-expanded:border-blue aria-expanded:bg-grey-lightest"
@@ -55,8 +55,8 @@ get_header();
 								</span>
 						</button>
 					</h3>
-					<div id="<?php the_ID(); ?>" role="region" aria-labelledby="accordion<?php the_ID(); ?>" class="accordion-panel m-0 py-4 px-6 border-blue border-l-2" hidden="">
-						<ul class="entry-meta mt-0 mb-2 uppercase font-semi font-semibold text-xl">
+					<div id="<?php the_ID(); ?>" role="region" aria-labelledby="accordion<?php the_ID(); ?>" class="px-6 py-4 m-0 border-l-2 accordion-panel border-blue" hidden="">
+						<ul class="mt-0 mb-2 text-xl font-semibold uppercase entry-meta font-semi">
 							<li>Posted: <?php the_time( 'F j, Y' ); ?></li>
 							<?php if ( get_field( 'bulletin_deadline' ) ) : ?>
 							<li>Deadline: <?php the_field( 'bulletin_deadline' ); ?></li>

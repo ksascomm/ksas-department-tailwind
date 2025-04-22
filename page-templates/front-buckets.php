@@ -2,7 +2,7 @@
 /**
  * Template Name: Front (Buckets)
  * The template for displaying the front page with 3 buckets via ACF.
- * Options for events feed above news, widget within news, 
+ * Options for events feed above news, widget within news,
  * and widgets below news feed.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
@@ -13,7 +13,7 @@
 get_header();
 ?>
 
-	<main id="site-content" class="site-main front prose md:prose-lg lg:prose-xl">
+	<main id="site-content" class="prose site-main front md:prose-lg lg:prose-xl">
 
 		<?php
 		while ( have_posts() ) :
@@ -33,14 +33,14 @@ get_header();
 		<?php
 		if ( get_field( 'show_homepage_news_feed', 'option' ) ) :
 			// If ACF Conditional is YES, display news feed.
-			$heading = get_field( 'homepage_news_header', 'option' );
+			$heading       = get_field( 'homepage_news_header', 'option' );
 			$news_quantity = get_field( 'homepage_news_posts', 'option' );
 			?>
 
 		<div class="mt-2 mb-4 relative h-1 pb-4 after:absolute after:bg-[rgb(229_226_224_/_var(--tw-bg-opacity,1))] after:border-[rgb(49_38_29_/_var(--tw-border-opacity,1))] after:z-1 after:top-[-9px] after:left-[calc(50%_-_9px)] after:w-[18px] after:h-[18px] after:border after:shadow-[inset_0_0_0_2px_#fefefe,0_0_0_4px_#fefefe] after:rounded-[50%] after:border-solid; before:absolute before:w-[90%] before:h-px before:bg-[linear-gradient(_to_right,transparent,rgb(49,38,29),transparent_)] before:top-0 before:inset-x-[5%]"></div>
 		
-		<div class="news-section px-2 sm:px-0 py-12">
-			<div class="prose sm:prose lg:prose-lg xl:prose-xl mx-auto">
+		<div class="px-2 py-12 news-section sm:px-0">
+			<div class="mx-auto prose sm:prose lg:prose-lg xl:prose-xl">
 				<div class="flex flex-wrap justify-between px-4 lg:px-2">
 					<div>
 						<h2 class="pb-4 md:pb-0 my-0!"><?php echo esc_html( $heading ); ?></h2>
@@ -54,9 +54,9 @@ get_header();
 			<?php
 			$news_query = new WP_Query(
 				array(
-					'post_type'      => 'post',
-					'posts_per_page' => $news_quantity,
-					'ignore_sticky_posts' => 1 
+					'post_type'           => 'post',
+					'posts_per_page'      => $news_quantity,
+					'ignore_sticky_posts' => 1,
 				)
 			);
 			?>

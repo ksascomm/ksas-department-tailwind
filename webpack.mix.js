@@ -35,7 +35,7 @@ mix.setPublicPath(path.resolve('./'));
   });
 
   // handle site-wide JS files
-  mix.scripts(["resources/js/twentytwenty.js", "resources/js/custom-jquery.js", "resources/js/wai-dropdown.js" ,"resources/js/wai-accordion.js","resources/js/navbar.js" ], "dist/js/bundle.min.js")
+  mix.scripts(["resources/js/twentytwenty.js", "resources/js/custom-jquery.js", "resources/js/wai-dropdown.js", "resources/js/wai-accordion.js","resources/js/navbar.js" ], "dist/js/bundle.min.js")
 
   //Minify and move isotope to dist directory
   mix.scripts(

@@ -21,13 +21,13 @@
 	 */
 	if ( has_post_thumbnail() ) :
 		?>
-		<div class="h-full grid grid-cols-1 lg:grid-cols-4 gap-4">
+		<div class="grid h-full grid-cols-1 gap-4 lg:grid-cols-4">
 			<div class="not-prose">
 				<?php
 					the_post_thumbnail(
 						'full',
 						array(
-							'class' => 'w-80 lg:w-auto mb-4 lg:mt-0 pl-4 pr-2',
+							'class' => 'w-80 lg:w-auto mb-4 lg:mt-0 pl-4 pr-4',
 							'alt'   => the_title_attribute(
 								array(
 									'echo' => false,
@@ -42,7 +42,7 @@
 					<?php
 					if ( 'post' === get_post_type() ) :
 						?>
-						<div class="entry-meta mb-2 uppercase font-semi font-semibold text-xl">
+						<div class="mb-2 text-xl font-semibold uppercase entry-meta font-semi">
 							<?php
 							ksas_department_tailwind_posted_on();
 							?>
@@ -67,7 +67,7 @@
 
 				if ( 'post' === get_post_type() ) :
 					?>
-					<div class="entry-meta mb-2 uppercase font-semi font-semibold text-xl">
+					<div class="mb-2 text-xl font-semibold uppercase entry-meta font-semi">
 						<?php
 						ksas_department_tailwind_posted_on();
 						?>
@@ -80,7 +80,7 @@
 						<?php the_title( '<h2 class="entry-title text-3xl! mt-2!"><a class="archive-post" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 				<?php endif; ?>
 			</header><!-- .entry-header -->
-			<div class="entry-content w-full pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
+			<div class="w-full pl-4 pr-4 entry-content lg:pr-12 xl:pl-0 xl:pr-0">
 				<?php
 					the_excerpt();
 				?>

@@ -73,14 +73,14 @@ if ( ! function_exists( 'ksas_department_tailwind_cleanup_head' ) ) :
 	}
 endif;
 
-// Remove WP version from RSS.
+/** Remove WP version from RSS */
 if ( ! function_exists( 'ksas_department_tailwind_remove_rss_version' ) ) :
 	function ksas_department_tailwind_remove_rss_version() {
 		return '';
 	}
 endif;
 
-// Remove injected CSS for recent comments widget.
+/**  Remove injected CSS for recent comments widget */
 if ( ! function_exists( 'ksas_department_tailwind_remove_wp_widget_recent_comments_style' ) ) :
 	function ksas_department_tailwind_remove_wp_widget_recent_comments_style() {
 		if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
@@ -89,7 +89,7 @@ if ( ! function_exists( 'ksas_department_tailwind_remove_wp_widget_recent_commen
 	}
 endif;
 
-// Remove injected CSS from recent comments widget.
+/**  Remove injected CSS from recent comments widget */
 if ( ! function_exists( 'ksas_department_tailwind_remove_recent_comments_style' ) ) :
 	function ksas_department_tailwind_remove_recent_comments_style() {
 		global $wp_widget_factory;
@@ -99,7 +99,7 @@ if ( ! function_exists( 'ksas_department_tailwind_remove_recent_comments_style' 
 	}
 endif;
 
-// Remove extraneous menu classes.
+/**  Remove extraneous menu classes */
 add_filter( 'nav_menu_css_class', 'special_nav_class', 10, 2 );
 function special_nav_class( $classes, $item ) {
 	if ( ( $key = array_search( 'menu-item-object-page', $classes ) ) !== false ) {
@@ -114,7 +114,7 @@ function special_nav_class( $classes, $item ) {
 	return $classes;
 }
 
-// Change the class for sticky posts to .wp-sticky to avoid conflicts with Tailwind's sticky class.
+/**  Change the class for sticky posts to .wp-sticky to avoid conflicts with Tailwind's sticky class */
 if ( ! function_exists( 'ksas_department_tailwind__sticky_posts' ) ) :
 	function ksas_department_tailwind__sticky_posts( $classes ) {
 		if ( in_array( 'sticky', $classes, true ) ) {
@@ -153,3 +153,20 @@ function clean_post_content( $content ) {
 	return $content;
 }
 add_filter( 'the_content', 'clean_post_content' );
+
+/**  Minify the customizer css output */
+add_action( 'wp_head', 'tn_minify_customizer_css_head' );
+function tn_minify_customizer_css_head() {
+
+	remove_action( 'wp_head', 'wp_custom_css_cb', 101 ); // remove the default customizer css output
+
+	$buffer = wp_get_custom_css(); // get the customizer css
+
+	// search and replace strings
+	$buffer = preg_replace( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer );
+	$buffer = str_replace( ': ', ':', $buffer );
+	$buffer = str_replace( array( "\r\n", "\r", "\n", "\t", '  ', '    ', '    ' ), '', $buffer );
+
+	// add the minified css in wp_head
+	echo '<style id="wp-custom-css">' . $buffer . '</style>';
+}

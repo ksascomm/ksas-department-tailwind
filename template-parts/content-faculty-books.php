@@ -10,10 +10,10 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'faculty-book' ); ?>>
-	<header class="entry-header pl-4 pr-2 xl:pl-0 xl:pr-0">
+	<header class="pl-4 pr-4 entry-header xl:pl-0 xl:pr-0">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title py-4 lg:py-4">', '</h1>' );
+			the_title( '<h1 class="py-4 entry-title lg:py-4">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
@@ -21,9 +21,9 @@
 
 	</header><!-- .entry-header -->
 
-	<div class="entry-content pl-4 pr-2 lg:pr-12 xl:pl-0 xl:pr-0">
+	<div class="pl-4 pr-4 entry-content lg:pr-12 xl:pl-0 xl:pr-0">
 		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="md:float-left mr-6">
+			<div class="mr-6 md:float-left">
 				<div class="relative sm:w-64">
 				<?php
 					the_post_thumbnail(
@@ -46,7 +46,7 @@
 			<a href="<?php echo esc_url( get_permalink( $faculty_post_id ) ); ?>">
 			<?php echo esc_html( get_the_title( $faculty_post_id ) ); ?></a>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_pub_role', true ) ) : ?>
-				<div class="capitalize inline">(<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_role', true ) ); ?>)</div>
+				<div class="inline capitalize">(<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_role', true ) ); ?>)</div>
 			<?php endif; ?>
 			<?php
 			if ( get_post_meta( $post->ID, 'ecpt_author_cond', true ) == 'on' ) {
@@ -54,7 +54,7 @@
 				<br>
 				<a href="<?php echo esc_url( get_permalink( $faculty_post_id2 ) ); ?>">
 					<?php echo esc_html( get_the_title( $faculty_post_id2 ) ); ?></a>
-					<div class="capitalize inline">(<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_role2', true ) ); ?>)</div>
+					<div class="inline capitalize">(<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_role2', true ) ); ?>)</div>
 		<?php } ?>
 		</li>
 		<li class="py-2">
