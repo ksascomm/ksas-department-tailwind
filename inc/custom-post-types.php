@@ -86,12 +86,16 @@ add_image_size( 'event-widget-thumb', 430, 225, array( 'center', 'top' ) );
 add_image_size( 'faculty-book', 240, 365, false );
 
 /**
- * Custom Events Calendar Hooks
-*/ 
+* Custom Events Calendar Hooks
+*
+* @link https://theeventscalendar.com/knowledgebase/
+*/
 
 add_filter( 'tribe_get_event_website_link_label', 'tribe_get_event_website_link_label_default' );
 
-/** Modern Tribe Events change the text from the URL to a “Visit Website” */
+/**
+ * Modern Tribe Events change the text from the URL to a “Visit Website”.
+ */
 function tribe_get_event_website_link_label_default( $label ) {
 
 	if ( $label === tribe_get_event_website_url() ) {
@@ -102,15 +106,30 @@ function tribe_get_event_website_link_label_default( $label ) {
 	return $label;
 }
 
-// Inject the list of categories after the title
-add_action( 'tribe_template_before_include:events/v2/list/event/venue', function() {
-    global $post;
-	$event_categories = tribe_get_event_taxonomy( $post->ID );
-    ?>
-	<?php if ( ! empty( $event_categories ) ) : ?>
+/**
+ * Inject the list of categories after the title.
+ */
+add_action(
+	'tribe_template_before_include:events/v2/list/event/venue',
+	function () {
+		global $post;
+		$event_categories = tribe_get_event_taxonomy( $post->ID );
+		?>
+		<?php if ( ! empty( $event_categories ) ) : ?>
 		<ul class='tribe-event-categories'>
 			<?php echo tribe_get_event_taxonomy( $post->ID ); ?>
 		</ul>
 	<?php endif; ?>
-    <?php
-} );
+		<?php
+	}
+);
+
+/**
+* Change the Series View from Summary to List.
+*/
+add_filter(
+	'tec_events_pro_custom_tables_v1_series_event_view_slug',
+	function ( $view ) {
+		return 'list';
+	}
+);
