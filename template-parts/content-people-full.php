@@ -58,11 +58,16 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 						<?php endif; ?>
 					</h1>
 				</header>
-			<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
 				<div class="position not-prose">
-					<h2 class="pr-2 my-4 font-sans text-2xl font-light leading-normal"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></h2>
+					<h2 class="pr-2 my-4 font-sans text-2xl font-light leading-normal">
+					<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
+						<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?>
+					<?php else : ?>
+						<span class="capitalize"><?php echo wp_strip_all_tags( get_the_term_list( $post->ID, 'role', '', ', ' ) ); ?></span>
+					<?php endif; ?>	
+					</h2>
 				</div>
-			<?php endif; ?>
+			
 			<h3 class="sr-only">Contact Information</h3>
 
 			<ul class="not-prose">
