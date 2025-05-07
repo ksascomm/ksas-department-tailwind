@@ -34,7 +34,7 @@
 	if ( get_field( 'siteimprove', 'option' ) ) :
 		?>
 	<!-- Siteimprove Analytics -->
-	<script async src="https://siteimproveanalytics.com/js/siteanalyze_11112.js"></script>
+	<script async src="https://siteimproveanalytics.com/js/siteanalyze_11464.js"></script>
 	<!-- End Siteimprove Analytics -->
 	<?php endif; ?>
 </head>
@@ -45,17 +45,17 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <?php wp_body_open(); ?>
-	<header id="site-header" class="header-footer-group sm:justify-between shadow-md sm:items-baseline w-full" role="banner">
+	<header id="site-header" class="w-full shadow-md header-footer-group sm:justify-between sm:items-baseline" role="banner">
 		<div class="flex justify-end">
 			<div class="container relative hidden lg:inline">
-				<div class="text-white float-right bg-blue jhu-link z-10 py-2 pr-2 font-heavy font-bold ">
+				<div class="z-10 float-right py-2 pr-2 font-bold text-white bg-blue jhu-link font-heavy ">
 					<a class="mr-3 text-white hover:text-blue-light hover:border-b-2 hover:border-white" href="https://www.jhu.edu/">Johns Hopkins University</a>
 				</div>
 			</div>
 		</div>
 		<div class="header-titles-wrapper">
-			<div class="header-inner section-inner container">
-				<div class="header-titles grid grid-cols-1 lg:grid-cols-3 gap-x-5">
+			<div class="container header-inner section-inner">
+				<div class="grid grid-cols-1 header-titles lg:grid-cols-3 gap-x-5">
 					<div class="h-auto shield lg:pl-4">
 					<a href="https://krieger.jhu.edu" class="hover:opacity-50 block max-w-[200px] sm:max-w-2xs lg:max-w-xs mx-auto lg:mx-0">
 						<?php echo file_get_contents( get_template_directory() . '/dist/images/krieger.logo.horizontal.blue.svg' ); ?>
@@ -69,7 +69,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						if (
 							$ksas_department_tailwind_description || is_customize_preview() ) :
 							$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
-							echo '<span class="block font-medium font-serif py-2 lg:pt-0 text-xl xl:text-2xl">' . $ksas_department_tailwind_description . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+							echo '<span class="block py-2 font-serif text-xl font-medium lg:pt-0 xl:text-2xl">' . $ksas_department_tailwind_description . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 							?>
 							<?php endif; ?>
 						<a class="text-blue hover:text-blue-light" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
@@ -96,8 +96,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				</button><!-- .nav-toggle -->
 			</div><!-- .header-inner -->
 		</div><!-- .header-titles-wrapper -->
-		<div class="header-navigation-wrapper bg-white">
-			<div class="header-inner section-inner flex container justify-between">
+		<div class="bg-white header-navigation-wrapper">
+			<div class="container flex justify-between header-inner section-inner">
 				<div class="menu-container">
 					<button class="menu-button" aria-expanded="false" aria-controls="site-header-menu" aria-label="<?php esc_attr_e( 'Menu', 'textdomain' ); ?>"></button>
 					<div id="site-header-menu" class="site-header-menu text-primary">
