@@ -886,7 +886,8 @@ button.menu-button:focus {
 .single-post .prose .post img:not([alt]),
 .events-widget-section .tribe-events-event-image img[alt=""],
 .events-widget-section .tribe-events-event-image img:not([alt]),
-.news-thumb.no-alt {
+.news-thumb.no-alt,
+.blog .article-excerpt .no-alt {
   display: none;
 }
 /*! purgecss end ignore */

@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class("pl-4"); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'pl-4' ); ?>>
 	<header class="entry-header pr-2 xl:pl-0 xl:pr-0 max-w-[90ch]">
 		<?php
 		if ( is_singular() ) :
@@ -18,15 +18,15 @@
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
-		if ( get_post_type() === 'post') :
+		if ( get_post_type() === 'post' ) :
 			?>
-			<div class="entry-meta mb-2 uppercase font-semi font-semibold text-xl">
+			<div class="mb-2 text-xl font-semibold uppercase entry-meta font-semi">
 				<?php
 				ksas_department_tailwind_posted_on();
 				?>
 			</div><!-- .entry-meta -->
-		<?php elseif ( get_post_type() === 'bulletinboard'): ?>
-			<ul class="entry-meta mb-2 uppercase font-semi font-semibold text-xl">
+		<?php elseif ( get_post_type() === 'bulletinboard' ) : ?>
+			<ul class="mb-2 text-xl font-semibold uppercase entry-meta font-semi">
 				<li>Posted: <?php the_time( 'F j, Y' ); ?></li>
 				<?php if ( get_field( 'bulletin_deadline' ) ) : ?>
 				<li>Deadline: <?php the_field( 'bulletin_deadline' ); ?></li>
@@ -36,8 +36,8 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-	<?php if ( has_post_thumbnail() ) :?>
-		<div class="lg:max-w-[375px] lg:mr-8 lg:float-left mb-10">
+	<?php if ( has_post_thumbnail() ) : ?>
+		<div class="max-w-[400px] md:max-w-[375px] mr-20 md:mr-8 md:float-left mb-10">
 			<?php
 			the_post_thumbnail(
 				'large',
