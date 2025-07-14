@@ -127,7 +127,7 @@ module.exports = {
         lg: {
           css: {
             fontSize: "1.25rem",
-            maxWidth: "110ch",
+            maxWidth: "123ch",
             h2: {
               marginTop: "0.5rem",
               marginBottom: "0.5rem",

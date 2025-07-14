@@ -290,6 +290,12 @@ mark {
 
 /* Elements
 --------------------------------------------- */
+.edit-link {
+	margin-left: 2rem;
+	float:left;
+}
+
+
 @media (width >= theme(--breakpoint-lg)) {
   .jhu-link::before {
     content: '';

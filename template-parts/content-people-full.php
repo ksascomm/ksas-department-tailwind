@@ -16,18 +16,18 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'people pl-4 lg:pl-0 pb-8' ); ?>>
 	<div class="alignfull mt-0! 
 	<?php if ( ! empty( $bio ) ) : ?>
-		lg:bg-grey-lightest
+		md:bg-grey-lightest
 	<?php endif; ?>">
-		<div class="container flex flex-wrap justify-start mx-auto contact-info">
+		<div class="container flex flex-wrap justify-start lg:mx-auto contact-info">
 		<?php
 		if ( has_post_thumbnail() ) :
 			?>
-			<div class="w-full py-10 pr-10 lg:w-1/4">
+			<div class="w-full py-6 lg:py-10 lg:pr-10 md:w-1/2 lg:w-1/4">
 			<?php
 			the_post_thumbnail(
 				'full',
 				array(
-					'class' => 'sm:max-w-xs md:max-w-sm lg:max-w-full',
+					'class' => 'w-2xs sm:w-xs md:max-w-sm lg:max-w-full',
 					'alt'   => the_title_attribute(
 						array(
 							'echo' => false,
@@ -40,7 +40,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 			<?php
 			endif;
 		?>
-			<div class="w-full py-8 lg:w-3/4">
+			<div class="w-full md:py-8 md:w-1/2 lg:w-3/4">
 			<?php if ( ! get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 				<?php
 				if ( function_exists( 'bcn_display' ) ) :

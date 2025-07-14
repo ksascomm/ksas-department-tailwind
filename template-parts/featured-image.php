@@ -11,8 +11,8 @@
 
 <div class="alignfull featured-image-area front-featured-image-area h-auto mt-0!  bg-white lg:bg-grey-lightest" role="banner">
 	<div class="flex h-auto lg:h-80 ">
-		<div class="flex lg:items-center lg:justify-start xl:justify-center text-left px-6 sm:w-full lg:w-2/5">
-			<h1 class="tracking-tight leading-10 sm:leading-none lg:text-4xl xl:text-[44px] lg:pl-2 xl:pl-0 py-8 mb-0 ml-4 2xl:ml-0">
+		<div class="flex px-6 text-left lg:pl-12 lg:items-center lg:justify-start sm:w-full lg:w-2/5">
+			<h1 class="tracking-tight leading-10 sm:leading-none lg:text-4xl xl:text-[44px] py-8 mb-0 ml-4 2xl:ml-0">
 				<?php the_title(); ?>
 			</h1>
 		</div>
@@ -45,7 +45,7 @@
 				$i              = wp_rand( 0, count( $bg ) - 1 ); // Generate random number size of the array.
 				$selected_image = "$bg[$i]"; // Set variable equal to which random filename was chosen.
 				?>
-				<img src="<?php echo esc_url( $selected_image ); ?>" alt="Hero Image of Students on Campus" class="h-56 w-full object-cover sm:h-72 lg:w-full lg:h-full stock-image">
+				<img src="<?php echo esc_url( $selected_image ); ?>" alt="Hero Image of Students on Campus" class="object-cover w-full h-56 sm:h-72 lg:w-full lg:h-full stock-image">
 				<?php
 		endif;
 			?>
