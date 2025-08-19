@@ -9,7 +9,7 @@
 
 if ( ! defined( 'KSAS_DEPARTMENT_TAILWIND_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '6.2.3' );
+	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '6.3.0' );
 }
 
 if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
@@ -25,9 +25,9 @@ if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on KSAS_Department_Tailwind, use a find and replace
-		 * to change 'ksas-department-tailwind' to the name of your theme in all the template files.
+		 * to change 'ksas-dept-tailwind' to the name of your theme in all the template files.
 		 */
-		// load_theme_textdomain( 'ksas-department-tailwind', get_template_directory() . '/languages' );
+		// load_theme_textdomain( 'ksas-dept-tailwind', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -50,8 +50,8 @@ if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'main-nav'    => esc_html__( 'The Main Menu', 'ksas-department-tailwind' ),
-				'quick_links' => esc_html__( 'Quick Links', 'ksas-department-tailwind' ),
+				'main-nav'    => esc_html__( 'The Main Menu', 'ksas-dept-tailwind' ),
+				'quick_links' => esc_html__( 'Quick Links', 'ksas-dept-tailwind' ),
 			)
 		);
 
@@ -99,9 +99,9 @@ add_action( 'after_setup_theme', 'ksas_department_tailwind_setup' );
 function ksas_department_tailwind_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Front Above Explore Area', 'ksas-department-tailwind' ),
+			'name'          => esc_html__( 'Front Above Explore Area', 'ksas-dept-tailwind' ),
 			'id'            => 'above-explore',
-			'description'   => esc_html__( 'This sidebar will appear above the "Explore" section of homepage.', 'ksas-department-tailwind' ),
+			'description'   => esc_html__( 'This sidebar will appear above the "Explore" section of homepage.', 'ksas-dept-tailwind' ),
 			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside></div>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -110,9 +110,9 @@ function ksas_department_tailwind_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Front Below Explore Area', 'ksas-department-tailwind' ),
+			'name'          => esc_html__( 'Front Below Explore Area', 'ksas-dept-tailwind' ),
 			'id'            => 'below-explore',
-			'description'   => esc_html__( 'This sidebar will appear below the "Explore" section of homepage.', 'ksas-department-tailwind' ),
+			'description'   => esc_html__( 'This sidebar will appear below the "Explore" section of homepage.', 'ksas-dept-tailwind' ),
 			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside></div>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -121,9 +121,9 @@ function ksas_department_tailwind_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Front Events Featured', 'ksas-department-tailwind' ),
+			'name'          => esc_html__( 'Front Events Featured', 'ksas-dept-tailwind' ),
 			'id'            => 'events-featured',
-			'description'   => esc_html__( 'This widget area will only appear on the homepage and should only be used for the Events Calendar! It is located below Explore area and above news', 'ksas-department-tailwind' ),
+			'description'   => esc_html__( 'This widget area will only appear on the homepage and should only be used for the Events Calendar! It is located below Explore area and above news', 'ksas-dept-tailwind' ),
 			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside></div>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -132,9 +132,9 @@ function ksas_department_tailwind_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Below News Section', 'ksas-department-tailwind' ),
+			'name'          => esc_html__( 'Below News Section', 'ksas-dept-tailwind' ),
 			'id'            => 'below-news',
-			'description'   => esc_html__( 'Add a maximum of two widgets to appear only on homepage here, below news', 'ksas-department-tailwind' ),
+			'description'   => esc_html__( 'Add a maximum of two widgets to appear only on homepage here, below news', 'ksas-dept-tailwind' ),
 			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside></div>',
 			'before_title'  => '<h2 class="text-2xl font-semibold widget-title font-semi">',
@@ -143,9 +143,9 @@ function ksas_department_tailwind_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Site Footer', 'ksas-department-tailwind' ),
+			'name'          => esc_html__( 'Site Footer', 'ksas-dept-tailwind' ),
 			'id'            => 'sidebar-footer',
-			'description'   => esc_html__( 'Add widgets here to appear in your site-wide footer.', 'ksas-department-tailwind' ),
+			'description'   => esc_html__( 'Add widgets here to appear in your site-wide footer.', 'ksas-dept-tailwind' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s"><div class="widget-wrapper">',
 			'after_widget'  => '</div></aside>',
 			'before_title'  => '<h2 class="text-2xl font-semibold widget-title font-semi">',
@@ -177,9 +177,9 @@ function ksas_department_tailwind_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar 1', 'ksas-department-tailwind' ),
+			'name'          => esc_html__( 'Sidebar 1', 'ksas-dept-tailwind' ),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'ksas-department-tailwind' ),
+			'description'   => esc_html__( 'Add widgets here.', 'ksas-dept-tailwind' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -188,9 +188,9 @@ function ksas_department_tailwind_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar 2', 'ksas-department-tailwind' ),
+			'name'          => esc_html__( 'Sidebar 2', 'ksas-dept-tailwind' ),
 			'id'            => 'sidebar-2',
-			'description'   => esc_html__( 'Add widgets here.', 'ksas-department-tailwind' ),
+			'description'   => esc_html__( 'Add widgets here.', 'ksas-dept-tailwind' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -199,9 +199,9 @@ function ksas_department_tailwind_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar 3', 'ksas-department-tailwind' ),
+			'name'          => esc_html__( 'Sidebar 3', 'ksas-dept-tailwind' ),
 			'id'            => 'sidebar-3',
-			'description'   => esc_html__( 'Add widgets here.', 'ksas-department-tailwind' ),
+			'description'   => esc_html__( 'Add widgets here.', 'ksas-dept-tailwind' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -278,7 +278,7 @@ if ( function_exists( 'acf_add_options_page' ) ) {
  * Include a skip to content link at the top of the page so that users can bypass the menu.
  */
 function ksas_skip_link() {
-	echo '<div role="navigation" aria-label="Skip to main content"><a class="skip-link screen-reader-text" href="#site-content">' . __( 'Skip to the content', 'ksas-department-tailwind' ) . '</a></div>';
+	echo '<div role="navigation" aria-label="Skip to main content"><a class="skip-link screen-reader-text" href="#site-content">' . __( 'Skip to the content', 'ksas-dept-tailwind' ) . '</a></div>';
 }
 
 add_action( 'wp_body_open', 'ksas_skip_link', 5 );

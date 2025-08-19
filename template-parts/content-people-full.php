@@ -151,16 +151,18 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 	<?php
 	if ( function_exists( 'bcn_display' ) ) :
 		?>
-		<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-			<?php bcn_display(); ?>
-	</div>
+		<div class="ml-4 wayfinding md:mb-8 2xl:ml-6">
+			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+				<?php bcn_display(); ?>
+			</div>
+		</div>
 	<?php endif; ?>
 <?php endif; ?>
 	<?php
 	if ( is_singular( 'people' ) ) :
 		?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
-		<div class="my-4 tabbed people-content">
+		<div class="my-4 ml-4 2xl:ml-6 tabbed people-content">
 			<ul class="pr-6 lg:pr-0 section-headings">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 				<li class="text-xl">
@@ -197,42 +199,42 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 				<?php endif; ?>
 			</ul>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
-			<section class="section-content" id="section1">
-					<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_bio', true ) ); ?>
-			</section>
+			<div class="section-content" id="section1">
+				<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_bio', true ) ); ?>
+			</div>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_research', true ) ) : ?>
-			<section class="section-content" id="section2">
-					<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_research', true ) ); ?>
-			</section>
+			<div class="section-content" id="section2">
+				<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_research', true ) ); ?>
+			</div>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_teaching', true ) ) : ?>
-			<section class="section-content" id="section3">
-					<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_teaching', true ) ); ?>
-			</section>
+			<div class="section-content" id="section3">
+				<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_teaching', true ) ); ?>
+			</div>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_publications', true ) ) : ?>
-			<section class="section-content" id="section4">
-					<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_publications', true ) ); ?>
-			</section>
+			<div class="section-content" id="section4">
+				<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_publications', true ) ); ?>
+			</div>
 			<?php endif; ?>
 				<?php
 				if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) :
 					?>
-			<section class="section-content" id="section5">
-					<?php get_template_part( 'template-parts/content', 'faculty-books-people-cpt' ); ?>
-			</section>
+			<div class="section-content" id="section5">
+				<?php get_template_part( 'template-parts/content', 'faculty-books-people-cpt' ); ?>
+			</div>
 				<?php endif; ?>
 				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) : ?>
-			<section class="section-content" id="section6">
-					<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) ); ?>
-			</section>
+			<div class="section-content" id="section6">
+				<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) ); ?>
+			</div>
 			<?php endif; ?>
 
 				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) : ?>
-			<section class="section-content" id="section7">
-					<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) ); ?>
-			</section>
+			<div class="section-content" id="section7">
+				<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) ); ?>
+			</div>
 			<?php endif; ?>
 		</div>
 		<?php endif; ?>
@@ -244,7 +246,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="sr-only">%s</span>', 'ksas-department-tailwind' ),
+						__( 'Edit <span class="sr-only">%s</span>', 'ksas-dept-tailwind' ),
 						array(
 							'span' => array(
 								'class' => array(),

@@ -9,8 +9,8 @@
 
 ?>
 
-<div class="people people-card item p-2 w-full lg:w-1/3 <?php echo esc_html( get_the_roles( $post ) ); ?> <?php echo esc_html( get_the_filters( $post ) ); ?>">
-	<div class="h-full px-6 py-4 mb-4 overflow-hidden bg-white rounded-lg field research-project-card-outline">
+<div class="people people-card item p-2 mb-8 w-full lg:w-1/3 <?php echo esc_html( get_the_roles( $post ) ); ?> <?php echo esc_html( get_the_filters( $post ) ); ?>">
+	<div class="h-full px-6 overflow-hidden bg-white">
 		<?php if ( has_post_thumbnail() ) { ?>
 			<?php
 				the_post_thumbnail(
@@ -86,7 +86,7 @@
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="sr-only">%s</span>', 'ksas-department-tailwind' ),
+						__( 'Edit <span class="sr-only">%s</span>', 'ksas-dept-tailwind' ),
 						array(
 							'span' => array(
 								'class' => array(),

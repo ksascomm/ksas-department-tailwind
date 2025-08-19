@@ -19,7 +19,7 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-		<form class="p-4 mx-2 my-4 border-2 border-solid isotope-to-sort bg-grey-lightest border-grey lg:mx-0" id="filters">
+		<form class="p-4 mx-4 my-4 border-2 border-solid isotope-to-sort bg-grey-lightest border-grey" id="filters">
 		<?php
 				$ids_to_exclude            = array();
 				$faculty_titles_to_exclude = get_terms(
@@ -79,7 +79,7 @@ get_header();
 				<input class="w-full p-2 ml-2 quicksearch form-input md:w-1/2" type="text" name="search" id="id_search" aria-label="Search Form" placeholder="Enter description keyword"/>
 			</fieldset>
 		</form>
-		<div class="mt-8 ml-4 mr-2" id="isotope-list" >
+		<div class="mt-8 ml-6 mr-2" id="isotope-list" >
 			<div class="flex flex-wrap">
 		<?php
 			$positions        = get_terms(

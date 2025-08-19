@@ -16,8 +16,8 @@
 if ( function_exists( 'register_block_pattern_category' ) ) {
 
 	register_block_pattern_category(
-		'ksas-department-tailwind',
-		array( 'label' => esc_html__( 'KSAS Department Tailwind', 'ksas-department-tailwind' ) )
+		'ksas-dept-tailwind',
+		array( 'label' => esc_html__( 'KSAS Department Tailwind', 'ksas-dept-tailwind' ) )
 	);
 }
 
@@ -30,8 +30,8 @@ if ( function_exists( 'register_block_pattern' ) ) {
 	register_block_pattern(
 		'ksasblocks/simple-hero',
 		array(
-			'title'         => esc_html__( 'Simple Hero', 'ksas-department-tailwind' ),
-			'categories'    => array( 'ksas-department-tailwind' ),
+			'title'         => esc_html__( 'Simple Hero', 'ksas-dept-tailwind' ),
+			'categories'    => array( 'ksas-dept-tailwind' ),
 			'viewportWidth' => 1400,
 			'content'       => '
 			<!-- wp:columns {"verticalAlignment":"center"} -->
@@ -62,14 +62,14 @@ if ( function_exists( 'register_block_pattern' ) ) {
 	register_block_pattern(
 		'ksasblocks/staff-listing',
 		array(
-			'title'         => esc_html__( 'Staff Listing Vertical', 'ksas-department-tailwind' ),
-			'categories'    => array( 'ksas-department-tailwind' ),
+			'title'         => esc_html__( 'Staff Listing Vertical', 'ksas-dept-tailwind' ),
+			'categories'    => array( 'ksas-dept-tailwind' ),
 			'viewportWidth' => 1400,
 			'content'       => '
 			<!-- wp:group {"className":"staff-listing"} --><div class="wp-block-group staff-listing"><div class="wp-block-group__inner-container"><!-- wp:columns -->
 			<div class="wp-block-columns"><!-- wp:column {"width":"25%"} -->
 			<div class="wp-block-column" style="flex-basis:25%"><!-- wp:image {"sizeSlug":"medium","linkDestination":"none"} -->
-			<figure class="wp-block-image size-full"><img src="' . esc_url( get_template_directory_uri() ) . '/resources/images/johns_hopkins.jpg" alt="' . esc_attr__( 'Abstract Rectangles', 'ksas-department-tailwind' ) . '"/></figure>
+			<figure class="wp-block-image size-full"><img src="' . esc_url( get_template_directory_uri() ) . '/resources/images/johns_hopkins.jpg" alt="' . esc_attr__( 'Abstract Rectangles', 'ksas-dept-tailwind' ) . '"/></figure>
 			<!-- /wp:image --></div>
 			<!-- /wp:column -->
 			<!-- wp:column {"width":"75%"} -->
@@ -89,7 +89,7 @@ if ( function_exists( 'register_block_pattern' ) ) {
 			<div class="wp-block-group staff-listing"><div class="wp-block-group__inner-container"><!-- wp:columns -->
 			<div class="wp-block-columns"><!-- wp:column {"width":"25%"} -->
 			<div class="wp-block-column" style="flex-basis:25%"><!-- wp:image {"sizeSlug":"medium","linkDestination":"none"} -->
-			<figure class="wp-block-image size-full"><img src="' . esc_url( get_template_directory_uri() ) . '/resources/images/johns_hopkins.jpg" alt="' . esc_attr__( 'Abstract Rectangles', 'ksas-department-tailwind' ) . '"/></figure>
+			<figure class="wp-block-image size-full"><img src="' . esc_url( get_template_directory_uri() ) . '/resources/images/johns_hopkins.jpg" alt="' . esc_attr__( 'Abstract Rectangles', 'ksas-dept-tailwind' ) . '"/></figure>
 			<!-- /wp:image --></div>
 			<!-- /wp:column -->
 			<!-- wp:column {"width":"75%"} -->
@@ -111,8 +111,8 @@ if ( function_exists( 'register_block_pattern' ) ) {
 	register_block_pattern(
 		'ksasblocks/staff-listing-horizontal',
 		array(
-			'title'         => esc_html__( 'Staff Listing Horizontal', 'ksas-department-tailwind' ),
-			'categories'    => array( 'ksas-department-tailwind' ),
+			'title'         => esc_html__( 'Staff Listing Horizontal', 'ksas-dept-tailwind' ),
+			'categories'    => array( 'ksas-dept-tailwind' ),
 			'viewportWidth' => 1400,
 			'content'       => '<!-- wp:columns -->
 			<div class="wp-block-columns staff-listing-horizontal"><!-- wp:column -->
@@ -131,7 +131,7 @@ if ( function_exists( 'register_block_pattern' ) ) {
 			<div class="wp-block-column"><!-- wp:columns -->
 			<div class="wp-block-columns"><!-- wp:column -->
 			<div class="wp-block-column staff-listing-single"><!-- wp:image {"id":54,"sizeSlug":"large","linkDestination":"none"} -->
-			<figure class="wp-block-image size-large"><img src="' . esc_url( get_template_directory_uri() ) . '/resources/images/johns_hopkins.jpg" alt="' . esc_attr__( 'Abstract Rectangles', 'ksas-department-tailwind' ) . '"/></figure>
+			<figure class="wp-block-image size-large"><img src="' . esc_url( get_template_directory_uri() ) . '/resources/images/johns_hopkins.jpg" alt="' . esc_attr__( 'Abstract Rectangles', 'ksas-dept-tailwind' ) . '"/></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:heading {"level":4} -->
@@ -145,7 +145,7 @@ if ( function_exists( 'register_block_pattern' ) ) {
 
 			<!-- wp:column -->
 			<div class="wp-block-column staff-listing-single"><!-- wp:image {"id":54,"sizeSlug":"large","linkDestination":"none"} -->
-			<figure class="wp-block-image size-large"><img src="' . esc_url( get_template_directory_uri() ) . '/resources/images/johns_hopkins.jpg" alt="' . esc_attr__( 'Abstract Rectangles', 'ksas-department-tailwind' ) . '"/></figure>
+			<figure class="wp-block-image size-large"><img src="' . esc_url( get_template_directory_uri() ) . '/resources/images/johns_hopkins.jpg" alt="' . esc_attr__( 'Abstract Rectangles', 'ksas-dept-tailwind' ) . '"/></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:heading {"level":4} -->
@@ -163,7 +163,7 @@ if ( function_exists( 'register_block_pattern' ) ) {
 			<div class="wp-block-column"><!-- wp:columns -->
 			<div class="wp-block-columns"><!-- wp:column -->
 			<div class="wp-block-column staff-listing-single"><!-- wp:image {"id":54,"sizeSlug":"large","linkDestination":"none"} -->
-			<figure class="wp-block-image size-large"><img src="' . esc_url( get_template_directory_uri() ) . '/resources/images/johns_hopkins.jpg" alt="' . esc_attr__( 'Abstract Rectangles', 'ksas-department-tailwind' ) . '"/></figure>
+			<figure class="wp-block-image size-large"><img src="' . esc_url( get_template_directory_uri() ) . '/resources/images/johns_hopkins.jpg" alt="' . esc_attr__( 'Abstract Rectangles', 'ksas-dept-tailwind' ) . '"/></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:heading {"level":4} -->
@@ -177,7 +177,7 @@ if ( function_exists( 'register_block_pattern' ) ) {
 
 			<!-- wp:column -->
 			<div class="wp-block-column staff-listing-single"><!-- wp:image {"id":54,"sizeSlug":"large","linkDestination":"none"} -->
-			<figure class="wp-block-image size-large"><img src="' . esc_url( get_template_directory_uri() ) . '/resources/images/johns_hopkins.jpg" alt="' . esc_attr__( 'Abstract Rectangles', 'ksas-department-tailwind' ) . '"/></figure>
+			<figure class="wp-block-image size-large"><img src="' . esc_url( get_template_directory_uri() ) . '/resources/images/johns_hopkins.jpg" alt="' . esc_attr__( 'Abstract Rectangles', 'ksas-dept-tailwind' ) . '"/></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:heading {"level":4} -->
@@ -198,8 +198,8 @@ if ( function_exists( 'register_block_pattern' ) ) {
 	register_block_pattern(
 		'ksasblocks/three-column-feature',
 		array(
-			'title'         => esc_html__( 'Thee Column Feature', 'ksas-department-tailwind' ),
-			'categories'    => array( 'ksas-department-tailwind' ),
+			'title'         => esc_html__( 'Thee Column Feature', 'ksas-dept-tailwind' ),
+			'categories'    => array( 'ksas-dept-tailwind' ),
 			'viewportWidth' => 1400,
 			'content'       => '<!-- wp:columns -->
 			<div class="wp-block-columns three-column-feature"><!-- wp:column {"width":"66.66%"} -->

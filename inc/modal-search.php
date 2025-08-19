@@ -17,13 +17,13 @@
 			<?php
 			get_search_form(
 				array(
-					'label' => __( 'Search for:', 'ksas-department-tailwind' ),
+					'label' => __( 'Search for:', 'ksas-dept-tailwind' ),
 				)
 			);
 			?>
 
 			<button class="toggle search-untoggle close-search-toggle fill-children-current-color" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field">
-				<span class="sr-only"><?php _e( 'Close search', 'ksas-department-tailwind' ); ?></span>
+				<span class="sr-only"><?php _e( 'Close search', 'ksas-dept-tailwind' ); ?></span>
 				<?php twentytwenty_the_theme_svg( 'cross' ); ?>
 			</button><!-- .search-toggle -->
 

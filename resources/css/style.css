@@ -24,6 +24,12 @@
   --color-grey-darkest: #4A484C;
   --color-old-black: #2c2c33;
   --color-original-black: #000;
+  	--color-homewood-green: #008767;
+	--color-purple: #A45C98;
+	--color-plum: #51284F;
+	--color-sais-gold: #e9b300;
+	--color-gold: #f1c400;
+	--color-sand: #cba052;
   --font-mono: "Menlo", "Monaco", "monospace";
   --font-sans: "gentona-light", "system-ui", "BlinkMacSystemFont", "-apple-system", "Segoe UI", "sans-serif";
   --font-semi: "gentona-semibold", "system-ui", "BlinkMacSystemFont", "-apple-system", "Segoe UI", "sans-serif";

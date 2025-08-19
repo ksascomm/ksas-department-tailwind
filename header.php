@@ -45,6 +45,8 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <?php wp_body_open(); ?>
+<?php //get_template_part( 'template-parts/jhu-150th-bar' ); ?>
+
 	<header id="site-header" class="w-full shadow-md header-footer-group sm:justify-between sm:items-baseline" role="banner">
 		<div class="flex justify-end">
 			<div class="container relative hidden lg:inline">
@@ -53,17 +55,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				</div>
 			</div>
 		</div>
-		<div class="header-titles-wrapper">
+		<div class="mt-2 header-titles-wrapper">
 			<div class="container header-inner section-inner">
-				<div class="grid grid-cols-1 header-titles lg:grid-cols-3 gap-x-5">
-					<div class="h-auto shield lg:pl-4">
-					<a href="https://krieger.jhu.edu" class="hover:opacity-50 block max-w-[200px] sm:max-w-2xs lg:max-w-xs mx-auto lg:mx-0">
+				<div class="grid grid-cols-1 header-titles xl:grid-cols-4 gap-x-20">
+					<div class="h-auto shield xl:py-4 xl:pl-6">
+					<a href="https://krieger.jhu.edu" class="hover:opacity-50 block max-w-[200px] sm:max-w-2xs xl:max-w-xs mx-auto xl:mx-0">
 						<?php echo file_get_contents( get_template_directory() . '/dist/images/krieger.logo.horizontal.blue.svg' ); ?>
 						<span class="sr-only">Krieger School of Arts & Sciences shield, to the KSAS homepage</span>
 					</a>
 					</div>
-					<div class="lg:col-span-2">
-						<h1 class="site-title font-serifbold font-medium text-4xl lg:text-[42px] xl:text-[48px] mt-4 lg:mt-0 mb-12 md:mb-0 pt-2 lg:pt-0 text-center lg:text-left">
+					<div class="xl:col-span-3">
+						<h1 class="site-title font-serifbold font-medium text-4xl lg:text-[42px] xl:text-[48px] xl:pl-4 !mt-3 pt-2 xl:pt-0 text-center xl:text-left">
 						<?php
 							$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
 						if (
@@ -83,7 +85,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<span class="toggle-icon">
 							<?php twentytwenty_the_theme_svg( 'search' ); ?>
 						</span>
-						<span class="toggle-text"><?php _ex( 'Search', 'toggle text', 'ksas-department-tailwind' ); ?></span>
+						<span class="toggle-text"><?php _ex( 'Search', 'toggle text', 'ksas-dept-tailwind' ); ?></span>
 					</span>
 				</button><!-- .search-toggle -->
 				<button class="toggle nav-toggle mobile-nav-toggle" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle" type="button">
@@ -91,7 +93,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<span class="toggle-icon">
 							<?php twentytwenty_the_theme_svg( 'ellipsis' ); ?>
 						</span>
-						<span class="toggle-text"><?php _e( 'Menu', 'ksas-department-tailwind' ); ?></span>
+						<span class="toggle-text"><?php _e( 'Menu', 'ksas-dept-tailwind' ); ?></span>
 					</span>
 				</button><!-- .nav-toggle -->
 			</div><!-- .header-inner -->
@@ -101,7 +103,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<div class="menu-container">
 					<button class="menu-button" aria-expanded="false" aria-controls="site-header-menu" aria-label="<?php esc_attr_e( 'Menu', 'textdomain' ); ?>"></button>
 					<div id="site-header-menu" class="site-header-menu text-primary">
-						<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'ksas-department-tailwind' ); ?>">
+						<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'ksas-dept-tailwind' ); ?>">
 						<?php
 							wp_nav_menu(
 								array(
@@ -123,7 +125,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false" type="button">
 							<span class="toggle-inner">
 							<?php twentytwenty_the_theme_svg( 'search' ); ?>
-								<span class="toggle-text"><?php _ex( 'Search', 'toggle text', 'ksas-department-tailwind' ); ?></span>
+								<span class="toggle-text"><?php _ex( 'Search', 'toggle text', 'ksas-dept-tailwind' ); ?></span>
 							</span>
 						</button><!-- .search-toggle -->
 

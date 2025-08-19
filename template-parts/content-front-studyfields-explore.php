@@ -125,7 +125,7 @@ if ( ! empty( $studyfield_response ) ) :
 if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 	?>
 	
-	<div class="container pt-6 pb-12 md:px-12">
+	<div class="container pt-6 section-inner">
 	<?php
 	if ( have_rows( 'explore_the_department' ) ) :
 		$count = count( get_field( 'explore_the_department' ) );

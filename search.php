@@ -10,15 +10,15 @@
 get_header();
 ?>
 
-	<main id="site-content" class="site-main prose sm:prose lg:prose-lg mx-auto">
+	<main id="site-content" class="mx-auto prose site-main sm:prose lg:prose-lg">
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header prose px-12 py-6">
+			<header class="px-12 py-6 prose page-header">
 				<h1 class="entry-title font-semibold! font-semi!">
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'ksas-department-tailwind' ), '<span class="font-bold font-serifbold">' . get_search_query() . '</span>' );
+					printf( esc_html__( 'Search Results for: %s', 'ksas-dept-tailwind' ), '<span class="font-bold font-serifbold">' . get_search_query() . '</span>' );
 					?>
 				</h1>
 			</header><!-- .page-header -->

@@ -27,7 +27,7 @@
 		?>
 		<div class="alignfull mt-0!" role="banner">
 			<div class="flex h-auto bg-white lg:bg-grey-lightest front-featured-image-area lg:h-40">
-				<div class="flex px-6 xl:pl-0 lg:items-center xl:ml-12">
+				<div class="container flex px-6 section-inner xl:pl-0 lg:items-center xl:ml-12" style="max-width:123ch">
 					<h1 class="tracking-tight leading-10 sm:leading-none lg:text-4xl xl:text-[44px] lg:pl-2 xl:pl-0 py-8 mb-0!">
 						<?php the_title(); ?>
 					</h1>
@@ -38,7 +38,7 @@
 			<?php get_template_part( 'template-parts/featured-image' ); ?>
 	<?php endif; ?>
 	
-	<div class="pl-4 ml-4 wayfinding md:mb-8 2xl:ml-0 xl:pl-0">
+	<div class="ml-8 wayfinding md:mb-8 xl:pl-0 2xl:ml-0">
 		<?php get_template_part( 'template-parts/sidebar-menu' ); ?>
 		<?php
 		if ( function_exists( 'bcn_display' ) ) :
@@ -75,7 +75,7 @@
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="sr-only">%s</span>', 'ksas-department-tailwind' ),
+						__( 'Edit <span class="sr-only">%s</span>', 'ksas-dept-tailwind' ),
 						array(
 							'span' => array(
 								'class' => array(),

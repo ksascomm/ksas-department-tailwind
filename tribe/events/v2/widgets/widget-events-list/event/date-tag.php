@@ -18,32 +18,39 @@
 
 use Tribe__Date_Utils as Dates;
 
-$display_date    = $event->dates->start_display;
+$display_date = $event->dates->start_display;
 
-$event_month     = $display_date->format_i18n( 'F' );
-$event_day_num   = $display_date->format_i18n( 'j' );
-$event_date_attr = $display_date->format( Dates::DBDATEFORMAT );
+$event_month           = $display_date->format_i18n( 'F' );
+$event_day_num         = $display_date->format_i18n( 'j' );
+$event_date_attr       = $display_date->format( Dates::DBDATEFORMAT );
 $event_date_start_attr = $event->dates->start->format( Dates::DBDATEFORMAT );
 ?>
 <?php if ( is_active_sidebar( 'events-featured' ) || is_active_sidebar( 'below-news' ) ) : ?>
 	
-	<time class="font-heavy font-bold" datetime="<?php echo esc_attr( $event_date_attr ); ?>">
+	<time class="font-bold font-heavy" datetime="<?php echo esc_attr( $event_date_attr ); ?>">
 		
-			<?php echo esc_html( $event_month ); ?> <?php echo esc_html( $event_day_num ); ?>, 
-			<?php 
+			<?php
+			if ( ! $event->multiday ) {
+				echo esc_html( $event_month );
+				echo '&nbsp;';
+				echo esc_html( $event_day_num );
+				echo ',';}
+			?>
+			<?php
 			if ( $event->multiday ) {
 				// The date returned back contains HTML and is already escaped.
 				$event_date = $event->schedule_details->value();
 			} elseif ( $event->all_day ) {
-				$event_date = esc_html_x( 'All day', 'All day label for event', 'ksas-department-tailwind' );
+				$event_date = esc_html_x( 'All day', 'All day label for event', 'ksas-dept-tailwind' );
 			} else {
 				// The date returned back contains HTML and is already escaped.
 				$event_date = $event->short_schedule_details->value();
-			} ?>
+			}
+			?>
 			<?php echo $event_date; // phpcs:ignore. ?>
 	
 	</time>
-<?php else: ?>
+<?php else : ?>
 <div class="tribe-events-widget-events-list__event-date-tag tribe-common-g-col">
 	<time class="tribe-events-widget-events-list__event-date-tag-datetime" datetime="<?php echo esc_attr( $event_date_attr ); ?>">
 		<span class="tribe-events-widget-events-list__event-date-tag-month">
@@ -54,4 +61,4 @@ $event_date_start_attr = $event->dates->start->format( Dates::DBDATEFORMAT );
 		</span>
 	</time>
 </div>
-<?php endif;?>
+<?php endif; ?>

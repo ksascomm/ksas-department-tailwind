@@ -25,7 +25,7 @@ if ( ! function_exists( 'ksas_department_tailwind_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( '%s', 'post date', 'ksas-department-tailwind' ),
+			esc_html_x( '%s', 'post date', 'ksas-dept-tailwind' ),
 			$time_string
 		);
 
@@ -41,7 +41,7 @@ if ( ! function_exists( 'ksas_department_tailwind_posted_by' ) ) :
 	function ksas_department_tailwind_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'ksas-department-tailwind' ),
+			esc_html_x( 'by %s', 'post author', 'ksas-dept-tailwind' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
@@ -58,17 +58,17 @@ if ( ! function_exists( 'ksas_department_tailwind_entry_footer' ) ) :
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'ksas-department-tailwind' ) );
+			$categories_list = get_the_category_list( esc_html__( ', ', 'ksas-dept-tailwind' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'ksas-department-tailwind' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'ksas-dept-tailwind' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'ksas-department-tailwind' ) );
+			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'ksas-dept-tailwind' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'ksas-department-tailwind' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'ksas-dept-tailwind' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 
@@ -78,7 +78,7 @@ if ( ! function_exists( 'ksas_department_tailwind_entry_footer' ) ) :
 				sprintf(
 					wp_kses(
 						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="sr-only"> on %s</span>', 'ksas-department-tailwind' ),
+						__( 'Leave a Comment<span class="sr-only"> on %s</span>', 'ksas-dept-tailwind' ),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -95,7 +95,7 @@ if ( ! function_exists( 'ksas_department_tailwind_entry_footer' ) ) :
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="sr-only">%s</span>', 'ksas-department-tailwind' ),
+					__( 'Edit <span class="sr-only">%s</span>', 'ksas-dept-tailwind' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -241,7 +241,7 @@ function twentytwenty_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 			$toggle_duration      = twentytwenty_toggle_duration();
 
 			// Add the sub menu toggle.
-			$args->after .= '<button class="toggle sub-menu-toggle fill-children-current-color" data-toggle-target="' . $toggle_target_string . '" data-toggle-type="slidetoggle" data-toggle-duration="' . absint( $toggle_duration ) . '" aria-expanded="false" type="button"><span class="sr-only">' . __( 'Show sub menu', 'ksas-department-tailwind' ) . '</span>' . twentytwenty_get_theme_svg( 'chevron-down' ) . '</button>';
+			$args->after .= '<button class="toggle sub-menu-toggle fill-children-current-color" data-toggle-target="' . $toggle_target_string . '" data-toggle-type="slidetoggle" data-toggle-duration="' . absint( $toggle_duration ) . '" aria-expanded="false" type="button"><span class="sr-only">' . __( 'Show sub menu', 'ksas-dept-tailwind' ) . '</span>' . twentytwenty_get_theme_svg( 'chevron-down' ) . '</button>';
 
 		}
 

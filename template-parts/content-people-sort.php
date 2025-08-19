@@ -106,7 +106,7 @@
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="sr-only">%s</span>', 'ksas-department-tailwind' ),
+					__( 'Edit <span class="sr-only">%s</span>', 'ksas-dept-tailwind' ),
 					array(
 						'span' => array(
 							'class' => array(),

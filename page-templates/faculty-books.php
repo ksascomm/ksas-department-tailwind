@@ -23,7 +23,7 @@ $faculty_books_query = new WP_Query(
 );
 ?>
 
-<main id="site-content" class="site-main prose sm:prose lg:prose-lg mx-auto pb-2">
+<main id="site-content" class="pb-2 mx-auto prose site-main sm:prose lg:prose-lg">
 
 <?php
 while ( have_posts() ) :
@@ -38,7 +38,7 @@ endwhile; // End of the loop.
 if ( $faculty_books_query->have_posts() ) :
 	?>
 	<div class="mt-8">
-		<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+		<div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
 		<?php
 		while ( $faculty_books_query->have_posts() ) :
 			$faculty_books_query->the_post();

@@ -39,8 +39,8 @@ get_header();
 
 		<div class="mt-2 mb-4 relative h-1 pb-4 after:absolute after:bg-[rgb(229_226_224_/_var(--tw-bg-opacity,1))] after:border-[rgb(49_38_29_/_var(--tw-border-opacity,1))] after:z-1 after:top-[-9px] after:left-[calc(50%_-_9px)] after:w-[18px] after:h-[18px] after:border after:shadow-[inset_0_0_0_2px_#fefefe,0_0_0_4px_#fefefe] after:rounded-[50%] after:border-solid; before:absolute before:w-[90%] before:h-px before:bg-[linear-gradient(_to_right,transparent,rgb(49,38,29),transparent_)] before:top-0 before:inset-x-[5%]"></div>
 		
-		<div class="px-2 py-12 news-section sm:px-0">
-			<div class="mx-auto prose sm:prose lg:prose-lg xl:prose-xl">
+		<div class="container px-2 py-12 news-section section-inner sm:px-0">
+			<div class="prose sm:prose lg:prose-lg xl:prose-xl">
 				<div class="flex flex-wrap justify-between px-4 lg:px-2">
 					<div>
 						<h2 class="pb-4 md:pb-0 my-0!"><?php echo esc_html( $heading ); ?></h2>
@@ -60,7 +60,7 @@ get_header();
 				)
 			);
 			?>
-			<div class="grid grid-cols-1 lg:grid-cols-3 gap-4 p-4 mx-auto max-w-[112ch]">
+			<div class="grid grid-cols-1 gap-4 p-4 lg:grid-cols-3 justify-items-stretch">
 				<?php
 				if ( $news_query->have_posts() ) :
 					while ( $news_query->have_posts() ) :
