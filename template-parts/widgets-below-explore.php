@@ -9,7 +9,7 @@
 
 ?>
 
-	<div class="container below-explore-widget-section prose flex flex-col lg:flex-row mx-auto w-full pt-10 <?php ksas_department_tailwind_sidebar_class( 'below-explore' ); ?>-widgets">
-			<?php dynamic_sidebar( 'below-explore' ); ?>
+	<div class="container below-explore-widget-section prose flex flex-col lg:flex-row mx-auto w-full pt-10 section-inner <?php ksas_department_tailwind_sidebar_class( 'below-explore' ); ?>-widgets">
+		<?php dynamic_sidebar( 'below-explore' ); ?>
 	</div>
 	<!-- .widget-area -->

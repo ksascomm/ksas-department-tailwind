@@ -299,7 +299,7 @@ p.tribe-events-back a,
 	@apply py-4;
 }
 
-@media (width >=theme(--breakpoint-lg)) {
+@media (width >=theme(--breakpoint-xl)) {
 
 	.events-widget-section .tribe-events-widget-events-list__events,
 	.below-news-widget-section .tribe-events-widget-events-list__events {
@@ -501,7 +501,7 @@ p.tribe-events-back a,
 }
 
 .widget.ksas_books .book-listings {
-	@apply grid grid-cols-1 gap-4 mx-auto md:grid-cols-2 lg:grid-cols-4;
+	@apply grid grid-cols-1 gap-4 mx-auto lg:grid-cols-4;
 }
 
 

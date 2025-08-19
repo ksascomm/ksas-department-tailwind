@@ -60,7 +60,7 @@ get_header();
 				)
 			);
 			?>
-			<div class="grid grid-cols-1 gap-4 p-4 lg:grid-cols-3 justify-items-stretch">
+			<div class="grid grid-cols-1 gap-4 p-4 xl:grid-cols-3 justify-items-stretch">
 				<?php
 				if ( $news_query->have_posts() ) :
 					while ( $news_query->have_posts() ) :
