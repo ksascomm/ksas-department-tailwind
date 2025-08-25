@@ -45,16 +45,16 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <?php wp_body_open(); ?>
-<?php //get_template_part( 'template-parts/jhu-150th-bar' ); ?>
+<?php get_template_part( 'template-parts/jhu-150th-bar' ); ?>
 
 	<header id="site-header" class="w-full shadow-md header-footer-group sm:justify-between sm:items-baseline" role="banner">
-		<div class="flex justify-end">
+		<!--<div class="flex justify-end">
 			<div class="container relative hidden lg:inline">
 				<div class="z-10 float-right py-2 pr-2 font-bold text-white bg-blue jhu-link font-heavy ">
 					<a class="mr-3 text-white hover:text-blue-light hover:border-b-2 hover:border-white" href="https://www.jhu.edu/">Johns Hopkins University</a>
 				</div>
 			</div>
-		</div>
+		</div>-->
 		<div class="mt-2 header-titles-wrapper">
 			<div class="container header-inner section-inner">
 				<div class="grid grid-cols-1 header-titles xl:grid-cols-4 gap-x-20">
