@@ -34,69 +34,69 @@ if ( empty( $events ) && $hide_if_no_upcoming_events ) {
 }
 ?>
 <div class="widget-area">
-<div <?php tribe_classes( $compatibility_classes ); ?>>
-	<div
-		<?php tribe_classes( $container_classes ); ?>
-		data-js="tribe-events-view"
-		data-view-rest-nonce="<?php echo esc_attr( $rest_nonce ); ?>"
-		data-view-rest-url="<?php echo esc_url( $rest_url ); ?>"
-		data-view-manage-url="<?php echo esc_attr( $should_manage_url ); ?>"
-		<?php foreach ( $container_data as $key => $value ) : ?>
-			data-view-<?php echo esc_attr( $key ); ?>="<?php echo esc_attr( $value ); ?>"
-		<?php endforeach; ?>
-		<?php if ( ! empty( $breakpoint_pointer ) ) : ?>
-			data-view-breakpoint-pointer="<?php echo esc_attr( $breakpoint_pointer ); ?>"
-		<?php endif; ?>
-	>
-		<div class="tribe-events-widget-events-list widget">
+	<div <?php tribe_classes( $compatibility_classes ); ?>>
+		<div
+			<?php tribe_classes( $container_classes ); ?>
+			data-js="tribe-events-view"
+			data-view-rest-nonce="<?php echo esc_attr( $rest_nonce ); ?>"
+			data-view-rest-url="<?php echo esc_url( $rest_url ); ?>"
+			data-view-manage-url="<?php echo esc_attr( $should_manage_url ); ?>"
+			<?php foreach ( $container_data as $key => $value ) : ?>
+				data-view-<?php echo esc_attr( $key ); ?>="<?php echo esc_attr( $value ); ?>"
+			<?php endforeach; ?>
+			<?php if ( ! empty( $breakpoint_pointer ) ) : ?>
+				data-view-breakpoint-pointer="<?php echo esc_attr( $breakpoint_pointer ); ?>"
+			<?php endif; ?>
+		>
+			<div class="tribe-events-widget-events-list widget">
 
-			<?php $this->template( 'components/json-ld-data' ); ?>
+				<?php $this->template( 'components/json-ld-data' ); ?>
 
-			<?php $this->template( 'components/data' ); ?>
+				<?php $this->template( 'components/data' ); ?>
 
-			<?php if ( ! empty( $widget_title ) ) : ?>
-				<?php if ( is_active_sidebar( 'events-featured' ) ) : ?>
-					<div class="flex flex-wrap justify-between px-8 lg:px-0 header-area">
-						<header class="tribe-events-widget-events-list__header">
-							<h2 class="tribe-events-widget-events-list__header-title tribe-common-h6 tribe-common-h--alt !text-4xl">
-								<?php echo esc_html( $widget_title ); ?>
-							</h2>
-						</header>
-						<?php $this->template( 'widgets/widget-events-list/view-more' ); ?>
-					</div>
-				<?php elseif ( is_active_sidebar( 'below-news' ) ) : ?>
-					<div class="flex flex-wrap justify-between px-8 lg:px-0 header-area">
-						<header class="tribe-events-widget-events-list__header">
-							<h2 class="tribe-events-widget-events-list__header-title tribe-common-h6 tribe-common-h--alt !text-4xl">
-								<?php echo esc_html( $widget_title ); ?>
-							</h2>
-						</header>
-						<?php $this->template( 'widgets/widget-events-list/view-more' ); ?>
-					</div>
-				<?php else:?>
-				<header class="tribe-events-widget-events-list__header">
-					<h2 class="tribe-events-widget-events-list__header-title tribe-common-h6 tribe-common-h--alt">
-						<?php echo esc_html( $widget_title ); ?>
-					</h2>
-				</header>
+				<?php if ( ! empty( $widget_title ) ) : ?>
+					<?php if ( is_active_sidebar( 'events-featured' ) ) : ?>
+						<div class="flex flex-wrap justify-between px-8 lg:px-0 header-area">
+							<header class="tribe-events-widget-events-list__header">
+								<h2 class="tribe-events-widget-events-list__header-title tribe-common-h6 tribe-common-h--alt !text-4xl !text-primary">
+									<?php echo esc_html( $widget_title ); ?>
+								</h2>
+							</header>
+							<?php $this->template( 'widgets/widget-events-list/view-more' ); ?>
+						</div>
+					<?php elseif ( is_active_sidebar( 'below-news' ) ) : ?>
+						<div class="flex flex-wrap justify-between px-8 lg:px-0 header-area">
+							<header class="tribe-events-widget-events-list__header">
+								<h2 class="tribe-events-widget-events-list__header-title tribe-common-h6 tribe-common-h--alt !text-4xl !text-primary">
+									<?php echo esc_html( $widget_title ); ?>
+								</h2>
+							</header>
+							<?php $this->template( 'widgets/widget-events-list/view-more' ); ?>
+						</div>
+					<?php else:?>
+					<header class="tribe-events-widget-events-list__header">
+						<h2 class="tribe-events-widget-events-list__header-title tribe-common-h6 tribe-common-h--alt">
+							<?php echo esc_html( $widget_title ); ?>
+						</h2>
+					</header>
+					<?php endif; ?>
 				<?php endif; ?>
-			<?php endif; ?>
 
-			<?php if ( ! empty( $events ) ) : ?>
+				<?php if ( ! empty( $events ) ) : ?>
 
-				<div class="tribe-events-widget-events-list__events">
-					<?php foreach ( $events as $event ) : ?>
-						<?php $this->template( 'widgets/widget-events-list/event', [ 'event' => $event ] ); ?>
-					<?php endforeach; ?>
-				</div>
+					<div class="tribe-events-widget-events-list__events">
+						<?php foreach ( $events as $event ) : ?>
+							<?php $this->template( 'widgets/widget-events-list/event', [ 'event' => $event ] ); ?>
+						<?php endforeach; ?>
+					</div>
 
-			<?php else : ?>
+				<?php else : ?>
 
-				<?php $this->template( 'components/messages' ); ?>
+					<?php $this->template( 'components/messages' ); ?>
 
-			<?php endif; ?>
+				<?php endif; ?>
+			</div>
 		</div>
 	</div>
-</div>
-<?php $this->template( 'components/breakpoints' ); ?>
+	<?php $this->template( 'components/breakpoints' ); ?>
 </div>

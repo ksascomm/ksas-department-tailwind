@@ -125,7 +125,7 @@ form.post-password-form input {
 }
 
 label.gfield_label {
-  @apply font-semibold font-semi;
+  @apply font-bold font-heavy;
 }
 
 /* Link Overrides
@@ -282,11 +282,11 @@ mark {
   background: transparent;
 }
 
-.site-main .entry-content p,
+/*.site-main .entry-content p,
 .site-main .people-content p,
 .tribe-events-widget-events-list__event-details p {
   -webkit-text-stroke: 0.025rem rgba(49,38,29,0.50);
-}
+}*/
 
 /* Elements
 --------------------------------------------- */
@@ -469,7 +469,7 @@ thead th:first-child {
 }
 
 .wp-block-table th {
-  @apply p-2 font-semibold text-center border-b-0 bg-grey-lightest font-semi;
+  @apply p-2 font-bold text-center border-b-0 bg-grey-lightest font-heavy;
 }
 /*! purgecss end ignore */
 
@@ -507,7 +507,11 @@ thead th:first-child {
   min-height: 30px;
 }
 .main-navigation ul a, .main-navigation ul a:visited {
-  @apply relative font-sans text-lg font-light;
+	position: relative;
+	font-family: var(--font-sans);
+	font-weight: var(--font-weight-normal);
+	font-size: var(--text-lg);
+	letter-spacing: -0.03rem;
 }
 .main-navigation .nav-primary ul.menu > li.menu-item:not(:last-child)::after {
  @apply relative h-2 ml-4 mr-3 opacity-100 text-grey-cool;
@@ -808,7 +812,7 @@ button.menu-button:focus {
 }
 
 .menu-button-links .menu a {
-  @apply text-base font-semibold font-semi;
+  @apply text-base font-bold font-heavy;
   border-bottom: none;
 }
 
@@ -1197,7 +1201,7 @@ figure.wp-block-image .wp-element-caption {
 }
 
 .navigation ul.page-numbers li a {
-  @apply p-2 font-sans font-light border-0;
+  @apply p-2 font-sans font-normal border-0;
 }
 
 ul.page-numbers li a:hover {
@@ -1280,7 +1284,7 @@ summary::-webkit-details-marker {
 [role="tablist"] a {
   text-decoration: none;
   padding: 0.5rem 1em;
-  @apply block p-5 font-semibold leading-normal cursor-pointer font-semi;
+  @apply block p-5 font-bold leading-normal cursor-pointer font-heavy;
 }
 
 [role="tablist"] [aria-selected] {
@@ -1427,7 +1431,7 @@ summary::-webkit-details-marker {
 }
 
 .prose blockquote p {
-  @apply font-light;
+  @apply font-normal;
 }
 
 .prose blockquote cite {

@@ -20,13 +20,13 @@
 
 		if ( get_post_type() === 'post' ) :
 			?>
-			<div class="mb-2 text-xl font-semibold uppercase entry-meta font-semi">
+			<div class="mb-2 text-xl font-bold uppercase entry-meta font-heavy">
 				<?php
 				ksas_department_tailwind_posted_on();
 				?>
 			</div><!-- .entry-meta -->
 		<?php elseif ( get_post_type() === 'bulletinboard' ) : ?>
-			<ul class="mb-2 text-xl font-semibold uppercase entry-meta font-semi">
+			<ul class="mb-2 text-xl font-bold uppercase entry-meta font-heavy">
 				<li>Posted: <?php the_time( 'F j, Y' ); ?></li>
 				<?php if ( get_field( 'bulletin_deadline' ) ) : ?>
 				<li>Deadline: <?php the_field( 'bulletin_deadline' ); ?></li>

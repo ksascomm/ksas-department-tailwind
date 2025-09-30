@@ -10,8 +10,8 @@
 ?>
 
 	<div class="container px-4 py-12 mx-auto events-widget-section section-inner">
-		
-		<?php dynamic_sidebar( 'events-featured' ); ?>
-		
+		<div class="2xl:max-w-[1800px] 2xl:mx-auto">
+			<?php dynamic_sidebar( 'events-featured' ); ?>
+		</div>
 	</div>
 	<!-- .widget-area -->

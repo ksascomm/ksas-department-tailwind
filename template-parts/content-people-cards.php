@@ -43,7 +43,7 @@
 		</h2>
 		<ul class="not-prose">
 		<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
-			<li class="leading-normal"><strong class="font-semi"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></strong></li>
+			<li class="leading-normal"><strong><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></strong></li>
 		<?php endif; ?>
 		<?php
 		if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
@@ -59,14 +59,14 @@
 				<li><span class="fa-solid fa-location-dot"></span> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_office', true ) ); ?></li>
 			<?php endif; ?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_expertise', true ) ) : ?>
-			<li class="pt-2 leading-normal"><strong class="font-semi">Research Interests:&nbsp;</strong>
+			<li class="pt-2 leading-normal"><strong class="font-bold font-heavy">Research Interests:&nbsp;</strong>
 			<?php
 			echo esc_html( wp_trim_words( get_post_meta( $post->ID, 'ecpt_expertise', true ), 30, '[&hellip;]' ) );
 			?>
 			</li>
 		<?php endif; ?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_thesis', true ) ) : ?>
-			<li class="pt-2 leading-normal"><strong class="font-semi">Thesis Title:</strong> "<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_thesis', true ) ); ?>"
+			<li class="pt-2 leading-normal"><strong class="font-bold font-heavy">Thesis Title:</strong> "<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_thesis', true ) ); ?>"
 			<?php if ( get_post_meta( $post->ID, 'ecpt_job_abstract', true ) ) : ?>
 				&nbsp;- <a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_job_abstract', true ) ); ?>">Download Abstract  <span class="fa-solid fa-file-pdf" aria-hidden="true"></span></a>
 			<?php endif; ?>
@@ -74,10 +74,10 @@
 		<?php endif; ?>
 
 		<?php if ( get_post_meta( $post->ID, 'ecpt_advisor', true ) ) : ?>
-			<li class="pt-2 leading-normal"><strong class="font-semi">Main Adviser: </strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_advisor', true ) ); ?></li>
+			<li class="pt-2 leading-normal"><strong class="font-bold font-heavy">Main Adviser: </strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_advisor', true ) ); ?></li>
 		<?php endif; ?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_fields', true ) ) : ?>
-			<li class="pt-2 leading-normal"><strong class="font-semi">Fields: </strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_fields', true ) ); ?></li>
+			<li class="pt-2 leading-normal"><strong class="font-bold font-heavy">Fields: </strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_fields', true ) ); ?></li>
 		<?php endif; ?>
 		</ul>
 		<?php if ( get_edit_post_link() ) : ?>

@@ -9,8 +9,8 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="flex flex-col flex-wrap pl-4 pr-4 my-4 entry-header xl:pl-0 xl:pr-0 md:flex-row">
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'px-4' ); ?>>
+	<div class="flex flex-col flex-wrap my-4 entry-header md:flex-row">
 		<div class="flex-initial">
 		<?php
 			the_post_thumbnail(
@@ -47,7 +47,7 @@
 			</div>
 		</div><!-- .entry-header -->
 
-	<div class="entry-content py-2 pl-4 pr-4 lg:pr-12 xl:pl-0 xl:pr-0 xl:max-w-[85ch]">
+	<div class="entry-content py-2 lg:pr-12 xl:max-w-[85ch]">
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
 

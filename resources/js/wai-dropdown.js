@@ -16,6 +16,12 @@ class MenuButtonLinks {
     this.domNode = domNode;
     this.buttonNode = domNode.querySelector('button');
     this.menuNode = domNode.querySelector('[role="menu"]');
+
+	if (!this.buttonNode || !this.menuNode) {
+		console.warn('MenuButtonLinks: Missing required elements in', domNode);
+		return;
+	}
+
     this.menuitemNodes = [];
     this.firstMenuitem = false;
     this.lastMenuitem = false;
@@ -148,17 +154,23 @@ class MenuButtonLinks {
 
   // Popup menu methods
 
-  openPopup() {
-    this.menuNode.style.display = 'block';
-    this.buttonNode.setAttribute('aria-expanded', 'true');
-  }
+	openPopup() {
+	if (!this.menuNode) {
+		console.warn('Menu node not found for:', this.domNode);
+		return;
+	}
+	this.menuNode.style.display = 'block';
+	this.buttonNode.setAttribute('aria-expanded', 'true');
+	}
 
-  closePopup() {
-    if (this.isOpen()) {
-      this.buttonNode.setAttribute('aria-expanded', 'false');
-      this.menuNode.style.display = 'none';
-    }
-  }
+	closePopup() {
+	if (this.isOpen()) {
+		this.buttonNode.setAttribute('aria-expanded', 'false');
+		if (this.menuNode) {
+		this.menuNode.style.display = 'none';
+		}
+	}
+	}
 
   isOpen() {
     return this.buttonNode.getAttribute('aria-expanded') === 'true';

@@ -20,7 +20,7 @@ if ( empty( $view_more_link ) ) {
 	return;
 }
 ?>
-<div class="tribe-events-widget-events-list__view-more tribe-common-b1 tribe-common-b2--min-medium">
+<div class="!mt-0 tribe-events-widget-events-list__view-more tribe-common-b1 tribe-common-b2--min-medium">
 	<a
 		href="<?php echo esc_url(home_url('/events/')); ?>"
 		class="font-bold tribe-events-widget-events-list__view-more-link tribe-common-anchor-thin"

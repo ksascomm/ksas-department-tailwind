@@ -42,7 +42,7 @@
 					<?php
 					if ( 'post' === get_post_type() ) :
 						?>
-						<div class="mb-2 text-xl font-semibold uppercase entry-meta font-semi">
+						<div class="mb-2 text-xl font-bold uppercase entry-meta font-heavy">
 							<?php
 							ksas_department_tailwind_posted_on();
 							?>
@@ -67,7 +67,7 @@
 
 				if ( 'post' === get_post_type() ) :
 					?>
-					<div class="mb-2 text-xl font-semibold uppercase entry-meta font-semi">
+					<div class="mb-2 text-xl font-bold uppercase entry-meta font-heavy">
 						<?php
 						ksas_department_tailwind_posted_on();
 						?>

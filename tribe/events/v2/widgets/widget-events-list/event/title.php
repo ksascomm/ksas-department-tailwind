@@ -23,19 +23,21 @@
 		rel="bookmark"
 		class="tribe-events-widget-events-list__event-title-link tribe-common-anchor-thin"
 	>
-	<?php if ( is_active_sidebar( 'events-featured' ) || is_active_sidebar( 'below-news' )  ) : ?>
+	<?php if ( is_active_sidebar( 'events-featured' ) || is_active_sidebar( 'below-news' ) ) : ?>
 		<?php
-		$thetitle =  $event->title; /* or you can use get_the_title() */
-		$getlength = strlen($thetitle);
+		$thetitle  = $event->title; /* or you can use get_the_title() */
+		$getlength = strlen( $thetitle );
 		$thelength = 70;
-		echo substr($thetitle, 0, $thelength);
-		if ($getlength > $thelength) echo "...";
+		echo substr( $thetitle, 0, $thelength );
+		if ( $getlength > $thelength ) {
+			echo '...';
+		}
 		?>
-	<?php else: ?>
+	<?php else : ?>
 		<?php
 		// phpcs:ignore
 		echo $event->title;
 		?>
-	<?php endif;?>
+	<?php endif; ?>
 	</a>
 </h3>

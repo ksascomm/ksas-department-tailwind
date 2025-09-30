@@ -59,7 +59,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 					</h1>
 				</header>
 				<div class="position not-prose">
-					<h2 class="pr-2 my-4 font-sans text-2xl font-light leading-normal">
+					<h2 class="pr-2 my-4 font-sans text-2xl font-normal leading-normal">
 					<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
 						<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?>
 					<?php else : ?>

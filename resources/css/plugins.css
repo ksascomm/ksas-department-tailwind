@@ -6,14 +6,22 @@
   --------------------------------------------- */
 
 .breadcrumbs {
-	@apply block pl-2 ml-4 -mb-4 lg:inline-block text-grey-darkest lg:border lg:border-grey-cool;
+	display: block;
+	margin-bottom: calc(var(--spacing) * -4);
+	margin-left: calc(var(--spacing) * 4);
+	padding-left: calc(var(--spacing) * 2);
+	color: var(--color-grey-darkest);
 	background-color: rgba(191, 204, 217, 0);
 	padding-top: .125rem;
-	padding-bottom: 0.25rem
+	padding-bottom: 0.25rem;
+	font-size: var(--text-sm);
+	@apply lg:inline-block lg:border lg:border-grey-cool;
 }
 
 .breadcrumbs span {
-	@apply font-semibold font-semi;
+	font-family: var(--font-medium);
+	font-weight: var(--font-weight-medium);
+	font-size: var(--text-sm);
 }
 
 .single-post .breadcrumbs,
@@ -98,7 +106,8 @@ table.tablepress thead th {
 .tribe-events-widget-events-list__event-date-tag-daynum.tribe-common-h2.tribe-common-h4--min-medium,
 .tribe-events-widget-events-list__event-date-tag-month,
 .tribe-events-widget-events-list__header-title.tribe-common-h6.tribe-common-h--alt {
-	@apply font-heavy!;
+	font-weight: var(--font-weight-bold);
+	font-family: var(--font-heavy);
 }
 
 .tribe-events-widget-events-list__event-title-link.tribe-common-anchor-thin {
@@ -115,7 +124,7 @@ table.tablepress thead th {
 }
 
 .tribe-events-widget-events-list__event-datetime {
-	@apply font-sans text-lg font-light;
+	@apply font-sans text-lg font-normal;
 }
 
 .tribe-events-widget-events-list__header-title.tribe-common-h6.tribe-common-h--alt {
@@ -123,7 +132,7 @@ table.tablepress thead th {
 }
 
 .tribe-events-widget-events-list__view-more-link.tribe-common-anchor-thin {
-	@apply font-sans! font-light! bg-blue! text-white! inline-flex! py-2! px-3! text-base! items-center! border-none!;
+	@apply font-sans! font-normal! bg-blue! text-white! inline-flex! py-2! px-3! text-base! items-center! border-none!;
 }
 
 .tribe-events-widget-events-list__view-more-link.tribe-common-anchor-thin:hover {
@@ -140,7 +149,7 @@ table.tablepress thead th {
 
 p.tribe-events-back a,
 .tribe-events-c-subscribe-dropdown__list-item-link {
-	@apply font-semibold font-semi;
+	@apply font-bold font-heavy;
 }
 
 .tribe-common .tribe-common-c-btn-border,
@@ -173,7 +182,7 @@ p.tribe-events-back a,
 }
 
 .tribe-common--breakpoint-medium.tribe-common .tribe-common-h4--min-medium {
-	@apply font-semibold font-semi;
+	@apply font-bold font-heavy;
 }
 
 #tribe-events-pg-template,
@@ -191,7 +200,7 @@ p.tribe-events-back a,
 }
 
 .tribe-events-single p {
-	@apply font-sans font-light;
+	@apply font-sans font-normal;
 }
 
 .tribe-events-meta-group-details dt,
@@ -203,7 +212,7 @@ p.tribe-events-back a,
 .tribe-venue,
 .tribe-events-nav-previous,
 .tribe-events-nav-next {
-	@apply font-sans text-lg font-light;
+	@apply font-sans text-lg font-normal;
 }
 
 /* Events Calendar Widgets ------------------------------ */
@@ -355,7 +364,7 @@ p.tribe-events-back a,
 }
 
 .widget.research-highlight .widget-title {
-	@apply my-0! mx-auto font-semi font-semibold px-8 mt-12 mb-4 lg:text-white;
+	@apply my-0! mx-auto font-heavy font-bold px-8 mt-12 mb-4 lg:text-white;
 }
 
 .widget.research-highlight a.button {
@@ -523,15 +532,15 @@ p.tribe-events-back a,
 }
 
 .widget.ksas_books article h3 {
-	@apply my-2 text-lg font-semibold leading-tight font-semi md:px-4;
+	@apply my-2 text-lg font-bold leading-tight font-heavy md:px-4;
 }
 
 .widget.ksas_books article p {
-	@apply font-light md:px-4;
+	@apply font-normal md:px-4;
 }
 
 .widget.ksas_books article p strong {
-	@apply font-sans font-light;
+	@apply font-sans font-normal;
 }
 
 @media (width >=theme(--breakpoint-md)) {

@@ -11,21 +11,30 @@
  * @param   array $context The context provided to the block by the post or it's parent block.
  */
 
- $template = [
-    ['core/button',[
-        'url' => wp_get_attachment_url(561),
-    ]],
-	[
+$template = array(
+	array(
+		'core/button',
+		array(
+			'url' => wp_get_attachment_url( 561 ),
+		),
+	),
+	array(
 		'core/heading',
-		[
+		array(
 			'level'     => 5,
 			'content'   => 'Heading goes here.',
 			'align'     => 'center',
-			'className' => 'card-heading text-red-500'
-		]
-	],
-	[ 'core/paragraph', [ 'content' => 'Describe here.', 'align' => 'left' ] ],
-];
+			'className' => 'card-heading text-red-500',
+		),
+	),
+	array(
+		'core/paragraph',
+		array(
+			'content' => 'Describe here.',
+			'align'   => 'left',
+		),
+	),
+);
 
 $arg_type         = get_field( 'loop_argument_type' );
 $testimonial_type = get_field( 'testimonial_type' );
@@ -70,39 +79,66 @@ if ( $spotlight_block_query->have_posts() ) :
 	while ( $spotlight_block_query->have_posts() ) :
 		$spotlight_block_query->the_post();
 		?>
-	<div class="<?php echo esc_attr( $class_name ); ?> mx-auto flex flex-wrap max-w-md overflow-hidden rounded-lg shadow-sm p-8 border-2 border-grey">
-	
-		<?php if ( has_post_thumbnail() ) :?>
-			<div class="thumbnail w-full lg:w-1/4">
-				<?php the_post_thumbnail(
-					'large',
-					array(
-						'alt'   => get_the_title(),
-					)
-				); 
-				?>
-			</div>
-			<?php endif; ?>
-			<div class="text w-full lg:w-3/4 p-4 md:p-4">
-				<h3 class="text-2xl font-bold text-gray-800 dark:text-white">
-					<a href="<?php the_permalink(); ?>" id="post-<?php the_ID(); ?>">
-						<?php the_title(); ?>
-					</a>
-				</h3>
-				<p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+	<div class="relative">
+	<div class="block-padding">
+		<div class="relative <?php echo esc_attr( $class_name ); ?> pt-8">
+			<div
+				class="relative z-10 max-w-lg text-left transition shadow-md cursor-pointer group bg-blue-light hover:bg-blue-medium fx fadeInUp" id="post-<?php the_ID(); ?>">
+				<div class="-translate-x-5 -translate-y-5 bg-white shadow-md ">
 				<?php
-				if ( get_post_meta( $post->ID, 'ecpt_pull_quote', true ) ) {
-					echo esc_html( get_post_meta( $post->ID, 'ecpt_pull_quote', true ) );
-				} else {
-					echo wp_trim_words( get_the_excerpt(), 40, '...' ); }
+				if ( has_post_thumbnail() ) :
+					?>
+					<div class="flex-none w-full overflow-hidden h-1/4 bg-gray aspect-video">
+						<?php
+						the_post_thumbnail(
+							'large',
+							array(
+								'class' => 'object-cover object-center h-full w-full',
+							)
+						);
+						?>
+					</div>
+					<?php
+					endif;
 				?>
-				</p>
-				<?php $spotlight_archive_link = get_field( 'spotlight_archive_link' ); ?>
-		<?php if ( $spotlight_archive_link ) : ?>
-			<a class="button" href="<?php echo esc_url( $spotlight_archive_link) ; ?>"><?php the_field( 'spotlight_archive_label' ); ?>&nbsp; <span class="fa fa-chevron-circle-right" aria-hidden="true"></span></a>
-		<?php endif; ?>
+					<div class="flex flex-col p-8 ">
+						<div class="font-bold uppercase font-heavy">
+							<?php
+								global $post;
+								$terms = get_the_terms( $post->ID, 'profiletype' );
+							foreach ( $terms as $term ) {
+								echo $term->name;
+							}
+							?>
+							Spotlight
+						</div>
+						<div class="mb-5 text-2xl font-bold font-heavy"><?php the_title(); ?></div>
+						<div class="text-lg leading-snug">
+							<?php
+							global $post;
+							if ( get_post_meta( $post->ID, 'ecpt_pull_quote', true ) ) :
+								?>
+								<?php echo get_post_meta( $post->ID, 'ecpt_pull_quote', true ); ?>
+							<?php elseif ( get_post_meta( $post->ID, 'ecpt_quote', true ) ) : ?>
+								<?php echo get_post_meta( $post->ID, 'ecpt_quote', true ); ?>
+							<?php else : ?>
+								<?php the_excerpt(); ?>
+							<?php endif; ?>
+						</div>
+					</div>
+				</div>
+				<div class="flex items-center gap-4 px-5 pb-5 font-bold text-white not-prose">
+					<a class="flex items-center font-bold text-white font-heavy" href="<?php echo esc_url( get_permalink() ); ?>"><span>Learn More</span>
+					<span
+						class="relative inline-flex items-center justify-center ml-4 transition border-2 border-white rounded-full h-9 w-9 group-hover:rotate-90"><span
+							class="bg-white absolute top-1/2 left-1/2 h-[2px] w-3 -translate-y-1/2 -translate-x-1/2"></span><span
+							class="bg-white absolute top-1/2 left-1/2 h-[2px] w-3 -translate-y-1/2 -translate-x-1/2 rotate-90"></span></span>
+					</a>
+				</div>
 			</div>
+		</div>
 	</div>
+</div>
 	<?php endwhile;
 endif;
 ?>

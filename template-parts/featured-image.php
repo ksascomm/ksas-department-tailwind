@@ -11,7 +11,7 @@
 
 <div class="alignfull featured-image-area front-featured-image-area h-auto mt-0!  bg-white lg:bg-grey-lightest" role="banner">
 	<div class="flex h-auto lg:h-80 ">
-		<div class="flex lg:pr-6 text-left pl-6 md:pl-[4%] 2xl:pl-[6%] lg:items-center lg:justify-start sm:w-full lg:w-2/5">
+		<div class="flex lg:pr-6 text-left pl-6 md:pl-[4%] 2xl:pl-[6%] 3xl:pl-[12%] 4xl:pl-[15%] lg:items-center lg:justify-start sm:w-full lg:w-2/5">
 			<h1 class="tracking-tight leading-10 sm:leading-none lg:text-4xl xl:text-[44px] py-8 mb-0">
 				<?php the_title(); ?>
 			</h1>

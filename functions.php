@@ -9,7 +9,7 @@
 
 if ( ! defined( 'KSAS_DEPARTMENT_TAILWIND_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '6.3.1' );
+	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '7.0.0' );
 }
 
 if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
@@ -104,7 +104,7 @@ function ksas_department_tailwind_widgets_init() {
 			'description'   => esc_html__( 'This sidebar will appear above the "Explore" section of homepage.', 'ksas-dept-tailwind' ),
 			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside></div>',
-			'before_title'  => '<h2 class="widget-title">',
+			'before_title'  => '<h2 class="font-bold widget-title font-heavy">',
 			'after_title'   => '</h2>',
 		)
 	);
@@ -115,7 +115,7 @@ function ksas_department_tailwind_widgets_init() {
 			'description'   => esc_html__( 'This sidebar will appear below the "Explore" section of homepage.', 'ksas-dept-tailwind' ),
 			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside></div>',
-			'before_title'  => '<h2 class="widget-title">',
+			'before_title'  => '<h2 class="font-bold widget-title font-heavy">',
 			'after_title'   => '</h2>',
 		)
 	);
@@ -126,7 +126,7 @@ function ksas_department_tailwind_widgets_init() {
 			'description'   => esc_html__( 'This widget area will only appear on the homepage and should only be used for the Events Calendar! It is located below Explore area and above news', 'ksas-dept-tailwind' ),
 			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside></div>',
-			'before_title'  => '<h2 class="widget-title">',
+			'before_title'  => '<h2 class="font-bold widget-title font-heavy">',
 			'after_title'   => '</h2>',
 		)
 	);
@@ -137,7 +137,7 @@ function ksas_department_tailwind_widgets_init() {
 			'description'   => esc_html__( 'Add a maximum of two widgets to appear only on homepage here, below news', 'ksas-dept-tailwind' ),
 			'before_widget' => '<div class="widget-area"><aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside></div>',
-			'before_title'  => '<h2 class="text-2xl font-semibold widget-title font-semi">',
+			'before_title'  => '<h2 class="text-2xl font-bold widget-title font-heavy">',
 			'after_title'   => '</h2>',
 		)
 	);
@@ -148,7 +148,7 @@ function ksas_department_tailwind_widgets_init() {
 			'description'   => esc_html__( 'Add widgets here to appear in your site-wide footer.', 'ksas-dept-tailwind' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s"><div class="widget-wrapper">',
 			'after_widget'  => '</div></aside>',
-			'before_title'  => '<h2 class="text-2xl font-semibold widget-title font-semi">',
+			'before_title'  => '<h2 class="text-2xl font-bold widget-title font-heavy">',
 			'after_title'   => '</h2>',
 		)
 	);
@@ -159,7 +159,7 @@ function ksas_department_tailwind_widgets_init() {
 			'description'   => 'This sidebar will appear on pages under Graduate',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h2 class="widget-title">',
+			'before_title'  => '<h2 class="font-bold widget-title font-heavy">',
 			'after_title'   => '</h2>',
 		)
 	);
@@ -171,7 +171,7 @@ function ksas_department_tailwind_widgets_init() {
 			'description'   => 'This sidebar will appear on pages under Undergraduate',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h2 class="widget-title">',
+			'before_title'  => '<h2 class="font-bold widget-title font-heavy">',
 			'after_title'   => '</h2>',
 		)
 	);
@@ -182,7 +182,7 @@ function ksas_department_tailwind_widgets_init() {
 			'description'   => esc_html__( 'Add widgets here.', 'ksas-dept-tailwind' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h2 class="widget-title">',
+			'before_title'  => '<h2 class="font-bold widget-title font-heavy">',
 			'after_title'   => '</h2>',
 		)
 	);
@@ -193,7 +193,7 @@ function ksas_department_tailwind_widgets_init() {
 			'description'   => esc_html__( 'Add widgets here.', 'ksas-dept-tailwind' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h2 class="widget-title">',
+			'before_title'  => '<h2 class="font-bold widget-title font-heavy">',
 			'after_title'   => '</h2>',
 		)
 	);
@@ -204,7 +204,7 @@ function ksas_department_tailwind_widgets_init() {
 			'description'   => esc_html__( 'Add widgets here.', 'ksas-dept-tailwind' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h2 class="widget-title">',
+			'before_title'  => '<h2 class="font-bold widget-title font-heavy">',
 			'after_title'   => '</h2>',
 		)
 	);

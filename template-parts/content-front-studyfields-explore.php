@@ -134,7 +134,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 		<!--Print Heading if there-->
 		<?php if ( $heading ) : ?>
 			<div class="px-4 mb-8 mt-14">
-				<h2 class="my-0!  mx-auto font-semi font-semibold"><?php echo esc_html( $heading ); ?></h2>
+				<h2 class="my-0! mx-auto font-bold font-heavy"><?php echo esc_html( $heading ); ?></h2>
 			</div>
 		<?php endif; ?>
 		<!--Show Columns Dynamically-->
@@ -160,7 +160,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 					<?php echo wp_get_attachment_image( $image['ID'], 'full', false, array( 'class' => 'w-full' ) ); ?>
 				<?php endif; ?>
 				<div class="p-6 bucket-text">
-					<h3 class="mb-4 text-2xl font-semibold 2xl:text-3xl not-prose font-semi">
+					<h3 class="mb-4 text-2xl font-bold 2xl:text-3xl not-prose font-heavy">
 					<?php if ( get_sub_field( 'explore_bucket_link' ) ) : ?>
 						<a href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
 							<?php the_sub_field( 'explore_bucket_heading' ); ?>
@@ -169,7 +169,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 							<?php the_sub_field( 'explore_bucket_heading' ); ?>
 						<?php endif; ?>
 					</h3>
-					<p class="text-lg 2xl:text-xl leading-[1.5] tracking-wide font-light mx-0"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
+					<p class="text-lg 2xl:text-xl leading-[1.5] tracking-wide font-normal mx-0"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
 				</div>
 			</div>
 				<?php
@@ -178,7 +178,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 				?>
 				<div class="group p-2 plain-bucket-<?php echo get_row_index(); ?>">
 					<div class="h-full px-6 py-4 mb-4 overflow-hidden border-2 rounded-lg shadow-xs field bg-grey-lightest grey-card-outline border-grey">
-						<h3 class="text-2xl 2xl:text-3xl not-prose font-semi font-semibold mt-0!">
+						<h3 class="text-2xl 2xl:text-3xl not-prose font-heavy font-bold mt-0!">
 							<?php if ( get_sub_field( 'explore_bucket_link' ) ) : ?>
 							<a class="text-blue hover:text-primary" href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
 								<?php
@@ -193,7 +193,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 								<?php the_sub_field( 'explore_bucket_heading' ); ?>
 							<?php endif; ?>
 						</h3>
-						<p class="text-lg 2xl:text-xl leading-[1.5] tracking-wide font-light mb-0!"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
+						<p class="text-lg 2xl:text-xl leading-[1.5] tracking-wide font-normal mb-0!"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
 					</div>
 				</div>
 			<?php endif; ?>
