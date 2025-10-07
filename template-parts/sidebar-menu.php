@@ -44,7 +44,7 @@ if ( $children ) :
 	?>
 	 
  
- <div class="relative hidden text-left menu-button-links lg:mr-8 lg:inline-block">
+<div class="relative hidden text-left menu-button-links lg:mr-8 lg:inline-block">
 	<button 
 		class="inline-block justify-center px-4 py-2 text-[.875rem]! leading-5 font-heavy font-bold text-white lg:bg-blue lg:border lg:border-grey-cool uppercase"
 		type="button"

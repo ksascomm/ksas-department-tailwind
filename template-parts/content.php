@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'pl-4' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'pl-8' ); ?>>
 	<header class="entry-header pr-2 xl:pl-0 xl:pr-0 max-w-[90ch]">
 		<?php
 		if ( is_singular() ) :

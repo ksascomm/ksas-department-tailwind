@@ -8,7 +8,7 @@
 .breadcrumbs {
 	display: block;
 	margin-bottom: calc(var(--spacing) * -4);
-	margin-left: calc(var(--spacing) * 4);
+	margin-left: calc(var(--spacing) * 8);
 	padding-left: calc(var(--spacing) * 2);
 	color: var(--color-grey-darkest);
 	background-color: rgba(191, 204, 217, 0);
@@ -144,7 +144,7 @@ table.tablepress thead th {
 }
 
 .tribe-events-widget-events-list__event-date-tag-month {
-	@apply text-primary! font-semi! font-semibold!;
+	@apply text-primary! font-heavy! font-bold!;
 }
 
 p.tribe-events-back a,

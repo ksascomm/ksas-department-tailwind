@@ -1390,22 +1390,25 @@ summary::-webkit-details-marker {
 
 /* Alignments
 --------------------------------------------- */
-.alignleft {
-  /*rtl:ignore*/
-  float: left;
+@media screen and (min-width: 64rem) {
+	.alignleft {
+	/*rtl:ignore*/
+	float: left;
+	padding-right: 2rem;
 
-  /*rtl:ignore*/
-  margin-right: 1.5em;
-  margin-bottom: 1.5em;
-}
+	/*rtl:ignore*/
+	margin-right: 1.5em;
+	margin-bottom: 1.5em;
+	}
 
-.alignright {
-  /*rtl:ignore*/
-  float: right;
+	.alignright {
+	/*rtl:ignore*/
+	float: right;
 
-  /*rtl:ignore*/
-  margin-left: 1.5em;
-  margin-bottom: 1.5em;
+	/*rtl:ignore*/
+	margin-left: 1.5em;
+	margin-bottom: 1.5em;
+	}
 }
 
 .alignfull {
@@ -3074,7 +3077,7 @@ body > .is-root-container > .wp-block-template-part > .wp-block-cover,
     display: none;
   }
 
-  .expanded-menu {
+  .expanded-men
     display: block;
   }
 
