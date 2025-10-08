@@ -1540,7 +1540,7 @@ summary::-webkit-details-marker {
 }
 
 .prose .wp-block-button .wp-block-button__link:hover,
-.prose .wp-block-button.is-style-outline .wp-block-button__link:hover,  {
+.prose .wp-block-button.is-style-outline .wp-block-button__link:hover {
   @apply bg-blue-light;
 }
 
@@ -3077,7 +3077,7 @@ body > .is-root-container > .wp-block-template-part > .wp-block-cover,
     display: none;
   }
 
-  .expanded-men
+  .expanded-menu {
     display: block;
   }
 

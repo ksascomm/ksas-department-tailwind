@@ -154,6 +154,7 @@ jQuery(document).ready(function($) {
 	
 	// Add tab panel semantics and hide them all
 	Array.prototype.forEach.call(panels, (panel, i) => {
+	  if (!tabs[i]) return; // Skip if no matching tab
 	  panel.setAttribute('role', 'tabpanel');
 	  panel.setAttribute('tabindex', '-1');
 	  let id = panel.getAttribute('id');

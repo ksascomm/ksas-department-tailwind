@@ -43,7 +43,7 @@
 		</h2>
 		<ul class="not-prose">
 		<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
-			<li class="leading-normal"><strong><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></strong></li>
+			<li class="font-bold leading-normal font-heavy"><strong><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></strong></li>
 		<?php endif; ?>
 		<?php
 		if ( get_post_meta( $post->ID, 'ecpt_email', true ) ) :
