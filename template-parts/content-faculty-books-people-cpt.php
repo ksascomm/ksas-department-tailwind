@@ -59,18 +59,19 @@ if ( $faculty_book_tab_query->have_posts() ) :
 		?>
 		</div>
 		<div class="py-2 sm:col-span-2">
-			<h2 class="leading-tight! text-xl!">
+			<h2 class="text-xl!">
 				<a class="hover:text-primary" href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 			</h2>
-			<p class="not-prose">
-				<span class="pb-2 capitalize"><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_role', true ) ); ?></span>
+			<ul class="not-prose mb-0!">
+				<li><span class="capitalize"><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_role', true ) ); ?></span>
 				<?php
 				if ( get_post_meta( $post->ID, 'ecpt_author_cond', true ) == 'on' ) {
 					$faculty_post_id2 = get_post_meta( $post->ID, 'ecpt_pub_author2', true );
 					?>
 					(with <span class="capitalize"><?php echo esc_html( get_the_title( $faculty_post_id2 ) ); ?>,&nbsp;<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_role2', true ) ); ?></span>)
 				<?php } ?>
-				<br>
+				</li>
+				<li class="leading-[1.25]">
 				<?php if ( get_post_meta( $post->ID, 'ecpt_publisher', true ) ) : ?>
 					<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_publisher', true ) ); ?>
 				<?php endif; ?>
@@ -78,7 +79,8 @@ if ( $faculty_book_tab_query->have_posts() ) :
 					<span class="inline -ml-1">,</span>
 					<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_date', true ) ); ?>
 				<?php endif; ?>
-			</p>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>

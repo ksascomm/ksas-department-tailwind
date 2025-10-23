@@ -196,6 +196,11 @@ li.tribe-events-c-top-bar__nav-list-item a.tribe-common-c-btn-icon {
   box-shadow: none;
 }
 
+.entry-content h2.wp-block-heading a:hover,
+.entry-content h3.wp-block-heading a:hover,
+.entry-content h4.wp-block-heading a:hover {
+	color: var(--color-primary);
+}
 
 /* Lists (Override Prose's Inexplicable ::before)
 --------------------------------------------- */
@@ -786,6 +791,125 @@ button.menu-button:focus {
     position: inherit;
     right: auto;
  }
+
+ /* New Dropdown Menu width and icon alignment */
+ /* 1. Let submenu <li> size automatically */
+ .main-navigation ul ul li,
+ .no-js .main-navigation ul ul li {
+ 	float: none;
+ 	width: auto;
+ 	/* allow content to define width */
+ 	min-width: 13.5rem;
+ 	/* optional: don't get too narrow */
+ 	white-space: nowrap;
+ 	/* prevent wrapping of long text */
+ }
+
+ /* 2. Arrange link text and caret side-by-side */
+ .main-navigation ul ul li {
+ 	display: flex;
+ 	align-items: center;
+ 	justify-content: space-between;
+ 	position: relative;
+ }
+
+ /* 3. Make <a> take the available space minus caret */
+ .main-navigation ul ul li>a {
+ 	display: block;
+ 	flex: 1 1 auto;
+ 	/* allows link text to fill space */
+ 	padding-right: 1.5rem;
+ 	/* room for caret if needed */
+ }
+
+ /* 4. Style caret (from dropdown-toggle) properly */
+ .main-navigation ul ul .dropdown-toggle {
+ 	background: none;
+ 	border: 0;
+ 	cursor: pointer;
+ 	padding: 0 0.5rem;
+ 	font-size: inherit;
+ 	line-height: inherit;
+ 	display: inline-flex;
+ 	align-items: center;
+ 	justify-content: center;
+ 	padding: 0.25rem !important;
+ 	height: 1.25rem;
+ 	/* or whatever matches your line height */
+ 	width: 1.25rem;
+ }
+
+ .main-navigation ul ul .dropdown-toggle::after {
+ 	content: "\f054";
+ 	/* Font Awesome angle-right */
+ 	font: var(--fa-font-solid);
+ 	font-size: 0.75rem;
+ 	line-height: 1;
+ 	padding: 0.25rem !important;
+ 	display: inline-block;
+ }
+
+ /* 🧱 1. Remove absolute positioning from dropdown toggles */
+ ul.sub-menu .dropdown-toggle {
+ 	position: static;
+ 	/* use normal document flow */
+ 	right: auto;
+ 	top: auto;
+ 	margin-left: 0.25rem;
+ 	/* small space between text and caret */
+ 	display: inline-flex;
+ 	/* align caret properly with text */
+ 	align-items: center;
+ 	/* vertically center the icon */
+ 	justify-content: center;
+ 	background: none;
+ 	border: none;
+ 	cursor: pointer;
+ 	padding: 0;
+ 	width: 1.25rem;
+ 	/* keeps caret area consistent */
+ 	height: 1.25rem;
+ 	/* vertically matches text line height */
+ }
+
+ /* 2️⃣ Make the <li> flex so the <a> and <button> align */
+ .main-navigation ul ul li.menu-item-has-children {
+ 	display: flex;
+ 	align-items: center;
+ 	justify-content: space-between;
+ }
+
+ /* 3️⃣ Ensure the link text fills remaining space */
+ .main-navigation ul ul li.menu-item-has-children>a {
+ 	flex: 1 1 auto;
+ 	white-space: nowrap;
+ 	padding-right: 0.5rem;
+ }
+
+ /* 4️⃣ Keep your existing icon styles but remove vertical hacks */
+ .main-navigation ul ul .dropdown-toggle:after {
+ 	content: "\f054";
+ 	/* right arrow */
+ 	font: var(--fa-font-solid);
+ 	font-size: 0.75rem;
+ 	line-height: 1;
+ 	/* vertically centers icon */
+ 	display: inline-block;
+ }
+
+ .main-navigation ul ul .dropdown-toggle.toggled-on:after {
+ 	content: "\f053";
+ 	/* left arrow when expanded */
+ 	font: var(--fa-font-solid);
+ 	font-size: 0.75rem;
+ 	line-height: 1;
+ }
+
+ /* 5️⃣ Optional: match font color of caret to menu text */
+ .main-navigation ul ul .dropdown-toggle:after {
+ 	color: inherit;
+ }
+
 }
 
 /* Interior Page Dropdown Menu ---------------------------- */
@@ -1040,11 +1164,11 @@ button.menu-button:focus {
 .graduate-sidebar ul li,
 .undergraduate-sidebar ul li,
 .sidebar-1.sidebar ul li {
-  @apply relative;
+  position: relative;
 }
 
 .graduate-sidebar ul li:before,
-.undergraduate-sidebar ul li:before
+.undergraduate-sidebar ul li:before,
 .sidebar-1.sidebar ul li:before {
   content: "";
   position: absolute;
@@ -1605,7 +1729,7 @@ summary::-webkit-details-marker {
 .single-people #section3 *,
 .single-people #section4 *,
 .single-people #section6 *,
-.single-people #section7 *
+.single-people #section7 *,
 .faculty-books * {
   max-width: 85ch;
 }

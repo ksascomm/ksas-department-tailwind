@@ -178,7 +178,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 				?>
 				<div class="group p-2 plain-bucket-<?php echo get_row_index(); ?>">
 					<div class="h-full px-6 py-4 mb-4 overflow-hidden border-2 rounded-lg shadow-xs field bg-grey-lightest grey-card-outline border-grey">
-						<h3 class="text-2xl 2xl:text-3xl not-prose font-heavy font-bold mt-0!">
+						<h3 class="my-4 text-2xl font-bold 2xl:text-3xl not-prose font-heavy">
 							<?php if ( get_sub_field( 'explore_bucket_link' ) ) : ?>
 							<a class="text-blue hover:text-primary" href="<?php the_sub_field( 'explore_bucket_link' ); ?>">
 								<?php
