@@ -169,7 +169,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 							<?php the_sub_field( 'explore_bucket_heading' ); ?>
 						<?php endif; ?>
 					</h3>
-					<p class="text-lg 2xl:text-xl leading-[1.5] tracking-wide font-normal mx-0"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
+					<p class="text-lg 2xl:text-xl leading-[1.5] font-normal mx-0"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
 				</div>
 			</div>
 				<?php
@@ -193,7 +193,7 @@ if ( function_exists( 'get_field' ) && get_field( 'explore_the_department' ) ) :
 								<?php the_sub_field( 'explore_bucket_heading' ); ?>
 							<?php endif; ?>
 						</h3>
-						<p class="text-lg 2xl:text-xl leading-[1.5] tracking-wide font-normal mb-0!"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
+						<p class="text-lg 2xl:text-xl leading-[1.5] font-normal mb-0!"><?php the_sub_field( 'explore_bucket_text' ); ?></p>
 					</div>
 				</div>
 			<?php endif; ?>

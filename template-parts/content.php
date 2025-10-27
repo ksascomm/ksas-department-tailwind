@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'pl-8' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'pl-6 lg:pl-8' ); ?>>
 	<header class="entry-header pr-2 xl:pl-0 xl:pr-0 max-w-[90ch]">
 		<?php
 		if ( is_singular() ) :
@@ -37,7 +37,7 @@
 
 	<div class="entry-content">
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="max-w-[400px] md:max-w-[375px] mr-20 md:mr-8 md:float-left mb-10">
+		<div class="max-w-[400px] md:max-w-[375px] mr-20 md:mr-8 md:float-left mb-10 pr-8">
 			<?php
 			the_post_thumbnail(
 				'large',

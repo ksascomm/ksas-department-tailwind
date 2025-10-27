@@ -19,9 +19,23 @@
 }
 
 .breadcrumbs span {
-	font-family: var(--font-medium);
-	font-weight: var(--font-weight-medium);
-	font-size: var(--text-sm);
+	font-family: var(--font-heavy);
+	font-weight: var(--font-weight-bold);
+}
+
+.breadcrumbs span.current-item,
+.breadcrumbs span a {
+	@apply mx-4;
+	font-size: 1rem;
+}
+
+.breadcrumbs span.current-item {
+	@apply text-primary;
+}
+
+.breadcrumbs span a.home,
+.breadcrumbs span a.main-home {
+	@apply ml-0!;
 }
 
 .single-post .breadcrumbs,
@@ -40,29 +54,6 @@
 	@apply mb-6;
 }
 
-.breadcrumbs span.current-item,
-.breadcrumbs span a {
-	@apply mx-4 tracking-wide uppercase;
-	font-size: 0.875rem;
-}
-
-.breadcrumbs span.current-item {
-	@apply text-primary;
-}
-
-.breadcrumbs span a.home,
-.breadcrumbs span a.main-home {
-	@apply ml-0!;
-}
-
-@media only screen and (max-width: 740px) {
-	.breadcrumbs {
-		@apply absolute w-px h-px overflow-hidden;
-		clip: rect(1px 1px 1px 1px);
-		clip: rect(1px, 1px, 1px, 1px);
-	}
-}
-
 .breadcrumbs a:hover {
 	border-bottom-width: 2px;
 	border-color: rgb(49 38 29);
@@ -79,6 +70,15 @@
 	content: "\f015";
 	padding-right: .25rem;
 }
+
+@media only screen and (max-width: 740px) {
+	.breadcrumbs {
+		@apply absolute w-px h-px overflow-hidden;
+		clip: rect(1px 1px 1px 1px);
+		clip: rect(1px, 1px, 1px, 1px);
+	}
+}
+
 
 /* TablePress
   --------------------------------------------- */
@@ -478,7 +478,7 @@ p.tribe-events-back a,
 }
 
 .widget.ksas_profile .spotlight-image-meta img {
-	@apply object-cover rounded-full h-36 w-36;
+	@apply hidden object-cover rounded-full h-36 w-36 lg:block;
 }
 
 .widget.ksas_profile .spotlight-image-meta .spotlight-author h3 {
@@ -504,6 +504,16 @@ p.tribe-events-back a,
 	margin-top: 1rem;
 	@apply text-base hover:bg-blue-light hover:text-primary;
 }
+
+@media screen and (max-width:1023px) {
+	.widget.ksas_profile p.view-more-link a,
+	.widget.ksas_books .view-more-link a {
+		white-space: nowrap;
+		padding: .75rem;
+		font-size: var(--text-sm);
+	}
+}
+
 
 .widget.ksas_books {
 	@apply mb-20 mx-auto sm:max-w-(--breakpoint-sm) md:max-w-(--breakpoint-md) lg:max-w-(--breakpoint-lg);

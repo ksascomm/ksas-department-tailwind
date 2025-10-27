@@ -798,11 +798,10 @@ button.menu-button:focus {
  .no-js .main-navigation ul ul li {
  	float: none;
  	width: auto;
- 	/* allow content to define width */
- 	min-width: 13.5rem;
- 	/* optional: don't get too narrow */
- 	white-space: nowrap;
- 	/* prevent wrapping of long text */
+	min-width: 13.5rem;     /* optional: don't get too narrow */
+	max-width: 20rem;       /* ✅ set a reasonable max width */
+	white-space: normal;    /* ✅ allow text to wrap */
+	word-break: break-word; /* ✅ wrap long words if needed */
  }
 
  /* 2. Arrange link text and caret side-by-side */
@@ -1011,6 +1010,10 @@ button.menu-button:focus {
   margin-top: 0;
 }
 
+.single-post .entry-content p {
+	padding-right: 1rem;
+}
+
 /*! purgecss start ignore */
 .news-section .article-excerpt img[alt=""],
 .news-section .article-excerpt img:not([alt]),
@@ -1049,7 +1052,7 @@ button.menu-button:focus {
 }
 
 .below-explore-widget-section .widget {
-  @apply px-6 py-2 mx-0 mt-0;
+  @apply px-2 py-2 mx-0 mt-0 lg:px-6;
 }
 
 .below-explore-widget-section .widget h2 {
@@ -1875,6 +1878,7 @@ figure.wp-block-pullquote {
 /* Block: Accordion ------------------------------ */
 .wp-block-pb-accordion-item.c-accordion__item {
   @apply pb-2 my-2;
+  max-width: 90ch;
 }
 
 .wp-block-pb-accordion-item.c-accordion__item .c-accordion__title {
@@ -3236,7 +3240,13 @@ body > .is-root-container > .wp-block-template-part > .wp-block-cover,
   .header-toggles {
     margin-right: -1rem;
   }
-} 
+}
+
+@media (max-width: 1023px) {
+	.front .section-inner {
+	width: calc(100% - 0rem);
+  }
+}
 
 @media (min-width: 1220px) {
   /* HEADER TOGGLES */

@@ -11,7 +11,7 @@
 <?php if ( is_sticky() ) : ?>
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-excerpt prose sm:prose lg:prose-lg xl:prose-xl mx-auto pt-4 mb-4 wp-sticky bg-grey-lightest border-2 border-solid border-grey m-4 block p-4' ); ?> aria-label="<?php the_title(); ?>">
 <?php else : ?>
-	<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-excerpt prose sm:prose lg:prose-lg xl:prose-xl mx-auto border-b border-solid border-grey pt-4 mb-4' ); ?> aria-label="<?php the_title(); ?>">
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-excerpt prose sm:prose lg:prose-lg xl:prose-xl mx-auto border-b border-solid border-grey px-2 py-4 mb-4' ); ?> aria-label="<?php the_title(); ?>">
 <?php endif; ?>
 	<?php
 	/**
