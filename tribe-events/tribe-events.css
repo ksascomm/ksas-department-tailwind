@@ -1,6 +1,5 @@
 :root {
 	--tec-font-family-sans-serif: "worksans-regular", "Tahoma", sans-serif;
-	"
 	--font-family-base: var(--tec-font-family-sans-serif);
 	--tec-font-weight-regular: 300;
 	--tec-color-button-primary: #002d72;
@@ -10,6 +9,11 @@
 	--tec-color-text-event-date: #31261d;
 	--tec-color-link-accent: #002d72;
 	--tec-color-accent-primary: #002d72;
+}
+
+.tribe-common {
+	-webkit-font-smoothing: auto !important;
+	-moz-osx-font-smoothing: auto !important;
 }
 
 @media screen and (min-width:1450px) {
