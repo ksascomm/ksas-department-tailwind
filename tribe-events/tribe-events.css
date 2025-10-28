@@ -230,7 +230,7 @@ a.tribe-events-calendar-list__event-title-link.tribe-common-anchor-thin,
 h3.tribe-events-calendar-list__event-title a.tribe-events-calendar-list__event-title-link.tribe-common-anchor-thin:visited {
 	color: #002d72;
 	border-bottom-width: 2px;
-	border-color: var(--color-grey);
+	/*border-color: var(--color-grey);*/
 }
 
 .tribe-events-calendar-list__event-details h3.tribe-events-calendar-list__event-title a.tribe-events-calendar-list__event-title-link:hover {
@@ -240,6 +240,16 @@ h3.tribe-events-calendar-list__event-title a.tribe-events-calendar-list__event-t
 
 .tribe-events-single-event-description.tribe-events-content p a:hover,
 .tribe-events-single-event-description.tribe-events-content li a:hover {
+	color: #fefefe !important;
+}
+
+.tribe-events-calendar-list a.tribe-events-calendar-series-archive__link{
+	 color: #002d72 !important;
+}
+
+.tribe-events-calendar-list a.tribe-events-calendar-list__event-title-link.tribe-common-anchor-thin:hover,
+.tribe-events-calendar-list a.tribe-events-calendar-list__event-title-link.tribe-common-anchor-thin a:visited:hover,
+.tribe-events-calendar-list a.tribe-events-calendar-series-archive__link:hover {
 	color: #fefefe !important;
 }
 
@@ -656,7 +666,7 @@ img.tribe-events-calendar-list__event-featured-image:not([alt]) {
 }
 
 a.tribe-events-series-relationship-single-marker__title.tribe-common-cta--alt,
-.tec_series_marker__title {
+/*.tec_series_marker__title*/ {
 	color: #002d72;
 	border: none;
 	border-bottom: 0.125em solid;
@@ -689,8 +699,8 @@ a.tribe-events-calendar-series-archive__link:hover {
 a.tribe-events-calendar-series-archive__link {
 	color: #002d72;
 	border: none;
-	border-bottom: 0.125em solid;
-	border-bottom-color: #d6d6d6;
+	/*border-bottom: 0.125em solid;
+	border-bottom-color: #d6d6d6;*/
 	background-color: transparent;
 	border-radius: 0;
 	transition: border-color, background-color, color;
@@ -701,7 +711,7 @@ a.tribe-events-calendar-series-archive__link {
 }
 
 a.tribe-events-calendar-series-archive__link:hover,
-a>.tec_series_marker__title:hover {
+/*a>.tec_series_marker__title:hover*/ {
 	color: #31261d;
 	border-bottom: 0.125em solid;
 	border-bottom-color: #4a484c;
