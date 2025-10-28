@@ -48,7 +48,7 @@
 			</div>
 		<?php endif; ?>
 	</div>
-	<div class="pl-8 pr-4 entry-content lg:pr-12 2xl:pl-0 2xl:pr-0">
+	<div class="pl-8 pr-4 entry-content lg:pr-12 2xl:pr-0">
 	<?php
 	if (
 		is_page_template(

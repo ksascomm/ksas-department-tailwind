@@ -1732,13 +1732,13 @@ summary::-webkit-details-marker {
 .single-people #section3 *,
 .single-people #section4 *,
 .single-people #section6 *,
-.single-people #section7 *,
-.faculty-books * {
+.single-people #section7 * {
   max-width: 85ch;
 }
 
 .single-post.has-post-thumbnail .entry-content p,
-.single-post.has-post-thumbnail .entry-content li {
+.single-post.has-post-thumbnail .entry-content li,
+.single-faculty-books .faculty-book p {
   max-width: 100ch;
 }
 

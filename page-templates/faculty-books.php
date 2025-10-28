@@ -38,7 +38,7 @@ endwhile; // End of the loop.
 if ( $faculty_books_query->have_posts() ) :
 	?>
 	<div class="mt-8">
-		<div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+		<div class="grid grid-cols-1 gap-8 lg:max-w-6xl lg:grid-cols-3">
 		<?php
 		while ( $faculty_books_query->have_posts() ) :
 			$faculty_books_query->the_post();

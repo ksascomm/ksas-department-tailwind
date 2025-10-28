@@ -34,7 +34,7 @@ get_header();
 
 			if ( $bulletins->have_posts() ) :
 				?>
-		<h2 class="pl-8 lg:pr-12 2xl:pl-0 bulletin-category-title " id="<?php echo esc_html( $bulletin_term->slug ); ?>">
+		<h2 class="pl-8 lg:pr-12 bulletin-category-title " id="<?php echo esc_html( $bulletin_term->slug ); ?>">
 				<?php echo esc_html( $bulletin_term->name ); ?>
 		</h2>
 		<div class="accordion my-8 ml-8 mr-4 lg:mr-12 2xl:ml-0 2xl:mr-0 p-0 border border-grey not-prose focus-within:border-[#0077D8]">
