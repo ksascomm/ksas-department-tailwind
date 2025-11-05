@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="pl-8 pr-4 entry-header">
+	<header class="pl-8 2xl:pl-[2%] pr-4 entry-header">
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -21,7 +21,7 @@
 
 	</header><!-- .entry-header -->
 
-	<div class="entry-content pl-8 pr-4 lg:pr-12 xl:max-w-[85ch]">
+	<div class="entry-content pl-8 2xl:pl-[2%] pr-4 lg:pr-12 xl:max-w-[85ch]">
 		<ul class="exhibit-meta list-none! pl-0!">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_location', true ) ) : ?>
 				<li class="pl-0!"><strong>Location:</strong> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_location', true ) ); ?></li>

@@ -25,7 +25,7 @@
 			)
 		) ) :
 		?>
-		<div class="alignfull mt-0!" role="banner">
+		<div class="alignfull mt-0!">
 			<div class="flex h-auto bg-white lg:bg-grey-lightest front-featured-image-area lg:h-40">
 				<div class="container flex px-6 section-inner xl:pl-0 lg:items-center xl:ml-12" style="max-width:123ch">
 					<h1 class="tracking-tight leading-10 sm:leading-none lg:text-4xl xl:text-[44px] lg:pl-2 xl:pl-0 py-8 mb-0!">
@@ -38,7 +38,7 @@
 			<?php get_template_part( 'template-parts/featured-image' ); ?>
 	<?php endif; ?>
 	
-	<div class="ml-8 wayfinding md:mb-8 xl:pl-0 2xl:ml-0">
+	<div class="ml-8 wayfinding md:mb-8 xl:pl-0 2xl:ml-[2%]">
 		<?php get_template_part( 'template-parts/sidebar-menu' ); ?>
 		<?php
 		if ( function_exists( 'bcn_display' ) ) :
@@ -48,7 +48,7 @@
 			</div>
 		<?php endif; ?>
 	</div>
-	<div class="pl-8 pr-4 entry-content lg:pr-12 2xl:pr-0">
+	<div class="pl-8 pr-4 2xl:pl-[2%] entry-content lg:pr-12 2xl:pr-0">
 	<?php
 	if (
 		is_page_template(

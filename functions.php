@@ -9,7 +9,7 @@
 
 if ( ! defined( 'KSAS_DEPARTMENT_TAILWIND_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '7.0.1' );
+	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '7.1.1' );
 }
 
 if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :

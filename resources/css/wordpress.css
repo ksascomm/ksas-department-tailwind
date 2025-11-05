@@ -98,11 +98,24 @@ u {
 
 .container {
   padding-inline: 1rem;
-  @media (width >= 40rem) {
+}
+
+@media (min-width: 40rem) {
+  .container {
     padding-inline: 2rem;
   }
-  @media (width >= 64rem) {
+  
+}
+
+@media (min-width: 64rem) {
+  .container {
     padding-inline: 0rem;
+  }
+}
+
+@media (min-width: 96rem) {
+  .single-people .container.contact-info {
+    padding-inline: 2rem;
   }
 }
 

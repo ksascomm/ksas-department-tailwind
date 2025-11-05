@@ -65,16 +65,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					</a>
 					</div>
 					<div class="xl:col-span-3">
-						<h1 class="site-title font-serifbold font-medium text-4xl lg:text-[42px] xl:text-[48px] xl:pl-4 !mt-3 pt-2 xl:pt-0 text-center xl:text-left">
+						<h1 class="site-title font-serifbold text-4xl lg:text-[42px] xl:text-[48px] xl:pl-4 mt-3! pt-2 xl:pt-0 text-center xl:text-left">
 						<?php
 							$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
 						if (
 							$ksas_department_tailwind_description || is_customize_preview() ) :
 							$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
-							echo '<span class="block py-2 font-serif text-xl font-medium lg:pt-0 xl:text-2xl">' . $ksas_department_tailwind_description . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+							echo '<span class="block py-2 text-xl lg:pt-0 xl:text-2xl">' . $ksas_department_tailwind_description . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 							?>
 							<?php endif; ?>
-						<a class="text-blue hover:text-blue-light" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<a class="text-blue hover:text-blue-light" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) . ' homepage' ); ?>">
 							<?php bloginfo( 'name' ); ?>
 						</a>
 						</h1>
