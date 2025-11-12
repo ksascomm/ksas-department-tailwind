@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="site-content" class="site-main prose sm:prose lg:prose-lg mx-auto">
+	<main id="site-content" class="mx-auto prose site-main sm:prose lg:prose-lg pl-[2%] 2xl:pl-0 pr-[3%] xl:pr-[10%]">
 		<?php
 		if ( have_posts() ) :
 
@@ -18,25 +18,25 @@ get_header();
 				?>
 				<header>
 				<?php
-					if ( get_field( 'show_homepage_news_feed', 'option' ) ) :
-						// If ACF Conditional is YES, display news feed.
-						$heading = get_field( 'homepage_news_header', 'option' );
+				if ( get_field( 'show_homepage_news_feed', 'option' ) ) :
+					// If ACF Conditional is YES, display news feed.
+					$heading = get_field( 'homepage_news_header', 'option' );
 					?>
-						<h1 class="entry-title tracking-tight leading-10 sm:leading-none py-8 px-4"><?php echo esc_html( $heading ); ?> Archive</h1>
-					<?php else: ?>
-					<h1 class="entry-title tracking-tight leading-10 sm:leading-none py-8 px-4"><?php single_post_title(); ?></h1>
+						<h1 class="px-2 py-8 leading-10 tracking-tight 2xl:px-4 entry-title sm:leading-none"><?php echo esc_html( $heading ); ?> Archive</h1>
+					<?php else : ?>
+					<h1 class="px-2 leading-10 tracking-tight 2xl:px-4 entry-title sm:leading-none"><?php single_post_title(); ?></h1>
 					<?php endif; ?>
 				</header>
 				<?php
 			endif;
 			?>
-		<?php
-		if ( function_exists( 'bcn_display' ) ) :
-			?>
-		<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-			<?php bcn_display(); ?>
+			<?php
+			if ( function_exists( 'bcn_display' ) ) :
+				?>
+		<div class="ml-2! breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+				<?php bcn_display(); ?>
 		</div>
-		<?php endif; ?>
+			<?php endif; ?>
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) :

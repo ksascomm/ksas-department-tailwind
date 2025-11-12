@@ -80,7 +80,7 @@
 						<?php the_title( '<h2 class="entry-title text-3xl! mt-2!"><a class="archive-post" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 				<?php endif; ?>
 			</header><!-- .entry-header -->
-			<div class="w-full pl-4 pr-4 entry-content lg:pr-12 xl:pl-0 xl:pr-0">
+			<div class="w-full pr-4 entry-content lg:pr-12 xl:pr-0">
 				<?php
 					the_excerpt();
 				?>

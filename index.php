@@ -15,7 +15,7 @@
 get_header();
 ?>
 
-	<main id="site-content" class="site-main prose sm:prose lg:prose-lg mx-auto">
+	<main id="site-content" class="mx-auto prose site-main sm:prose lg:prose-lg">
 		<?php
 		if ( function_exists( 'bcn_display' ) ) :
 			?>
@@ -29,7 +29,7 @@ get_header();
 			if ( is_home() && ! is_front_page() ) :
 				?>
 				<header>
-					<h1 class="entry-title sr-only"><?php single_post_title(); ?></h1>
+					<h1 class="sr-only entry-title"><?php single_post_title(); ?></h1>
 				</header>
 				<?php
 			endif;
