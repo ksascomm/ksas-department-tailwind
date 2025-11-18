@@ -19,7 +19,7 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-		<form class="p-4 mx-4 my-4 border-2 border-solid isotope-to-sort bg-grey-lightest border-grey" id="filters">
+		<form class="p-4 mx-4 my-4 border-2 border-solid isotope-to-sort bg-grey-lightest border-grey max-w-10/12" id="filters">
 		<?php
 				$ids_to_exclude            = array();
 				$faculty_titles_to_exclude = get_terms(

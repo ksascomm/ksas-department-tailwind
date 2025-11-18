@@ -37,7 +37,7 @@ get_header();
 		<h2 class="pl-8 2xl:pl-[2%] lg:pr-12 bulletin-category-title " id="<?php echo esc_html( $bulletin_term->slug ); ?>">
 				<?php echo esc_html( $bulletin_term->name ); ?>
 		</h2>
-		<div class="accordion my-8 ml-8 mr-4 lg:mr-12 2xl:ml-0 2xl:mr-0 p-0 border border-grey not-prose focus-within:border-[#0077D8]">
+		<div class="accordion my-8 ml-8 mr-4 lg:mr-12 p-0 border border-grey not-prose focus-within:border-[#0077D8]">
 				<?php
 				while ( $bulletins->have_posts() ) :
 					$bulletins->the_post();
@@ -46,10 +46,10 @@ get_header();
 					<h3 class="my-0 font-bold accordion-heading font-heavy focus-within:bg-grey">
 						<button type="button"
 								aria-expanded="false"
-								class="border-none accordion-trigger block text-lg relative text-left w-full m-0 px-[1.5em] py-[1em] bg-none focus:bg-[hsl(216,_94%,_94%)] hover:bg-[hsl(216,_94%,_94%)] focus:outline-hidden aria-expanded:border-l-2 aria-expanded:border-blue aria-expanded:bg-grey-lightest"
+								class="border-none accordion-trigger block text-lg relative text-left w-full m-0 px-[1.5em] py-[1em] bg-none focus:bg-[hsl(216,94%,94%)] hover:bg-[hsl(216,94%,94%)] focus:outline-hidden aria-expanded:border-l-2 aria-expanded:border-blue aria-expanded:bg-grey-lightest"
 								aria-controls="<?php the_ID(); ?>"
 								id="accordion<?php the_ID(); ?>">
-								<span class="accordion-title block pointer-events-none p-[0.25em] rounded-[5px] border-[transparent]">
+								<span class="accordion-title block pointer-events-none p-[0.25em] rounded-[5px] border-transparent">
 									<?php the_title(); ?>
 									<span class="accordion-icon h-2 pointer-events-none absolute translate-y-[-60%] rotate-45 w-2 border-solid border-primary border-b-2 border-r-2 right-8 top-2/4"></span>
 								</span>

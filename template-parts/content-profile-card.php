@@ -16,7 +16,7 @@
 <figure class="profile-card p-2 w-full lg:w-1/3 m-0!">
 	<div class="h-full px-6 py-4 mb-4">
 		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="relative overflow-hidden rounded-sm h-80">
+			<div class="relative hidden overflow-hidden rounded-sm lg:h-80 lg:block">
 			<?php
 				the_post_thumbnail(
 					'large',

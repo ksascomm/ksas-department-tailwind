@@ -1736,6 +1736,7 @@ summary::-webkit-details-marker {
 
 .page .entry-content p,
 .page .entry-content li,
+.page .entry-content .wp-block-embed,
 .page-template-bulletin-board .accordion,
 .single-post.missing-post-thumbnail .entry-content p,
 .single-post.missing-post-thumbnail .entry-content li,

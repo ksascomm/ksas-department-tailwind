@@ -39,11 +39,21 @@
 	<?php endif; ?>
 	
 	<div class="ml-8 wayfinding md:mb-8 xl:pl-0 2xl:ml-[2%]">
-		<?php get_template_part( 'template-parts/sidebar-menu' ); ?>
 		<?php
-		if ( function_exists( 'bcn_display' ) ) :
-			?>
-			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+		// Capture sidebar-menu output.
+		ob_start();
+		get_template_part( 'template-parts/sidebar-menu' );
+		$sidebar_menu = trim( ob_get_clean() );
+
+		// Output the sidebar if it has content.
+		echo $sidebar_menu;
+
+		// Check if breadcrumbs should have ml-0.
+		$breadcrumbs_class = empty( $sidebar_menu ) ? 'breadcrumbs !ml-0' : 'breadcrumbs';
+		?>
+
+		<?php if ( function_exists( 'bcn_display' ) ) : ?>
+			<div class="<?php echo esc_attr( $breadcrumbs_class ); ?>" typeof="BreadcrumbList" vocab="https://schema.org/">
 				<?php bcn_display(); ?>
 			</div>
 		<?php endif; ?>

@@ -31,7 +31,7 @@
 		</div>
 	<div class="break"></div> <!-- break -->
 	<?php endif; ?>
-	<div class="px-4 grow contact-info lg:px-0">
+	<div class="px-4 grow contact-info lg:px-0 xl:max-w-9/12">
 		<h3 class="font-heavy font-bold text-2xl!">
 		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 			<a class="hover:text-primary" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>'s webpage">

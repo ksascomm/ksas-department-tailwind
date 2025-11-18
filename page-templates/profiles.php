@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-<main id="site-content" class="site-main prose sm:prose lg:prose-lg mx-auto">
+<main id="site-content" class="mx-auto prose site-main sm:prose lg:prose-lg">
 		<?php
 		while ( have_posts() ) :
 			the_post();
@@ -19,7 +19,7 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-			<div class="flex flex-wrap">
+			<div class="flex flex-wrap max-w-11/12">
 		<?php
 
 		$profile_type = get_field( 'profile_type_selector' );
