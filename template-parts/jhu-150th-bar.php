@@ -11,7 +11,7 @@
 <!-- START COPY HERE -->
 <a href="https://150.jhu.edu" parent="_blank" id="jhu-150th-bar" jhu-150th-bar-style="dark" role="banner">
 
-	<style>	
+	<style>
 	:root {
 		--jhu-brand-heritage-blue: #002D72;
 		--jhu-blue-50: #0077D8;

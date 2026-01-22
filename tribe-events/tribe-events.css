@@ -510,6 +510,11 @@ a.tribe-events-calendar-series-archive__link:hover {
     padding-top: 2rem;
 }
 
+ .tribe-common.tribe-events.tribe-events-view.tribe-events-view--list.alignwide.tribe-common--breakpoint-xsmall.tribe-common--breakpoint-medium.tribe-common--breakpoint-full {
+  margin: 0 auto;
+  max-width: 123ch;
+}
+
 /* Event Image Sizing (Non-Block Editor) */
 .tribe-events-event-image img {
     max-width: 500px !important;
@@ -592,11 +597,13 @@ a.tribe-events-calendar-series-archive__link:hover {
         margin-left: 0px;
         margin-right: 0px;
     }
-    .single-tribe_event_series .breadcrumbs,
     .single-tribe_events .breadcrumbs {
         margin-bottom: calc(var(--spacing) * 3);
         margin-left: 0;
     }
+	.single-tribe_event_series .breadcrumbs {
+		margin-block: calc(var(--spacing) * 6)
+	}
     /* Tooltip Specifics (Original was 600px, changed to 400px in the second block) */
     .tribe-events-tooltip-theme {
         width: 400px !important; 

@@ -11,7 +11,7 @@
 
 	<div class="above-explore-widget-section prose flex flex-col px-4 pt-12 mx-auto sm:px-6 <?php ksas_department_tailwind_sidebar_class( 'above-explore' ); ?>-widgets lg:bg-blue">
 			<?php dynamic_sidebar( 'above-explore' ); ?>
-      <svg class="wave-top -mt-8 rotate-180 -mx-6 w-screen" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<svg class="w-screen -mx-6 -mt-8 rotate-180 wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 			<g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
 				<g class="wave" fill="#fefefe">
