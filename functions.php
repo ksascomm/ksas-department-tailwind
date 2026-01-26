@@ -465,3 +465,19 @@ function internal_page_submenu( $args = array() ) {
  * @link https://docs.wp-rocket.me/article/1816-optimize-critical-images?utm_source=wp_plugin&utm_medium=wp_rocket
  */
 add_filter( 'rocket_above_the_fold_optimization', '__return_false' );
+
+
+/**
+ * Disable the Stretchy Text options (fitText)
+ *
+ * @link https://github.com/WordPress/gutenberg/issues/73770
+ */
+function my_theme_editor_scripts() {
+	wp_enqueue_script(
+		'my-block-variations',
+		get_template_directory_uri() . '/js/block-modifications.js', // Path to your file.
+		array( 'wp-blocks', 'wp-dom-ready' ), // Dependencies.
+		filemtime( get_template_directory() . '/js/block-modifications.js' ) // Versioning for cache busting.
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'my_theme_editor_scripts', 100 );
