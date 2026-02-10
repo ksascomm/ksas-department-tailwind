@@ -40,13 +40,13 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 			<?php
 			endif;
 		?>
-			<div class="w-full md:py-8 md:w-1/2 lg:w-3/4">
+			<div class="w-full md:py-8 md:w-1/2 lg:w-3/4 2xl:pr-48">
 			<?php if ( ! get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 				<?php
 				if ( function_exists( 'bcn_display' ) ) :
 					?>
-						<div class="mb-4 bg-white breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-							<?php bcn_display(); ?>
+					<div class="mb-4 bg-white breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+						<?php bcn_display(); ?>
 					</div>
 					<?php endif; ?>
 				<?php endif; ?>
@@ -222,18 +222,18 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 				if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) :
 					?>
 			<div class="section-content" id="section5">
-				<?php get_template_part( 'template-parts/content', 'faculty-books-people-cpt' ); ?>
+					<?php get_template_part( 'template-parts/content', 'faculty-books-people-cpt' ); ?>
 			</div>
 				<?php endif; ?>
 				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) : ?>
 			<div class="section-content" id="section6">
-				<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) ); ?>
+					<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) ); ?>
 			</div>
 			<?php endif; ?>
 
 				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) : ?>
 			<div class="section-content" id="section7">
-				<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) ); ?>
+					<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) ); ?>
 			</div>
 			<?php endif; ?>
 		</div>

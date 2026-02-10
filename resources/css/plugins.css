@@ -531,48 +531,49 @@ p.tribe-events-back a,
 
 /* Faculty Books CPT */
 .widget.ksas_books {
-	@apply mb-20 mx-auto sm:max-w-(--breakpoint-sm) md:max-w-(--breakpoint-md) lg:max-w-(--breakpoint-lg);
-}
+    /* 1. Main Container Styles */
+    @apply mx-auto mb-20 sm:max-w-(--breakpoint-sm) md:max-w-(--breakpoint-md) lg:max-w-(--breakpoint-lg);
 
-.widget.ksas_books .book-listings {
-	@apply grid grid-cols-1 gap-4 mx-auto lg:grid-cols-4;
-}
+    /* Responsive Max-Width Overrides */
+    @media (width >= theme(--breakpoint-xl)) { max-width: 1400px; }
+    @media (width >= theme(--breakpoint-2xl)) { max-width: 1800px; }
 
-.widget.ksas_books .view-more-link {
-	@apply pb-4 ml-4;
-}
+    /* 2. Header & Navigation */
+    h2.widget-title {
+        @apply px-4 text-3xl md:px-0;
+    }
 
-.widget.ksas_books article {
-	@apply p-4 mx-6 my-2 border-2 md:shadow-md md:my-0 md:p-2 lg:w-56 xl:w-72 border-grey lg:border-0;
-}
+    .view-more-link {
+        @apply pb-4 ml-4;
 
-.widget.ksas_books article img {
-	@apply w-64 xl:h-80 xl:w-60 md:mx-auto;
-}
-.widget.ksas_books h2.widget-title {
-	@apply px-4 text-3xl md:px-0;
-}
+        @media (width >= theme(--breakpoint-md)) {
+            @apply flex-row-reverse pt-0 pb-0 mb-8 -mt-24;
+        }
+    }
 
-.widget.ksas_books article h3 {
-	@apply my-2 text-lg font-bold leading-tight font-heavy md:px-4;
-}
+    /* 3. Grid Wrapper */
+    .book-listings {
+        @apply grid grid-cols-1 gap-4 mx-auto lg:grid-cols-4;
+    }
 
-.widget.ksas_books article p {
-	@apply font-normal md:px-4;
-}
+    /* 4. Individual Book Article Cards */
+    article {
+        @apply p-4 mx-6 my-2 border-2 border-grey md:my-0 md:p-2 md:shadow-md lg:w-56 lg:border-0 xl:w-72;
 
-.widget.ksas_books article p strong {
-	@apply font-sans font-normal;
-}
+        img {
+            @apply w-64 md:mx-auto xl:h-80 xl:w-60;
+        }
 
-@media (width >=theme(--breakpoint-md)) {
-	.widget.ksas_books .view-more-link {
-		@apply flex-row-reverse pt-0 pb-0 mb-8 -mt-24;
-	}
-}
+        h3 {
+            @apply my-2 text-lg font-bold leading-tight font-heavy md:px-4;
+        }
 
-@media (width >=theme(--breakpoint-xl)) {
-	.widget.ksas_books {
-		max-width: 1400px;
-	}
+        p {
+            @apply font-normal md:px-4;
+
+            strong {
+                @apply font-sans font-normal;
+            }
+        }
+    }
 }
