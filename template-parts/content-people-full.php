@@ -198,44 +198,86 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 				<li class="text-xl"><a href="#section7"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ); ?></a></li>
 				<?php endif; ?>
 			</ul>
-			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
-			<div class="section-content" id="section1">
-				<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_bio', true ) ); ?>
-			</div>
-			<?php endif; ?>
-			<?php if ( get_post_meta( $post->ID, 'ecpt_research', true ) ) : ?>
-			<div class="section-content" id="section2">
-				<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_research', true ) ); ?>
-			</div>
-			<?php endif; ?>
-			<?php if ( get_post_meta( $post->ID, 'ecpt_teaching', true ) ) : ?>
-			<div class="section-content" id="section3">
-				<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_teaching', true ) ); ?>
-			</div>
-			<?php endif; ?>
-			<?php if ( get_post_meta( $post->ID, 'ecpt_publications', true ) ) : ?>
-			<div class="section-content" id="section4">
-				<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_publications', true ) ); ?>
-			</div>
-			<?php endif; ?>
-				<?php
-				if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) :
-					?>
-			<div class="section-content" id="section5">
-					<?php get_template_part( 'template-parts/content', 'faculty-books-people-cpt' ); ?>
-			</div>
-				<?php endif; ?>
-				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) : ?>
-			<div class="section-content" id="section6">
-					<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab', true ) ) ); ?>
-			</div>
-			<?php endif; ?>
+			<?php
+			/** * Section 1: Biography
+			 */
+			$bio_content = get_post_meta( $post->ID, 'ecpt_bio', true );
 
-				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) : ?>
-			<div class="section-content" id="section7">
-					<?php echo apply_filters( 'the_content', wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab2', true ) ) ); ?>
-			</div>
+			if ( ! empty( $bio_content ) ) :
+				?>
+				<div class="section-content" id="section1">
+					<?php
+					// 1. wpautop restores paragraphs
+					// 2. wp_kses_post keeps it secure
+					echo wpautop( wp_kses_post( $bio_content ) );
+					?>
+				</div>
 			<?php endif; ?>
+			<?php
+				/** * Section 2: Research
+				 */
+				$research = get_post_meta( $post->ID, 'ecpt_research', true );
+			if ( ! empty( $research ) ) :
+				?>
+					<div class="section-content" id="section2">
+						<?php echo wpautop( wp_kses_post( $research ) ); ?>
+					</div>
+				<?php endif; ?>
+
+				<?php
+				/** * Section 3: Teaching
+				 */
+				$teaching = get_post_meta( $post->ID, 'ecpt_teaching', true );
+				if ( ! empty( $teaching ) ) :
+					?>
+					<div class="section-content" id="section3">
+						<?php echo wpautop( wp_kses_post( $teaching ) ); ?>
+					</div>
+				<?php endif; ?>
+
+				<?php
+				/** * Section 4: Publications
+				 */
+				$pubs = get_post_meta( $post->ID, 'ecpt_publications', true );
+				if ( ! empty( $pubs ) ) :
+					?>
+					<div class="section-content" id="section4">
+						<?php echo wpautop( wp_kses_post( $pubs ) ); ?>
+					</div>
+				<?php endif; ?>
+
+				<?php
+				/** * Section 5: Faculty Books
+				 * Uses the 'on' string to match your sidebar metabox
+				 */
+				if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) === 'on' ) :
+					?>
+					<div class="section-content" id="section5">
+						<?php get_template_part( 'template-parts/content', 'faculty-books-people-cpt' ); ?>
+					</div>
+				<?php endif; ?>
+
+				<?php
+				/** * Section 6: Extra Tab 1
+				 */
+				$extra1 = get_post_meta( $post->ID, 'ecpt_extra_tab', true );
+				if ( ! empty( $extra1 ) ) :
+					?>
+					<div class="section-content" id="section6">
+						<?php echo apply_filters( 'the_content', wp_kses_post( $extra1 ) ); ?>
+					</div>
+				<?php endif; ?>
+
+				<?php
+				/** * Section 7: Extra Tab 2
+				 */
+				$extra2 = get_post_meta( $post->ID, 'ecpt_extra_tab2', true );
+				if ( ! empty( $extra2 ) ) :
+					?>
+					<div class="section-content" id="section7">
+						<?php echo apply_filters( 'the_content', wp_kses_post( $extra2 ) ); ?>
+					</div>
+				<?php endif; ?>
 		</div>
 		<?php endif; ?>
 	<?php endif; ?>
