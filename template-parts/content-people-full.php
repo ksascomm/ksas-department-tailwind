@@ -209,7 +209,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 					<?php
 					// 1. wpautop restores paragraphs
 					// 2. wp_kses_post keeps it secure
-					echo wpautop( wp_kses_post( $bio_content ) );
+					echo wp_kses_post( wpautop( $bio_content ) );
 					?>
 				</div>
 			<?php endif; ?>
@@ -220,7 +220,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 			if ( ! empty( $research ) ) :
 				?>
 					<div class="section-content" id="section2">
-						<?php echo wpautop( wp_kses_post( $research ) ); ?>
+						<?php echo wp_kses_post( wpautop( $research ) ); ?>
 					</div>
 				<?php endif; ?>
 
@@ -231,7 +231,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 				if ( ! empty( $teaching ) ) :
 					?>
 					<div class="section-content" id="section3">
-						<?php echo wpautop( wp_kses_post( $teaching ) ); ?>
+						<?php echo wp_kses_post( wpautop( $teaching ) ); ?>
 					</div>
 				<?php endif; ?>
 
@@ -242,7 +242,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 				if ( ! empty( $pubs ) ) :
 					?>
 					<div class="section-content" id="section4">
-						<?php echo wpautop( wp_kses_post( $pubs ) ); ?>
+						<?php echo wp_kses_post( wpautop( $pubs ) ); ?>
 					</div>
 				<?php endif; ?>
 
@@ -264,7 +264,13 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 				if ( ! empty( $extra1 ) ) :
 					?>
 					<div class="section-content" id="section6">
-						<?php echo apply_filters( 'the_content', wp_kses_post( $extra1 ) ); ?>
+						<?php
+						// 1. Run the content through standard formatting filters.
+						$filtered_content = apply_filters( 'the_content', $extra1 );
+
+						// 2. Late escape the FINAL output to ensure security compliance.
+						echo wp_kses_post( $filtered_content );
+						?>
 					</div>
 				<?php endif; ?>
 
@@ -275,7 +281,10 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 				if ( ! empty( $extra2 ) ) :
 					?>
 					<div class="section-content" id="section7">
-						<?php echo apply_filters( 'the_content', wp_kses_post( $extra2 ) ); ?>
+						<?php
+						$filtered_extra2 = apply_filters( 'the_content', $extra2 );
+						echo wp_kses_post( $filtered_extra2 );
+						?>
 					</div>
 				<?php endif; ?>
 		</div>
