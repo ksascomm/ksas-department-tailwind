@@ -347,19 +347,23 @@ p.tribe-events-back a,
 --------------------------------------------------------------------------- */
 
 /* Job Market Candidate CPT */
-.widget.widget_job_candidate h3 {
+.widget.widget_job_candidateh3,
+.widget_job-candidate-widget h3 {
 	@apply text-xl lg:text-[26px] my-2 font-heavy font-bold;
 }
 
-.widget.widget_job_candidate p {
+.widget.widget_job_candidate p,
+.widget_job-candidate-widget p {
 	@apply mt-2 mb-4 leading-normal;
 }
 
-.widget.widget_job_candidate p.view-more-link {
+.widget.widget_job_candidate p.view-more-link,
+.widget_job-candidate-widget p.view-more-link {
 	@apply mt-4;
 }
 
-.widget.widget_job_candidate img {
+.widget.widget_job_candidate img,
+.widget_job-candidate-widget img {
 	@apply float-left object-cover object-top mr-6 rounded-full h-36 w-36;
 }
 
@@ -484,31 +488,38 @@ p.tribe-events-back a,
 }
 
 /* Profile CPT */
-.widget.ksas_profile p {
+.widget.ksas_profile p,
+.widget.spotlight_profiles_widget p {
 	@apply mt-2 mb-4 text-xl leading-normal;
 }
 
-.widget.ksas_profile .spotlight-image-meta {
+.widget.ksas_profile .spotlight-image-meta,
+.widget.spotlight_profiles_widget .spotlight-image-meta {
 	@apply flex items-center gap-4 mt-8;
 }
 
-.widget.ksas_profile .spotlight-image-meta img {
+.widget.ksas_profile .spotlight-image-meta img,
+.widget.spotlight_profiles_widget .spotlight-image-meta img {
 	@apply hidden object-cover rounded-full h-36 w-36 lg:block;
 }
 
-.widget.ksas_profile .spotlight-image-meta .spotlight-author h3 {
+.widget.ksas_profile .spotlight-image-meta .spotlight-author h3,
+.widget.spotlight_profiles_widget .spotlight-image-meta .spotlight-author h3 {
 	@apply text-xl lg:text-[26px] my-2 font-heavy font-bold;
 }
 
-.widget.ksas_profile .spotlight-image-meta .spotlight-author span {
+.widget.ksas_profile .spotlight-image-meta .spotlight-author span,
+.widget.spotlight_profiles_widget .spotlight-image-meta .spotlight-author span {
 	font-size: 1.25rem;
 }
 
-.widget.ksas_profile p.view-more-link {
+.widget.ksas_profile p.view-more-link,
+.widget.spotlight_profiles_widget p.view-more-link {
 	@apply pt-8;
 }
 
 .widget.ksas_profile p.view-more-link a,
+.widget.spotlight_profiles_widget p.view-more-link a,
 .widget.ksas_books .view-more-link a {
 	--tw-bg-opacity: 1;
 	--tw-text-opacity: 1;
@@ -522,6 +533,7 @@ p.tribe-events-back a,
 
 @media screen and (max-width:1023px) {
 	.widget.ksas_profile p.view-more-link a,
+	.widget.spotlight_profiles_widget p.view-more-link a,
 	.widget.ksas_books .view-more-link a {
 		white-space: nowrap;
 		padding: .75rem;
