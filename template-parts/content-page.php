@@ -39,25 +39,27 @@
 	<?php endif; ?>
 	
 	<div class="ml-8 wayfinding md:mb-8 xl:pl-0 2xl:ml-[2%]">
-		<?php
-		// Capture sidebar-menu output.
-		ob_start();
-		get_template_part( 'template-parts/sidebar-menu' );
-		$sidebar_menu = trim( ob_get_clean() );
+	<?php
+	// Capture sidebar-menu output.
+	ob_start();
+	get_template_part( 'template-parts/sidebar-menu' );
+	$sidebar_menu = trim( ob_get_clean() );
 
-		// Output the sidebar if it has content.
-		echo $sidebar_menu;
+	// Output the sidebar if it has content using safe escaping.
+	if ( ! empty( $sidebar_menu ) ) {
+		echo wp_kses_post( $sidebar_menu );
+	}
 
-		// Check if breadcrumbs should have ml-0.
-		$breadcrumbs_class = empty( $sidebar_menu ) ? 'breadcrumbs !ml-0' : 'breadcrumbs';
-		?>
+	// Define the breadcrumbs class based on whether $sidebar_menu has content.
+	$breadcrumbs_class = empty( $sidebar_menu ) ? 'breadcrumbs !ml-0' : 'breadcrumbs';
+	?>
 
-		<?php if ( function_exists( 'bcn_display' ) ) : ?>
-			<div class="<?php echo esc_attr( $breadcrumbs_class ); ?>" typeof="BreadcrumbList" vocab="https://schema.org/">
-				<?php bcn_display(); ?>
-			</div>
-		<?php endif; ?>
-	</div>
+	<?php if ( function_exists( 'bcn_display' ) ) : ?>
+		<div class="<?php echo esc_attr( $breadcrumbs_class ); ?>" typeof="BreadcrumbList" vocab="https://schema.org/">
+			<?php bcn_display(); ?>
+		</div>
+	<?php endif; ?>
+</div>
 	<div class="pl-8 pr-4 2xl:pl-[2%] entry-content lg:pr-12 2xl:pr-0">
 	<?php
 	if (

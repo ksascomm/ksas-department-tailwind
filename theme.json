@@ -79,7 +79,10 @@
 					"background": false
 				}
             }
-        }
+        },
+		"shadow": {
+			"defaultPresets": false
+		}
     },
     "styles": {
 		"color": {

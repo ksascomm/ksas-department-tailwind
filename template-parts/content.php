@@ -10,6 +10,25 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'pl-6 lg:pl-8' ); ?>>
+
+<?php
+	// 1. Explicitly check age using DateTime
+	$post_date    = get_the_date( 'Y-m-d' );
+	$current_date = gmdate( 'Y-m-d' );
+	$start_date   = new DateTime( $post_date );
+	$end_date     = new DateTime( $current_date );
+	$date_diff    = $start_date->diff( $end_date );
+	$post_years   = $date_diff->y;
+
+	// 2. Yoda Condition: Display disclaimer if post is 6 years or older
+if ( 5 <= $post_years && is_single() ) :
+	?>
+		<div class="px-4 mt-4 mr-4 xl:mt-0 xl:mr-0 mb-6 border-2 border-solid bg-grey-lightest border-grey-cool xl:max-w-[90ch]" role="note">
+			<p class="text-lg">
+				<?php esc_html_e( 'This news post is over 5 years old and the content might not be updated.', 'ksas-dept-tailwind' ); ?>
+			</p>
+		</div>
+	<?php endif; ?>
 	<header class="entry-header pr-2 xl:pl-0 xl:pr-0 max-w-[90ch]">
 		<?php
 		if ( is_singular() ) :
@@ -37,7 +56,7 @@
 
 	<div class="entry-content">
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="max-w-[400px] md:max-w-[375px] mr-20 md:mr-8 md:float-left mb-10 pr-8">
+		<div class="max-w-100 md:max-w-93.75 mr-20 md:mr-8 md:float-left mb-10 pr-8">
 			<?php
 			the_post_thumbnail(
 				'large',

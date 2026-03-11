@@ -975,23 +975,24 @@ button.menu-button:focus {
   display: contents;
 }
 
-.menu-button-links button svg.down {
-  padding-left: 0.125em;
-  fill: currentColor;
-  stroke: currentColor;
-}
-
+/* 1. Fix: Removed the trailing comma after svg.down */
 .menu-button-links button.open svg.down {
   transform: rotate(180deg);
 }
 
-.menu-button-links button svg.down {
+/* 2. Fix: Added transition for smooth rotation */
+.menu-button-links button svg.down,
+.menu-button-links i.fa-chevron-down {
   padding-left: 0.125em;
   fill: currentcolor;
   stroke: currentcolor;
+  transition: transform 0.2s ease-in-out; /* Add this! */
+  display: inline-block; /* Required for transform to work on <i> tags */
 }
 
-.menu-button-links button[aria-expanded="true"] svg.down {
+/* 3. This is the selector that works with your WAI-ARIA script */
+.menu-button-links button[aria-expanded="true"] svg.down,
+.menu-button-links button[aria-expanded="true"] i.fa-chevron-down {
   transform: rotate(180deg);
 }
 
@@ -1746,7 +1747,8 @@ summary::-webkit-details-marker {
 .single-people #section3 *,
 .single-people #section4 *,
 .single-people #section6 *,
-.single-people #section7 * {
+.single-people #section7 *,
+.single-bulletinboard p {
   max-width: 85ch;
 }
 
