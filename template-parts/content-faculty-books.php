@@ -38,41 +38,69 @@
 			</div>
 	<?php endif; ?>
 	<ul class="list-none! not-prose">
-		<?php
-			$faculty_post_id  = get_post_meta( $post->ID, 'ecpt_pub_author', true );
-			$faculty_post_id2 = get_post_meta( $post->ID, 'ecpt_pub_author2', true );
-		?>
 		<li class="py-2">
-			<a href="<?php echo esc_url( get_permalink( $faculty_post_id ) ); ?>">
-			<?php echo esc_html( get_the_title( $faculty_post_id ) ); ?></a>
-			<?php if ( get_post_meta( $post->ID, 'ecpt_pub_role', true ) ) : ?>
-				<div class="inline capitalize">(<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_role', true ) ); ?>)</div>
-			<?php endif; ?>
 			<?php
-			if ( get_post_meta( $post->ID, 'ecpt_author_cond', true ) == 'on' ) {
+			// Get Author IDs.
+			$faculty_post_id  = get_post_meta( get_the_ID(), 'ecpt_pub_author', true );
+			$faculty_post_id2 = get_post_meta( get_the_ID(), 'ecpt_pub_author2', true );
+			$primary_role     = get_post_meta( get_the_ID(), 'ecpt_pub_role', true );
+			$second_role      = get_post_meta( get_the_ID(), 'ecpt_pub_role2', true );
+
+			// Validate condition for both legacy 'on' and ACF '1'.
+			$has_second_author = wp_validate_boolean( get_post_meta( get_the_ID(), 'ecpt_author_cond', true ) );
+
+			// Display Primary Author.
+			if ( $faculty_post_id ) :
+				?>
+				<a href="<?php echo esc_url( get_permalink( $faculty_post_id ) ); ?>">
+					<?php echo esc_html( get_the_title( $faculty_post_id ) ); ?>
+				</a>
+				<?php if ( $primary_role ) : ?>
+					<div class="inline capitalize">(<?php echo esc_html( $primary_role ); ?>)</div>
+				<?php endif; ?>
+			<?php endif; ?>
+
+			<?php
+			// Display Second Author only if condition is true AND we have a valid ID.
+			if ( $has_second_author && $faculty_post_id2 ) :
 				?>
 				<br>
 				<a href="<?php echo esc_url( get_permalink( $faculty_post_id2 ) ); ?>">
-					<?php echo esc_html( get_the_title( $faculty_post_id2 ) ); ?></a>
-					<div class="inline capitalize">(<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_role2', true ) ); ?>)</div>
-		<?php } ?>
+					<?php echo esc_html( get_the_title( $faculty_post_id2 ) ); ?>
+				</a>
+				<?php if ( $second_role ) : ?>
+					<span class="inline capitalize">(<?php echo esc_html( $second_role ); ?>)</span>
+				<?php endif; ?>
+			<?php endif; ?>
 		</li>
-		<li class="py-2">
-		<?php if ( get_post_meta( $post->ID, 'ecpt_publisher', true ) ) : ?>
-			<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_publisher', true ) ); ?>
+		<?php
+		$publisher = get_post_meta( get_the_ID(), 'ecpt_publisher', true );
+		$pub_date  = get_post_meta( get_the_ID(), 'ecpt_pub_date', true );
+
+		// Only render the <li> if either variable has a value.
+		if ( $publisher || $pub_date ) :
+			?>
+			<li class="py-2">
+				<?php if ( $publisher ) : ?>
+					<?php echo esc_html( $publisher ); ?>
+				<?php endif; ?>
+
+				<?php if ( $publisher && $pub_date ) : ?>
+					<span class="inline -ml-1">, </span>
+				<?php endif; ?>
+
+				<?php if ( $pub_date ) : ?>
+					<?php echo esc_html( $pub_date ); ?>
+				<?php endif; ?>
+			</li>
 		<?php endif; ?>
-		<?php if ( get_post_meta( $post->ID, 'ecpt_pub_date', true ) ) : ?>
-			<div class="inline -ml-1">,</div>
-			<?php echo esc_html( get_post_meta( $post->ID, 'ecpt_pub_date', true ) ); ?>
-		<?php endif; ?>
-		</li>
-		<li class="py-2">
-			<?php if ( get_post_meta( $post->ID, 'ecpt_pub_link', true ) ) : ?>
+		<?php if ( get_post_meta( $post->ID, 'ecpt_pub_link', true ) ) : ?>
+			<li class="py-2">
 			<a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_pub_link', true ) ); ?>" aria-label="Purchase Online">
 				Purchase Online <span class="fa-solid fa-square-arrow-up-right"></span>
 			</a>
-			<?php endif; ?>
-		</li>
+			</li>
+		<?php endif; ?>
 	</ul>
 	<?php
 	if ( is_singular() ) :
