@@ -30,7 +30,6 @@ if ( ! function_exists( 'ksas_department_tailwind_posted_on' ) ) :
 		);
 
 		echo '<span class="-my-2 text-base font-bold posted-on font-heavy md:text-lg">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
 	}
 endif;
 
@@ -46,7 +45,6 @@ if ( ! function_exists( 'ksas_department_tailwind_posted_by' ) ) :
 		);
 
 		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
 	}
 endif;
 
@@ -212,7 +210,6 @@ function twentytwenty_filter_wp_list_pages_item_classes( $css_class, $page, $dep
 	}
 
 	return $css_class;
-
 }
 
 add_filter( 'page_css_class', 'twentytwenty_filter_wp_list_pages_item_classes', 10, 5 );
@@ -251,7 +248,6 @@ function twentytwenty_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 	}
 
 	return $args;
-
 }
 
 add_filter( 'nav_menu_item_args', 'twentytwenty_add_sub_toggles_to_main_menu', 10, 3 );
@@ -294,7 +290,6 @@ function twentytwenty_no_js_class() {
 	?>
 	<script>document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );</script>
 	<?php
-
 }
 
 add_action( 'wp_head', 'twentytwenty_no_js_class' );
@@ -352,7 +347,6 @@ function twentytwenty_body_classes( $classes ) {
 	}
 
 	return $classes;
-
 }
 
 add_filter( 'body_class', 'twentytwenty_body_classes' );
@@ -384,7 +378,6 @@ function twentytwenty_get_the_archive_title( $title ) {
 	}
 
 	return preg_replace( $regex['pattern'], $regex['replacement'], $title );
-
 }
 
 add_filter( 'get_the_archive_title', 'twentytwenty_get_the_archive_title' );
