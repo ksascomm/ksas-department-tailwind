@@ -37,7 +37,7 @@ mix.scripts(
     "resources/js/wai-accordion.js",
     "resources/js/navbar.js",
   ],
-  "dist/js/bundle.min.js",
+  "dist/js/bundle.js",
 );
 
 // Independent Modules (Keep as separate files for conditional loading)
@@ -69,9 +69,6 @@ mix.options({
   ========================================================================== */
 // remove unused CSS from files - only used when running npm run production
 if (mix.inProduction()) {
-  // Minify and Versioning
-  mix.minify("dist/js/bundle.min.js");
-  mix.version();
 
   // Asset Management
   mix.copyDirectory("resources/images", "dist/images");
