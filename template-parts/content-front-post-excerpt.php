@@ -27,7 +27,7 @@ if ( has_post_thumbnail() ) :
 			the_post_thumbnail(
 				'large',
 				array(
-					'class'   => 'w-full h-full object-cover object-[0%_20%]',
+					'class'   => 'not-prose w-full h-full object-cover object-[0%_20%]',
 					'loading' => 'lazy',
 				)
 			);
