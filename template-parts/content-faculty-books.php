@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'faculty-book' ); ?>>
-	<header class="pl-8 2xl:pl-[2%] pr-4 entry-header xl:pr-0">
+	<header class="pl-12 2xl:pl-[2%] pr-4 entry-header xl:pr-8">
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="py-4 entry-title lg:py-4">', '</h1>' );
@@ -21,7 +21,7 @@
 
 	</header><!-- .entry-header -->
 
-	<div class="pl-8 2xl:pl-[2%] pr-4 entry-content lg:pr-12 xl:pr-0">
+	<div class="pl-12 2xl:pl-[2%] pr-4 entry-content lg:pr-12 xl:pr-0">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="mr-6 md:float-left">
 				<div class="relative sm:w-64">
@@ -29,7 +29,7 @@
 					the_post_thumbnail(
 						'full',
 						array(
-							'class' => 'object-cover',
+							'class' => 'not-prose object-cover',
 							'alt'   => esc_html( get_the_title() ),
 						)
 					);

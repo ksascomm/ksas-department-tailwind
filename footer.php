@@ -61,22 +61,24 @@
 			<ul class="text-lg">
 			
 			<?php if ( $department_email ) : ?>
-				<li><span class="fa-solid fa-envelope"></span> <a class="font-sans font-regular text-white hover:text-blue-light !underline !decoration-dotted" href="<?php echo esc_url( 'mailto:' . antispambot( get_field( 'department_email', 'option' ) ) ); ?>"><?php echo esc_html( antispambot( get_field( 'department_email', 'option' ) ) ); ?></a></li>
+				<li><span class="fa-solid fa-envelope"></span> <a class="font-sans font-regular text-white hover:text-blue-light underline! decoration-dotted!" href="<?php echo esc_url( 'mailto:' . antispambot( get_field( 'department_email', 'option' ) ) ); ?>"><?php echo esc_html( antispambot( get_field( 'department_email', 'option' ) ) ); ?></a></li>
 			<?php endif; ?>
 			
 			<?php if ( $department_phone ) : ?>
-				<li><span class="fa-solid fa-phone-rotary"></span> <a class="font-sans font-regular text-white hover:text-blue-light !underline !decoration-dotted" href="tel:<?php the_field( 'department_phone', 'option' ); ?>"><?php the_field( 'department_phone', 'option' ); ?></a></li>
+				<li><span class="fa-solid fa-phone-rotary"></span> <a class="font-sans font-regular text-white hover:text-blue-light underline! decoration-dotted!" href="tel:<?php the_field( 'department_phone', 'option' ); ?>"><?php the_field( 'department_phone', 'option' ); ?></a></li>
 			<?php endif; ?>
 
 			<?php if ( $department_location ) : ?>
 				<li>
 					<?php
-					// Gist Here: https://gist.github.com/mattradford/bb7679a2671b99ada655
+					/** Gist Here:
+					 * https://gist.github.com/mattradford/bb7679a2671b99ada655
+					 */
 					$building = $department_location['address'];
 					$address  = urlencode_deep( "{$building}" );
 					?>
 					<span class="fa-solid fa-map"></span>
-					<a class="font-sans text-white font-regular hover:text-blue-light !underline !decoration-dotted" href="https://www.google.com/maps/search/?api=1&query=<?php echo esc_html( $address ); ?>" target="_blank">
+					<a class="font-sans text-white font-regular hover:text-blue-light underline! decoration-dotted!" href="https://www.google.com/maps/search/?api=1&query=<?php echo esc_html( $address ); ?>" target="_blank">
 						Find Us on Google Maps
 					</a>
 				</li>
@@ -92,13 +94,13 @@
 					<?php if ( $department_social_platform_selected_option ) : ?>
 					<span class="fa-brands fa-<?php echo esc_html( $department_social_platform_selected_option['value'] ); ?>"></span>
 					<?php endif; ?>
-					<a class="text-white hover:text-blue-light !underline !decoration-dotted" href="<?php echo esc_attr( get_sub_field( 'department_social_link' ) ); ?>">
+					<a class="text-white hover:text-blue-light underline! decoration-dotted!" href="<?php echo esc_attr( get_sub_field( 'department_social_link' ) ); ?>">
 						Follow us on <?php echo esc_html( $department_social_platform_selected_option['label'] ); ?>
 					</a>
 				</li>
 				<?php endwhile; ?>
 			<?php else : ?>
-				<?php // No rows found ?>
+				<?php // No rows found. ?>
 			<?php endif; ?>
 			</ul>
 		<?php endif; ?>
@@ -125,9 +127,9 @@
 			<h2 class="sr-only">Legal Navigation</h2>
 			<ul class="flex flex-wrap pt-8 text-lg lg:justify-between lg:pt-0" role="menu" aria-label="University Policies">
 				<li class="pl-4 font-sans font-regular lg:pl-0" role="menuitem">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> </li>
-				<li class="pl-4" role="menuitem"><a class="text-white font-sans font-regular hover:text-blue-light !underline !decoration-dotted" href="https://accessibility.jhu.edu/">Accessibility</a></li>
-				<li class="pl-4" role="menuitem"><a class="text-white font-sans font-regular hover:text-blue-light !underline !decoration-dotted" href="https://it.johnshopkins.edu/policies/privacystatement">Privacy Statement</a></li>
-				<li class="pl-4" role="menuitem"><a class="text-white font-sans font-regular hover:text-blue-light !underline !decoration-dotted" href="https://policies.jhu.edu/">University Policy & Document Library</a></li>
+				<li class="pl-4" role="menuitem"><a class="text-white font-sans font-regular hover:text-blue-light underline! decoration-dotted!" href="https://accessibility.jhu.edu/">Accessibility</a></li>
+				<li class="pl-4" role="menuitem"><a class="text-white font-sans font-regular hover:text-blue-light underline! decoration-dotted!" href="https://it.johnshopkins.edu/policies/privacystatement">Privacy Statement</a></li>
+				<li class="pl-4" role="menuitem"><a class="text-white font-sans font-regular hover:text-blue-light underline! decoration-dotted!" href="https://policies.jhu.edu/">University Policy & Document Library</a></li>
 			</ul>
 		</div>
 	</div>

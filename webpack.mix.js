@@ -1,183 +1,79 @@
 const mix = require("laravel-mix");
-const tailwindcss = require("tailwindcss");
 const path = require("path");
-const glob = require("glob-all");
-const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
-
-/* ==========================================================================
-  Config
-  ========================================================================== */
-
-
-/* ==========================================================================
-  Purge CSS Extractors
-  ========================================================================== */
-const TailwindExtractor = (content) => {
-  const defaultSelectors = content.match(/[A-Za-z0-9_-]+/g) || [];
-  const extendedSelectors = content.match(/[^<>"=\s]+/g) || [];
-  return defaultSelectors.concat(extendedSelectors);
-};
+const webpack = require('webpack');
 
 /* ==========================================================================
   Laravel Mix Config
   ========================================================================== */
-mix.setResourceRoot('../');
-mix.setPublicPath(path.resolve('./'));
+mix.options({
+    showStepProgress: false
+});
 
-  mix.webpackConfig({
-    watchOptions: { ignored: [
-        path.posix.resolve(__dirname, './node_modules'),
-        path.posix.resolve(__dirname, './dist/css'),
-        path.posix.resolve(__dirname, './dist/js'),
-        path.posix.resolve(__dirname, './dist/fonts'),
-        path.posix.resolve(__dirname, './dist/images')
-      ]}
-  });
+mix.setResourceRoot("../");
+mix.setPublicPath(path.resolve("./"));
 
-  // handle site-wide JS files
-  mix.scripts(["resources/js/twentytwenty.js", "resources/js/custom-jquery.js", "resources/js/wai-dropdown.js", "resources/js/wai-accordion.js","resources/js/navbar.js" ], "dist/js/bundle.min.js")
+// Watch Options: Keep the build quiet and ignore dist files to prevent infinite loops
+mix.webpackConfig({
+  stats: { children: true },
+  watchOptions: {
+    ignored: /node_modules|dist/,
+  },
+  plugins: [
+        // Provide an empty object to satisfy the new Webpack 5.105 schema
+        new webpack.ProgressPlugin({})
+    ]
+});
 
-  //Minify and move isotope to dist directory
-  mix.scripts(
-    ["resources/js/isotope.js"], "dist/js/isotope.js")
+/* ==========================================================================
+  JavaScript Bundling
+  ========================================================================== */
 
-  //Minify and move People Tabs to dist directory
-  mix.scripts(
-    ["resources/js/people-tabs.js"], "dist/js/people-tabs.js")
+// Main Site Bundle
+mix.scripts(
+  [
+    "resources/js/twentytwenty.js",
+    "resources/js/custom-jquery.js",
+    "resources/js/wai-dropdown.js",
+    "resources/js/wai-accordion.js",
+    "resources/js/navbar.js",
+  ],
+  "dist/js/bundle.min.js",
+);
 
-  mix.postCss("./resources/css/style.css", "./dist/css/style.css", [
-    require("@tailwindcss/postcss"),
-  ])
+// Independent Modules (Keep as separate files for conditional loading)
+mix.scripts(["resources/js/isotope.js"], "dist/js/isotope.js");
+mix.scripts(["resources/js/people-tabs.js"], "dist/js/people-tabs.js");
 
-  mix.options({
-    processCssUrls: false,
-    manifest: false,
-  })
+/* ==========================================================================
+  CSS Processing
+  ========================================================================== */
+// Note: Ensure your tailwind.config.js handles the 'content' paths
+// so Tailwind's built-in Purge engine works correctly.
+mix.postCss("resources/css/style.css", "dist/css/style.css", [
+  require("@tailwindcss/postcss"),
+  require("autoprefixer"),
+]);
 
+mix.options({
+  processCssUrls: false, // Prevents Mix from trying to "fix" font/image paths in CSS
+  manifest: false, // WordPress themes rarely need a mix-manifest.json
+  terser: {
+    terserOptions: {
+      compress: { drop_console: mix.inProduction() },
+    },
+  },
+});
+
+/* ==========================================================================
+  Production Only
+  ========================================================================== */
 // remove unused CSS from files - only used when running npm run production
 if (mix.inProduction()) {
-  mix.options({
-    uglify: {
-      uglifyOptions: {
-        mangle: true,
+  // Minify and Versioning
+  mix.minify("dist/js/bundle.min.js");
+  mix.version();
 
-        compress: {
-          warnings: false, // Suppress uglification warnings
-          pure_getters: true,
-          conditionals: true,
-          unused: true,
-          comparisons: true,
-          sequences: true,
-          dead_code: true,
-          evaluate: true,
-          if_return: true,
-          join_vars: true,
-        },
-
-        output: {
-          comments: false,
-        },
-
-        exclude: [/\.min\.js$/gi], // skip pre-minified libs
-      },
-    },
-  });
-  // Purge CSS config
-  // more examples can be found at https://gist.github.com/jack-pallot/217a5d172ffa43c8c85df2cb41b80bad
-  mix.webpackConfig({
-    plugins: [
-      new PurgeCSSPlugin({
-        paths: glob.sync([
-          path.join(__dirname, "./**/*.php"),
-          path.join(__dirname, "resources/js/**/*.js")
-        ]),
-
-        extractors: [
-          {
-            extractor: TailwindExtractor,
-            extensions: ["php", "js"],
-          },
-        ],
-
-        safelist: [
-          "p",
-          "h1",
-          "h2",
-          "h3",
-          "h4",
-          "h5",
-          "h6",
-          "hr",
-          "ol",
-          "ol li",
-          "ul",
-          "ul li",
-          "em",
-          "b",
-          "u",
-          "strong",
-          "blockquote",
-          "cite",
-          "wp-block-quote",
-          "main-navigation",
-          "nav-menu",
-          "menu-main-menu-container",
-          "menu-all-pages-container",
-          "menu-item-has-children",
-          "toggled",
-          "menu-toggle",
-          "sub-menu",
-          "callout",
-          "breadcrumbs",
-          "current-item",
-          "current_page_item",
-          "page-numbers",
-          "sticky",
-          "current_page_ancestor",
-          "loop-entry",
-          "role-title",
-          "people",
-          "playbutton",
-          ":after",
-          ":before",
-          "form",
-          "ginput_container",
-          "gform_footer",
-          "gfield_label",
-          "blog",
-          "md:inline",
-          "wp-post-image",
-          "!list-none",
-          "tablepress",
-          ":root :where(a:where(:not(.wp-element-button)",
-          "max-w-[112ch]",
-          "ul.page-numbers li a",
-          "after:",
-          "before:",
-          "book-listings",
-          /(no-sidebar\s.*?)/,
-          /[alt=""]/,
-          /^widget$/,
-          /(^widget)\w+/,
-          /^ksas_books$/,
-          /(^ksas_books)\w+/,
-          /^has-/,
-          /(^wp-block-)\w+/,
-          /(^c-accordion)\w+/,
-          /^wp-block-/,
-          /^class/,
-          /^align/,
-          /^schema/,
-          /([href$=])\w+/,
-          /^a:where\(:not\(\.wp-element-button\)\)/,
-        ],
-      }),
-    ],
-  });
-  // Move images to dist directory
-  mix.copyDirectory("resources/images", "dist/images")
-
-  // Move fonts to dist directory
-  mix.copyDirectory("resources/fonts", "dist/fonts")
-
+  // Asset Management
+  mix.copyDirectory("resources/images", "dist/images");
+  mix.copyDirectory("resources/fonts", "dist/fonts");
 }

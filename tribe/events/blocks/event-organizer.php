@@ -10,7 +10,6 @@
  * @link http://evnt.is/1aiy
  *
  * @version 5.0.1
- *
  */
 
 $organizer = $this->attr( 'organizer' );
@@ -27,10 +26,10 @@ $email   = tribe_get_organizer_email( $organizer );
 	<div class="tribe-block__organizer__title">
 		<h3>Contact:
 		<?php if ( ! empty( $email ) ) : ?>
-			<a href="mailto:<?php echo esc_html( $email ) ?>">
+			<a href="mailto:<?php echo esc_html( $email ); ?>">
 				<?php echo tribe_get_organizer( $organizer ); ?>
 			</a>
-		<?php else: ?>
+		<?php else : ?>
 			<?php echo tribe_get_organizer( $organizer ); ?>
 		<?php endif; ?>
 		</h3>

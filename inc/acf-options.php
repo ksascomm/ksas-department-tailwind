@@ -42,7 +42,7 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 /**
  * ACF Google Maps API
  *
- * https://www.advancedcustomfields.com/resources/google-map/
+ * Link: https://www.advancedcustomfields.com/resources/google-map/
  */
 function my_acf_init() {
 	acf_update_setting( 'google_api_key', 'AIzaSyCMgFggrsO_fNjrwxclh5I6ThdnyN5G9ZM' );

@@ -24,8 +24,6 @@ if ( ! function_exists( 'ksas_department_tailwind_posted_on' ) ) :
 		);
 
 		$posted_on = sprintf(
-			/* translators: %s: post date. */
-			esc_html_x( '%s', 'post date', 'ksas-dept-tailwind' ),
 			$time_string
 		);
 

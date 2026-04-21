@@ -38,7 +38,7 @@
 			<?php get_template_part( 'template-parts/featured-image' ); ?>
 	<?php endif; ?>
 	
-	<div class="ml-8 wayfinding md:mb-8 xl:pl-0 2xl:ml-[2%]">
+	<div class="ml-12 wayfinding md:mb-8 xl:pl-0 2xl:ml-[2%]">
 	<?php
 	// Capture sidebar-menu output.
 	ob_start();
@@ -60,7 +60,7 @@
 		</div>
 	<?php endif; ?>
 </div>
-	<div class="pl-8 pr-4 2xl:pl-[2%] entry-content lg:pr-12 2xl:pr-0">
+	<div class="entry-content pl-10 pr-4 lg:pl-14 lg:pr-12 2xl:pl-[2%] 2xl:pr-0">
 	<?php
 	if (
 		is_page_template(

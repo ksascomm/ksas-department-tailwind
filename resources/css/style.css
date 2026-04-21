@@ -2,6 +2,7 @@
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 
+/* External Layers */
 @import './wordpress.css' layer(utilities);
 @import './fonts.css' layer(utilities);
 
@@ -9,8 +10,8 @@
 @import './plugins.css';
 /*! purgecss end ignore */
 
-/* Prose Configuration */
-@config '../../tailwind.config.js';
+/* Prose Configuration
+@config '../../tailwind.config.js'; */
 
 @theme {
   --breakpoint-3xl: 120rem;
@@ -26,12 +27,12 @@
   --color-grey-darkest: #4A484C;
   --color-old-black: #2c2c33;
   --color-original-black: #000;
-  	--color-homewood-green: #008767;
-	--color-purple: #A45C98;
-	--color-plum: #51284F;
-	--color-sais-gold: #e9b300;
-	--color-gold: #f1c400;
-	--color-sand: #cba052;
+  --color-homewood-green: #008767;
+  --color-purple: #A45C98;
+  --color-plum: #51284F;
+  --color-sais-gold: #e9b300;
+  --color-gold: #f1c400;
+  --color-sand: #cba052;
   --font-mono: "Menlo", "Monaco", "monospace";
   --font-sans: "worksans-regular", "system-ui", "BlinkMacSystemFont", "-apple-system", "Segoe UI", "sans-serif";
   --font-medium: "worksans-medium", "system-ui", "BlinkMacSystemFont", "-apple-system", "Segoe UI", "sans-serif";
@@ -91,7 +92,6 @@
   --space-l6-sm: calc(var(--space-l6-lg) / 4);
   --space-list-items: 0.5rem;
 }
-
 
 :where(.page-template-default, .post-template-default) .entry-content :is(p, ul, ol) {
   margin-bottom: var(--space-default);
@@ -171,4 +171,182 @@
 
 :where(.page-template-default, .post-template-default) .entry-content :is(p, ul, ol, h1, h2, h3, h4, h5, h6):not(:has(+ *)) {
   margin-bottom: 0;
+}
+
+
+
+/* ==========================================================================
+   KSAS Department Typography (Converted from Tailwind Config)
+   ========================================================================== */
+@layer utilities {
+.prose {
+    letter-spacing: -0.03rem;
+    color: #31261D;
+    line-height: 1.6;
+    font-size: 1.25rem;
+    max-width: 100ch;
+	line-height: 1.77778;
+    /* Tailwind Prose Variables */
+    --tw-prose-body: #31261D;
+    --tw-prose-bullets: #31261D;
+    --tw-prose-headings: #31261D;
+    --tw-prose-links: #002d72;
+    --tw-prose-bold: #31261D;
+    --tw-prose-code: #31261D;
+    --tw-prose-pre-code: #31261D;
+    --tw-prose-pre-bg: #f8f8f8;
+    --tw-prose-quotes: #31261D;
+    --tw-prose-counters: #31261D;
+}
+
+/* Headings */
+:where(.prose h1) {
+    margin-bottom: 0rem;
+    font-size: 2.25rem;
+    font-weight: 500 !important;
+    font-family: robotoslab-bold, Georgia, serif;
+    color: var(--tw-prose-headings);
+}
+
+:where(.prose h2) {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    max-width: 90ch;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: worksans-bold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
+    color: var(--tw-prose-headings);
+}
+
+:where(.prose h3) {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: worksans-bold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
+    color: var(--tw-prose-headings);
+}
+
+:where(.prose h4) {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-family: worksans-bold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
+    color: var(--tw-prose-headings);
+}
+
+:where(.prose h5) {
+    font-weight: 600;
+    font-family: worksans-semibold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
+    color: var(--tw-prose-headings);
+}
+
+/* Paragraphs & Links */
+:where(.prose p) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+:where(.prose a) {
+    color: var(--tw-prose-links);
+    text-decoration: none;
+    transition: none;
+    font-weight: 400;
+}
+
+:where(.prose strong) {
+    font-family: worksans-bold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
+    font-weight: 700;
+    color: var(--tw-prose-bold);
+}
+
+:where(.prose a strong) {
+    color: inherit;
+}
+
+/* Lists */
+:where(.prose ul > li, .prose ol > li) {
+    display: list-item;
+    max-width: 90ch;
+    margin-top: 0rem;
+    margin-bottom: .25rem;
+    font-weight: 400;
+}
+
+:where(.prose ul > li::before) {
+    background-color: #31261D;
+}
+
+:where(.prose ol > li::before) {
+    display: none;
+    background-color: #fefefe;
+    color: #31261D;
+}
+
+/* Elements */
+:where(.prose table) {
+    font-size: 1rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+:where(.prose thead) {
+    color: #31261D;
+}
+
+:where(.prose img) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+:where(.prose hr) {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-color: #bfccd9;
+}
+
+:where(.prose figure) {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+:where(.prose small) {
+    font-size: 75%;
+}
+
+:where(.prose blockquote) {
+    font-style: normal !important;
+    border-left: 4px solid #bfccd9; /* Added width for visibility */
+    padding-left: 1rem;
+}
+
+:where(.prose blockquote p:first-of-type::before) {
+    content: none;
+}
+
+/* ==========================================================================
+   Large Screen Overrides (Desktop)
+   ========================================================================== */
+@media (min-width: 1024px) {
+    .prose {
+        font-size: 1.25rem;
+        max-width: 123ch;
+    }
+
+    :where(.prose h2, .prose h3) {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+     :where(.prose img) {
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+    }
+
+     :where(.prose li) {
+        line-height: 1.6;
+    }
+}
 }

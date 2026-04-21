@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header px-4 lg:pr-12">
+	<header class="px-4 entry-header lg:pr-12">
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -23,8 +23,8 @@
 	<div class="entry-content px-4 lg:pr-12 xl:max-w-[85ch]">
 		<?php
 			$faculty_post_id = get_post_meta( $post->ID, 'publication_author', true );
-			if ( get_post_meta( $post->ID, 'publication_author', true ) ) :
-				?>
+		if ( get_post_meta( $post->ID, 'publication_author', true ) ) :
+			?>
 				<a href="<?php echo esc_html( get_the_permalink( $faculty_post_id ) ); ?>"><?php echo esc_html( get_the_title( $faculty_post_id ) ); ?></a>
 				<?php if ( get_post_meta( $post->ID, 'publication_author_other', true ) ) : ?>
 					and <?php echo esc_html( get_post_meta( $post->ID, 'publication_author_other', true ) ); ?>
@@ -33,15 +33,15 @@
 			<?php
 			if ( get_post_meta( $post->ID, 'publication_name', true ) ) :
 				?>
-			<?php
-			if ( get_post_meta( $post->ID, 'publication_link', true ) ) :
-				?>
+				<?php
+				if ( get_post_meta( $post->ID, 'publication_link', true ) ) :
+					?>
 				|
 					<a href="<?php echo esc_url( get_post_meta( $post->ID, 'publication_link', true ) ); ?>">
 						<em><?php echo esc_html( get_post_meta( $post->ID, 'publication_name', true ) ); ?></em>, <?php echo esc_html( get_post_meta( $post->ID, 'publication_year', true ) ); ?>&nbsp;<i class="fa-sharp fa-solid fa-square-arrow-up-right"></i>
 					</a>
 				
-			<?php else : ?>
+				<?php else : ?>
 				| <em><?php echo esc_html( get_post_meta( $post->ID, 'publication_name', true ) ); ?></em>, <?php echo esc_html( get_post_meta( $post->ID, 'publication_year', true ) ); ?></li>
 			<?php endif; ?>
 		<?php endif; ?>
@@ -67,20 +67,20 @@
 
 		?>
 	<?php
-		if ( has_post_thumbnail() ) :
-			the_post_thumbnail(
-				'full',
-				array(
-					'class' => 'xl:max-w-(--breakpoint-lg)',
-					'alt'   => the_title_attribute(
-						array(
-							'echo' => false,
-						)
-					),
-				)
-			);
+	if ( has_post_thumbnail() ) :
+		the_post_thumbnail(
+			'full',
+			array(
+				'class' => 'xl:max-w-(--breakpoint-lg)',
+				'alt'   => the_title_attribute(
+					array(
+						'echo' => false,
+					)
+				),
+			)
+		);
 		endif
-			?>
+	?>
 	<?php if ( ! is_single() ) : ?>
 		<hr>
 	<?php endif; ?>

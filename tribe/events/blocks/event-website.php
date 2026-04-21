@@ -10,7 +10,6 @@
  * @link http://evnt.is/1aiy
  *
  * @version 4.7
- *
  */
 $href = $this->attr( 'href' );
 
@@ -33,7 +32,10 @@ $target = apply_filters( 'tribe_get_event_website_link_target', '_self', $href, 
 		<a
 			href="<?php echo esc_url( $href ); ?>"
 			target="<?php echo esc_attr( $target ); ?>"
-			<?php if ( '_blank' === $target  ) : ?> rel="noopener noreferrer" <?php endif; ?>
+			<?php
+			if ( '_blank' === $target ) :
+				?>
+				rel="noopener noreferrer" <?php endif; ?>
 		>
 			<?php echo esc_url( $href ); ?>
 		</a>

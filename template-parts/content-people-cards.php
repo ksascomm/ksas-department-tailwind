@@ -16,7 +16,8 @@
 				the_post_thumbnail(
 					'directory',
 					array(
-						'alt' => the_title_attribute(
+						'class' => 'not-prose',
+						'alt'   => the_title_attribute(
 							array(
 								'echo' => false,
 							)

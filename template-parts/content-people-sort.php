@@ -89,10 +89,11 @@
 				<p class="pr-2 my-3 leading-normal"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
 			<?php endif; ?>
 			<?php
-			if ( is_object_in_term( $post->ID, 'role', 'carnegie faculty' ) ) :
+			$role_term = get_term_by( 'slug', 'carnegie-faculty', 'role' );
+			if ( $role_term && is_object_in_term( $post->ID, 'role', $role_term->term_id ) ) :
 				?>
 				<div class="training-faculty-note">
-					<?php echo '<span class="fa-regular fa-circle-exclamation"></span> ' . term_description( '86', 'role' ); ?>
+					<?php echo '<span class="fa-regular fa-circle-exclamation"></span> ' . term_description( $role_term->term_id ); ?>
 				</div>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_degrees', true ) ) : ?>

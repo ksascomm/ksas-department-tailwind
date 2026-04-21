@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'pl-6 lg:pl-8' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'pl-12' ); ?>>
 
 <?php
 	// 1. Explicitly check age using DateTime
@@ -88,11 +88,11 @@ if ( 5 <= $post_years && is_single() ) :
 
 			// Check if the link exists.
 		if ( ! empty( $external_link ) ) :
-			// Parse the URL to get the host (e.g., 'www.nytimes.com')
-			$url_parts = parse_url( $external_link );
-			$domain    = isset( $url_parts['host'] ) ? $url_parts['host'] : 'External Site';
-			// Optional: Strip 'www.' for a cleaner look
-			$clean_domain = str_replace( 'www.', '', $domain );
+			// Parse the URL to get the host (e.g., 'www.nytimes.com').
+			$url_parts  = wp_parse_url( $external_link );
+			$url_domain = isset( $url_parts['host'] ) ? $url_parts['host'] : 'External Site';
+			// Optional: Strip 'www.' for a cleaner look.
+			$clean_domain = str_replace( 'www.', '', $url_domain );
 			?>
 				<div class="my-8 wp-block-button">
 					<a href="<?php echo esc_url( $external_link ); ?>" 

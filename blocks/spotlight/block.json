@@ -1,16 +1,27 @@
 {
-    "name": "acf/spotlights",
-	 "apiVersion": "2",
-    "title": "Spotlights",
-    "description": "A custom block show Testimonials/Profiles.",
-    "style": [ "file:./spotlight.css" ],
-    "category": "formatting",
-    "icon": "admin-comments",
-    "keywords": ["testimonial", "quote", "spotlight", "profiles", "students", "alumni"],
-    "acf": {
-        "mode": "auto",
-        "renderTemplate": "spotlight.php"
-    },
-    "align": "full",
-    "postTypes": ["profile"]
+	"name": "acf/spotlights",
+	"apiVersion": "2",
+	"title": "Spotlights",
+	"description": "A custom block show Testimonials/Profiles.",
+	"style": [
+		"file:./spotlight.css"
+	],
+	"category": "formatting",
+	"icon": "admin-comments",
+	"keywords": [
+		"testimonial",
+		"quote",
+		"spotlight",
+		"profiles",
+		"students",
+		"alumni"
+	],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "spotlight.php"
+	},
+	"align": "full",
+	"postTypes": [
+		"profile"
+	]
 }

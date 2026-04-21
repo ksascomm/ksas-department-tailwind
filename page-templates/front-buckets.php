@@ -68,7 +68,7 @@ get_header();
 			);
 			if ( $news_query->have_posts() ) :
 				?>
-				<div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+				<div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 2xl:max-w-450 2xl:mx-auto ">
 					<?php
 					while ( $news_query->have_posts() ) :
 						$news_query->the_post();

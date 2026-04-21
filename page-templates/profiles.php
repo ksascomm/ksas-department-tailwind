@@ -27,7 +27,7 @@ get_header();
 			if ( ! is_array( $profile_type ) ) {
 				$profile_type = array( $profile_type );
 			}
-			$args                = array(
+			$args                 = array(
 				'post_type'      => 'profile',
 				'orderby'        => 'title',
 				'order'          => 'ASC',

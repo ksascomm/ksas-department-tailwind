@@ -23,7 +23,7 @@
 			the_post_thumbnail(
 				'full',
 				array(
-					'class' => 'h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full',
+					'class' => 'not-prose h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full',
 					'title' => 'Feature image',
 				)
 			);

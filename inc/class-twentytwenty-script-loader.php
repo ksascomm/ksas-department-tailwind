@@ -42,6 +42,5 @@ if ( ! class_exists( 'TwentyTwenty_Script_Loader' ) ) {
 			}
 			return $tag;
 		}
-
 	}
 }

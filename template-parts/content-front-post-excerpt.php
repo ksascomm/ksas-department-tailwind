@@ -18,23 +18,17 @@
 	 * See inc/template-tags.php for that function
 	 */
 if ( has_post_thumbnail() ) :
+	$thumbnail_id    = get_post_thumbnail_id( $post->ID );
+	$img_alt         = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true );
+	$container_class = $img_alt ? '' : 'no-alt';
 	?>
-		<?php
-		$thumbnail_id = get_post_meta( $post->ID, '_thumbnail_id', true );
-		$img_alt      = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true );
-		?>
-		<div class="news-thumb h-0 lg:h-84 xl:h-100
-		<?php
-		if ( ! $img_alt ) {
-			echo 'no-alt';
-		}
-		?>
-		">
+		<div class="news-thumb hidden lg:block lg:h-84 xl:h-100 <?php echo esc_attr( $container_class ); ?>">
 		<?php
 			the_post_thumbnail(
 				'large',
 				array(
-					'class' => 'w-full h-0 lg:h-full object-cover pr-0 mt-0! mb-2 object-[0%_20%]',
+					'class'   => 'w-full h-full object-cover object-[0%_20%]',
+					'loading' => 'lazy',
 				)
 			);
 		?>

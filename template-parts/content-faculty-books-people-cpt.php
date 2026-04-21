@@ -60,7 +60,7 @@ if ( $faculty_book_tab_query->have_posts() ) :
 						</div>
 						
 						<div class="py-2 sm:col-span-2">
-							<h2 class="mb-1 font-bold leading-tight font-heavy">
+							<h2 class="mb-1 font-bold leading-tight font-heavy text-xl!">
 								<a class="hover:text-primary" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 							</h2>
 							

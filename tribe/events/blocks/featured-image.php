@@ -10,7 +10,6 @@
  * @link    http://evnt.is/1aiy
  *
  * @version 4.7
- *
  */
 
 $event_id = $this->get( 'post_id' );

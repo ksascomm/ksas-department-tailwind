@@ -9,14 +9,14 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'px-4' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'px-8' ); ?>>
 	<div class="flex flex-col flex-wrap my-4 entry-header md:flex-row">
 		<div class="flex-initial">
 		<?php
 			the_post_thumbnail(
 				'medium',
 				array(
-					'class' => 'mr-6',
+					'class' => 'mr-6 not-prose',
 					'alt'   => the_title_attribute(
 						array(
 							'echo' => false,

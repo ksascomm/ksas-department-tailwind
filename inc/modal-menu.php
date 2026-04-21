@@ -18,7 +18,7 @@
 			<div class="menu-top">
 
 				<button class="toggle close-nav-toggle fill-children-current-color" data-toggle-target=".menu-modal" data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".menu-modal" type="button">
-					<span class="toggle-text"><?php _e( 'Close Menu', 'ksas-dept-tailwind' ); ?></span>
+					<span class="toggle-text"><?php esc_html_e( 'Close Menu', 'ksas-dept-tailwind' ); ?></span>
 					<?php twentytwenty_the_theme_svg( 'cross' ); ?>
 				</button><!-- .nav-toggle -->
 

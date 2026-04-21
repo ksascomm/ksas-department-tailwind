@@ -13,10 +13,10 @@
 global $post;
 $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'people pl-4 lg:pl-0 pb-8' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'people pl-0 pb-8' ); ?>>
 	<div class="alignfull mt-0! 
 	<?php if ( ! empty( $bio ) ) : ?>
-		md:bg-grey-lightest
+		md:bg-grey-lightest pl-4
 	<?php endif; ?>">
 		<div class="container flex flex-wrap justify-start lg:mx-auto contact-info">
 		<?php
@@ -27,7 +27,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 			the_post_thumbnail(
 				'full',
 				array(
-					'class' => 'w-2xs sm:w-xs md:max-w-sm lg:max-w-full',
+					'class' => 'not-prose w-2xs sm:w-xs md:max-w-sm lg:max-w-full',
 					'alt'   => the_title_attribute(
 						array(
 							'echo' => false,
@@ -45,7 +45,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 				<?php
 				if ( function_exists( 'bcn_display' ) ) :
 					?>
-					<div class="mb-4 bg-white breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+					<div class="pl-4 mb-4 bg-white breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 						<?php bcn_display(); ?>
 					</div>
 					<?php endif; ?>
@@ -63,8 +63,15 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 					<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
 						<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?>
 					<?php else : ?>
-						<span class="capitalize"><?php echo wp_strip_all_tags( get_the_term_list( $post->ID, 'role', '', ', ' ) ); ?></span>
-					<?php endif; ?>	
+						<span class="capitalize">
+							<?php
+								// 1. Get the list (which contains HTML links)
+								$term_list = get_the_term_list( $post->ID, 'role', '', ', ' );
+								// 2. Strip the tags and escape the resulting plain text
+								echo esc_html( wp_strip_all_tags( $term_list ) );
+							?>
+					</span>
+					<?php endif; ?>
 					</h2>
 				</div>
 			
@@ -151,7 +158,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 	<?php
 	if ( function_exists( 'bcn_display' ) ) :
 		?>
-		<div class="ml-4 wayfinding md:mb-8 2xl:ml-6">
+		<div class="pl-4 ml-4 wayfinding md:mb-8 2xl:ml-6">
 			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 				<?php bcn_display(); ?>
 			</div>
@@ -162,7 +169,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 	if ( is_singular( 'people' ) ) :
 		?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
-		<div class="my-4 ml-4 2xl:ml-6 tabbed people-content">
+		<div class="pl-4 my-4 ml-4 2xl:ml-6 tabbed people-content">
 			<ul class="pr-6 lg:pr-0 section-headings">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 				<li class="text-xl">

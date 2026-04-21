@@ -1644,7 +1644,7 @@ summary::-webkit-details-marker {
 
 .news-section .prose h3.entry-title,
 .blog .site-main.prose h3.entry-title {
-  @apply mt-0 lg:text-[26px];
+  @apply mt-0 lg:text-[1.35rem]  2xl:text-[1.625rem];
 }
 
 .front.prose .wp-block-quote {
@@ -1716,7 +1716,7 @@ summary::-webkit-details-marker {
 
 .entry-header,
 .entry-content .wp-block-embed__wrapper {
-  @apply break-words;
+   overflow-wrap: break-word;
 }
 
 .missing-post-thumbnail.page .prose h1.entry-title {

@@ -10,19 +10,18 @@
  * @link http://m.tri.be/1aiy
  *
  * @version 4.7.2
- *
  */
 
-$recurrence_data = get_post_meta( $post_id, '_EventRecurrence', true );
+$recurrence_data        = get_post_meta( $post_id, '_EventRecurrence', true );
 $recurrence_description = $recurrence_data['description'] ? $recurrence_data['description'] : esc_html__( 'Recurring event', 'ksas-dept-tailwind' );
 ?>
 
 <div class="tribe-events-single-event-recurrence-description">
 
-	<span><?php echo $recurrence_description ?></span>
+	<span><?php echo $recurrence_description; ?></span>
 
-	<a href="<?php echo esc_url( tribe_all_occurences_link( $post_id, false ) ) ?>">
-		<?php echo __( '(See All)', 'ksas-dept-tailwind' ) ?>
+	<a href="<?php echo esc_url( tribe_all_occurences_link( $post_id, false ) ); ?>">
+		<?php echo __( '(See All)', 'ksas-dept-tailwind' ); ?>
 	</a>
 
 </div>

@@ -19,7 +19,6 @@ if ( ! function_exists( 'ksas_department_tailwind_start_cleanup' ) ) :
 
 		// Clean up comment styles in the head.
 		add_action( 'wp_head', 'ksas_department_tailwind_remove_recent_comments_style', 1 );
-
 	}
 	add_action( 'after_setup_theme', 'ksas_department_tailwind_start_cleanup' );
 endif;
@@ -170,3 +169,24 @@ function tn_minify_customizer_css_head() {
 	// add the minified css in wp_head
 	echo '<style id="wp-custom-css">' . $buffer . '</style>';
 }
+
+/**
+ * Dequeue KSAS-SIS-Courses plugin assets on non-SIS Courses template
+ *
+ * Hooked to the wp_print_scripts action, with a late priority (100),
+ * so that it is after the script was enqueued.
+ */
+function dequeue_sis_scripts() {
+	if ( ! is_page_template( array( '../templates/courses-undergrad-ksasblocks.php', 'page-templates/language-program-courses.php' ) ) ) {
+		wp_dequeue_style( 'data-tables' );
+		wp_dequeue_style( 'data-tables-searchpanes' );
+		wp_dequeue_style( 'data-tables-responsive' );
+		wp_dequeue_style( 'courses-css' );
+		wp_dequeue_script( 'data-tables' );
+		wp_dequeue_script( 'data-tables-searchpanes' );
+		wp_dequeue_script( 'data-tables-select' );
+		wp_dequeue_script( 'data-tables-responsive' );
+		wp_dequeue_script( 'courses-js' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'dequeue_sis_scripts', 100 );

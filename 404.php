@@ -31,17 +31,25 @@ get_header();
 					<li><?php esc_html_e( 'Check your spelling', 'ksas-dept-tailwind' ); ?></li>
 					<li>
 						<?php
-							/* translators: %s: home page url */
-							printf(
-								__(
-									'Return to the <a href="%s">home page</a>',
-									'ksas-dept-tailwind'
-								),
-								esc_html( home_url() )
-							);
-							?>
+						/* translators: %s: home page url */
+						$home_text = sprintf( __( 'Return to the <a href="%s">home page</a>', 'ksas-dept-tailwind' ), esc_url( home_url( '/' ) ) );
+
+						echo wp_kses( $home_text, array( 'a' => array( 'href' => array() ) ) );
+						?>
 					</li>
-					<li><?php _e( 'Click the <a href="javascript:history.back()">Back</a> button', 'ksas-dept-tailwind' ); ?></li>
+					<li>
+						<?php
+						/* translators: %s: The back link HTML */
+						$ksas_back_link = sprintf( __( 'Click the %s button', 'ksas-dept-tailwind' ), '<a href="javascript:history.back()">Back</a>' );
+
+						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo $ksas_back_link;
+						?>
+					</li>
+
+
+
+
 					<li><?php esc_html_e( 'Use the search box in the menu', 'ksas-dept-tailwind' ); ?></li>
 				</ul>
 

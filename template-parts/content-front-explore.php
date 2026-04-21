@@ -14,8 +14,8 @@ endif;
 $explore_buckets = get_field( 'explore_the_department' );
 
 if ( $explore_buckets ) :
-	$section_heading      = get_field( 'buckets_heading' );
-	$bucket_count         = count( $explore_buckets );
+	$section_heading = get_field( 'buckets_heading' );
+	$bucket_count    = count( $explore_buckets );
 	// Dynamic grid classes: centered if 2, 3-column if more.
 	$grid_class = ( 2 === $bucket_count ) ? 'md:grid-cols-2 lg:max-w-5xl' : 'md:grid-cols-2 xl:grid-cols-3';
 	?>
@@ -43,7 +43,7 @@ if ( $explore_buckets ) :
 				<?php if ( $b_img ) : ?>
 					<div class="w-full bucket-<?php echo (int) $b_index; ?>">
 						<div class="h-full border shadow-sm bucket not-prose border-grey-light">
-							<?php echo wp_get_attachment_image( $b_img['ID'], 'full', false, array( 'class' => 'w-full h-72 object-cover' ) ); ?>
+							<?php echo wp_get_attachment_image( $b_img['ID'], 'full', false, array( 'class' => 'mt-0! w-full h-72 object-cover' ) ); ?>
 							<div class="p-6 bucket-text">
 								<h3 class="mb-4 text-2xl font-bold not-prose font-heavy 2xl:text-3xl">
 									<?php

@@ -29,7 +29,7 @@ $has_second = wp_validate_boolean( get_post_meta( $book_id, 'ecpt_author_cond', 
 				the_post_thumbnail(
 					'faculty-book',
 					array(
-						'class' => 'h-auto max-w-full lg:mx-auto', // Changed to h-auto to prevent stretching.
+						'class' => 'not-prose h-auto max-w-full lg:mx-auto', // Changed to h-auto to prevent stretching.
 						'alt'   => esc_html( 'Book Cover art for ' . get_the_title() ),
 					)
 				);
