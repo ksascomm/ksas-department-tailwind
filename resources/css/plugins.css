@@ -324,7 +324,7 @@ p.tribe-events-back a,
 
 .events-widget-section .tribe-common--breakpoint-medium.tribe-events-widget .tribe-events-widget-events-list__event-title,
 .below-news-widget-section .tribe-common--breakpoint-medium.tribe-events-widget .tribe-events-widget-events-list__event-title {
-	@apply text-2xl!;
+	@apply text-xl!;
 }
 
 .tribe-events-widget-events-list.widget .tribe-events-c-messages__message.tribe-events-c-messages__message--notice {

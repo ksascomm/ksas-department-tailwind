@@ -55,7 +55,7 @@
 		<?php endif; ?>
 		</h3>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_position', true ) ) : ?>
-			<div class="position"><p class="leading-normal pr-2 text-xl my-3!"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></p></div>
+			<div class="position max-w-[85ch]"><p class="leading-normal pr-2 text-xl my-3!"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_position', true ) ); ?></p></div>
 		<?php endif; ?>
 
 			<h4 class="sr-only">Contact Information</h4>
@@ -86,7 +86,7 @@
 			</ul>
 
 			<?php if ( get_post_meta( $post->ID, 'ecpt_expertise', true ) ) : ?>
-				<p class="pr-2 my-3 leading-normal"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
+				<p class="pr-2 my-3 leading-normal max-w-[80ch]"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
 			<?php endif; ?>
 			<?php
 			$role_term = get_term_by( 'slug', 'carnegie-faculty', 'role' );

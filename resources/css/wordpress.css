@@ -2001,6 +2001,7 @@ h3.wp-block-accordion-heading {
 
 .three-column-feature {
   @apply -mx-2;
+  max-width: 100ch;
 }
 
 .alignfull .three-column-feature {

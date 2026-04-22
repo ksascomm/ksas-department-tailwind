@@ -32,6 +32,8 @@
   clip: inherit !important;
 } 
 
+.screen-reader-text { clip: auto !important; }
+
 .tribe-common .tribe-common-a11y-visual-hide {
     overflow: visible;
 }
