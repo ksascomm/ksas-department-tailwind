@@ -46,10 +46,6 @@ get_header();
 						echo $ksas_back_link;
 						?>
 					</li>
-
-
-
-
 					<li><?php esc_html_e( 'Use the search box in the menu', 'ksas-dept-tailwind' ); ?></li>
 				</ul>
 

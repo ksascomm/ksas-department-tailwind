@@ -19,36 +19,33 @@
 		<div class="hidden lg:block lg:w-3/5" style="clip-path:polygon(5% 0, 100% 0%, 100% 100%, 0 100%)">
 
 		<?php
+		$hero_classes = 'not-prose h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full';
 		if ( has_post_thumbnail() ) :
 			the_post_thumbnail(
 				'full',
 				array(
-					'class' => 'not-prose h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full',
+					'class' => $hero_classes,
 					'title' => 'Feature image',
+					'alt'   => ! empty( get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ) ) ? get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true ) : get_the_title(),
 				)
 			);
 			else :
 					// Otherwise, randomly display one of the following images.
-				$theme = get_template_directory_uri();
-				$bg    = array(
-					$theme . '/dist/images/header-images/interior-banner-1.jpg',
-					$theme . '/dist/images/header-images/interior-banner-2.jpg',
-					$theme . '/dist/images/header-images/interior-banner-3.jpg',
-					$theme . '/dist/images/header-images/interior-banner-4.jpg',
-					$theme . '/dist/images/header-images/interior-banner-5.jpg',
-					$theme . '/dist/images/header-images/interior-banner-6.jpg',
-					$theme . '/dist/images/header-images/interior-banner-7.jpg',
-					$theme . '/dist/images/header-images/interior-banner-8.jpg',
-					$theme . '/dist/images/header-images/interior-banner-9.jpg',
-				);
+				$theme_uri = get_template_directory_uri();
+				$banners   = array();
+				// Fill the array using a loop to keep it clean.
+				for ( $i = 1; $i <= 9; $i++ ) {
+					$banners[] = "{$theme_uri}/dist/images/header-images/interior-banner-{$i}.jpg";
+				}
 
-				$i              = wp_rand( 0, count( $bg ) - 1 ); // Generate random number size of the array.
-				$selected_image = "$bg[$i]"; // Set variable equal to which random filename was chosen.
+				$selected_image = $banners[ array_rand( $banners ) ];
 				?>
-				<img src="<?php echo esc_url( $selected_image ); ?>" alt="Hero Image of Students on Campus" class="object-cover w-full h-56 sm:h-72 lg:w-full lg:h-full stock-image">
-				<?php
-		endif;
-			?>
+				<img 
+				src="<?php echo esc_url( $selected_image ); ?>" 
+				alt="Random image of students on campus or a campus building on a sunny day." 
+				class="<?php echo esc_attr( $hero_classes ); ?> stock-image"
+				>
+			<?php endif; ?>
 		</div>
 	</div>
 </div>

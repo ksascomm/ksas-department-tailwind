@@ -24,7 +24,6 @@
 # Plugins
 	- Reusable Patterns
 	- Breadcrumbs
-  - TablePress
 # Utilities
 	- Accessibility
 	- Alignments
@@ -1161,7 +1160,7 @@ button.menu-button:focus {
   .undergraduate-sidebar li,
   .sidebar-1.sidebar p,
   .sidebar-1.sidebar li {
-    @apply text-lg leading-normal;
+    @apply text-lg leading-normal lg:leading-relaxed;
   }
 }
 @media only screen and (max-width: 481px) {

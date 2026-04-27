@@ -101,6 +101,10 @@ display: block;
 /* ---------------------------------------------------------------------------
    TablePress
 --------------------------------------------------------------------------- */
+.page-template-default .dt-container {
+	max-width: 100ch;
+}
+
 table.tablepress thead th {
 	background: rgba(148, 207, 248, 0.84)
 }
