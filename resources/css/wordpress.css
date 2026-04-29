@@ -1603,6 +1603,7 @@ summary::-webkit-details-marker {
 .prose .entry-content ol > li::before {
   counter-increment: section;
   content: counter(section) ".";
+  display: none;
 }
 
 .prose .entry-content ol.reversed {

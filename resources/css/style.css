@@ -280,7 +280,7 @@
 }
 
 :where(.prose ol > li::before) {
-    display: none;
+    display: none !important;
     background-color: #fefefe;
     color: #31261D;
 }
