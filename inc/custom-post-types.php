@@ -14,17 +14,11 @@ add_action( 'wp_enqueue_scripts', 'ksas_department_tailwind_custom_posts_scripts
 	 * Note that this function is hooked into the wp_enqueue_scripts
 	 */
 function ksas_department_tailwind_custom_posts_scripts() {
-	if ( is_page_template( 'page-templates/people-directory-rows.php' ) || is_page_template( 'page-templates/people-directory-select.php' ) ) :
+	if ( is_page_template( 'page-templates/people-directory-rows.php' ) ) :
 		// Only load the CDN if it's NOT bundled in your local dist file.
 		wp_enqueue_script( 'isotope-packaged', 'https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js', array(), '3.0.6', true );
 
-		wp_enqueue_script(
-			'isotope-local',
-			get_template_directory_uri() . '/dist/js/isotope.js',
-			array( 'jquery', 'isotope-packaged' ), // Ensure dependency order.
-			filemtime( get_template_directory() . '/dist/js/isotope.js' ),
-			true
-		);
+		wp_enqueue_script( 'isotope-js', get_stylesheet_directory_uri() . '/dist/js/isotope.js', array( 'jquery' ), '1.0.0', true );
 	endif;
 
 	if ( is_singular( 'people' ) ) :

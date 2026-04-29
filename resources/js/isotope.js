@@ -30,6 +30,7 @@ jQuery(document).ready(function ($) {
       $grid.isotope();
 
       // display message box if no filtered items
+
       if (!$grid.data("isotope").filteredItems.length) {
         $("#noResult").show();
       } else {
@@ -53,77 +54,88 @@ jQuery(document).ready(function ($) {
     };
   }
 
-  // Wire filter buttons to generate URL hash
-  $("#filters button").on("click", function (event) {
+  $("#filters button").click(function (event) {
     event.preventDefault();
-    var $this = $(this);
+  });
 
-    if ($this.attr("aria-pressed") === "true") {
-      // If already active, uncheck it
+  // Filter based on URL hash
+
+  // 1. Wire filter buttons to generate URL hash, ie "...#filter=.design"
+  // 2. Monitor changes to URL hash and trigger a function.
+  // 3. Grab filter value from URL hash.
+  // 4. Pass filter value to Isotope to repaint.
+
+  // Wire filter buttons to generate URL hash, ie "...#filter=.design"
+  $("#filters button").on("click", function () {
+    if ($(this).hasClass("is-checked")) {
+      $(this).removeClass("is-checked");
       location.hash = "filter=*";
     } else {
-      var filterAttr = $this.attr("data-filter");
+      //$('#filters a.button').removeClass('checked');
+      var filterAttr = $(this).attr("data-filter");
       location.hash = "filter=" + encodeURIComponent(filterAttr);
+      //$(this).addClass('checked');
     }
   });
 
   // Pass filter value to Isotope to repaint.
   function onHashChange() {
     hashFilter = getHashFilter();
-    var $filterButtons = $("#filters button");
 
     if (hashFilter) {
-      // 1. Reset all buttons in the filter group
-      $filterButtons.attr("aria-pressed", "false").removeClass("is-checked");
-
-      // 2. Set the active button based on the hash
-      var $activeButton = $filterButtons.filter('[data-filter="' + hashFilter + '"]');
-      
-      if ($activeButton.length) {
-        $activeButton.attr("aria-pressed", "true").addClass("is-checked");
-      }
-
+      $("#filters").find(".is-checked").removeClass("is-checked");
+      $("#filters")
+        .find('[data-filter="' + hashFilter + '"]')
+        .addClass("is-checked");
       $grid.isotope();
-    } else {
-      // If no hash, ensure nothing is pressed (all results shown)
-      $filterButtons.attr("aria-pressed", "false").removeClass("is-checked");
-      $grid.isotope({ filter: '*' });
     }
-  }
+  } // onHashChange
 
   // Grab filter value from URL hash.
   function getHashFilter() {
     var currentHash = location.hash.match(/filter=([^&]+)/i);
     var filterValue = currentHash && currentHash[1];
-    return filterValue ? decodeURIComponent(filterValue) : null;
+    return filterValue;
   }
 
   onHashChange();
+  // Run onHashChange any time the URL hash changes
   window.onhashchange = onHashChange;
 
-  // Window Load logic
-  $(window).on("load", function () {
-    $("#isotope-list").isotope();
-    setTimeout(function () {
-      $("#isotope-list").removeClass("loading");
-    }, 1000);
-  });
+  (function ($) {
+    var $doc = $(document),
+      $win = $(window);
 
-  // Data Layer / Analytics Logic
+    $win.on("load", function () {
+      // document is fully loaded
+
+      $("#isotope-list").isotope();
+      // set timeout to fake 1 sec loading
+      setTimeout(function () {
+        $("#isotope-list").removeClass("loading");
+      }, 1000);
+    });
+  })(jQuery);
   (function() {
+    // Set searchField to the search input field.
+    // Set timeout to the time you want to wait after the last character in milliseconds.
+    // Set minLength to the minimum number of characters that constitutes a valid search.
     var searchField = document.querySelector('#id_search'),
       timeout = 1500,
       minLength = 3;
   
     var textEntered = false;
+  
     var timer, searchText;
     
     var handleInput = function() {
       searchText = searchField ? searchField.value : '';
-      if (searchText.length < minLength) { return; }
+      if (searchText.length < minLength) {
+      return;
+      }
       window.dataLayer.push({
-        'event': 'peopledirectoryInput',
-        'searchTerm': searchText
+      'event': 'peopledirectoryInput',
+      'searchTerm': searchText
       });
       textEntered = false;
     };
@@ -132,20 +144,21 @@ jQuery(document).ready(function ($) {
       textEntered = true;
       window.clearTimeout(timer);
       if (e.keyCode === 13) {
-        handleInput();
-        return;
+      handleInput();
+      return;
       }
       timer = setTimeout(handleInput, timeout);
     };
     
     if (searchField !== null) {
       searchField.addEventListener('keydown', startTimer, true);
-      searchField.addEventListener('blur', function() {
-        if (textEntered) {
-          window.clearTimeout(timer);
-          handleInput();
-        }
+      searchField.addEventListener('blur-sm', function() {
+      if (textEntered) {
+        window.clearTimeout(timer);
+        handleInput();
+      }
       }, true);
     }
-  })();
+    })();
 });
+
