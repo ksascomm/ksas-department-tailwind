@@ -14,9 +14,17 @@ add_action( 'wp_enqueue_scripts', 'ksas_department_tailwind_custom_posts_scripts
 	 * Note that this function is hooked into the wp_enqueue_scripts
 	 */
 function ksas_department_tailwind_custom_posts_scripts() {
-	if ( is_page_template( 'page-templates/research-projects.php' ) || is_page_template( 'page-templates/people-directory-rows.php' ) || is_page_template( 'page-templates/people-directory-columns.php' ) ) :
+	if ( is_page_template( 'page-templates/people-directory-rows.php' ) || is_page_template( 'page-templates/people-directory-select.php' ) ) :
+		// Only load the CDN if it's NOT bundled in your local dist file.
 		wp_enqueue_script( 'isotope-packaged', 'https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js', array(), '3.0.6', true );
-		wp_enqueue_script( 'isotope-local', get_template_directory_uri() . '/dist/js/isotope.js', array( 'jquery' ), KSAS_DEPARTMENT_TAILWIND_VERSION, true );
+
+		wp_enqueue_script(
+			'isotope-local',
+			get_template_directory_uri() . '/dist/js/isotope.js',
+			array( 'jquery', 'isotope-packaged' ), // Ensure dependency order.
+			filemtime( get_template_directory() . '/dist/js/isotope.js' ),
+			true
+		);
 	endif;
 
 	if ( is_singular( 'people' ) ) :
@@ -30,16 +38,18 @@ function ksas_department_tailwind_custom_posts_scripts() {
  * @param int/object $post ID or object of the post.
  */
 function get_the_roles( $post ) {
-	$roles = get_the_terms( $post->ID, 'role' );
+	$role_name = ''; // Initialize to prevent Undefined Variable warning
+	$roles     = get_the_terms( $post->ID, 'role' );
+
 	if ( $roles && ! is_wp_error( $roles ) ) :
 		$role_names = array();
 		foreach ( $roles as $role ) {
 			$role_names[] = $role->slug;
 		}
 		$role_name = join( ' ', $role_names );
+	endif;
 
-		endif;
-		return $role_name;
+	return $role_name;
 }
 /**
  * Create function to print Filter taxonomy on people-sort template part
@@ -47,35 +57,42 @@ function get_the_roles( $post ) {
  * @param int/object $post ID or object of the post.
  */
 function get_the_filters( $post ) {
-	$directory_filters = get_the_terms( $post->ID, 'filter' );
+	$directory_filter_name = ''; // Initialize.
+	$directory_filters     = get_the_terms( $post->ID, 'filter' );
+
 	if ( ! empty( $directory_filters ) && ! is_wp_error( $directory_filters ) ) {
 		$directory_filter_names = array();
 		foreach ( $directory_filters as $directory_filter ) {
 			$directory_filter_names[] = $directory_filter->slug;
 		}
 		$directory_filter_name = join( ' ', $directory_filter_names );
-		return $directory_filter_name;
 	}
+
+	return $directory_filter_name;
 }
 
 /**
  * Redirect empty People CPT 'ecpt_bio' meta fields
  * to whats in 'ecpt_website' meta
  */
-add_action( 'template_redirect', 'redirect_empty_bios' );
 function redirect_empty_bios() {
 	if ( is_singular( 'people' ) ) {
 		global $post;
 		$bio  = get_post_meta( $post->ID, 'ecpt_bio', true );
 		$link = get_post_meta( $post->ID, 'ecpt_website', true );
-		if ( has_term( array( 'faculty', 'tenured-and-tenure-track-faculty', 'joint-faculty', 'advisory-board' ), 'role' ) ) {
-			if ( empty( $bio ) && isset( $link ) ) {
-				wp_redirect( esc_url( $link ), 301 );
+
+		// Define target roles for redirection.
+		$target_roles = array( 'faculty', 'tenured-and-tenure-track-faculty', 'joint-faculty', 'advisory-board' );
+
+		if ( has_term( $target_roles, 'role' ) ) {
+			if ( empty( $bio ) && ! empty( $link ) ) {
+				wp_safe_redirect( esc_url_raw( $link ), 301 );
 				exit();
 			}
 		}
 	}
 }
+add_action( 'template_redirect', 'redirect_empty_bios' );
 
 /**
  * Custom thumbnail sizes

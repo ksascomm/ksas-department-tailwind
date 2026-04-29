@@ -240,6 +240,15 @@ p.tribe-events-back a,
 	@apply font-sans text-lg font-normal;
 }
 
+.tribe-events-widget-events-list__event-title-link.tribe-common-anchor-thin {
+  font-size: 26px !important;
+}
+
+.tribe-events-widget-events-list__events time {
+  font-size: 18px !important;
+}
+
+
 
 /* ---------------------------------------------------------------------------
    Events Calendar — Footer & Homepage Widgets
