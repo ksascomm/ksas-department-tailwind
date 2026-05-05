@@ -158,7 +158,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 	<?php
 	if ( function_exists( 'bcn_display' ) ) :
 		?>
-		<div class="pl-4 ml-4 wayfinding md:mb-8 2xl:ml-6">
+		<div class="pl-4 mb-8 ml-4 wayfinding 2xl:ml-6">
 			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 				<?php bcn_display(); ?>
 			</div>
@@ -169,40 +169,40 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 	if ( is_singular( 'people' ) ) :
 		?>
 		<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
-		<div class="pl-4 my-4 ml-4 2xl:ml-6 tabbed people-content">
-			<ul class="pr-6 lg:pr-0 section-headings">
+		<div class="my-4 ml-4 lg:pl-4 2xl:ml-6 tabbed people-content">
+			<ul class="pr-6 mr-6 lg:pr-0 section-headings">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
-				<li class="text-xl">
+				<li class="pl-0 text-xl">
 				<a href="#section1">Biography</a>
 				</li>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_research', true ) ) : ?>
-				<li class="text-xl">
+				<li class="pl-0 text-xl">
 				<a href="#section2">Research</a>
 				</li>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_teaching', true ) ) : ?>
-				<li class="text-xl">
+				<li class="pl-0 text-xl">
 				<a href="#section3">Teaching</a>
 				</li>
 				<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_publications', true ) ) : ?>
-				<li class="text-xl">
+				<li class="pl-0text-xl">
 				<a href="#section4">Publications</a>
 				</li>
 			<?php endif; ?>
 				<?php
 				if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) :
 					?>
-				<li class="text-xl">
+				<li class="pl-0 text-xl">
 				<a href="#section5">Faculty Books</a>
 				</li>
 							<?php endif; ?>
 				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ) : ?>
-				<li class="text-xl"><a href="#section6"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ); ?></a></li>
+				<li class="pl-0 text-xl"><a href="#section6"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ); ?></a></li>
 				<?php endif; ?>
 					<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ) : ?>
-				<li class="text-xl"><a href="#section7"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ); ?></a></li>
+				<li class="pl-0 text-xl"><a href="#section7"><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_extra_tab_title2', true ) ); ?></a></li>
 				<?php endif; ?>
 			</ul>
 			<?php

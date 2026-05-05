@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="people people-card item p-2 mb-8 w-full lg:w-1/3 <?php echo esc_html( get_the_roles( $post ) ); ?> <?php echo esc_html( get_the_filters( $post ) ); ?>">
+<div class="not-prose people people-card item p-2 mb-8 w-full lg:w-1/3 <?php echo esc_html( get_the_roles( $post ) ); ?> <?php echo esc_html( get_the_filters( $post ) ); ?>">
 	<div class="h-full px-6 overflow-hidden bg-white">
 		<?php if ( has_post_thumbnail() ) { ?>
 			<?php
@@ -26,7 +26,7 @@
 				);
 			?>
 		<?php } ?>
-		<h2 class="font-heavy font-bold text-2xl!">
+		<h2 class="my-4 text-2xl font-bold font-heavy">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_website', true ) ) : ?>
 				<a href="<?php echo esc_url( get_post_meta( $post->ID, 'ecpt_website', true ) ); ?>" title="<?php the_title(); ?>'s webpage" target="_blank">
 					<?php the_title(); ?>

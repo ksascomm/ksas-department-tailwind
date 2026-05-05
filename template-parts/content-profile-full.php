@@ -33,7 +33,7 @@
 			while ( have_rows( 'custom_profile_fields' ) ) :
 				the_row();
 				?>
-			<h2>
+			<h2 class="mt-4! mb-3! lg:mt-8! lg:mb-6!">
 				<span class="text-2xl custom-title">
 					<?php the_sub_field( 'custom_title' ); ?>
 				</span>

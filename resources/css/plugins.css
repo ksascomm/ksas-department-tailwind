@@ -8,7 +8,7 @@
    Breadcrumbs (Breadcrumbs NavXT)
 --------------------------------------------------------------------------- */
 .breadcrumbs {
-display: block;
+	display: block;
     /* Use Tailwind's negative margin syntax if possible, or keep the calc */
     margin-bottom: calc(var(--spacing) * -4);
     margin-left: 0;

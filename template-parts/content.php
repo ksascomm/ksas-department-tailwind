@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'pl-12' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'pl-6 pr-5 md:pl-10 md:pr-4 lg:pl-14 lg:pr-12 2xl:pl-[2%] 2xl:pr-0' ); ?>>
 
 <?php
 	// 1. Explicitly check age using DateTime

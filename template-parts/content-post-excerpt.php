@@ -9,9 +9,9 @@
 
 ?>
 <?php if ( is_sticky() ) : ?>
-	<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-excerpt prose sm:prose lg:prose-lg xl:prose-xl mx-auto pt-4 mb-4 wp-sticky bg-grey-lightest border-2 border-solid border-grey m-4 block p-4' ); ?> aria-label="<?php the_title(); ?>">
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-excerpt prose lg:prose-lg xl:prose-xl mx-auto pt-4 mb-4 wp-sticky bg-grey-lightest border-2 border-solid border-grey m-4 block p-4' ); ?> aria-label="<?php the_title(); ?>">
 <?php else : ?>
-	<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-excerpt prose sm:prose lg:prose-lg xl:prose-xl mx-auto border-b border-solid border-grey px-2 py-4 mb-4' ); ?> aria-label="<?php the_title(); ?>">
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-excerpt prose lg:prose-lg xl:prose-xl mx-auto border-b border-solid border-grey px-2 py-4 mb-4' ); ?> aria-label="<?php the_title(); ?>">
 <?php endif; ?>
 	<?php
 	/**
@@ -27,7 +27,7 @@
 					the_post_thumbnail(
 						'full',
 						array(
-							'class' => 'w-80 lg:w-auto mb-4 lg:mt-0 pl-4 pr-4',
+							'class' => 'w-80 lg:w-auto mb-4 lg:mt-0 px-2 lg:px-4',
 							'alt'   => the_title_attribute(
 								array(
 									'echo' => false,
@@ -37,7 +37,7 @@
 					);
 				?>
 			</div>
-			<div class="col-span-3 px-4">
+			<div class="col-span-3 px-2 lg:px-4">
 				<header class="entry-header">
 					<?php
 					if ( 'post' === get_post_type() ) :

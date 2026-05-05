@@ -20,7 +20,7 @@ $pub_date         = get_post_meta( $book_id, 'ecpt_pub_date', true );
 $has_second = wp_validate_boolean( get_post_meta( $book_id, 'ecpt_author_cond', true ) );
 ?>
 
-<div class="p-2 m-8 border-b border-solid 2xl:mx-0 border-grey lg:border-none lg:shadow-md">
+<article class="p-2 mx-8 mt-4 border-b border-solid 2xl:mx-0 border-grey lg:border-none lg:shadow-md">
 	<div class="grid h-full grid-cols-1 gap-4 px-3 py-2 sm:grid-cols-3 lg:grid-cols-1">
 		
 		<div class="flex items-center justify-center">
@@ -37,14 +37,14 @@ $has_second = wp_validate_boolean( get_post_meta( $book_id, 'ecpt_author_cond', 
 			<?php endif; ?>
 		</div>
 
-		<div class="py-2 sm:col-span-2">
-			<h2 class="leading-tight! text-xl!">
+		<div class="py-2 sm:col-span-2 not-prose">
+			<h2 class="text-2xl leading-tight lg:text-xl">
 				<a class="transition-colors duration-200 hover:text-primary" href="<?php the_permalink(); ?>">
 					<?php the_title(); ?>
 				</a>
 			</h2>
 			
-			<ul class="my-1! ps-0! list-none!">
+			<ul class="my-2 list-none ps-0">
 				<?php if ( $faculty_post_id ) : ?>
 					<li class="ps-0!">
 						<a class="hover:text-primary" href="<?php echo esc_url( get_permalink( $faculty_post_id ) ); ?>">
@@ -78,4 +78,4 @@ $has_second = wp_validate_boolean( get_post_meta( $book_id, 'ecpt_author_cond', 
 		</div>
 
 	</div>
-</div>
+</article>

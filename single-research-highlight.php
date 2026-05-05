@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="site-content" class="site-main prose sm:prose md:prose-md lg:prose-lg mx-auto">
+	<main id="site-content" class="site-main mx-auto prose lg:prose-lg lg:max-w-[110ch] min-[1280px]:max-[1400px]:pl-8">
 	<?php
 	if ( function_exists( 'bcn_display' ) ) :
 		?>

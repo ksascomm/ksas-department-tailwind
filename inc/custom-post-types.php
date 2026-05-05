@@ -32,8 +32,9 @@ function ksas_department_tailwind_custom_posts_scripts() {
  * @param int/object $post ID or object of the post.
  */
 function get_the_roles( $post ) {
-	$role_name = ''; // Initialize to prevent Undefined Variable warning
-	$roles     = get_the_terms( $post->ID, 'role' );
+	$role_name = '';
+	// Initialize to prevent Undefined Variable warning.
+	$roles = get_the_terms( $post->ID, 'role' );
 
 	if ( $roles && ! is_wp_error( $roles ) ) :
 		$role_names = array();
@@ -80,7 +81,7 @@ function redirect_empty_bios() {
 
 		if ( has_term( $target_roles, 'role' ) ) {
 			if ( empty( $bio ) && ! empty( $link ) ) {
-				wp_safe_redirect( esc_url_raw( $link ), 301 );
+				wp_redirect( esc_url_raw( $link ), 301 );
 				exit();
 			}
 		}
@@ -105,17 +106,22 @@ add_image_size( 'faculty-book', 240, 365, false );
 add_filter( 'tribe_get_event_website_link_label', 'tribe_get_event_website_link_label_default' );
 
 /**
- * Modern Tribe Events change the text from the URL to a “Visit Website”.
+ * Changes the Modern Tribe Events website text from a URL to "Visit Website".
+ *
+ * @param string $label The current label for the event website link.
+ * @return string The modified or original label.
  */
 function tribe_get_event_website_link_label_default( $label ) {
 
-	if ( $label === tribe_get_event_website_url() ) {
+	// Use Yoda Condition: move the constant/function call to the left.
+	if ( tribe_get_event_website_url() === $label ) {
 		$label = 'Visit Website';
 		return $label;
 	}
 
 	return $label;
 }
+add_filter( 'tribe_get_event_website_link_label', 'tribe_get_event_website_link_label_default' );
 
 /**
  * Inject the list of categories after the title.
@@ -125,22 +131,23 @@ add_action(
 	function () {
 		global $post;
 		$event_categories = tribe_get_event_taxonomy( $post->ID );
-		?>
-		<?php if ( ! empty( $event_categories ) ) : ?>
+		if ( ! empty( $event_categories ) ) : ?>
 		<ul class='tribe-event-categories'>
-			<?php echo tribe_get_event_taxonomy( $post->ID ); ?>
+			<?php echo wp_kses_post( $event_categories ); ?>
 		</ul>
-	<?php endif; ?>
-		<?php
+			<?php
+		endif;
 	}
 );
 
 /**
 * Change the Series View from Summary to List.
+*
+* @return string The forced view slug.
 */
 add_filter(
 	'tec_events_pro_custom_tables_v1_series_event_view_slug',
-	function ( $view ) {
+	function () {
 		return 'list';
 	}
 );

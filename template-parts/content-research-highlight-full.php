@@ -9,18 +9,18 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="px-4 entry-header lg:pr-12">
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'xl:max-w-[95ch] pl-6 pr-5 md:pl-10 md:pr-4 lg:pl-14 2xl:pl-[2%] 2xl:pr-0' ); ?>>
+	<header class="entry-header lg:pr-12">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
+			the_title( '<h1 class="leading-snug! entry-title">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 		?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content px-4 lg:pr-12 xl:max-w-[85ch]">
+	<div class="entry-content">
 		<?php
 			$faculty_post_id = get_post_meta( $post->ID, 'publication_author', true );
 		if ( get_post_meta( $post->ID, 'publication_author', true ) ) :
