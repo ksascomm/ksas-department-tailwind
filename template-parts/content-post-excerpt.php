@@ -25,9 +25,9 @@
 			<div class="not-prose">
 				<?php
 					the_post_thumbnail(
-						'full',
+						'large',
 						array(
-							'class' => 'w-80 lg:w-auto mb-4 lg:mt-0 px-2 lg:px-4',
+							'class' => 'w-80 mb-4 lg:mt-0 px-2 lg:px-4',
 							'alt'   => the_title_attribute(
 								array(
 									'echo' => false,
