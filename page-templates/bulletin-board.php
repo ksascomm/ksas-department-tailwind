@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-<main id="site-content" class="pb-2 mx-auto prose site-main sm:prose lg:prose-lg">
+<main id="site-content" class="pb-2 site-main mx-auto prose lg:prose-lg">
 	<?php
 	while ( have_posts() ) :
 		the_post();

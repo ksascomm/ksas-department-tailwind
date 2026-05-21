@@ -15,7 +15,7 @@
 get_header();
 ?>
 
-	<main id="site-content" class="mx-auto prose site-main sm:prose lg:prose-lg">
+	<main id="site-content" class="mx-auto prose site-main lg:prose-lg">
 
 		<?php
 		while ( have_posts() ) :
@@ -25,8 +25,8 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-
+<?php get_sidebar(); ?>
 	</main><!-- #main -->
-	<?php get_sidebar(); ?>
+	
 <?php
 get_footer();

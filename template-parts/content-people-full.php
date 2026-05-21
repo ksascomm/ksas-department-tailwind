@@ -158,11 +158,11 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 	<?php
 	if ( function_exists( 'bcn_display' ) ) :
 		?>
-		<div class="pl-4 mb-8 ml-4 wayfinding 2xl:ml-6">
+		<nav class="pl-0 mb-8 ml-4 wayfinding"  aria-label="Secondary Navigation">
 			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 				<?php bcn_display(); ?>
 			</div>
-		</div>
+		</nav>
 	<?php endif; ?>
 <?php endif; ?>
 	<?php

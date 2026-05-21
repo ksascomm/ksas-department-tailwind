@@ -27,8 +27,8 @@
 		?>
 		<div class="alignfull mt-0!">
 			<div class="flex h-auto bg-white lg:bg-grey-lightest front-featured-image-area lg:h-40">
-				<div class="container flex px-6 section-inner xl:pl-0 lg:items-center xl:ml-12 no-hero-image" style="max-width:123ch">
-					<h1 class="tracking-tight leading-10 sm:leading-none text-4xl xl:text-[44px] lg:pl-2 xl:pl-0 py-8 mb-0!">
+				<div class="flex items-center w-full mx-auto prose lg:prose-lg no-hero-image" style="max-width:123ch">
+					<h1 class="entry-title tracking-tight leading-10 sm:leading-none lg:text-4xl xl:text-[44px] py-8 mb-0! pl-6 pr-5 md:pl-10 md:pr-4 2xl:pl-4">
 						<?php the_title(); ?>
 					</h1>
 				</div>
@@ -38,7 +38,7 @@
 			<?php get_template_part( 'template-parts/featured-image' ); ?>
 	<?php endif; ?>
 	
-	<div class="ml-12 wayfinding mb-8 xl:pl-0 2xl:ml-[2%]">
+	<nav class="ml-12 wayfinding mb-16 xl:pl-0 2xl:ml-[2%]" aria-label="Secondary Navigation">
 	<?php
 	// Capture sidebar-menu output.
 	ob_start();
@@ -59,7 +59,7 @@
 			<?php bcn_display(); ?>
 		</div>
 	<?php endif; ?>
-</div>
+	</nav>
 	<div class="entry-content pl-6 pr-5 md:pl-10 md:pr-4 lg:pl-14 lg:pr-12 2xl:pl-[2%] 2xl:pr-0">
 	<?php
 	if (

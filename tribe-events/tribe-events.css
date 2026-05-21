@@ -22,11 +22,6 @@
     --tec-font-size-2: 1.125rem;
 }
 
-.tribe-common {
-    -webkit-font-smoothing: auto !important;
-    -moz-osx-font-smoothing: auto !important;
-}
-
 /* Base Accessibility/Utility */
 .tribe_events-template-default .screen-reader-text {
   clip: inherit !important;

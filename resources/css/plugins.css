@@ -127,6 +127,11 @@ table.tablepress thead th {
 /* ---------------------------------------------------------------------------
    Events Calendar — Blocks & Widgets
 --------------------------------------------------------------------------- */
+.tribe-common {
+    -webkit-font-smoothing: auto !important;
+    -moz-osx-font-smoothing: auto !important;
+}
+
 .tribe-events-widget-events-list__event-title-link.tribe-common-anchor-thin,
 .tribe-events-widget-events-list__event-date-tag-daynum.tribe-common-h2.tribe-common-h4--min-medium,
 .tribe-events-widget-events-list__event-date-tag-month,
@@ -158,6 +163,7 @@ table.tablepress thead th {
 
 .tribe-events-widget-events-list__view-more-link.tribe-common-anchor-thin {
 	@apply font-sans! font-normal! bg-blue! text-white! inline-flex! py-2! px-3! text-base! items-center! border-none!;
+	transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .tribe-events-widget-events-list__view-more-link.tribe-common-anchor-thin:hover {

@@ -72,8 +72,8 @@ $cost  = tribe_get_formatted_cost( $event_id );
 
 ?>
 
-<main id="site-content" class="prose site-main sm:prose lg:prose-lg">
-	<div class="mb-8 ml-4 wayfinding 2xl:ml-0">
+<main id="site-content" class="mx-auto prose site-main lg:prose-lg">
+	<nav class="ml-12 wayfinding mb-16 xl:pl-0 2xl:ml-[2%]" aria-label="Secondary Navigation">
 		<?php get_template_part( 'template-parts/sidebar-menu' ); ?>
 		<?php
 		if ( function_exists( 'bcn_display' ) ) :
@@ -82,7 +82,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 				<?php bcn_display(); ?>
 			</div>
 		<?php endif; ?>
-	</div>
+	</nav>
 	<div id="tribe-events-content" class="tribe-events-single">
 		<p class="tribe-events-back">
 			<a href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html_x( 'All %s', '%s Events plural label', 'ksas-dept-tailwind' ), $events_label_plural ); ?></a>
@@ -134,10 +134,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 				<?php tribe_get_template_part( 'modules/meta' ); ?>
 				<?php do_action( 'tribe_events_single_event_after_the_meta' ); ?>
 			</div> <!-- #post-x -->
-			<?php
-			if ( get_post_type() == Tribe__Events__Main::POSTTYPE && tribe_get_option( 'showComments', false ) ) {
-				comments_template();}
-			?>
+
 		<?php endwhile; ?>
 
 		<!-- Event footer -->

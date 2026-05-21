@@ -18,7 +18,7 @@ function ksas_department_tailwind_custom_posts_scripts() {
 		// Only load the CDN if it's NOT bundled in your local dist file.
 		wp_enqueue_script( 'isotope-packaged', 'https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js', array(), '3.0.6', true );
 
-		wp_enqueue_script( 'isotope-js', get_stylesheet_directory_uri() . '/dist/js/isotope.js', array( 'jquery' ), '1.0.0', true );
+		wp_enqueue_script( 'isotope-js', get_template_directory_uri() . '/dist/js/isotope.js', array( 'jquery' ), '1.0.0', true );
 	endif;
 
 	if ( is_singular( 'people' ) ) :

@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="site-content" class="mx-auto prose site-main sm:prose lg:prose-lg pl-[2%] 2xl:pl-0 pr-[3%] xl:pr-[10%]">
+	<main id="site-content" class="site-main mx-auto prose lg:prose-lg pl-[2%] 2xl:pl-0 pr-[3%] xl:pr-[10%]">
 		<?php
 		if ( have_posts() ) :
 
