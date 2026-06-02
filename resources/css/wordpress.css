@@ -1154,22 +1154,22 @@ h2.widget-title {
 /* Targets standard WordPress Text and HTML widgets specifically */
 .widget_text .textwidget, 
 .widget_custom_html .custom-html-widget {
-  @apply prose lg:prose-lg max-w-none;
+  @apply prose lg:prose-lg max-w-none text-primary;
 }
 
 /* Typography Overrides */
-:is(.graduate-sidebar, .undergraduate-sidebar, .sidebar-1.sidebar) a {
+:is(.graduate-sidebar, .undergraduate-sidebar, .sidebar-1.sidebar, .footer-widget-area .textwidget) a {
   color: #002d72 !important;
 }
-:is(.graduate-sidebar, .undergraduate-sidebar, .sidebar-1.sidebar) a:hover {
+:is(.graduate-sidebar, .undergraduate-sidebar, .sidebar-1.sidebar, .footer-widget-area .textwidget) a:hover {
   color: #fefefe !important;
 }
 
-:is(.graduate-sidebar, .undergraduate-sidebar, .sidebar-1.sidebar) h2.widget-title {
+:is(.graduate-sidebar, .undergraduate-sidebar, .sidebar-1.sidebar, .footer-widget-area .textwidget) h2.widget-title {
   @apply my-2! text-3xl text-primary;
 }
 
-:is(.graduate-sidebar, .undergraduate-sidebar, .sidebar-1.sidebar) :is(p, li) {
+:is(.graduate-sidebar, .undergraduate-sidebar, .sidebar-1.sidebar, .footer-widget-area .textwidget) :is(p, li) {
   @apply text-lg leading-normal lg:leading-relaxed text-primary!;
 }
 
@@ -1277,7 +1277,7 @@ h2.widget-title {
   width: 0.375em;
   height: 0.375em;
   top: calc(0.875em - 0.1875em);
-  left: 0.25em;
+  left: -1rem;
 }
 
 /* Captions

@@ -590,39 +590,25 @@ p.tribe-events-back a,
 
 /* Faculty Books CPT */
 .widget.ksas_books {
-    /* 1. Main Container Styles */
-    @apply mx-auto mb-20 sm:max-w-(--breakpoint-sm) md:max-w-(--breakpoint-md) lg:max-w-(--breakpoint-lg);
-
-    /* Responsive Max-Width Overrides */
-    @media (width >= theme(--breakpoint-xl)) { max-width: 1400px; }
-    @media (width >= theme(--breakpoint-2xl)) { max-width: 1600px; }
-	@media (width >= theme(--breakpoint-3xl)) { max-width: 1800px; }
+    /* 1. Main Container Styles (Consolidated all responsive max-widths) */
+   @apply mx-auto mb-20 max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-[1400px] 2xl:max-w-[1600px] 3xl:max-w-[1700px];
 
     /* 2. Header & Navigation */
     h2.widget-title {
         @apply px-4 text-3xl md:px-0;
-		/* 768px to 800px */
-		@media (min-width: 768px) and (max-width: 800px) {
-			margin-left: 1rem !important;
-		}
-
-		/* 1025px and up */
-		@media (min-width: 1025px)  {
-			margin-left: 1rem !important;
-		}
+        
+        /* Kept these manual overrides since they use non-standard breakpoint ranges */
+        @media (min-width: 768px) and (max-width: 800px) { margin-left: 1rem !important; }
+        @media (min-width: 1025px)  { margin-left: 1rem !important; }
     }
 
     .view-more-link {
-        @apply pb-4 ml-4;
-
-        @media (width >= theme(--breakpoint-md)) {
-            @apply flex-row-reverse pt-0 pb-0 mb-8 -mt-24;
-        }
+        @apply pb-4 ml-4 md:flex-row-reverse md:pt-0 md:pb-0 md:mb-8 md:-mt-24;
     }
 
     /* 3. Grid Wrapper */
     .book-listings {
-        @apply grid grid-cols-1 gap-4 mx-auto lg:grid-cols-4;
+        @apply grid grid-cols-1 gap-4 px-8 mx-auto md:grid-cols-2 lg:grid-cols-4;
     }
 
     /* 4. Individual Book Article Cards */

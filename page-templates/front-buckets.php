@@ -28,9 +28,12 @@ get_header();
 		<?php if ( is_active_sidebar( 'below-explore' ) ) : ?>
 			<?php get_template_part( 'template-parts/widgets-below-explore' ); ?>
 		<?php endif; ?>
-		<?php if ( is_active_sidebar( 'events-featured' ) ) : ?>
-			<?php get_template_part( 'template-parts/widgets-events-featured' ); ?>
-		<?php endif; ?>
+		
+			<?php
+			// Call the events partial directly, because it handles its own visibility check.
+			get_template_part( 'template-parts/widgets-events-featured' );
+			?>
+	
 
 	<?php
 	// Fetch options once.
