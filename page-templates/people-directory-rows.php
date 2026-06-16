@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-<main id="site-content" class="site-main mx-auto prose lg:prose-lg">
+<main id="site-content" class="mx-auto prose site-main lg:prose-lg">
 	<?php
 	while ( have_posts() ) :
 		the_post();
@@ -18,7 +18,7 @@ get_header();
 	endwhile;
 	?>
 
-	<form class="p-4 mx-4 my-4 border-2 border-solid isotope-to-sort bg-grey-lightest border-grey max-w-10/12" id="filters">
+	<form class="p-4 mx-6 my-4 border-2 border-solid isotope-to-sort bg-grey-lightest border-grey max-w-10/12" id="filters">
 		<?php
 		$ids_to_exclude            = array();
 		$faculty_titles_to_exclude = get_terms(
@@ -84,7 +84,7 @@ get_header();
 		</fieldset>
 	</form>
 
-	<div class="w-full mt-8 ml-6 mr-2" id="isotope-list" aria-live="polite">
+	<div class="w-full mx-6 mt-8" id="isotope-list" aria-live="polite">
 		<div class="flex flex-wrap w-full">
 			<?php
 			$positions = get_terms(
@@ -111,7 +111,7 @@ get_header();
 
 				if ( $people_query->have_posts() ) :
 					?>
-					<div class="item pt-2 w-full role-title quicksearch-match <?php echo esc_attr( $position->slug ); ?>">
+					<div class="item pt-2 w-11/12 xl:w-full role-title quicksearch-match <?php echo esc_attr( $position->slug ); ?>">
 						<h2 class="uppercase my-4! after:block after:w-1/2 after:pt-3 after:border-b-4 after:border-blue content-[''];"><?php echo esc_html( $position->name ); ?></h2>
 					</div>
 					<?php

@@ -13,7 +13,7 @@
 <article id="post-<?php the_ID(); ?>"
 	<?php
 	// Combine classes into a sanitized string for the attribute.
-	$isotope_classes = 'people item p-4 lg:px-0 lg:py-4 my-2 lg:my-0 lg:ml-4 w-11/12 lg:w-full border-grey border-solid border lg:border-none';
+	$isotope_classes = 'people item p-4 lg:px-0 lg:py-4 my-2 lg:my-0 lg:ml-4 w-10/12 lg:w-full border-grey border-solid border lg:border-none';
 	$role_classes    = get_the_roles( $post );
 	$filter_classes  = get_the_filters( $post );
 	?>
@@ -37,7 +37,7 @@
 			</div>
 		<div class="break"></div> <!-- break -->
 		<?php endif; ?>
-		<div class="px-4 grow contact-info lg:px-0 xl:max-w-9/12 not-prose">
+		<div class="px-0 grow contact-info xl:max-w-9/12 not-prose">
 			<h3 class="font-heavy font-bold text-2xl!">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 				<a class="hover:text-primary" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>'s webpage">
@@ -92,7 +92,7 @@
 				</ul>
 
 				<?php if ( get_post_meta( $post->ID, 'ecpt_expertise', true ) ) : ?>
-					<p class="pr-2 my-3 leading-normal max-w-[80ch]"><strong>Research Interests:&nbsp;</strong><?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
+					<p class="pr-2 my-3 leading-normal max-w-[80ch]"><strong>Research Interests:</strong> <?php echo esc_html( get_post_meta( $post->ID, 'ecpt_expertise', true ) ); ?></p>
 				<?php endif; ?>
 				<?php
 				$role_term = get_term_by( 'slug', 'carnegie-faculty', 'role' );
@@ -103,7 +103,7 @@
 					</div>
 				<?php endif; ?>
 				<?php if ( get_post_meta( $post->ID, 'ecpt_degrees', true ) ) : ?>
-					<p class="pr-2 my-3 leading-normal"><strong>Education:&nbsp;</strong><?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_degrees', true ) ); ?></p>
+					<p class="pr-2 my-3 leading-normal"><strong>Education:</strong> <?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_degrees', true ) ); ?></p>
 				<?php endif; ?>
 		</div>
 	</div>

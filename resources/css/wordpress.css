@@ -400,52 +400,43 @@ mark {
 
 /* Links
 --------------------------------------------- */
-.entry-content a[href$=".pdf"]:after,
-.entry-content a[href$=".doc"]:after,
-.entry-content a[href$=".docx"]:after,
-.entry-content a[href$=".xls"]:after,
-.entry-content a[href$=".xlsx"]:after,
-.entry-content a[href$=".ppt"]:after,
-.entry-content a[href$=".pptx"]:after,
-.widget.widget_text a[href$=".pdf"]:after,
-.widget.widget_text a[href$=".doc"]:after,
-.widget.widget_text a[href$=".docx"]:after,
-.widget.widget_text a[href$=".xls"]:after,
-.widget.widget_text a[href$=".xlsx"]:after,
-.widget.widget_text a[href$=".ppt"]:after,
-.widget.widget_text a[href$=".pptx"]:after {
-  display: inline-block;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  padding-left: 0.5rem;
-}
-.entry-content a[href$=".pdf"]:after,
-.widget.widget_text a[href$=".pdf"]:after {
-  font: var(--fa-font-light);
-  content: "\f1c1";
-}
-.entry-content a[href$=".doc"]:after,
-.entry-content a[href$=".docx"]:after,
-.widget.widget_text a[href$=".doc"]:after,
-.widget.widget_text a[href$=".docx"]:after {
-  font: var(--fa-font-light);
-  content: "\f1c2";
-}
-.entry-content a[href$=".xls"]:after,
-.entry-content a[href$=".xlsx"]:after,
-.widget.widget_text a[href$=".xls"]:after,
-.widget.widget_text a[href$=".xlsx"]:after  {
-  font: var(--fa-font-light);
-  content: "\f1c3";
-}
-.entry-content a[href$=".ppt"]:after,
-.entry-content a[href$=".pptx"]:after,
-.widget.widget_text a[href$=".ppt"]:after,
-.widget.widget_text a[href$=".pptx"]:after {
-  font: var(--fa-font-light);
-  content: "\f1c4";
+.entry-content,
+.widget.widget_text ,
+.people-content {
+  
+  /* Shared styles for all document link icons */
+  a[href$=".pdf"]:after,
+  a[href$=".doc"]:after,  a[href$=".docx"]:after,
+  a[href$=".xls"]:after,  a[href$=".xlsx"]:after,
+  a[href$=".ppt"]:after,  a[href$=".pptx"]:after {
+    display: inline-block;
+    font: var(--fa-font-light); /* Moved here since it applies to all */
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    padding-left: 0.5rem;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Specific Icons */
+  a[href$=".pdf"]:after { 
+    content: "\f1c1"; 
+  }
+  
+  a[href$=".doc"]:after, 
+  a[href$=".docx"]:after { 
+    content: "\f1c2"; 
+  }
+  
+  a[href$=".xls"]:after, 
+  a[href$=".xlsx"]:after { 
+    content: "\f1c3"; 
+  }
+  
+  a[href$=".ppt"]:after, 
+  a[href$=".pptx"]:after { 
+    content: "\f1c4"; 
+  }
 }
 
 .entry-title.external-link a:after,
@@ -1140,6 +1131,9 @@ h2.widget-title {
   /* Ensure prose styles only apply inside the widget to avoid container conflicts */
   @apply prose lg:prose-lg max-w-none;
   background: #f0f5fa;
+  ::marker {
+	color: #31261d;
+  }
 }
 :is(.graduate-sidebar, .undergraduate-sidebar, .sidebar-1.sidebar) :is(.widget, .tribe-compatibility-container)::before {
 	border: 2px solid #0077d8;
@@ -1155,6 +1149,9 @@ h2.widget-title {
 .widget_text .textwidget, 
 .widget_custom_html .custom-html-widget {
   @apply prose lg:prose-lg max-w-none text-primary;
+  strong {
+	@apply font-heavy;
+  }
 }
 
 /* Typography Overrides */
@@ -1404,6 +1401,7 @@ ul.study-field li:not(:last-child) {
 
 .prose .people .contact-info ul {
   margin-block: 0;
+  padding-inline-start: 0;
 }
 
 
