@@ -130,7 +130,7 @@ add_action( 'widgets_init', 'ksas_department_tailwind_widgets_init' );
  * string after - Optional. Text after the menu tree.
  * bool echo - Optional, default is TRUE. Whether to echo the menu or return it.
  *
- * @param array $args Arguments
+ * @param array $args Arguments.
  * @return String If $echo value is set to FALSE.
  *
  * @link https://www.isitwp.com/wp_nav_menu-separate-submenu-output/

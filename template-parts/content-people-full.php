@@ -12,9 +12,15 @@
 <?php
 global $post;
 $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
+// Gather standard classes.
+$article_classes = array( 'people', 'pl-0', 'pb-8' );
+// Add conditional spacing if bio doesn't exist.
+if ( empty( $bio ) ) {
+	$article_classes[] = 'ml-8 lg:ml-0 no-bio';
+}
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'people pl-0 pb-8' ); ?>>
-	<div class="alignfull mt-0! 
+<article id="post-<?php the_ID(); ?>" <?php post_class( $article_classes ); ?>>
+	<div class="alignfull mt-0!
 	<?php if ( ! empty( $bio ) ) : ?>
 		md:bg-grey-lightest pl-4
 	<?php endif; ?>">
@@ -45,13 +51,13 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 				<?php
 				if ( function_exists( 'bcn_display' ) ) :
 					?>
-					<div class="pl-4 mb-4 bg-white breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+					<div class="pl-4 mb-4 ml-0! bg-white breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 						<?php bcn_display(); ?>
 					</div>
 					<?php endif; ?>
 				<?php endif; ?>
 				<header class="pl-0 pr-2 entry-header">
-					<h1 class="tracking-tight leading-10 sm:leading-none pt-2 pb-4 mb-0! ">
+					<h1 class="tracking-tight leading-10 sm:leading-none pt-2 pb-4 mb-0! text-4xl lg:text-5xl not-prose">
 						<?php the_title(); ?> 
 						<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
 							<small class="font-heavy">(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>
@@ -206,6 +212,10 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 				<?php endif; ?>
 			</ul>
 			<?php
+			// Define the custom tag restriction ONCE at the top of the template file.
+			$allowed_tags_no_div = wp_kses_allowed_html( 'post' );
+			unset( $allowed_tags_no_div['div'] );
+
 			/** * Section 1: Biography
 			 */
 			$bio_content = get_post_meta( $post->ID, 'ecpt_bio', true );
@@ -216,7 +226,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 					<?php
 					// 1. wpautop restores paragraphs
 					// 2. wp_kses_post keeps it secure
-					echo wp_kses_post( wpautop( $bio_content ) );
+					echo wp_kses( wpautop( $bio_content ), $allowed_tags_no_div );
 					?>
 				</div>
 			<?php endif; ?>
@@ -237,9 +247,9 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 				$teaching = get_post_meta( $post->ID, 'ecpt_teaching', true );
 				if ( ! empty( $teaching ) ) :
 					?>
-					<div class="section-content" id="section3">
-						<?php echo wp_kses_post( wpautop( $teaching ) ); ?>
-					</div>
+				<div class="section-content" id="section3">
+					<?php echo wp_kses( wpautop( $teaching ), $allowed_tags_no_div ); ?>
+				</div>
 				<?php endif; ?>
 
 				<?php
@@ -249,7 +259,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 				if ( ! empty( $pubs ) ) :
 					?>
 					<div class="section-content" id="section4">
-						<?php echo wp_kses_post( wpautop( $pubs ) ); ?>
+						<?php echo wp_kses( wpautop( $pubs ), $allowed_tags_no_div ); ?>
 					</div>
 				<?php endif; ?>
 
@@ -276,7 +286,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 						$filtered_content = apply_filters( 'the_content', $extra1 );
 
 						// 2. Late escape the FINAL output to ensure security compliance.
-						echo wp_kses_post( $filtered_content );
+						echo wp_kses( $filtered_content, $allowed_tags_no_div );
 						?>
 					</div>
 				<?php endif; ?>
@@ -290,7 +300,7 @@ $bio = get_post_meta( $post->ID, 'ecpt_bio', true );
 					<div class="section-content" id="section7">
 						<?php
 						$filtered_extra2 = apply_filters( 'the_content', $extra2 );
-						echo wp_kses_post( $filtered_extra2 );
+						echo wp_kses( $filtered_extra2, $allowed_tags_no_div );
 						?>
 					</div>
 				<?php endif; ?>

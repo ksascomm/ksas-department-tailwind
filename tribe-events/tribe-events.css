@@ -171,6 +171,7 @@ a.tribe-events-calendar-list__event-title-link.tribe-common-anchor-thin,
     color: #002d72;
     --tw-border-opacity: 1;
     border-color: rgba(229, 226, 224, var(--tw-border-opacity));
+	border-bottom-width: 2px;
     --tw-text-opacity: 1;
     text-decoration: none;
     transition-property: background-color, border-color, color, fill, stroke;
@@ -188,10 +189,12 @@ a.tribe-events-calendar-latest-past__event-title-link.tribe-common-anchor-thin:h
 a.tribe-events-calendar-list__event-title-link.tribe-common-anchor-thin:hover {
     --tw-text-opacity: 1;
     color: rgba(49, 38, 29, var(--tw-text-opacity));
+	border-bottom-width: 2px;
 }
 
 .tribe-events .tribe-events-calendar-latest-past__event-title-link:hover {
     color: #31261d !important;
+	border-bottom-width: 2px;
 }
 
 .tribe-events-calendar-list__event-details h3.tribe-events-calendar-list__event-title a.tribe-events-calendar-list__event-title-link:hover {

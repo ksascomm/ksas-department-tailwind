@@ -9,7 +9,7 @@
 
 if ( ! defined( 'KSAS_DEPARTMENT_TAILWIND_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '8.2.2' );
+	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '8.2.3' );
 }
 
 if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
@@ -194,46 +194,58 @@ function ksas_enqueue_siteimprove() {
 			'siteimprove-analytics',
 			'https://siteimproveanalytics.com/js/siteanalyze_11464.js',
 			array(),
-			null,
+			null, // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- External tracking vendor asset handles its own versioning updates.
 			array( 'strategy' => 'async' )
 		);
 	}
 }
 add_action( 'wp_enqueue_scripts', 'ksas_enqueue_siteimprove' );
 
-/** Add defer attribute to specific scripts */
+/**
+ * Adds a defer attribute to specific script handles to improve page load performance.
+ *
+ * @param string $tag    The HTML <script> tag for the enqueued script.
+ * @param string $handle The script's registered handle string identifier.
+ * @return string The modified script HTML tag containing the defer attribute, or the original tag.
+ */
 function add_defer_attribute( $tag, $handle ) {
 	// Add script handles to the array below.
 	$scripts_to_defer = array( 'font-awesome' );
 
-	foreach ( $scripts_to_defer as $defer_script ) {
-		if ( $defer_script === $handle ) {
-			return str_replace( ' src', ' defer="defer" src', $tag );
-		}
+	if ( in_array( $handle, $scripts_to_defer, true ) ) {
+		return str_replace( ' src', ' defer="defer" src', $tag );
 	}
+
 	return $tag;
 }
-
 add_filter( 'script_loader_tag', 'add_defer_attribute', 10, 2 );
 
-/** Add async attribute to specific scripts */
+/**
+ * Adds an async attribute to specific script handles to prevent rendering blocks.
+ *
+ * @param string $tag    The HTML <script> tag for the enqueued script.
+ * @param string $handle The script's registered handle string identifier.
+ * @return string The modified script HTML tag containing the async attribute, or the original tag.
+ */
 function add_async_attribute( $tag, $handle ) {
 	// Add script handles to the array below.
 	$scripts_to_async = array( 'google-tag-manager' );
 
-	foreach ( $scripts_to_async as $async_script ) {
-		if ( $async_script === $handle ) {
-			return str_replace( ' src', ' async="async" src', $tag );
-		}
+	if ( in_array( $handle, $scripts_to_async, true ) ) {
+		return str_replace( ' src', ' async="async" src', $tag );
 	}
+
 	return $tag;
 }
-
 add_filter( 'script_loader_tag', 'add_async_attribute', 10, 2 );
 
 
 // Register Custom Blocks.
 add_action( 'init', 'register_acf_blocks' );
+
+/**
+ * Registers custom Advanced Custom Fields (ACF) block types using block.json metadata.
+ */
 function register_acf_blocks() {
 	register_block_type( __DIR__ . '/blocks/spotlight' );
 }

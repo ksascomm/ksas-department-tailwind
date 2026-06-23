@@ -1,6 +1,6 @@
 {
 	"name": "ksas-department-tailwind",
-	"version": "8.2.2",
+	"version": "8.2.3",
 	"private": true,
 	"scripts": {
 		"development": "mix",
