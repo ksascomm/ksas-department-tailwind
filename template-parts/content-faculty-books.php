@@ -13,7 +13,7 @@
 	<header class="pl-12 2xl:pl-[2%] pr-4 entry-header xl:pr-8">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="py-4 entry-title lg:py-4">', '</h1>' );
+			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;

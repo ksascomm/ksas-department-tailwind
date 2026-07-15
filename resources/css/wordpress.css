@@ -1149,8 +1149,9 @@ h2.widget-title {
 .widget_text .textwidget, 
 .widget_custom_html .custom-html-widget {
   @apply prose lg:prose-lg max-w-none text-primary;
+  letter-spacing: -0.03rem;
   strong {
-	@apply font-heavy;
+	@apply font-bold font-heavy;
   }
 }
 

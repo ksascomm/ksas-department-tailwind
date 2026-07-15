@@ -177,6 +177,7 @@ a.tribe-events-calendar-list__event-title-link.tribe-common-anchor-thin,
     transition-property: background-color, border-color, color, fill, stroke;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 200ms;
+	border-bottom: none;
 }
 
 .tribe-events .tribe-events-calendar-latest-past__event-title-link:visited,
@@ -612,7 +613,7 @@ a.tribe-events-calendar-series-archive__link:hover {
 .tribe-event-categories li a {
     color: #fff !important;
     text-decoration: none !important;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 

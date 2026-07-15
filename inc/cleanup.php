@@ -197,7 +197,7 @@ function tn_minify_customizer_css_head() {
 	$buffer = str_replace( ': ', ':', $buffer );
 	$buffer = str_replace( array( "\r\n", "\r", "\n", "\t", '  ', '    ', '    ' ), '', $buffer );
 
-	echo '<style id="wp-custom-css">' . esc_html( $buffer ) . '</style>';
+	echo '<style id="wp-custom-css">' . wp_strip_all_tags( $buffer ) . '</style>';
 }
 add_action( 'wp_head', 'tn_minify_customizer_css_head' );
 
