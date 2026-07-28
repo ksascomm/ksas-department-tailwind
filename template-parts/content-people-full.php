@@ -18,6 +18,10 @@ $article_classes = array( 'people', 'pl-0', 'pb-8' );
 if ( empty( $bio ) ) {
 	$article_classes[] = 'ml-8 lg:ml-0 no-bio';
 }
+// Check if the current post lacks any term in the custom taxonomy 'role'.
+if ( ! has_term( '', 'role', $post->ID ) ) {
+	$article_classes[] = 'no-role-assigned';
+}
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( $article_classes ); ?>>
 	<div class="alignfull mt-0!

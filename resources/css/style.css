@@ -1,8 +1,5 @@
+/* 1. All imports must reside at the very top of the file */
 @import 'tailwindcss';
-@plugin "@tailwindcss/typography";
-@plugin "@tailwindcss/forms";
-
-/* External Layers */
 @import './wordpress.css' layer(utilities);
 @import './fonts.css' layer(utilities);
 
@@ -10,9 +7,11 @@
 @import './plugins.css';
 /*! purgecss end ignore */
 
-/* Prose Configuration
-@config '../../tailwind.config.js'; */
+/* 2. Custom Tailwind Plugins are declared AFTER the imports */
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
 
+/* 3. Theme configurations and other CSS rules follow next */
 @theme {
   --color-blue: #002d72;
   --color-primary: #31261D;

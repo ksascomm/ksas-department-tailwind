@@ -1837,16 +1837,6 @@ a.wp-block-button__link.has-heritage-blue-background-color:hover {
   @apply my-4;
 }
 
-.right-call-to-action.has-white-background-color,
-.left-call-to-action.has-white-background-color {
-  background: url("../images/blueInWhite_corner1.svg") no-repeat right bottom;
-  background-color: #fefefe;
-  background-size: 2.666666666666667rem auto;
-  border: 0.06667rem solid #002d72;
-  border-bottom: none;
-  box-shadow: 0 0.4rem 0 0 #002d72;
-}
-
 .calls-to-action h2,
 .calls-to-action h3,
 .calls-to-action h4 {

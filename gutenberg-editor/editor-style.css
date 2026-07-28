@@ -315,15 +315,6 @@ ul.block-editor-rich-text__editable li, ol.block-editor-rich-text__editable li {
 	color: #fefefe;
 }
 
-.right-call-to-action.has-white-background-color, .left-call-to-action.has-white-background-color {
-	background: url('../dist/images/blueInWhite_corner1.svg') no-repeat right bottom;
-  background-color: #fefefe;
-  background-size: 2.666666666666667rem auto;
-  border: .06667rem solid #002d72;
-  border-bottom: none;
-  box-shadow: 0 0.4rem 0 0 #002d72;
-}
-
 .wp-block-buttons>.wp-block-button.wp-block-button__width-50 {
 	width: calc(50% - .5em);
 }

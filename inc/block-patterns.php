@@ -50,8 +50,8 @@ if ( function_exists( 'register_block_pattern' ) ) {
 			<!-- /wp:column -->
 			
 			<!-- wp:column {"verticalAlignment":"center"} -->
-			<div class="wp-block-column is-vertically-aligned-center"><!-- wp:cover {"url":"https://krieger.jhu.edu/wp-content/themes/ksas-department-tailwind/dist/images/campus3.jpg","id":1869,"dimRatio":0,"minHeight":500,"style":{"color":{}}} -->
-			<div class="wp-block-cover" style="min-height:500px"><img class="wp-block-cover__image-background wp-image-1869" alt="" src="https://krieger.jhu.edu/wp-content/themes/ksas-department-tailwind/dist/images/campus3.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"></div></div>
+			<div class="wp-block-column is-vertically-aligned-center"><!-- wp:cover {"url":"https://krieger.jhu.edu/wp-content/themes/ksas-department-tailwind/dist/images/campus.jpg","id":1869,"dimRatio":0,"minHeight":500,"style":{"color":{}}} -->
+			<div class="wp-block-cover" style="min-height:500px"><img class="wp-block-cover__image-background wp-image-1869" alt="" src="https://krieger.jhu.edu/wp-content/themes/ksas-department-tailwind/dist/images/campus.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"></div></div>
 			<!-- /wp:cover --></div>
 			<!-- /wp:column --></div>
 			<!-- /wp:columns -->',

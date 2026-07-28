@@ -63,3 +63,46 @@ function my_theme_editor_scripts() {
 	);
 }
 add_action( 'enqueue_block_editor_assets', 'my_theme_editor_scripts', 100 );
+
+/**
+ * Disable palette for non-admin users in the block editor.
+ */
+add_filter(
+	'wp_theme_json_data_theme',
+	function ( $theme_json ) {
+		// If the user is not an administrator (or lacks capability).
+		if ( ! current_user_can( 'manage_options' ) ) {
+			$new_data = array(
+				'version'  => 3,
+				'settings' => array(
+					'color' => array(
+						'palette' => array(), // Empty palette for non-admins.
+						'custom'  => false,
+					),
+				),
+			);
+			return $theme_json->update_with( $new_data );
+		}
+
+		return $theme_json;
+	}
+);
+
+/*
+ * Disable the "Fit Text" option on text blocks
+ *
+ */
+add_filter(
+	'block_type_metadata',
+	function ( $metadata ) {
+		$targeted_blocks = array( 'core/heading', 'core/paragraph' );
+
+		if ( isset( $metadata['name'] ) && in_array( $metadata['name'], $targeted_blocks, true ) ) {
+			if ( isset( $metadata['supports']['typography'] ) ) {
+				$metadata['supports']['typography']['fitText'] = false;
+			}
+		}
+
+		return $metadata;
+	}
+);
