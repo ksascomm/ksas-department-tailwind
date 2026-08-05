@@ -61,7 +61,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					</a>
 					</div>
 					<div class="xl:col-span-3">
-						<h1 class="site-title font-serifbold text-3xl lg:text-[2rem] xl:text-[2.65rem] 2xl:text-5xl xl:pl-4 mt-3! pt-2 xl:pt-0 text-center xl:text-left">
+						<h1 class="site-title font-serif-bold text-3xl lg:text-[2rem] xl:text-[2.65rem] 2xl:text-5xl xl:pl-4 mt-3! pt-2 xl:pt-0 text-center xl:text-left">
 						<?php
 							$ksas_department_tailwind_description = get_bloginfo( 'description', 'display' );
 						if (
