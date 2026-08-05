@@ -16,29 +16,33 @@
  * @see tribe_get_event() For the format of the event object.
  */
 
-$container_classes = [ 'tribe-common-g-row', 'tribe-events-widget-events-list__event-row' ];
+$container_classes = array( 'tribe-common-g-row', 'tribe-events-widget-events-list__event-row' );
 $container_classes['tribe-events-widget-events-list__event-row--featured'] = $event->featured;
 
-$event_classes = tribe_get_post_class( [ 'tribe-events-widget-events-list__event' ], $event->ID );
+$event_classes = tribe_get_post_class( array( 'tribe-events-widget-events-list__event' ), $event->ID );
 ?>
 <div <?php tribe_classes( $container_classes ); ?>>
 
-	<?php $this->template( 'widgets/widget-events-list/event/date-tag', [ 'event' => $event ] ); ?>
+	<?php $this->template( 'widgets/widget-events-list/event/date-tag', array( 'event' => $event ) ); ?>
 
 	<div class="tribe-events-widget-events-list__event-wrapper tribe-common-g-col">
-		<article <?php tribe_classes( $event_classes ) ?>>
+		<article <?php tribe_classes( $event_classes ); ?>>
 			<div class="tribe-events-widget-events-list__event-details">
 
 				<header class="tribe-events-widget-events-list__event-header">
-					<?php $this->template( 'widgets/widget-events-list/event/title', [ 'event' => $event ] ); ?>
+					<?php $this->template( 'widgets/widget-events-list/event/title', array( 'event' => $event ) ); ?>
 				</header>
 
 				<?php $this->do_entry_point( 'event_meta' ); ?>
-				<?php if ( is_active_sidebar( 'events-featured' ) || is_active_sidebar( 'below-news' )  ) : ?>
-					<div class="leading-normal text-lg">
-					<?php echo tribe_events_get_the_excerpt($event->ID); ?>
+				<?php if ( is_active_sidebar( 'events-featured' ) || is_active_sidebar( 'below-news' ) ) : ?>
+					<div class="text-lg leading-normal">
+					<?php
+					$excerpt = tribe_events_get_the_excerpt( $event->ID );
+					// Limits to 40 words.
+					echo wp_kses_post( wp_trim_words( $excerpt, 40, '...' ) );
+					?>
 					</div>
-				<?php endif;?>
+				<?php endif; ?>
 			</div>
 		</article>
 	</div>

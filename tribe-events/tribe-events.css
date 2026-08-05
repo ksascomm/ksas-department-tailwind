@@ -94,7 +94,7 @@ span.tribe-events-c-top-bar__datepicker-desktop.tribe-common-a11y-hidden,
 h1.tribe-events-single-event-title,
 .single-tribe_events .tribe-blocks-editor .tribe-events-single-event-title,
 .tribe-common--breakpoint-medium.tribe-events .tribe-events-header__title h1.tribe-events-header__title-text {
-    font-family: "RobotoSlab-Bold", Georgia, serif;
+    font-family: "HopkinsSlab-Bold", Georgia, serif;
     font-weight: 700;
     font-size: 2.5rem !important;
     line-height: 1.2 !important;
@@ -470,7 +470,7 @@ a.tribe-events-c-subscribe-dropdown__list-item-link {
 
 .tribe-events-series-relationship-marker,
 .tribe-events-series-relationship-single-marker {
-    font-family: "worksans-bold", "Helvetica Neue", Roboto, sans-serif !important;
+    font-family: "worksans-bold", "Helvetica Neue", sans-serif !important;
     font-weight: 700;
 }
 
@@ -485,7 +485,7 @@ a.tribe-events-calendar-series-archive__link {
     transition: border-color, background-color, color;
     transition-duration: 250ms;
     transition-timing-function: ease-in-out;
-    font-family: "worksans-bold", "Helvetica Neue", Roboto, sans-serif !important;
+    font-family: "worksans-bold", "Helvetica Neue", sans-serif !important;
     font-weight: 700 !important;
 }
 
@@ -504,7 +504,7 @@ a.tribe-events-calendar-series-archive__link:hover {
 .tribe-events-schedule__datetime {
   font-size: 1.25rem !important;
   color: var(--tw-prose-bold) !important;
-  font-family: "worksans-bold", "Helvetica Neue", Roboto, sans-serif !important;
+  font-family: "worksans-bold", "Helvetica Neue", sans-serif !important;
   font-weight: 700 !important;
 }
 

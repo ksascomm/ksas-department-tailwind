@@ -35,8 +35,10 @@
   --font-medium: "worksans-medium", "system-ui", "BlinkMacSystemFont", "-apple-system", "Segoe UI", "sans-serif";
   --font-semi: "worksans-semibold", "system-ui", "BlinkMacSystemFont", "-apple-system", "Segoe UI", "sans-serif";
   --font-heavy: "worksans-bold", "system-ui", "BlinkMacSystemFont", "-apple-system", "Segoe UI", "sans-serif";
-  --font-serif: "robotoslab-medium",  "Georgia", "serif";
-  --font-serifbold: "robotoslab-bold",  "Georgia", "serif";
+  --font-serif: "hopkinsslab-regular", "Georgia", "serif";
+  --font-serif-medium: "hopkinsslab-medium", "Georgia", "serif";
+  --font-serif-semibold: "hopkinsslab-semibold", "Georgia", "serif";
+  --font-serif-bold: "hopkinsslab-bold", "Georgia", "serif";
   --text-base: 1rem;
   --text-lg: 1.125rem;
   --text-xl: 1.25rem;
@@ -203,16 +205,17 @@
 	:where(.prose h1) {
 		margin-bottom: 0rem;
 		font-size: 2.25rem;
-		font-weight: 500 !important;
-		font-family: robotoslab-bold, Georgia, serif;
+		font-weight: 700 !important;
+		font-family: hopkinsslab-bold, Georgia, serif;
 		color: var(--tw-prose-headings);
 	}
 
-	:where(.prose h2) {
+	:where(.prose h2),
+	h2.wp-block-heading {
 		max-width: 90ch;
 		font-size: 2rem;
-		font-weight: 700;
-		font-family: worksans-bold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
+		font-weight: 600;
+		font-family: hopkinsslab-semibold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
 		color: var(--tw-prose-headings);
 	}
 
