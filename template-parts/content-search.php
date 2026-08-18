@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'px-12 py-8' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'px-12 pt-4 mb-8' ); ?>>
 	<header class="pl-0 pr-2 entry-header xl:pr-0">
 		<div class="pl-2 text-xl font-bold leading-none border-l-2 post-type font-heavy border-blue">
 		<?php
@@ -17,7 +17,7 @@
 			echo esc_html( $current_post_type->labels->singular_name );
 		?>
 		</div>
-		<?php the_title( sprintf( '<h2 class="entry-title text-3xl!"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+		<?php the_title( sprintf( '<h2 class="my-4! entry-title text-3xl!"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="mb-2 text-xl font-bold uppercase entry-meta font-heavy">
@@ -27,7 +27,7 @@
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
-	<div class="entry-summary">
+	<div class="border-b entry-summary">
 	<?php
 	if ( 'people' === get_post_type() ) :
 		$people_excerpt_long  = wp_strip_all_tags( get_post_meta( $post->ID, 'ecpt_bio', true ) );

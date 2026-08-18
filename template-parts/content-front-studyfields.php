@@ -67,7 +67,7 @@ if ( ! is_wp_error( $studyfield_raw ) ) {
 <div class="flex h-auto hero bg-grey-lightest front-featured-image-area md:h-112 lg:h-120">
 	<div class="flex items-center px-8 pb-4 text-left md:px-12 md:py-0 lg:w-7/12">
 		<div>
-			<h2 class="mt-8 font-serif-semibold text-2xl font-weight-semibold! text-primary md:text-3xl lg:text-4xl lg:mt-0">
+			<h2 class="mt-8 text-2xl text-primary md:text-3xl lg:text-4xl lg:mt-0">
 				<?php echo ! empty( $studyfield_tagline ) ? esc_html( $studyfield_tagline ) : esc_html( get_the_title() ); ?>
 			</h2>
 			<div class="mt-2 text-lg leading-normal tracking-tight text-primary md:text-xl backdrop-blur-md">

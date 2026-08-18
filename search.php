@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="site-content" class="site-main mx-auto prose lg:prose-lg">
+	<main id="site-content" class="mx-auto prose site-main lg:prose-lg">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -18,7 +18,7 @@ get_header();
 				<h1 class="entry-title">
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'ksas-dept-tailwind' ), '<span class="font-bold! font-heavy!">' . get_search_query() . '</span>' );
+					printf( esc_html__( 'Search Results for: %s', 'ksas-dept-tailwind' ), '<span class="font-bold! font-heavy! text-blue">' . get_search_query() . '</span>' );
 					?>
 				</h1>
 			</header><!-- .page-header -->

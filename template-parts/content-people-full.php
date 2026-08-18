@@ -61,7 +61,7 @@ if ( ! has_term( '', 'role', $post->ID ) ) {
 					<?php endif; ?>
 				<?php endif; ?>
 				<header class="pl-0 pr-2 entry-header">
-					<h1 class="tracking-tight leading-10 sm:leading-none pt-2 pb-4 mb-0! text-4xl lg:text-5xl not-prose">
+					<h1 class="leading-10 sm:leading-none pt-2 pb-4 mb-0! text-4xl lg:text-5xl not-prose">
 						<?php the_title(); ?> 
 						<?php if ( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ) : ?>
 							<small class="font-heavy">(<?php echo wp_kses_post( get_post_meta( $post->ID, 'ecpt_pronoun', true ) ); ?>)</small>

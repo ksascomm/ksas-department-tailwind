@@ -9,7 +9,7 @@
 
 if ( ! defined( 'KSAS_DEPARTMENT_TAILWIND_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '9.1.0' );
+	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '9.1.1' );
 }
 
 if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
@@ -179,7 +179,7 @@ function ksas_department_tailwind_scripts() {
 	wp_enqueue_script( 'ksas-department-tailwind-script', get_template_directory_uri() . '/dist/js/bundle.js', array( 'jquery' ), KSAS_DEPARTMENT_TAILWIND_VERSION, true );
 	wp_script_add_data( 'ksas-department-tailwind-script', 'defer', true );
 
-	wp_enqueue_script( 'font-awesome', 'https://kit.fontawesome.com/72c92fef89.js', array(), '6.1.2', true );
+	wp_enqueue_script( 'font-awesome', 'https://kit.fontawesome.com/72c92fef89.js', array(), '7.3.1', true );
 	wp_script_add_data( 'fontawesome', array( 'crossorigin' ), array( 'anonymous' ) );
 }
 add_action( 'wp_enqueue_scripts', 'ksas_department_tailwind_scripts' );

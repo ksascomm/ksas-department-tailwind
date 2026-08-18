@@ -28,7 +28,7 @@
 		<div class="alignfull mt-0!">
 			<div class="flex h-auto bg-white lg:bg-grey-lightest front-featured-image-area lg:h-40">
 				<div class="flex items-center w-full mx-auto prose lg:prose-lg no-hero-image" style="max-width:123ch">
-					<h1 class="entry-title tracking-tight leading-10 sm:leading-none lg:text-4xl xl:text-[44px] py-8 mb-0! pl-6 pr-5 md:pl-10 md:pr-4 2xl:pl-4">
+					<h1 class="entry-title leading-10 sm:leading-none lg:text-4xl xl:text-[44px] py-8 mb-0! pl-6 pr-5 md:pl-10 md:pr-4 2xl:pl-4">
 						<?php the_title(); ?>
 					</h1>
 				</div>

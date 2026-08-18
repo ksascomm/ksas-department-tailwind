@@ -136,8 +136,8 @@ table.tablepress thead th {
 .tribe-events-widget-events-list__event-date-tag-daynum.tribe-common-h2.tribe-common-h4--min-medium,
 .tribe-events-widget-events-list__event-date-tag-month,
 .tribe-events-widget-events-list__header-title.tribe-common-h6.tribe-common-h--alt {
-	font-weight: var(--font-weight-bold);
-	font-family: var(--font-heavy);
+	font-weight: var(--font-weight-semibold);
+	font-family: var(--font-serif-semibold);
 }
 
 .tribe-events-widget-events-list__event-title-link.tribe-common-anchor-thin {
@@ -212,10 +212,6 @@ p.tribe-events-back a,
 	font-weight: 400!important;
 }
 
-.tribe-common--breakpoint-medium.tribe-common .tribe-common-h4--min-medium {
-	@apply font-bold font-heavy;
-}
-
 #tribe-events-pg-template,
 .tribe-events-pg-template {
 	margin: 0 auto;
@@ -263,7 +259,8 @@ p.tribe-events-back a,
 .footer-widget-area .tribe-events-widget h2.tribe-events-widget-events-list__header-title.tribe-common-h6.tribe-common-h--alt {
 	font-size: 1.875rem;
 	margin-bottom: 0.5rem;
-	@apply font-bold font-heavy;
+	font-weight: var(--font-weight-semibold);
+	font-family: var(--font-serif-semibold);
 }
 
 .below-news-widget-section .tribe-events-widget .tribe-events-widget-events-list__event-title,
@@ -428,7 +425,7 @@ p.tribe-events-back a,
 }
 
 .widget.research-highlight .widget-title {
-	@apply my-0! mx-auto font-heavy font-bold px-8 mt-12 mb-4 lg:text-white;
+	@apply my-0! mx-auto px-8 mt-12 mb-4 lg:text-white;
 }
 
 .widget.research-highlight a.button {

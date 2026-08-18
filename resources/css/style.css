@@ -208,6 +208,7 @@
 		font-weight: 700 !important;
 		font-family: hopkinsslab-bold, Georgia, serif;
 		color: var(--tw-prose-headings);
+		letter-spacing: initial;
 	}
 
 	:where(.prose h2),
@@ -217,6 +218,7 @@
 		font-weight: 600;
 		font-family: hopkinsslab-semibold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
 		color: var(--tw-prose-headings);
+		letter-spacing: initial;
 	}
 
 	:where(.prose h3) {
@@ -263,6 +265,12 @@
 
 	:where(.prose a strong) {
 		color: inherit;
+	}
+
+	:where(.prose h2 strong, .prose h2 b),
+	h2.wp-block-heading strong,
+	h2.wp-block-heading b {
+		font-family: inherit;
 	}
 
 	/* Lists */

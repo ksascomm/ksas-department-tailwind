@@ -23,7 +23,7 @@ if ( $explore_buckets ) :
 	<div class="container pt-6 mx-auto section-inner">
 		<?php if ( $section_heading ) : ?>
 			<div class="px-4 mb-8 mt-14">
-				<h2 class="my-0! mx-auto font-bold font-heavy text-3xl"><?php echo esc_html( $section_heading ); ?></h2>
+				<h2 class="my-0! mx-auto text-3xl"><?php echo esc_html( $section_heading ); ?></h2>
 			</div>
 		<?php endif; ?>
 

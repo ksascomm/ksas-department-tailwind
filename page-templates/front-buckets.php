@@ -53,7 +53,7 @@ get_header();
 			
 				<div class="flex flex-wrap justify-between px-4 lg:px-0 2xl:max-w-450 2xl:mx-auto">
 					<div>
-						<h2 class="pb-4 md:pb-0 my-0! font-bold font-heavy"><?php echo esc_html( $news_heading ); ?></h2>
+						<h2 class="pb-4 md:pb-0 my-0!"><?php echo esc_html( $news_heading ); ?></h2>
 					</div>
 					<div class="pb-4">
 						<a class="not-prose bg-blue text-white inline-flex py-2 px-3 text-base items-center border-none! hover:text-primary hover:bg-blue-light" href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ); ?>">
