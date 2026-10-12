@@ -1,19 +1,39 @@
-/*
-Description: Used to style the content editor in posts and pages
-*/
+/* resources/css/editor-style.css */
+@import "tailwindcss";
 
+/* If using custom @theme tokens in v4, import or declare them here */
+@theme {
+  --font-serif-bold: "hopkinsslab-bold", "Helvetica Neue", sans-serif;
+  --font-serif-semibold: "hopkinsslab-bold", "Helvetica Neue", sans-serif;
+  --font-sans: "worksans-regular", "Helvetica Neue", sans-serif;
+  --font-sans-semibold: "worksans-semibold", "Helvetica Neue", sans-serif;
+  --font-sans-bold: "worksans-bold", "Helvetica Neue", sans-serif;
+  --color-primary: #002d72;
+  --color-text-dark: #31261d;
+}
 
+/* --------------------------------------------------
+   1. Font Definitions
+   -------------------------------------------------- */
 @font-face {
   font-family: "hopkinsslab-bold";
-  src: url("../dist/fonts/hopkins_slab/HopkinsSlab-Bold.woff") format("woff");
+  src: url("../resources/fonts/hopkins_slab/HopkinsSlab-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
+  font-family: "hopkinsslab-semibold";
+  src: url("../resources/fonts/hopkins_slab/HopkinsSlab-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "worksans-regular";
-  src: url("../dist/fonts/work_sans/WorkSans-Regular.woff") format("woff");
+  src: url("../resources/fonts/work_sans/WorkSans-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -21,7 +41,7 @@ Description: Used to style the content editor in posts and pages
 
 @font-face {
   font-family: "worksans-semibold";
-  src: url("../dist/fonts/work_sans/WorkSans-SemiBold.woff") format("woff");
+  src: url("../resources/fonts/work_sans/WorkSans-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -33,101 +53,87 @@ Description: Used to style the content editor in posts and pages
   --tec-color-link-primary: #002d72;
 }
 
-a:where(:not(.wp-element-button)) {
-  text-decoration: underline;
+/* --------------------------------------------------
+   2. Gutenberg Editor Canvas & Typography
+   -------------------------------------------------- */
+.editor-styles-wrapper {
+  background: #fff;
+  padding: 8px;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: normal;
+  color: var(--color-text-dark);
 }
 
+/* Base typography size for all non-heading elements in the editor */
+.editor-styles-wrapper :where(:not(h1, h2, h3, h4, h5, h6, h1 *, h2 *, h3 *, h4 *, h5 *, h6 *)) {
+  font-size: 1.25rem;
+}
 
-/* Main column width */
-.wp-block, #editor div.block-editor-writing-flow {
+.wp-block,
+#editor div.block-editor-writing-flow {
   max-width: 100%;
 }
 
-/* Width of "wide" blocks */
 .wp-block[data-align="wide"] {
   max-width: 95%;
 }
 
-/* Width of "full-width" blocks */
 .wp-block[data-align="full"] {
   max-width: none;
 }
 
-
-body {
-  font-family: "worksans-regular", "Helvetica Neue", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  color: #31261d;
+.editor-styles-wrapper a:where(:not(.wp-element-button)) {
+  text-decoration: underline;
 }
 
-/* TinyMCE Editor */
+.block-editor-block-list__layout a {
+  color: var(--color-primary);
+}
+
 .editor-styles-wrapper p strong,
-.editor-rich-text p strong {
-  font-family: "worksans-semibold", "Helvetica Neue", sans-serif;
-  font-weight: 600;
+.editor-styles-wrapper p b,
+.editor-styles-wrapper li strong,
+.editor-styles-wrapper li b {
+  font-family: var(--font-sans-bold);
+  font-weight: 700;
 }
 
-p b,
-p strong,
-li b,
-li strong {
-  font-family: "worksans-semibold", "Helvetica Neue", sans-serif;
-  font-weight: 600;
-}
-
-p u,
-li u {
+.editor-styles-wrapper p u,
+.editor-styles-wrapper li u {
   text-decoration: none;
 }
 
-.rich-text.editor-rich-text__editable.block-editor-rich-text__editable.wp-block-button__link {
-  font-size: 18px;
+/* Headings */
+.editor-post-title__block .editor-post-title__input,
+.editor-styles-wrapper h1,
+.editor-writing-flow .wp-block h1 {
+  font-family: var(--font-serif-bold);
+  font-weight: 700;
+  font-size: revert;
 }
 
-/* Links */
-.block-editor-block-list__layout a {
-  color: #002d72;
+.editor-styles-wrapper h2 {
+  font-family: var(--font-serif-semibold);
+  font-weight: 600;
+  font-size: revert;
 }
 
-
-
-a.acf-icon {
-  color: #555d66;
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6,
+.editor-writing-flow .wp-block h2,
+.editor-writing-flow .wp-block h3,
+.editor-writing-flow .wp-block h4,
+.editor-writing-flow .wp-block h5,
+.editor-writing-flow .wp-block h6 {
+  font-family: var(--font-sans-bold);
+  font-weight: 700;
+  font-size: revert;
 }
 
-a.acf-icon:hover {
-  background: #f3f5f6;
-  border-color: #0071a1;
-  color: #0071a1;
-}
-
-a.acf-icon.-minus:hover, a.acf-icon.-cancel:hover {
-  background: #f7efef;
-  border-color: #a10000;
-  color: #dc3232;
-}
-
-.acf-icon.dark {
-  color: #eee;
-}
-
-a.acf-icon.dark:hover {
-  color: #00b9eb;
-}
-
-a.acf-icon.dark.-minus:hover, a.acf-icon.dark.-cancel:hover {
-  color: #D54E21;
-}
-
-a.acf-button.button.button-primary {
-  color: #fefefe;
-}
-
-.wp-block-file * + .wp-block-file__button {
-  display: none;
-}
-
+/* Core Buttons */
 .wp-block-button__link {
   display: inline-block;
   vertical-align: middle;
@@ -141,7 +147,7 @@ a.acf-button.button.button-primary {
   line-height: 1;
   text-align: center;
   cursor: pointer;
-  background-color: #002d72;
+  background-color: var(--color-primary);
   color: #fefefe;
 }
 
@@ -150,186 +156,245 @@ a.acf-button.button.button-primary {
   color: #fff;
 }
 
-/* The Post Title */
-.editor-post-title__block .editor-post-title__input {
-  font-family: "hopkinsslab-bold", "Helvetica Neue", sans-serif;
-  font-weight: 700;
-}
-
-/* Headings */
-.editor-writing-flow .wp-block h1 {
-  font-family: "hopkinsslab-bold", "Helvetica Neue", sans-serif;
-  font-weight: 700;
-}
-.editor-writing-flow .wp-block h2,
-.editor-writing-flow .wp-block h3,
-.editor-writing-flow .wp-block h4,
-.editor-writing-flow .wp-block h5,
-.editor-writing-flow .wp-block h6 {
-  font-family: "worksans-semibold", "Helvetica Neue", sans-serif;
-  font-weight: 600;
-}
-
-h1 {
-  font-family: "hopkinsslab-bold", "Helvetica Neue", sans-serif;
-  font-weight: 700;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "worksans-semibold", "Helvetica Neue", sans-serif;
-  font-weight: 600;
-}
-
-/* Blockquote styles */
+/* Blockquote & Editor Helpers */
 .wp-block-quote__citation {
   font-size: 1rem;
-  font-family: "worksans-semibold", "Helvetica Neue", sans-serif;
-  font-weight: 600;
-  color: #31261d;
+  font-family: var(--font-sans-bold);
+  font-weight: 700;
+  color: var(--color-text-dark);
 }
 
-.wp-block-quote__citation:before, .wp-block-quote__citation:before {
+.wp-block-quote__citation::before {
   content: "— ";
 }
 
-.wp-block-quote.is-large, .wp-block-quote.is-style-large {
-  border-left: 0.25em solid #31261D;
-}
-
-.wp-block-quote.is-large p, .wp-block-quote.is-style-large p {
-  font-style: normal;
-}
-
-.wp-block-quote.is-style-large .wp-block-quote__citation {
-  font-size: 1.125em;
-}
-
-/* Event Calendar Plugin */
-.tribe-editor__subtitle .tribe-editor__btn--label, .tribe-editor__event-price__price, .tribe-editor__venue .tribe-editor__venue__name h3.tribe-editor__venue__name-heading, .tribe-editor__organizer__details p {
-  font-family: "worksans-semibold", "Helvetica Neue", sans-serif;
-  font-weight: 600;
-}
-
-.tribe-editor__venue__address, .tribe-editor__venue__phone, .tribe-editor__venue__website, .tribe-editor__event-website__label-text input, .tribe-editor__events-link .tribe-editor__btn--link input, .block-editor-url-input__input[type=text] {
-  font-family: "worksans-regular", "Helvetica Neue", sans-serif;
-  font-weight: 400;
-}
-
-.tribe-editor__organizer__details p, .tribe-editor__events-link .tribe-editor__btn--link input, .tribe-editor__venue__address a {
-  color: #002d72;
-}
-
-.tribe-editor__event-website__label-text input {
-  background-color: #002d72;
-  border-color: #002d72;
-}
-
-.tribe-editor__event-website__url .block-editor-url-input__input[type=text] {
-  font-size: 1.25rem;
-  font-family: "worksans-semibold", "Helvetica Neue", sans-serif;
-  font-weight: 600;
-  color: #002d72;
-}
-
-.tribe-editor__btn--link.tribe-events-ical svg path, .tribe-editor__btn--link.tribe-events-gcal svg path {
-  fill: #002d72;
-}
-
-.tribe-editor__separator {
-  color: #31261d;
-}
-
-.tribe-editor__featured-image .components-placeholder.components-placeholder {
-  box-shadow: inset 0 0 0 1px #e5e2e0;
-}
-
-section.tribe-editor__subtitle.tribe-editor__date-time.tribe-common__plugin-block-hook {
+:where(.editor-styles-wrapper) p.block-editor-rich-text__editable,
+:where(.editor-styles-wrapper) ul.block-editor-rich-text__editable li,
+:where(.editor-styles-wrapper) ol.block-editor-rich-text__editable li {
+  letter-spacing: -0.03rem;
   box-shadow: inset 0 0 0 1px #e5e2e0 !important;
-}
-
-h2.tribe-editor__subtitle__headline {
-  margin: 1rem;
-  padding: 1rem 0;
-}
-
-.post-type-tribe_events p.rich-text.block-editor-rich-text__editable {
-  border: 1px solid black !important;
-}
-
-.tribe-editor__featured-image .components-placeholder__instructions {
-  font-family: "worksans-regular", "Helvetica Neue", sans-serif;
-  font-weight: 400;
-  color: #4A484C;
-}
-
-
-/* Fields converted from Classic to Block Editor */
-.tribe-editor__btn--label strong, .tribe-editor__event-details .tribe-editor__meta-group .tribe-editor__events-section__headline input, .tribe-editor__block strong, .tribe-editor__block p strong {
-  color: #31261d;
-  font-family: "worksans-semibold", "Helvetica Neue", sans-serif;
-  font-weight: 600;
-}
-
-.tribe-editor__block, .tribe-editor__block p, .block-editor .block-editor-plain-text, .tribe-editor__btn--label, .tribe-editor__soc__input {
-  font-family: "worksans-regular", "Helvetica Neue", sans-serif;
-  font-weight: 400;
-}
-
-.tribe-editor__subtitle__headline-date, .tribe-editor__separator, .tribe-editor__subtitle .tribe-editor__event-cost span {
-  font-size: 1.25rem;
-}
-
-.tribe-editor__block, .tribe-editor__block p {
-  font-size: 1rem;
-}
-
-.block-editor-block-list__block.wp-block.is-selected input.tribe-editor__date-input {
-  font-size: 1.25rem;
-  color: #31261d;
-  font-family: "worksans-semibold", "Helvetica Neue", sans-serif;
-  font-weight: 600;
-}
-
-
-p.block-editor-rich-text__editable, ul.block-editor-rich-text__editable li, ol.block-editor-rich-text__editable li {
-  box-shadow: inset 0 0 0 1px #e5e2e0 !important;
-  padding: .25rem;
+  padding: 0.25rem;
   line-height: 1.45;
-  letter-spacing: -.2px;
 }
 
-ul.block-editor-rich-text__editable li, ol.block-editor-rich-text__editable li {
-  margin: .25rem 0;
-}
-
-
+/* Palette Overrides */
 :root .has-primary-color {
-	color: #002d72;
+  color: var(--color-primary);
 }
 
 :root .has-primary-background-color {
-	background-color: #002d72;
-	color: #fefefe;
+  background-color: var(--color-primary);
+  color: #fefefe;
 }
 
-.wp-block-buttons>.wp-block-button.wp-block-button__width-50 {
-	width: calc(50% - .5em);
+/* --------------------------------------------------
+   3. Classic Editor Layout (classic.min.css)
+   -------------------------------------------------- */
+.editor-styles-wrapper :where(:not(.is-layout-flex, .is-layout-grid)) > .wp-block {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.pl-12 {
-  padding-left: 3rem;
+html :where(.editor-styles-wrapper) .block-editor-block-list__layout.is-root-container > .wp-block[data-align="full"] {
+  margin-left: -8px;
+  margin-right: -8px;
 }
 
-/** === Cover Block === */
-.wp-block-cover .wp-block-cover__background.has-background-dim {
-  background-color: transparent;
-  opacity: 1 !important;
+html :where(.wp-block) {
+  margin-bottom: 28px;
+  margin-top: 28px;
+  max-width: 840px;
 }
 
-:where(.editor-styles-wrapper) p.block-editor-rich-text__editable, :where(.editor-styles-wrapper) ul.block-editor-rich-text__editable li, :where(.editor-styles-wrapper) ol.block-editor-rich-text__editable li {
-  letter-spacing: -0.03rem;
+html :where(.wp-block)[data-align="wide"] {
+  max-width: 1100px;
+}
+
+html :where(.wp-block)[data-align="full"] {
+  max-width: none;
+}
+
+html :where(.wp-block)[data-align="left"],
+html :where(.wp-block)[data-align="right"] {
+  height: 0;
+  width: 100%;
+}
+
+html :where(.wp-block)[data-align="left"]:before,
+html :where(.wp-block)[data-align="right"]:before {
+  content: none;
+}
+
+html :where(.wp-block)[data-align="left"] > * {
+  float: left;
+  margin-right: 2em;
+}
+
+html :where(.wp-block)[data-align="right"] > * {
+  float: right;
+  margin-left: 2em;
+}
+
+html :where(.wp-block)[data-align="full"],
+html :where(.wp-block)[data-align="wide"] {
+  clear: both;
+}
+
+.wp-block-group > [data-align="full"] {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-block-group.has-background > [data-align="full"] {
+  margin-left: -30px;
+  width: calc(100% + 60px);
+}
+
+[data-align="full"] .wp-block-group > .wp-block {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+@media (min-width: 600px) {
+  [data-align="full"] .wp-block-group > .wp-block {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+[data-align="full"] .wp-block-group > [data-align="full"] {
+  left: 0;
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+
+[data-align="full"] .wp-block-group.has-background > [data-align="full"] {
+  width: calc(100% + 60px);
+}
+
+/* --------------------------------------------------
+   4. Core Block Library Resets (reset.min.css)
+   -------------------------------------------------- */
+:where(.editor-styles-wrapper) a {
+  transition: none;
+}
+
+:where(.editor-styles-wrapper) code,
+:where(.editor-styles-wrapper) kbd {
+  background: inherit;
+  font-family: monospace;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:where(.editor-styles-wrapper) p {
+  font-size: revert;
+  line-height: revert;
+  margin: revert;
+}
+
+:where(.editor-styles-wrapper) ol,
+:where(.editor-styles-wrapper) ul {
+  box-sizing: border-box;
+  list-style-type: revert;
+  margin: revert;
+  padding: revert;
+}
+
+:where(.editor-styles-wrapper) ol ol,
+:where(.editor-styles-wrapper) ol ul,
+:where(.editor-styles-wrapper) ul ol,
+:where(.editor-styles-wrapper) ul ul {
+  margin: revert;
+}
+
+:where(.editor-styles-wrapper) ol li,
+:where(.editor-styles-wrapper) ul li {
+  margin: revert;
+}
+
+:where(.editor-styles-wrapper) ol ul,
+:where(.editor-styles-wrapper) ul ul {
+  list-style-type: revert;
+}
+
+:where(.editor-styles-wrapper) h1,
+:where(.editor-styles-wrapper) h2,
+:where(.editor-styles-wrapper) h3,
+:where(.editor-styles-wrapper) h4,
+:where(.editor-styles-wrapper) h5,
+:where(.editor-styles-wrapper) h6 {
+  color: revert;
+  font-size: revert;
+  font-weight: revert;
+  line-height: revert;
+  margin: revert;
+}
+
+:where(.editor-styles-wrapper) select {
+  -webkit-appearance: revert;
+  -moz-appearance: revert;
+  appearance: revert;
+  background: revert;
+  border: revert;
+  border-radius: revert;
+  box-shadow: revert;
+  color: revert;
+  cursor: revert;
+  font-family: system-ui;
+  font-size: revert;
+  font-weight: revert;
+  line-height: revert;
+  margin: revert;
+  max-width: revert;
+  min-height: revert;
+  outline: revert;
+  padding: revert;
+  text-shadow: revert;
+  transform: revert;
+  vertical-align: revert;
+}
+
+:where(.editor-styles-wrapper) select:disabled,
+:where(.editor-styles-wrapper) select:focus {
+  background-color: revert;
+  background-image: revert;
+  border-color: revert;
+  box-shadow: revert;
+  color: revert;
+  cursor: revert;
+  text-shadow: revert;
+  transform: revert;
+}
+
+/* --------------------------------------------------
+   5. The Events Calendar (TEC) Title & Typography Overrides
+   -------------------------------------------------- */
+/* Override TEC's heading variables inside the block editor */
+.post-type-tribe_events {
+  --tec-font-size-10: revert; /* Clears TEC's fixed font size on titles */
+  --tec-color-text-event-title: var(--color-text-dark);
+}
+
+/* Force TEC post titles in the editor canvas to respect your Hopkins Slab header styles */
+.post-type-tribe_events .wp-block.wp-block-post-title,
+.editor-styles-wrapper .tribe-events-single-event-title {
+  font-family: var(--font-serif-bold);
+  font-weight: 700;
+  font-size: revert;
+  color: var(--color-text-dark);
+}
+
+.tribe-editor__date-time .tribe-editor__subtitle__headline,
+.tribe-editor__subtitle .tribe-editor__btn--label, .tribe-editor__subtitle .tribe-editor__subtitle__headline-content, .tribe-editor__subtitle .tribe-editor__subtitle__headline-date {
+	font-size: 1.25rem;
+	font-family: var(--font-sans-bold);
+	font-weight: 700;
+}
+
+.post-type-tribe_events .wp-block.wp-block-post-title {
+  font-size: revert;
 }

@@ -36,11 +36,13 @@ $event_classes = tribe_get_post_class( array( 'tribe-events-widget-events-list__
 				<?php $this->do_entry_point( 'event_meta' ); ?>
 				<?php if ( is_active_sidebar( 'events-featured' ) || is_active_sidebar( 'below-news' ) ) : ?>
 					<div class="text-lg leading-normal">
+					<p>
 					<?php
 					$excerpt = tribe_events_get_the_excerpt( $event->ID );
 					// Limits to 40 words.
 					echo wp_kses_post( wp_trim_words( $excerpt, 40, '...' ) );
 					?>
+					</p>
 					</div>
 				<?php endif; ?>
 			</div>

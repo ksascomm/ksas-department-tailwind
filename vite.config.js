@@ -147,23 +147,41 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         input: {
           "css/style": path.resolve(__dirname, "resources/css/style.css"),
+		  "css/editor-style": path.resolve(__dirname, "gutenberg-editor/editor-style.css"),
         },
         output: {
           // Dynamic asset router. Rebuilds the original nested folder hierarchies.
           assetFileNames: (assetInfo) => {
             const info = assetInfo.name || "";
             
-            if (info.endsWith(".css")) {
+			// Handle specific CSS output paths mapped from input names
+            if (info === "style.css" || info === "css/style.css") {
               return "css/style.css";
+            }
+            if (
+              info === "editor-style.css" ||
+              info === "css/editor-style.css"
+            ) {
+              return "css/editor-style.css";
+            }
+            if (info.endsWith(".css")) {
+              return "css/[name].[ext]";
             }
             
             // Check if Rollup provided an original file location (e.g. source file system path)
             const originalPath = assetInfo.originalFileName || "";
             
-            if (originalPath) {
+           if (originalPath) {
+              // Handle paths originating from resources/
               const resourcesIndex = originalPath.indexOf("resources/");
               if (resourcesIndex !== -1) {
                 return originalPath.substring(resourcesIndex + "resources/".length);
+              }
+
+              // Handle assets originating from gutenberg-editor/
+              const editorIndex = originalPath.indexOf("gutenberg-editor/");
+              if (editorIndex !== -1) {
+                return originalPath.substring(editorIndex + "gutenberg-editor/".length);
               }
             }
 
