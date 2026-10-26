@@ -137,7 +137,7 @@ table.tablepress thead th {
 .tribe-events-widget-events-list__event-date-tag-month,
 .tribe-events-widget-events-list__header-title.tribe-common-h6.tribe-common-h--alt {
 	font-weight: var(--font-weight-semibold);
-	font-family: var(--font-serif-semibold);
+	font-family: var(--font-serif);
 }
 
 .tribe-events-widget-events-list__event-title-link.tribe-common-anchor-thin {
@@ -260,7 +260,7 @@ p.tribe-events-back a,
 	font-size: 1.875rem;
 	margin-bottom: 0.5rem;
 	font-weight: var(--font-weight-semibold);
-	font-family: var(--font-serif-semibold);
+	font-family: var(--font-serif);
 }
 
 .below-news-widget-section .tribe-events-widget .tribe-events-widget-events-list__event-title,

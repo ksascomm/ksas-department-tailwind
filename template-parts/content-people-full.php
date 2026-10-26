@@ -183,29 +183,29 @@ if ( ! has_term( '', 'role', $post->ID ) ) {
 			<ul class="pr-6 mr-6 lg:pr-0 section-headings">
 			<?php if ( get_post_meta( $post->ID, 'ecpt_bio', true ) ) : ?>
 				<li class="pl-0 text-xl">
-				<a href="#section1">Biography</a>
+				<a class="font-bold!" href="#section1">Biography</a>
 				</li>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_research', true ) ) : ?>
 				<li class="pl-0 text-xl">
-				<a href="#section2">Research</a>
+				<a class="font-bold!" href="#section2">Research</a>
 				</li>
 			<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_teaching', true ) ) : ?>
 				<li class="pl-0 text-xl">
-				<a href="#section3">Teaching</a>
+				<a class="font-bold!" href="#section3">Teaching</a>
 				</li>
 				<?php endif; ?>
 			<?php if ( get_post_meta( $post->ID, 'ecpt_publications', true ) ) : ?>
 				<li class="pl-0text-xl">
-				<a href="#section4">Publications</a>
+				<a class="font-bold!" href="#section4">Publications</a>
 				</li>
 			<?php endif; ?>
 				<?php
 				if ( get_post_meta( $post->ID, 'ecpt_books_cond', true ) == 'on' ) :
 					?>
 				<li class="pl-0 text-xl">
-				<a href="#section5">Faculty Books</a>
+				<a class="font-bold!" href="#section5">Faculty Books</a>
 				</li>
 							<?php endif; ?>
 				<?php if ( get_post_meta( $post->ID, 'ecpt_extra_tab_title', true ) ) : ?>

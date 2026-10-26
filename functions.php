@@ -9,7 +9,7 @@
 
 if ( ! defined( 'KSAS_DEPARTMENT_TAILWIND_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '9.1.1' );
+	define( 'KSAS_DEPARTMENT_TAILWIND_VERSION', '9.2.0' );
 }
 
 if ( ! function_exists( 'ksas_department_tailwind_setup' ) ) :
@@ -183,6 +183,48 @@ function ksas_department_tailwind_scripts() {
 	wp_script_add_data( 'fontawesome', array( 'crossorigin' ), array( 'anonymous' ) );
 }
 add_action( 'wp_enqueue_scripts', 'ksas_department_tailwind_scripts' );
+
+/**
+ * Add preconnect resource hints for JHU assets domain.
+ *
+ * @param array  $urls          URLs to print for resource hints.
+ * @param string $relation_type The relation type the URLs are queued for.
+ * @return array Filtered resource hints.
+ */
+function ksas_resource_hints( $urls, $relation_type ) {
+	if ( 'preconnect' === $relation_type ) {
+		$urls[] = array(
+			'href'        => 'https://assets.jhu.edu',
+			'crossorigin' => 'anonymous',
+		);
+	}
+	return $urls;
+}
+add_filter( 'wp_resource_hints', 'ksas_resource_hints', 10, 2 );
+
+/**
+ * Enqueue JHU Fonts (Hopkins Slab & Work Sans).
+ *
+ * @return void
+ */
+function ksas_enqueue_jhu_fonts() {
+	// Hopkins Slab.
+	wp_enqueue_style(
+		'jhu-hopkins-slab',
+		'https://assets.jhu.edu/fonts/latest/hopkins-slab/hopkins-slab.css',
+		array(),
+		'1.0.0'
+	);
+
+	// Work Sans.
+	wp_enqueue_style(
+		'jhu-work-sans',
+		'https://assets.jhu.edu/fonts/latest/work-sans/work-sans.css',
+		array(),
+		'1.0.0'
+	);
+}
+add_action( 'wp_enqueue_scripts', 'ksas_enqueue_jhu_fonts' );
 
 /**
  * Enqueue Siteimprove Analytics script.

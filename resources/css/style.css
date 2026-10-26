@@ -1,18 +1,22 @@
-/* 1. All imports must reside at the very top of the file */
+/* ==========================================================================
+   1. IMPORTS & PLUGINS
+   ========================================================================== */
 @import 'tailwindcss';
 @import './wordpress.css' layer(utilities);
-@import './fonts.css' layer(utilities);
 
 /*! purgecss start ignore */
 @import './plugins.css';
 /*! purgecss end ignore */
 
-/* 2. Custom Tailwind Plugins are declared AFTER the imports */
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 
-/* 3. Theme configurations and other CSS rules follow next */
+
+/* ==========================================================================
+   2. TAILWIND V4 THEME CONFIGURATION
+   ========================================================================== */
 @theme {
+  /* Brand Palette */
   --color-blue: #002d72;
   --color-primary: #31261D;
   --color-white: #fefefe;
@@ -30,45 +34,78 @@
   --color-sais-gold: #e9b300;
   --color-gold: #f1c400;
   --color-sand: #cba052;
+
+  /* Fonts */
   --font-mono: "Menlo", "Monaco", "monospace";
-  --font-sans: "worksans-regular", "system-ui", "BlinkMacSystemFont", "-apple-system", "Segoe UI", "sans-serif";
-  --font-medium: "worksans-medium", "system-ui", "BlinkMacSystemFont", "-apple-system", "Segoe UI", "sans-serif";
-  --font-semi: "worksans-semibold", "system-ui", "BlinkMacSystemFont", "-apple-system", "Segoe UI", "sans-serif";
-  --font-heavy: "worksans-bold", "system-ui", "BlinkMacSystemFont", "-apple-system", "Segoe UI", "sans-serif";
-  --font-serif: "hopkinsslab-regular", "Georgia", "serif";
-  --font-serif-medium: "hopkinsslab-medium", "Georgia", "serif";
-  --font-serif-semibold: "hopkinsslab-semibold", "Georgia", "serif";
-  --font-serif-bold: "hopkinsslab-bold", "Georgia", "serif";
+  --font-sans: "Work Sans", "system-ui", "BlinkMacSystemFont", "-apple-system", "Segoe UI", "sans-serif";
+  --font-serif: "Hopkins Slab", "Georgia", "serif";
+
+  /* Typography Scales */
   --text-base: 1rem;
   --text-lg: 1.125rem;
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
   --text-3xl: 1.875rem;
   --text-4xl: 2.25rem;
+
+  /* Font Weights */
   --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+
+  /* Breakpoints */
   --breakpoint-sm: 40rem;
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
-  --breakpoint-xl: 80rem; /* 1280px */
-  --breakpoint-2xl: 96rem; /* 1536px */
+  --breakpoint-xl: 80rem;   /* 1280px */
+  --breakpoint-2xl: 96rem;  /* 1536px */
   --breakpoint-3xl: 108rem; /* 1728px */
   --breakpoint-4xl: 120rem; /* 1920px */
   --breakpoint-5xl: 132rem; /* 2112px */
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
 
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+/* ==========================================================================
+   3. CUSTOM FONT UTILITIES
+   ========================================================================== */
+@utility font-medium {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-regular);
+}
+
+@utility font-semi-bold {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-semibold);
+}
+
+@utility font-heavy {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility font-serif-medium {
+  font-family: var(--font-serif);
+  font-weight: var(--font-weight-medium);
+}
+
+@utility font-serif-semibold {
+  font-family: var(--font-serif);
+  font-weight: var(--font-weight-semibold);
+}
+
+@utility font-serif-bold {
+  font-family: var(--font-serif);
+  font-weight: var(--font-weight-bold);
+}
+
+
+/* ==========================================================================
+   4. BASE LAYER & GLOBAL VARIABLES
+   ========================================================================== */
 @layer base {
+  /* Default border color compatibility fix for Tailwind v4 */
   *,
   ::after,
   ::before,
@@ -95,6 +132,10 @@
   --space-list-items: 0.5rem;
 }
 
+
+/* ==========================================================================
+   5. WORDPRESS ENTRY-CONTENT VERTICAL RHYTHM
+   ========================================================================== */
 :where(.page-template-default, .post-template-default) .entry-content :is(p, ul, ol) {
   margin-bottom: var(--space-default);
 }
@@ -176,207 +217,214 @@
 }
 
 
-
 /* ==========================================================================
-   KSAS Department Typography (Converted from Tailwind Config)
+   6. KSAS DEPARTMENT PROSE & TYPOGRAPHY
    ========================================================================== */
 @layer utilities {
-	.prose {
-		letter-spacing: -0.03rem;
-		color: #31261D;
-		line-height: 1.6;
-		font-size: 1.25rem;
-		max-width: 100ch;
-		line-height: 1.77778;
-		/* Tailwind Prose Variables */
-		--tw-prose-body: #31261D;
-		--tw-prose-bullets: #31261D;
-		--tw-prose-headings: #31261D;
-		--tw-prose-links: #002d72;
-		--tw-prose-bold: #31261D;
-		--tw-prose-code: #31261D;
-		--tw-prose-pre-code: #31261D;
-		--tw-prose-pre-bg: #f8f8f8;
-		--tw-prose-quotes: #31261D;
-		--tw-prose-counters: #31261D;
-	}
+    .prose {
+        letter-spacing: -0.03rem;
+        color: var(--color-primary);
+        line-height: 1.77778;
+        font-size: 1.25rem;
+        max-width: 100ch;
 
-	/* Headings */
-	:where(.prose h1) {
-		margin-bottom: 0rem;
-		font-size: 2.25rem;
-		font-weight: 700 !important;
-		font-family: hopkinsslab-bold, Georgia, serif;
-		color: var(--tw-prose-headings);
-		letter-spacing: initial;
-	}
+        /* Tailwind Prose Theme Variables */
+        --tw-prose-body: var(--color-primary);
+        --tw-prose-bullets: var(--color-primary);
+        --tw-prose-headings: var(--color-primary);
+        --tw-prose-links: var(--color-blue);
+        --tw-prose-bold: var(--color-primary);
+        --tw-prose-code: var(--color-primary);
+        --tw-prose-pre-code: var(--color-primary);
+        --tw-prose-pre-bg: var(--color-grey-lightest);
+        --tw-prose-quotes: var(--color-primary);
+        --tw-prose-counters: var(--color-primary);
+    }
 
-	:where(.prose h2),
-	h2.wp-block-heading {
-		max-width: 90ch;
-		font-size: 2rem;
-		font-weight: 600;
-		font-family: hopkinsslab-semibold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
-		color: var(--tw-prose-headings);
-		letter-spacing: initial;
-	}
+    /* Headings */
+    :where(.prose h1) {
+        margin-bottom: 0rem;
+        font-size: 2.25rem;
+        font-weight: var(--font-weight-bold) !important;
+        font-family: var(--font-serif);
+        color: var(--tw-prose-headings);
+        letter-spacing: initial;
+    }
 
-	:where(.prose h3) {
-		font-size: 1.6rem;
-		font-weight: 700;
-		font-family: worksans-bold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
-		color: var(--tw-prose-headings);
-	}
+    :where(.prose h2),
+    h2.wp-block-heading {
+        max-width: 90ch;
+        font-size: 2rem;
+        font-weight: var(--font-weight-semibold);
+        font-family: var(--font-serif);
+        color: var(--tw-prose-headings);
+        letter-spacing: initial;
+    }
 
-	:where(.prose h4) {
-		margin-top: 0.5rem !important;
-		margin-bottom: 0.5rem !important;
-		font-size: 1.375rem;
-		font-weight: 700;
-		font-family: worksans-bold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
-		color: var(--tw-prose-headings);
-	}
+    :where(.prose h3) {
+        font-size: 1.6rem;
+        font-weight: var(--font-weight-bold) !important;
+        font-family: var(--font-sans);
+        color: var(--tw-prose-headings);
+    }
 
-	:where(.prose h5) {
-		font-weight: 600;
-		font-family: worksans-semibold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
-		color: var(--tw-prose-headings);
-	}
+    :where(.prose h4) {
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+        font-size: 1.375rem;
+        font-weight: var(--font-weight-bold) !important;
+        font-family: var(--font-sans);
+        color: var(--tw-prose-headings);
+    }
 
-	/* Paragraphs & Links */
-	:where(.prose p) {
-		margin-top: 1rem;
-		margin-bottom: 1rem;
-		font-weight: 400;
-	}
+    :where(.prose h5) {
+        font-weight: var(--font-weight-semibold);
+        font-family: var(--font-sans);
+        color: var(--tw-prose-headings);
+    }
 
-	:where(.prose a) {
-		color: var(--tw-prose-links);
-		text-decoration: none;
-		transition: none;
-		font-weight: 400;
-	}
+    /* Paragraphs & Text Elements */
+    :where(.prose p) {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-weight: var(--font-weight-normal);
+    }
 
-	:where(.prose strong, .prose b) {
-		font-family: worksans-bold, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, sans-serif;
-		font-weight: 700;
-		color: var(--tw-prose-bold);
-	}
+    :where(.prose strong, .prose b) {
+        font-family: var(--font-sans);
+        font-weight: var(--font-weight-bold) !important;
+        color: var(--tw-prose-bold);
+    }
 
-	:where(.prose a strong) {
-		color: inherit;
-	}
+    :where(.prose h2 strong, .prose h2 b),
+    h2.wp-block-heading strong,
+    h2.wp-block-heading b {
+        font-family: inherit;
+    }
 
-	:where(.prose h2 strong, .prose h2 b),
-	h2.wp-block-heading strong,
-	h2.wp-block-heading b {
-		font-family: inherit;
-	}
+    :where(.prose small) {
+        font-size: 75%;
+    }
 
-	/* Lists */
-	:where(.prose ul > li, .prose ol > li) {
-		display: list-item;
-		max-width: 90ch;
-		margin-top: 0rem;
-		margin-bottom: .25rem;
-		font-weight: 400;
-	}
+    /* Links */
+/* Force prose links to 400 weight (overrides default typography 500) */
+    .prose a,
+    .prose p a {
+        color: var(--tw-prose-links);
+        text-decoration: none;
+        transition: none;
+        font-weight: inherit;
+    }
 
-	:where(.prose ul > li::before) {
-		background-color: #31261D;
-	}
+    :where(.prose a strong) {
+        color: inherit;
+    }
 
-	:where(.prose ol > li::before) {
-		display: none !important;
-		background-color: #fefefe;
-		color: #31261D;
-	}
+    /* Heading Links Override (Prevents Typography plugin from forcing 500 weight/underline on links in headers) */
+    :where(.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6) a,
+    :where(.prose .entry-title) a {
+        font-weight: inherit;
+        text-decoration: none;
+    }
 
-	/* Elements */
-	:where(.prose table) {
-		font-size: 1rem;
-		margin-top: .5rem;
-		margin-bottom: .5rem;
-	}
+    /* Lists */
+    :where(.prose ul > li, .prose ol > li) {
+        display: list-item;
+        max-width: 90ch;
+        margin-top: 0rem;
+        margin-bottom: 0.25rem;
+        font-weight: var(--font-weight-normal);
+    }
 
-	:where(.prose thead) {
-		color: #31261D;
-	}
+    :where(.prose ul > li::before) {
+        background-color: var(--color-primary);
+    }
 
-	:where(.prose img) {
-		margin-top: 1rem;
-		margin-bottom: 1rem;
-	}
+    :where(.prose ol > li::before) {
+        display: none !important;
+        background-color: var(--color-white);
+        color: var(--color-primary);
+    }
 
-	:where(.prose hr) {
-		margin-top: 1.25rem;
-		margin-bottom: 1.25rem;
-		border-color: #bfccd9;
-	}
+    /* Tables, Media, and Quotes */
+    :where(.prose table) {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
 
-	:where(.prose figure) {
-		margin-top: .5rem;
-		margin-bottom: .5rem;
-	}
+    :where(.prose thead) {
+        color: var(--color-primary);
+    }
 
-	:where(.prose small) {
-		font-size: 75%;
-	}
+    :where(.prose img) {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
 
-	:where(.prose blockquote) {
-		font-style: normal !important;
-		border-left: 4px solid #bfccd9; /* Added width for visibility */
-		padding-left: 1rem;
-	}
+    :where(.prose hr) {
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+        border-color: #bfccd9;
+    }
 
-	:where(.prose blockquote p:first-of-type::before) {
-		content: none;
-	}
+    :where(.prose figure) {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
 
-	/* ==========================================================================
-	Small Screen Only Overrides (Mobile Phones)
-	========================================================================== */
-	@media (max-width: 40rem) {
-		.prose ul, .prose ol {
-			padding-inline-start: 1.25rem;
-		}
+    :where(.prose blockquote) {
+        font-style: normal !important;
+        border-left: 4px solid #bfccd9;
+        padding-left: 1rem;
+		font-weight: var(--font-weight-normal) !important;
+    }
 
-		.prose ul li ul.wp-block-list {
-			padding-inline-start: 1rem;
-		}
+    :where(.prose blockquote p:first-of-type::before) {
+        content: none;
+    }
 
-		.prose h2.wp-block-heading {
-			font-size: 1.75rem;
-		}
+    /* Mobile Responsive Overrides */
+    @media (max-width: 40rem) {
+        .prose ul, 
+        .prose ol {
+            padding-inline-start: 1.25rem;
+        }
 
-		.prose h3.wp-block-heading {
-			font-size: 1.5rem;
-		}
-	}
+        .prose ul li ul.wp-block-list {
+            padding-inline-start: 1rem;
+        }
 
+        .prose h2.wp-block-heading {
+            font-size: 1.75rem;
+        }
 
-	/* ==========================================================================
-	Large Screen Overrides (Desktop)
-	========================================================================== */
-	@media (min-width: 64rem) {
-		.prose {
-			font-size: 1.25rem;
-			max-width: 123ch;
-		}
+        .prose h3.wp-block-heading {
+            font-size: 1.5rem;
+        }
+    }
 
-		:where(.prose img) {
-			margin-top: 0rem;
-			margin-bottom: 0rem;
-		}
+    /* Desktop Responsive Overrides */
+    @media (min-width: 64rem) {
+        .prose {
+            font-size: 1.25rem;
+            max-width: 123ch;
+        }
 
-		:where(.prose li) {
-			line-height: 1.77778;
-		}
-		.lg\:prose-lg .entry-content h2, 
-		.lg\:prose-lg .entry-content h3
-		.lg\:prose-lg .entry-content h4 {
-		margin-top: 2rem;
-		margin-bottom: 1.5rem;
-		}
-	}
+        :where(.prose img) {
+            margin-top: 0rem;
+            margin-bottom: 0rem;
+        }
+
+        :where(.prose li) {
+            line-height: 1.77778;
+        }
+
+        .lg\:prose-lg .entry-content h2, 
+        .lg\:prose-lg .entry-content h3,
+        .lg\:prose-lg .entry-content h4 {
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+    }
 }

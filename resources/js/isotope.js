@@ -23,10 +23,24 @@ jQuery(document).ready(function ($) {
     },
   });
 
+  // Prevent form submission when user presses Enter/Return inside filters form
+  $("#filters").on("submit", function (e) {
+    e.preventDefault();
+  });
+
   // use value of search field to filter
   var $quicksearch = $("#id_search").keyup(
-    debounce(function () {
-      qsRegex = new RegExp($quicksearch.val(), "gi");
+	debounce(function () {
+      var rawQuery = $quicksearch.val();
+      var cleanQuery = $.trim(rawQuery); // Trims trailing/leading spaces to prevent no-result bugs
+
+      if (!cleanQuery) {
+        qsRegex = null;
+      } else {
+        // Use clean query for regex construction
+        qsRegex = new RegExp(cleanQuery.replace(/\s+/g, ".*"), "gi");
+      }
+
       $grid.isotope();
 
       // display message box if no filtered items

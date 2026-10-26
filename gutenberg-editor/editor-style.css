@@ -114,7 +114,7 @@
 }
 
 .editor-styles-wrapper h2 {
-  font-family: var(--font-serif-semibold);
+  font-family: var(--font-serif);
   font-weight: 600;
   font-size: revert;
 }

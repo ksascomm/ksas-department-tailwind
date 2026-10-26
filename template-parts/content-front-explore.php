@@ -45,11 +45,11 @@ if ( $explore_buckets ) :
 						<div class="h-full border shadow-sm bucket not-prose border-grey-light">
 							<?php echo wp_get_attachment_image( $b_img['ID'], 'full', false, array( 'class' => 'mt-0! w-full h-72 object-cover' ) ); ?>
 							<div class="p-6 bucket-text">
-								<h3 class="mb-4 text-2xl font-bold not-prose font-heavy 2xl:text-3xl">
+								<h3>
 									<?php
 									if ( $b_link ) :
 										?>
-										<a href="<?php echo esc_url( $b_link ); ?>"><?php endif; ?>
+										<a class="mb-4 text-2xl font-bold not-prose font-heavy 2xl:text-3xl" href="<?php echo esc_url( $b_link ); ?>"><?php endif; ?>
 										<?php echo esc_html( $b_head ); ?>
 									<?php
 									if ( $b_link ) :

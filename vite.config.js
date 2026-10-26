@@ -229,7 +229,7 @@ export default defineConfig(({ mode }) => {
         // Static directories mirrored dynamically
         copyDirectories: {
           "resources/images": "dist/images",
-          "resources/fonts": "dist/fonts",
+          //"resources/fonts": "dist/fonts",
         } 
       }),
     ],
