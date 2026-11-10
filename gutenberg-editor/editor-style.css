@@ -1,4 +1,8 @@
-/* resources/css/editor-style.css */
+/* Load font sources */
+@import url('https://assets.jhu.edu/fonts/latest/hopkins-slab/hopkins-slab.css');
+@import url('https://assets.jhu.edu/fonts/latest/work-sans/work-sans.css');
+
+/* this all prints to /dist/css/editor-style.css */
 @import "tailwindcss";
 
 /* If using custom @theme tokens in v4, import or declare them here */
