@@ -307,7 +307,7 @@
     }
 
     /* Links */
-/* Force prose links to 400 weight (overrides default typography 500) */
+	/* Force prose links to 400 weight (overrides default typography 500) */
     .prose a,
     .prose p a {
         color: var(--tw-prose-links);
@@ -383,6 +383,11 @@
     :where(.prose blockquote p:first-of-type::before) {
         content: none;
     }
+
+	/* Widgets */
+	:is(.widget_text .textwidget, .widget_custom_html .custom-html-widget) :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+		font-weight: inherit;
+	}
 
     /* Mobile Responsive Overrides */
     @media (max-width: 40rem) {
